@@ -42,19 +42,7 @@ namespace TechableMovieManager
             panel.Location = new Point(xPos, yPos);
             panel.Size = new Size(width, height);
         }
-        private void relocateObject(TextBox textBox, Panel panel, double left, double right, double top, double bottom)
-        {
-            int formWidth = panel.Width;
-            int formHeight = panel.Height;
 
-            int xPos = Convert.ToInt32(formWidth * left);
-            int yPos = Convert.ToInt32(formHeight * top);
-            int width = Convert.ToInt32(formWidth * right) - xPos;
-            int height = Convert.ToInt32(formHeight * bottom) - yPos;
-
-            textBox.Location = new Point(xPos, yPos);
-            textBox.Size = new Size(width, height);
-        }
         private void relocateObject(Label label, Panel panel, double left, double right, double top, double bottom)
         {
             int formWidth = panel.Width;
@@ -81,6 +69,19 @@ namespace TechableMovieManager
             button.Location = new Point(xPos, yPos);
             button.Size = new Size(width, height);
         }
+        private void relocateObject(TextBox textbox, Panel panel, double left, double right, double top, double bottom)
+        {
+            int formWidth = panel.Width;
+            int formHeight = panel.Height;
+
+            int xPos = Convert.ToInt32(formWidth * left);
+            int yPos = Convert.ToInt32(formHeight * top);
+            int width = Convert.ToInt32(formWidth * right) - xPos;
+            int height = Convert.ToInt32(formHeight * bottom) - yPos;
+
+            textbox.Location = new Point(xPos, yPos);
+            textbox.Size = new Size(width, height);
+        }
 
         private void relocateButtonsSquare()
         {
@@ -100,14 +101,10 @@ namespace TechableMovieManager
             button3.Width = panelWidth / 2;
             button3.Height = panelHeight / 2;
             //relocate and size button4
-            /*button4.Location = new Point(panelWidth / 2, panelHeight / 2);
+            button4.Location = new Point(panelWidth / 2, panelHeight / 2);
             button4.Width = panelWidth / 2;
-            button4.Height = panelHeight / 2;*/
+            button4.Height = panelHeight / 2;
         }
-
-
-
-       
 
         private void relocateButtonsVerticle()
         {
@@ -127,9 +124,9 @@ namespace TechableMovieManager
             button3.Width = panelWidth;
             button3.Height = panelHeight / 4;
             //relocate and size button4
-           /* button4.Location = new Point(0, panelHeight * 3 / 4);
+            button4.Location = new Point(0, panelHeight * 3 / 4);
             button4.Width = panelWidth;
-            button4.Height = panelHeight / 4;*/
+            button4.Height = panelHeight / 4;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -149,31 +146,60 @@ namespace TechableMovieManager
             relocateObject(panel1, 0, .3, .1, .95);
             relocateObject(returnPnl, .3, .95, .1, .95);
             relocateObject(checkoutPnl, .3, .95, .1, .95);
+            relocateObject(newCustomerPnl, .3, .95, .1, .95);
+            relocateObject(moviesPnl, .3, .95, .1, .95);
+
+            setupNewCustomerPnl();
+            setupCheckoutPnl();
             relocateButtonsVerticle();
         }
+
+        public void setupNewCustomerPnl()
+        {
+            relocateObject(label4, newCustomerPnl, .3, .5, .2, .3);
+            relocateObject(label3, newCustomerPnl, .3, .5, .3, .4);
+            relocateObject(label5, newCustomerPnl, .3, .5, .4, .5);
+
+            relocateObject(textBox1, newCustomerPnl, .5, .8, .2, .3);
+            relocateObject(textBox2, newCustomerPnl, .5, .8, .3, .4);
+            relocateObject(textBox3, newCustomerPnl, .5, .8, .4, .5);
+        }
+
+        public void setupCheckoutPnl()
+        {
+            relocateObject(label4, checkoutPnl, .3, .5, .2, .3);
+            relocateObject(label3, checkoutPnl, .3, .5, .3, .4);
+            relocateObject(label5, checkoutPnl, .3, .5, .4, .5);
+
+            relocateObject(textBox1, checkoutPnl, .5, .8, .2, .3);
+            relocateObject(textBox2, checkoutPnl, .5, .8, .3, .4);
+            relocateObject(textBox3, checkoutPnl, .5, .8, .4, .5);
+        }
+
         private void moviesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             returnPnl.Visible = false;
+            newCustomerPnl.Visible = false;
+            moviesPnl.Visible = false;
             checkoutPnl.Visible = true;
+        }
+
+        private void newCustomerPanel()
+        {
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             checkoutPnl.Visible = false;
+            newCustomerPnl.Visible = false;
+            moviesPnl.Visible = false;
             returnPnl.Visible = true;
-
-            relocateObject(returnTitleLbl, returnPnl, .35, .65, .1, .3);
-           relocateObject(upcLbl, returnPnl, .4, .55, .25, .35);
-           relocateObject(upcTxtBox, returnPnl, .40, .55, .35, .45);
-           relocateObject(submitBtn,returnPnl, .35, .65, .45, .55);
-            
-            
-            
         }
 
         private void returnPnl_Paint(object sender, PaintEventArgs e)
@@ -186,6 +212,41 @@ namespace TechableMovieManager
 
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            checkoutPnl.Visible = false;
+            moviesPnl.Visible = false;
+            returnPnl.Visible = false;
+            newCustomerPnl.Visible = true;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            checkoutPnl.Visible = false;
+            returnPnl.Visible = false;
+            newCustomerPnl.Visible = false;
+            moviesPnl.Visible = true;
+        }
     }
+    
 }
