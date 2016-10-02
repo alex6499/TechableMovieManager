@@ -89,13 +89,13 @@ namespace TechableMovieManager
             int panelHeight = panel1.Height;
 
             //relocate and size button1
-            button1.Location = new Point(0, 0);
-            button1.Width = panelWidth / 2;
-            button1.Height = panelHeight / 2;
+            checkinBtn.Location = new Point(0, 0);
+            checkinBtn.Width = panelWidth / 2;
+            checkinBtn.Height = panelHeight / 2;
             //relocate and size button2
-            button2.Location = new Point(panelWidth / 2, 0);
-            button2.Width = panelWidth / 2;
-            button2.Height = panelHeight / 2;
+            newCustomerBtn.Location = new Point(panelWidth / 2, 0);
+            newCustomerBtn.Width = panelWidth / 2;
+            newCustomerBtn.Height = panelHeight / 2;
             //relocate and size button3
             button3.Location = new Point(0, panelHeight / 2);
             button3.Width = panelWidth / 2;
@@ -106,19 +106,30 @@ namespace TechableMovieManager
             button4.Height = panelHeight / 2;
         }
 
-        private void relocateButtonsVerticle()
+        private void relocateButtonsVerticle(Button[] buttons)
         {
+            int numberOfButtons = buttons.Length;
             int panelWidth = panel1.Width;
             int panelHeight = panel1.Height;
 
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                Button button = buttons[i];
+
+                button.Location = new Point(0, i * panelHeight / numberOfButtons);
+                button.Width = panelWidth;
+                button.Height = panelHeight / numberOfButtons;
+            }
+            /*
+
             //relocate and size button1
-            button1.Location = new Point(0, 0);
-            button1.Width = panelWidth;
-            button1.Height = panelHeight / 4;
+            checkinBtn.Location = new Point(0, 0);
+            checkinBtn.Width = panelWidth;
+            checkinBtn.Height = panelHeight / 4;
             //relocate and size button2
-            button2.Location = new Point(0, panelHeight / 4);
-            button2.Width = panelWidth;
-            button2.Height = panelHeight / 4;
+            newCustomerBtn.Location = new Point(0, panelHeight / 4);
+            newCustomerBtn.Width = panelWidth;
+            newCustomerBtn.Height = panelHeight / 4;
             //relocate and size button3
             button3.Location = new Point(0, panelHeight / 2);
             button3.Width = panelWidth;
@@ -127,6 +138,7 @@ namespace TechableMovieManager
             button4.Location = new Point(0, panelHeight * 3 / 4);
             button4.Width = panelWidth;
             button4.Height = panelHeight / 4;
+            */
         }
        
         private void MainMenu_Resize(object sender, EventArgs e)
@@ -147,7 +159,8 @@ namespace TechableMovieManager
             setupReturnPnl();
             setupNewCustomerPnl();
             setupCheckoutPnl();
-            relocateButtonsVerticle();
+            Button[] buttons = { checkinBtn, newCustomerBtn, button3, button4, adminBtn };
+            relocateButtonsVerticle(buttons);
         }
 
         public void setupNewCustomerPnl()
@@ -225,6 +238,11 @@ namespace TechableMovieManager
             returnPnl.Visible = false;
             newCustomerPnl.Visible = false;
             moviesPnl.Visible = true;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
     
