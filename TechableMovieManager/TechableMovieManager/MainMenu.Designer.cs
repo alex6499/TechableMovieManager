@@ -31,7 +31,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.ChangeBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -43,12 +42,13 @@
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkoutPnl = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.returnPnl = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.returnTitleLbl = new System.Windows.Forms.Label();
+            this.upcLbl = new System.Windows.Forms.Label();
+            this.upcTxtBox = new System.Windows.Forms.TextBox();
+            this.submitBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.checkoutPnl.SuspendLayout();
             this.returnPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,33 +66,23 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 60);
+            this.button2.Location = new System.Drawing.Point(5, 123);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(160, 58);
             this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
+            this.button2.Text = "Administrative ";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(5, 124);
+            this.button3.Location = new System.Drawing.Point(5, 60);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(158, 57);
             this.button3.TabIndex = 3;
             this.button3.Text = "Return Movie";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(5, 187);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(158, 53);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // ChangeBtn
             // 
@@ -106,7 +96,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
@@ -179,48 +168,70 @@
             // 
             // checkoutPnl
             // 
-            this.checkoutPnl.Controls.Add(this.label2);
-            this.checkoutPnl.Location = new System.Drawing.Point(199, 30);
+            this.checkoutPnl.Location = new System.Drawing.Point(214, 30);
             this.checkoutPnl.Name = "checkoutPnl";
             this.checkoutPnl.Size = new System.Drawing.Size(483, 358);
             this.checkoutPnl.TabIndex = 8;
             this.checkoutPnl.Visible = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Checkout";
-            // 
             // returnPnl
             // 
-            this.returnPnl.Controls.Add(this.label1);
-            this.returnPnl.Location = new System.Drawing.Point(199, 30);
+            this.returnPnl.Controls.Add(this.submitBtn);
+            this.returnPnl.Controls.Add(this.upcTxtBox);
+            this.returnPnl.Controls.Add(this.upcLbl);
+            this.returnPnl.Controls.Add(this.returnTitleLbl);
+            this.returnPnl.Location = new System.Drawing.Point(732, 224);
             this.returnPnl.Name = "returnPnl";
-            this.returnPnl.Size = new System.Drawing.Size(483, 358);
+            this.returnPnl.Size = new System.Drawing.Size(493, 379);
             this.returnPnl.TabIndex = 9;
             this.returnPnl.Visible = false;
             this.returnPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.returnPnl_Paint);
             // 
-            // label1
+            // returnTitleLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "return";
+            this.returnTitleLbl.AutoSize = true;
+            this.returnTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnTitleLbl.Location = new System.Drawing.Point(121, 37);
+            this.returnTitleLbl.Name = "returnTitleLbl";
+            this.returnTitleLbl.Size = new System.Drawing.Size(231, 37);
+            this.returnTitleLbl.TabIndex = 0;
+            this.returnTitleLbl.Text = "Return a Movie";
+            // 
+            // upcLbl
+            // 
+            this.upcLbl.AutoSize = true;
+            this.upcLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upcLbl.Location = new System.Drawing.Point(138, 110);
+            this.upcLbl.Name = "upcLbl";
+            this.upcLbl.Size = new System.Drawing.Size(196, 37);
+            this.upcLbl.TabIndex = 1;
+            this.upcLbl.Text = "Enter a UPC";
+            // 
+            // upcTxtBox
+            // 
+            this.upcTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upcTxtBox.Location = new System.Drawing.Point(145, 150);
+            this.upcTxtBox.Name = "upcTxtBox";
+            this.upcTxtBox.Size = new System.Drawing.Size(178, 44);
+            this.upcTxtBox.TabIndex = 2;
+            // 
+            // submitBtn
+            // 
+            this.submitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitBtn.Location = new System.Drawing.Point(167, 229);
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.Size = new System.Drawing.Size(131, 48);
+            this.submitBtn.TabIndex = 3;
+            this.submitBtn.Text = "Submit";
+            this.submitBtn.UseVisualStyleBackColor = true;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 468);
-            this.Controls.Add(this.ChangeBtn);
             this.Controls.Add(this.returnPnl);
+            this.Controls.Add(this.ChangeBtn);
             this.Controls.Add(this.checkoutPnl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -233,8 +244,6 @@
             this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.checkoutPnl.ResumeLayout(false);
-            this.checkoutPnl.PerformLayout();
             this.returnPnl.ResumeLayout(false);
             this.returnPnl.PerformLayout();
             this.ResumeLayout(false);
@@ -246,7 +255,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button ChangeBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -259,8 +267,10 @@
         private System.Windows.Forms.ToolStripMenuItem newCustomerToolStripMenuItem;
         private System.Windows.Forms.Panel checkoutPnl;
         private System.Windows.Forms.Panel returnPnl;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label returnTitleLbl;
+        private System.Windows.Forms.Button submitBtn;
+        private System.Windows.Forms.TextBox upcTxtBox;
+        private System.Windows.Forms.Label upcLbl;
     }
 }
 
