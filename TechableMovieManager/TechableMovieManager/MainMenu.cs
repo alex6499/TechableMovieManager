@@ -29,7 +29,7 @@ namespace TechableMovieManager
             Application.Restart();
         }
 
-        private void relocatePanels(Panel panel, double left, double right, double top, double bottom)
+        private void relocateObject(Panel panel, double left, double right, double top, double bottom)
         {
             int formWidth = this.Width;
             int formHeight = this.Height;
@@ -42,6 +42,47 @@ namespace TechableMovieManager
             panel.Location = new Point(xPos, yPos);
             panel.Size = new Size(width, height);
         }
+
+        private void relocateObject(Label label, Panel panel, double left, double right, double top, double bottom)
+        {
+            int formWidth = panel.Width;
+            int formHeight = panel.Height;
+
+            int xPos = Convert.ToInt32(formWidth * left);
+            int yPos = Convert.ToInt32(formHeight * top);
+            int width = Convert.ToInt32(formWidth * right) - xPos;
+            int height = Convert.ToInt32(formHeight * bottom) - yPos;
+
+            label.Location = new Point(xPos, yPos);
+            label.Size = new Size(width, height);
+        }
+        private void relocateObject(Button button, Panel panel, double left, double right, double top, double bottom)
+        {
+            int formWidth = panel.Width;
+            int formHeight = panel.Height;
+
+            int xPos = Convert.ToInt32(formWidth * left);
+            int yPos = Convert.ToInt32(formHeight * top);
+            int width = Convert.ToInt32(formWidth * right) - xPos;
+            int height = Convert.ToInt32(formHeight * bottom) - yPos;
+
+            button.Location = new Point(xPos, yPos);
+            button.Size = new Size(width, height);
+        }
+        private void relocateObject(TextBox textbox, Panel panel, double left, double right, double top, double bottom)
+        {
+            int formWidth = panel.Width;
+            int formHeight = panel.Height;
+
+            int xPos = Convert.ToInt32(formWidth * left);
+            int yPos = Convert.ToInt32(formHeight * top);
+            int width = Convert.ToInt32(formWidth * right) - xPos;
+            int height = Convert.ToInt32(formHeight * bottom) - yPos;
+
+            textbox.Location = new Point(xPos, yPos);
+            textbox.Size = new Size(width, height);
+        }
+
         private void relocateButtonsSquare()
         {
             int panelWidth = panel1.Width;
@@ -102,25 +143,62 @@ namespace TechableMovieManager
         {
             //relocatePanels(panel1, .2, 1, .2, .95);
             //relocateButtonsSquare();
-            relocatePanels(panel1, 0, .3, .1, .95);
-            relocatePanels(returnPnl, .3, .95, .1, .95);
-            relocatePanels(checkoutPnl, .3, .95, .1, .95);
+            relocateObject(panel1, 0, .3, .1, .95);
+            relocateObject(returnPnl, .3, .95, .1, .95);
+            relocateObject(checkoutPnl, .3, .95, .1, .95);
+            relocateObject(newCustomerPnl, .3, .95, .1, .95);
+            relocateObject(moviesPnl, .3, .95, .1, .95);
+
+            setupNewCustomerPnl();
+            setupCheckoutPnl();
             relocateButtonsVerticle();
         }
+
+        public void setupNewCustomerPnl()
+        {
+            relocateObject(label4, newCustomerPnl, .3, .5, .2, .3);
+            relocateObject(label3, newCustomerPnl, .3, .5, .3, .4);
+            relocateObject(label5, newCustomerPnl, .3, .5, .4, .5);
+
+            relocateObject(textBox1, newCustomerPnl, .5, .8, .2, .3);
+            relocateObject(textBox2, newCustomerPnl, .5, .8, .3, .4);
+            relocateObject(textBox3, newCustomerPnl, .5, .8, .4, .5);
+        }
+
+        public void setupCheckoutPnl()
+        {
+            relocateObject(label4, checkoutPnl, .3, .5, .2, .3);
+            relocateObject(label3, checkoutPnl, .3, .5, .3, .4);
+            relocateObject(label5, checkoutPnl, .3, .5, .4, .5);
+
+            relocateObject(textBox1, checkoutPnl, .5, .8, .2, .3);
+            relocateObject(textBox2, checkoutPnl, .5, .8, .3, .4);
+            relocateObject(textBox3, checkoutPnl, .5, .8, .4, .5);
+        }
+
         private void moviesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             returnPnl.Visible = false;
+            newCustomerPnl.Visible = false;
+            moviesPnl.Visible = false;
             checkoutPnl.Visible = true;
+        }
+
+        private void newCustomerPanel()
+        {
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             checkoutPnl.Visible = false;
+            newCustomerPnl.Visible = false;
+            moviesPnl.Visible = false;
             returnPnl.Visible = true;
         }
 
@@ -133,5 +211,42 @@ namespace TechableMovieManager
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            checkoutPnl.Visible = false;
+            moviesPnl.Visible = false;
+            returnPnl.Visible = false;
+            newCustomerPnl.Visible = true;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            checkoutPnl.Visible = false;
+            returnPnl.Visible = false;
+            newCustomerPnl.Visible = false;
+            moviesPnl.Visible = true;
+        }
     }
+    
 }
