@@ -149,6 +149,7 @@ namespace TechableMovieManager
             relocateObject(newCustomerPnl, .3, .95, .1, .95);
             relocateObject(moviesPnl, .3, .95, .1, .95);
 
+            setupReturnPnl();
             setupNewCustomerPnl();
             setupCheckoutPnl();
             relocateButtonsVerticle();
@@ -156,6 +157,8 @@ namespace TechableMovieManager
 
         public void setupNewCustomerPnl()
         {
+            relocateObject(customerTitleLbl, newCustomerPnl, .4, .7, .1, .2);
+
             relocateObject(label4, newCustomerPnl, .3, .5, .2, .3);
             relocateObject(label3, newCustomerPnl, .3, .5, .3, .4);
             relocateObject(label5, newCustomerPnl, .3, .5, .4, .5);
@@ -167,15 +170,29 @@ namespace TechableMovieManager
 
         public void setupCheckoutPnl()
         {
-            relocateObject(label4, checkoutPnl, .3, .5, .2, .3);
-            relocateObject(label3, checkoutPnl, .3, .5, .3, .4);
-            relocateObject(label5, checkoutPnl, .3, .5, .4, .5);
+            relocateObject(checkoutTitleLbl, newCustomerPnl, .4, .7, .1, .2);
 
-            relocateObject(textBox1, checkoutPnl, .5, .8, .2, .3);
-            relocateObject(textBox2, checkoutPnl, .5, .8, .3, .4);
-            relocateObject(textBox3, checkoutPnl, .5, .8, .4, .5);
+            relocateObject(label11, checkoutPnl, .3, .5, .2, .3);
+            relocateObject(label12, checkoutPnl, .3, .5, .3, .4);
+            relocateObject(label10, checkoutPnl, .3, .5, .4, .5);
+
+            relocateObject(textBox9, checkoutPnl, .5, .8, .2, .3);
+            relocateObject(textBox8, checkoutPnl, .5, .8, .3, .4);
+            relocateObject(textBox7, checkoutPnl, .5, .8, .4, .5);
         }
 
+        public void setupReturnPnl()
+        {
+            relocateObject(returnTitleLbl, newCustomerPnl, .4, .7, .1, .2);
+
+            relocateObject(label7, checkoutPnl, .3, .5, .2, .3);
+            relocateObject(label8, checkoutPnl, .3, .5, .3, .4);
+            relocateObject(label6, checkoutPnl, .3, .5, .4, .5);
+
+            relocateObject(textBox6, checkoutPnl, .5, .8, .2, .3);
+            relocateObject(textBox5, checkoutPnl, .5, .8, .3, .4);
+            relocateObject(textBox4, checkoutPnl, .5, .8, .4, .5);
+        }
         private void moviesToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
