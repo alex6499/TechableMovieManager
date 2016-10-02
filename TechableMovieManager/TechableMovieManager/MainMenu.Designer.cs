@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.CheckOutBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ReturnBtn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.ChangeBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // CheckOutBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(444, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 125);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Check Out Movie";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CheckOutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckOutBtn.Location = new System.Drawing.Point(444, 87);
+            this.CheckOutBtn.Name = "CheckOutBtn";
+            this.CheckOutBtn.Size = new System.Drawing.Size(202, 125);
+            this.CheckOutBtn.TabIndex = 1;
+            this.CheckOutBtn.Text = "Check Out Movie";
+            this.CheckOutBtn.UseVisualStyleBackColor = true;
+            this.CheckOutBtn.Click += new System.EventHandler(this.CheckOutBtn_Click);
             // 
             // button2
             // 
@@ -55,15 +56,16 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // ReturnBtn
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(969, 87);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(204, 125);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Return Movie";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ReturnBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReturnBtn.Location = new System.Drawing.Point(969, 87);
+            this.ReturnBtn.Name = "ReturnBtn";
+            this.ReturnBtn.Size = new System.Drawing.Size(204, 125);
+            this.ReturnBtn.TabIndex = 3;
+            this.ReturnBtn.Text = "Return Movie";
+            this.ReturnBtn.UseVisualStyleBackColor = true;
+            this.ReturnBtn.Click += new System.EventHandler(this.ReturnBtn_Click);
             // 
             // button4
             // 
@@ -92,9 +94,9 @@
             this.ClientSize = new System.Drawing.Size(1583, 827);
             this.Controls.Add(this.ChangeBtn);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.ReturnBtn);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CheckOutBtn);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -104,9 +106,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CheckOutBtn;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ReturnBtn;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button ChangeBtn;
     }

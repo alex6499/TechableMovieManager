@@ -28,5 +28,18 @@ namespace TechableMovieManager
         {
             Application.Restart();
         }
+
+        private void CheckOutBtn_Click(object sender, EventArgs e)
+        {
+            
+            
+            
+        }
+
+        private void ReturnBtn_Click(object sender, EventArgs e)
+        {
+            ReturnMenu ReturnMenu = new ReturnMenu();
+            ReturnMenu.Show();
+        }
     }
 }
