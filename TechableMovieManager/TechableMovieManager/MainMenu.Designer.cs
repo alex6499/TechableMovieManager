@@ -38,9 +38,9 @@
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moviesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -55,6 +55,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Check Out Movie";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -130,7 +131,7 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // moviesToolStripMenuItem
@@ -143,6 +144,18 @@
             this.moviesToolStripMenuItem.Text = "Movies";
             this.moviesToolStripMenuItem.Click += new System.EventHandler(this.moviesToolStripMenuItem_Click);
             // 
+            // checkinToolStripMenuItem
+            // 
+            this.checkinToolStripMenuItem.Name = "checkinToolStripMenuItem";
+            this.checkinToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.checkinToolStripMenuItem.Text = "Checkin";
+            // 
+            // checkoutToolStripMenuItem
+            // 
+            this.checkoutToolStripMenuItem.Name = "checkoutToolStripMenuItem";
+            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.checkoutToolStripMenuItem.Text = "Checkout";
+            // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,18 +163,6 @@
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
             this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.customerToolStripMenuItem.Text = "Customer";
-            // 
-            // checkinToolStripMenuItem
-            // 
-            this.checkinToolStripMenuItem.Name = "checkinToolStripMenuItem";
-            this.checkinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.checkinToolStripMenuItem.Text = "Checkin";
-            // 
-            // checkoutToolStripMenuItem
-            // 
-            this.checkoutToolStripMenuItem.Name = "checkoutToolStripMenuItem";
-            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.checkoutToolStripMenuItem.Text = "Checkout";
             // 
             // newCustomerToolStripMenuItem
             // 
