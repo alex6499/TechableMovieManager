@@ -19,10 +19,7 @@ namespace TechableMovieManager
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            //relocatePanels(panel1, .2, 1, .2, .95);
-            //relocateButtonsSquare();
-            relocatePanels(panel1, 0, .3, .1, .95);
-            relocateButtonsVerticle();
+            resizePage();
         }
 
 
@@ -98,13 +95,41 @@ namespace TechableMovieManager
 
         private void MainMenu_Resize(object sender, EventArgs e)
         {
+            resizePage();
+        }
+
+        private void resizePage()
+        {
             //relocatePanels(panel1, .2, 1, .2, .95);
             //relocateButtonsSquare();
             relocatePanels(panel1, 0, .3, .1, .95);
+            relocatePanels(returnPnl, .3, .95, .1, .95);
+            relocatePanels(checkoutPnl, .3, .95, .1, .95);
             relocateButtonsVerticle();
         }
-
         private void moviesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            returnPnl.Visible = false;
+            checkoutPnl.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            checkoutPnl.Visible = false;
+            returnPnl.Visible = true;
+        }
+
+        private void returnPnl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkoutPnl_Paint(object sender, PaintEventArgs e)
         {
 
         }
