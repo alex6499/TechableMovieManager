@@ -128,12 +128,7 @@ namespace TechableMovieManager
             button4.Width = panelWidth;
             button4.Height = panelHeight / 4;
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+       
         private void MainMenu_Resize(object sender, EventArgs e)
         {
             resizePage();
@@ -174,11 +169,13 @@ namespace TechableMovieManager
 
             relocateObject(label11, checkoutPnl, .3, .5, .2, .3);
             relocateObject(label12, checkoutPnl, .3, .5, .3, .4);
-            relocateObject(label10, checkoutPnl, .3, .5, .4, .5);
+            relocateObject(label1, checkoutPnl, .3, .5, .4, .5);
+            relocateObject(label10, checkoutPnl, .3, .5, .5, .6);
 
             relocateObject(textBox9, checkoutPnl, .5, .8, .2, .3);
             relocateObject(textBox8, checkoutPnl, .5, .8, .3, .4);
-            relocateObject(textBox7, checkoutPnl, .5, .8, .4, .5);
+            relocateObject(textBox10, checkoutPnl, .5, .8, .4, .5);
+            relocateObject(textBox7, checkoutPnl, .5, .8, .5, .6);
         }
 
         public void setupReturnPnl()
@@ -206,11 +203,6 @@ namespace TechableMovieManager
             checkoutPnl.Visible = true;
         }
 
-        private void newCustomerPanel()
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             checkoutPnl.Visible = false;
@@ -219,42 +211,12 @@ namespace TechableMovieManager
             returnPnl.Visible = true;
         }
 
-        private void returnPnl_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void checkoutPnl_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             checkoutPnl.Visible = false;
             moviesPnl.Visible = false;
             returnPnl.Visible = false;
             newCustomerPnl.Visible = true;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button4_Click(object sender, EventArgs e)

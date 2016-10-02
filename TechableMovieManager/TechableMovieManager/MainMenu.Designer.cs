@@ -43,31 +43,32 @@
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkoutPnl = new System.Windows.Forms.Panel();
-            this.checkoutTitleLbl = new System.Windows.Forms.Label();
-            this.returnPnl = new System.Windows.Forms.Panel();
-            this.returnTitleLbl = new System.Windows.Forms.Label();
-            this.moviesPnl = new System.Windows.Forms.Panel();
-            this.newCustomerPnl = new System.Windows.Forms.Panel();
-            this.customerTitleLbl = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.checkoutTitleLbl = new System.Windows.Forms.Label();
+            this.returnPnl = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.returnTitleLbl = new System.Windows.Forms.Label();
+            this.moviesPnl = new System.Windows.Forms.Panel();
+            this.newCustomerPnl = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.customerTitleLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.checkoutPnl.SuspendLayout();
@@ -148,7 +149,7 @@
             this.customerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(981, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1242, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -163,7 +164,7 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // moviesToolStripMenuItem
@@ -179,13 +180,13 @@
             // checkinToolStripMenuItem
             // 
             this.checkinToolStripMenuItem.Name = "checkinToolStripMenuItem";
-            this.checkinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.checkinToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.checkinToolStripMenuItem.Text = "Checkin";
             // 
             // checkoutToolStripMenuItem
             // 
             this.checkoutToolStripMenuItem.Name = "checkoutToolStripMenuItem";
-            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.checkoutToolStripMenuItem.Text = "Checkout";
             // 
             // customerToolStripMenuItem
@@ -204,6 +205,8 @@
             // 
             // checkoutPnl
             // 
+            this.checkoutPnl.Controls.Add(this.textBox10);
+            this.checkoutPnl.Controls.Add(this.label1);
             this.checkoutPnl.Controls.Add(this.textBox7);
             this.checkoutPnl.Controls.Add(this.textBox8);
             this.checkoutPnl.Controls.Add(this.textBox9);
@@ -217,6 +220,78 @@
             this.checkoutPnl.TabIndex = 8;
             this.checkoutPnl.Visible = false;
             // 
+            // textBox10
+            // 
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(260, 208);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(185, 29);
+            this.textBox10.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 213);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 24);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "First Name";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(260, 251);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(185, 29);
+            this.textBox7.TabIndex = 20;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(260, 160);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(185, 29);
+            this.textBox8.TabIndex = 19;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(260, 116);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(185, 29);
+            this.textBox9.TabIndex = 18;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 256);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(226, 24);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Customer Phone Number";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 121);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 24);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Movie Id";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 165);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 24);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Last Name";
+            // 
             // checkoutTitleLbl
             // 
             this.checkoutTitleLbl.AutoSize = true;
@@ -226,7 +301,6 @@
             this.checkoutTitleLbl.Size = new System.Drawing.Size(90, 24);
             this.checkoutTitleLbl.TabIndex = 10;
             this.checkoutTitleLbl.Text = "Checkout";
-            this.checkoutTitleLbl.Click += new System.EventHandler(this.label2_Click);
             // 
             // returnPnl
             // 
@@ -236,113 +310,12 @@
             this.returnPnl.Controls.Add(this.label6);
             this.returnPnl.Controls.Add(this.label7);
             this.returnPnl.Controls.Add(this.label8);
-            this.returnPnl.Controls.Add(this.label9);
             this.returnPnl.Controls.Add(this.returnTitleLbl);
-            this.returnPnl.Location = new System.Drawing.Point(579, 55);
+            this.returnPnl.Location = new System.Drawing.Point(721, 97);
             this.returnPnl.Name = "returnPnl";
             this.returnPnl.Size = new System.Drawing.Size(483, 358);
             this.returnPnl.TabIndex = 9;
             this.returnPnl.Visible = false;
-            this.returnPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.returnPnl_Paint);
-            // 
-            // returnTitleLbl
-            // 
-            this.returnTitleLbl.AutoSize = true;
-            this.returnTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnTitleLbl.Location = new System.Drawing.Point(62, 50);
-            this.returnTitleLbl.Name = "returnTitleLbl";
-            this.returnTitleLbl.Size = new System.Drawing.Size(59, 24);
-            this.returnTitleLbl.TabIndex = 0;
-            this.returnTitleLbl.Text = "return";
-            // 
-            // moviesPnl
-            // 
-            this.moviesPnl.Location = new System.Drawing.Point(721, 30);
-            this.moviesPnl.Name = "moviesPnl";
-            this.moviesPnl.Size = new System.Drawing.Size(200, 100);
-            this.moviesPnl.TabIndex = 10;
-            // 
-            // newCustomerPnl
-            // 
-            this.newCustomerPnl.Controls.Add(this.textBox3);
-            this.newCustomerPnl.Controls.Add(this.textBox2);
-            this.newCustomerPnl.Controls.Add(this.textBox1);
-            this.newCustomerPnl.Controls.Add(this.label5);
-            this.newCustomerPnl.Controls.Add(this.label4);
-            this.newCustomerPnl.Controls.Add(this.label3);
-            this.newCustomerPnl.Controls.Add(this.customerTitleLbl);
-            this.newCustomerPnl.Location = new System.Drawing.Point(221, 394);
-            this.newCustomerPnl.Name = "newCustomerPnl";
-            this.newCustomerPnl.Size = new System.Drawing.Size(446, 314);
-            this.newCustomerPnl.TabIndex = 11;
-            this.newCustomerPnl.Visible = false;
-            // 
-            // customerTitleLbl
-            // 
-            this.customerTitleLbl.AutoSize = true;
-            this.customerTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerTitleLbl.Location = new System.Drawing.Point(177, 22);
-            this.customerTitleLbl.Name = "customerTitleLbl";
-            this.customerTitleLbl.Size = new System.Drawing.Size(175, 24);
-            this.customerTitleLbl.TabIndex = 0;
-            this.customerTitleLbl.Text = "Add New Customer";
-            this.customerTitleLbl.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 24);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Phone Number";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(44, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 24);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Name";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 24);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Email";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(243, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 29);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(243, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 29);
-            this.textBox2.TabIndex = 5;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(243, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 29);
-            this.textBox3.TabIndex = 6;
             // 
             // textBox4
             // 
@@ -398,75 +371,107 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Phone Number";
             // 
-            // label9
+            // returnTitleLbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(259, 126);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(175, 24);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Add New Customer";
+            this.returnTitleLbl.AutoSize = true;
+            this.returnTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnTitleLbl.Location = new System.Drawing.Point(62, 50);
+            this.returnTitleLbl.Name = "returnTitleLbl";
+            this.returnTitleLbl.Size = new System.Drawing.Size(59, 24);
+            this.returnTitleLbl.TabIndex = 0;
+            this.returnTitleLbl.Text = "return";
             // 
-            // textBox7
+            // moviesPnl
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(260, 208);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(185, 29);
-            this.textBox7.TabIndex = 20;
+            this.moviesPnl.Location = new System.Drawing.Point(1001, 55);
+            this.moviesPnl.Name = "moviesPnl";
+            this.moviesPnl.Size = new System.Drawing.Size(200, 100);
+            this.moviesPnl.TabIndex = 10;
             // 
-            // textBox8
+            // newCustomerPnl
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(260, 160);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(185, 29);
-            this.textBox8.TabIndex = 19;
+            this.newCustomerPnl.Controls.Add(this.textBox3);
+            this.newCustomerPnl.Controls.Add(this.textBox2);
+            this.newCustomerPnl.Controls.Add(this.textBox1);
+            this.newCustomerPnl.Controls.Add(this.label5);
+            this.newCustomerPnl.Controls.Add(this.label4);
+            this.newCustomerPnl.Controls.Add(this.label3);
+            this.newCustomerPnl.Controls.Add(this.customerTitleLbl);
+            this.newCustomerPnl.Location = new System.Drawing.Point(242, 388);
+            this.newCustomerPnl.Name = "newCustomerPnl";
+            this.newCustomerPnl.Size = new System.Drawing.Size(446, 314);
+            this.newCustomerPnl.TabIndex = 11;
+            this.newCustomerPnl.Visible = false;
             // 
-            // textBox9
+            // textBox3
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(260, 116);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(185, 29);
-            this.textBox9.TabIndex = 18;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(243, 112);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 29);
+            this.textBox3.TabIndex = 6;
             // 
-            // label10
+            // textBox2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 213);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(226, 24);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Customer Phone Number";
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(243, 83);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 29);
+            this.textBox2.TabIndex = 5;
             // 
-            // label11
+            // textBox1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 121);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 24);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Movie Id";
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(243, 57);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 29);
+            this.textBox1.TabIndex = 4;
             // 
-            // label12
+            // label5
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 165);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(147, 24);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Customer Name";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(44, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 24);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Email";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(44, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 24);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(44, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 24);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Phone Number";
+            // 
+            // customerTitleLbl
+            // 
+            this.customerTitleLbl.AutoSize = true;
+            this.customerTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerTitleLbl.Location = new System.Drawing.Point(177, 22);
+            this.customerTitleLbl.Name = "customerTitleLbl";
+            this.customerTitleLbl.Size = new System.Drawing.Size(175, 24);
+            this.customerTitleLbl.TabIndex = 0;
+            this.customerTitleLbl.Text = "Add New Customer";
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(981, 468);
+            this.ClientSize = new System.Drawing.Size(1242, 630);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.moviesPnl);
             this.Controls.Add(this.ChangeBtn);
@@ -528,13 +533,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label1;
     }
 }
 
