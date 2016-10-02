@@ -20,6 +20,8 @@ namespace TechableMovieManager
         private void MainMenu_Load(object sender, EventArgs e)
         {
             resizePage();
+            TableExample tableExample = new TableExample();
+            tableExample.Show();
         }
 
 
@@ -172,7 +174,9 @@ namespace TechableMovieManager
         {
             relocateObject(checkoutTitleLbl, newCustomerPnl, .4, .7, .1, .2);
 
+
             relocateObject(label11, checkoutPnl, .3, .5, .2, .3);
+            relocateObject(label1, checkoutPnl, .302, .5, .23, .35);
             relocateObject(label12, checkoutPnl, .3, .5, .3, .4);
             relocateObject(label10, checkoutPnl, .3, .5, .4, .5);
 
