@@ -129,6 +129,9 @@
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newCustomer1Btn = new System.Windows.Forms.Button();
+            this.newCustomer4Txt = new System.Windows.Forms.TextBox();
+            this.newCustomer4Lbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -246,7 +249,7 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // moviesToolStripMenuItem
@@ -261,14 +264,14 @@
             // checkinToolStripMenuItem
             // 
             this.checkinToolStripMenuItem.Name = "checkinToolStripMenuItem";
-            this.checkinToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.checkinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.checkinToolStripMenuItem.Text = "Checkin";
             this.checkinToolStripMenuItem.Click += new System.EventHandler(this.checkinToolStripMenuItem_Click);
             // 
             // checkoutToolStripMenuItem
             // 
             this.checkoutToolStripMenuItem.Name = "checkoutToolStripMenuItem";
-            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.checkoutToolStripMenuItem.Text = "Checkout";
             this.checkoutToolStripMenuItem.Click += new System.EventHandler(this.checkoutToolStripMenuItem_Click);
             // 
@@ -292,7 +295,7 @@
             this.rentPnl.Controls.Add(this.checkout1Txt);
             this.rentPnl.Controls.Add(this.checkout1Lbl);
             this.rentPnl.Controls.Add(this.rentTitleLbl);
-            this.rentPnl.Location = new System.Drawing.Point(991, 413);
+            this.rentPnl.Location = new System.Drawing.Point(207, 181);
             this.rentPnl.Name = "rentPnl";
             this.rentPnl.Size = new System.Drawing.Size(500, 328);
             this.rentPnl.TabIndex = 8;
@@ -464,6 +467,9 @@
             // 
             // newCustomerPnl
             // 
+            this.newCustomerPnl.Controls.Add(this.newCustomer4Txt);
+            this.newCustomerPnl.Controls.Add(this.newCustomer4Lbl);
+            this.newCustomerPnl.Controls.Add(this.newCustomer1Btn);
             this.newCustomerPnl.Controls.Add(this.newCustomer3Txt);
             this.newCustomerPnl.Controls.Add(this.newCustomer2Txt);
             this.newCustomerPnl.Controls.Add(this.newCustomer1Txt);
@@ -471,7 +477,7 @@
             this.newCustomerPnl.Controls.Add(this.newCustomer1Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer2Lbl);
             this.newCustomerPnl.Controls.Add(this.customerTitleLbl);
-            this.newCustomerPnl.Location = new System.Drawing.Point(632, 427);
+            this.newCustomerPnl.Location = new System.Drawing.Point(218, 25);
             this.newCustomerPnl.Name = "newCustomerPnl";
             this.newCustomerPnl.Size = new System.Drawing.Size(446, 314);
             this.newCustomerPnl.TabIndex = 11;
@@ -507,9 +513,9 @@
             this.newCustomer3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newCustomer3Lbl.Location = new System.Drawing.Point(44, 112);
             this.newCustomer3Lbl.Name = "newCustomer3Lbl";
-            this.newCustomer3Lbl.Size = new System.Drawing.Size(57, 24);
+            this.newCustomer3Lbl.Size = new System.Drawing.Size(81, 24);
             this.newCustomer3Lbl.TabIndex = 3;
-            this.newCustomer3Lbl.Text = "Email";
+            this.newCustomer3Lbl.Text = "Phone #";
             // 
             // newCustomer1Lbl
             // 
@@ -517,9 +523,9 @@
             this.newCustomer1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newCustomer1Lbl.Location = new System.Drawing.Point(44, 56);
             this.newCustomer1Lbl.Name = "newCustomer1Lbl";
-            this.newCustomer1Lbl.Size = new System.Drawing.Size(61, 24);
+            this.newCustomer1Lbl.Size = new System.Drawing.Size(101, 24);
             this.newCustomer1Lbl.TabIndex = 2;
-            this.newCustomer1Lbl.Text = "Name";
+            this.newCustomer1Lbl.Text = "First Name";
             // 
             // newCustomer2Lbl
             // 
@@ -527,9 +533,9 @@
             this.newCustomer2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newCustomer2Lbl.Location = new System.Drawing.Point(44, 83);
             this.newCustomer2Lbl.Name = "newCustomer2Lbl";
-            this.newCustomer2Lbl.Size = new System.Drawing.Size(140, 24);
+            this.newCustomer2Lbl.Size = new System.Drawing.Size(99, 24);
             this.newCustomer2Lbl.TabIndex = 1;
-            this.newCustomer2Lbl.Text = "Phone Number";
+            this.newCustomer2Lbl.Text = "Last Name";
             // 
             // customerTitleLbl
             // 
@@ -566,6 +572,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.admin1Data);
+            this.tabPage1.Controls.Add(this.rentPnl);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -629,7 +636,7 @@
             this.rent2Pnl.Controls.Add(this.checkout4Lbl);
             this.rent2Pnl.Controls.Add(this.checkout2Lbl);
             this.rent2Pnl.Controls.Add(this.rentTitle2Lbl);
-            this.rent2Pnl.Location = new System.Drawing.Point(188, 40);
+            this.rent2Pnl.Location = new System.Drawing.Point(632, 404);
             this.rent2Pnl.Name = "rent2Pnl";
             this.rent2Pnl.Size = new System.Drawing.Size(500, 328);
             this.rent2Pnl.TabIndex = 13;
@@ -1000,13 +1007,40 @@
             this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.exitProgramToolStripMenuItem.Text = "Exit Program";
             // 
+            // newCustomer1Btn
+            // 
+            this.newCustomer1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer1Btn.Location = new System.Drawing.Point(166, 224);
+            this.newCustomer1Btn.Name = "newCustomer1Btn";
+            this.newCustomer1Btn.Size = new System.Drawing.Size(98, 32);
+            this.newCustomer1Btn.TabIndex = 30;
+            this.newCustomer1Btn.Text = "Submit";
+            this.newCustomer1Btn.UseVisualStyleBackColor = true;
+            // 
+            // newCustomer4Txt
+            // 
+            this.newCustomer4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer4Txt.Location = new System.Drawing.Point(243, 146);
+            this.newCustomer4Txt.Name = "newCustomer4Txt";
+            this.newCustomer4Txt.Size = new System.Drawing.Size(100, 29);
+            this.newCustomer4Txt.TabIndex = 32;
+            // 
+            // newCustomer4Lbl
+            // 
+            this.newCustomer4Lbl.AutoSize = true;
+            this.newCustomer4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer4Lbl.Location = new System.Drawing.Point(44, 146);
+            this.newCustomer4Lbl.Name = "newCustomer4Lbl";
+            this.newCustomer4Lbl.Size = new System.Drawing.Size(57, 24);
+            this.newCustomer4Lbl.TabIndex = 31;
+            this.newCustomer4Lbl.Text = "Email";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 630);
             this.Controls.Add(this.rent2Pnl);
-            this.Controls.Add(this.rentPnl);
             this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.reportsPnl);
@@ -1158,6 +1192,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.ToolStripMenuItem exitProgramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.TextBox newCustomer4Txt;
+        private System.Windows.Forms.Label newCustomer4Lbl;
+        private System.Windows.Forms.Button newCustomer1Btn;
     }
 }
 

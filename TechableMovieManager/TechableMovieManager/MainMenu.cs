@@ -61,6 +61,10 @@ namespace TechableMovieManager
             mainButtonsPosition = Position.LEFT;
         }
 
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         private void MainMenu_Resize(object sender, EventArgs e)
         {
             resizePage();
@@ -179,10 +183,14 @@ namespace TechableMovieManager
             setPositionPanelControl(newCustomer1Lbl, newCustomerPnl, labelLeft, textLeft, .2, .3);
             setPositionPanelControl(newCustomer2Lbl, newCustomerPnl, labelLeft, textLeft, .3, .4);
             setPositionPanelControl(newCustomer3Lbl, newCustomerPnl, labelLeft, textLeft, .4, .5);
+            setPositionPanelControl(newCustomer3Lbl, newCustomerPnl, labelLeft, textLeft, .5, .6);
 
             setPositionPanelControl(newCustomer1Txt, newCustomerPnl, textLeft, textRight, .2, .3);
             setPositionPanelControl(newCustomer2Txt, newCustomerPnl, textLeft, textRight, .3, .4);
             setPositionPanelControl(newCustomer3Txt, newCustomerPnl, textLeft, textRight, .4, .5);
+            setPositionPanelControl(newCustomer3Txt, newCustomerPnl, labelLeft, textLeft, .5, .6);
+
+            setLocationPanelControl(newCustomer1Btn, newCustomerPnl, .4, .7);
         }
 
         public void setupRentPnl()
@@ -348,10 +356,7 @@ namespace TechableMovieManager
             }
         }
 
-        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
         private void checkout1Lbl_Click(object sender, EventArgs e)
         {
