@@ -16,7 +16,13 @@ namespace TechableMovieManager
         /*
          * Globals
          */
+        enum Position { RIGHT, LEFT, TOP, BOTTOM };
+
         Panel currentMainPanel;
+        double labelPos;
+        double textPos;
+
+        Position mainButtonsPosition;
 
         /*
          * Initialization and Resize Methods
@@ -29,10 +35,16 @@ namespace TechableMovieManager
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            labelPos = 0.1;
+            textPos = 0.5;
+
             //ensures all positions are correctly set at startup
             resizePage();
             //sets report panel to initial panel
             setCurrentMainPanel(checkoutPnl);
+
+
+            mainButtonsPosition = Position.LEFT;
         }
 
         private void MainMenu_Resize(object sender, EventArgs e)
@@ -49,7 +61,7 @@ namespace TechableMovieManager
             Application.Restart();
         }
 
-        private void checkinBtn_Click(object sender, EventArgs e)
+        private void checkoutBtn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(checkoutPnl);
         }
@@ -72,6 +84,16 @@ namespace TechableMovieManager
         private void adminBtn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(adminPnl);
+        }
+
+        private void checkoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(checkoutPnl);
+        }
+
+        private void checkinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(returnPnl);
         }
 
         /// <summary>
@@ -98,19 +120,22 @@ namespace TechableMovieManager
         /// </summary>
         private void resizePage()
         {
-            positionPanel(panel1, 0, .3, .1, .95);
+            setPositionFormControl(mainButtonPnl, 0, .3, .1, .95);
 
-            positionPanel(returnPnl, .3, .95, .1, .95);
-            positionPanel(checkoutPnl, .3, .95, .1, .95);
-            positionPanel(newCustomerPnl, .3, .95, .1, .95);
-            positionPanel(reportsPnl, .3, .95, .1, .95);
-            positionPanel(adminPnl, .3, .95, .1, .95);
+            setPositionFormControl(returnPnl, .3, .95, .1, .95);
+            setPositionFormControl(checkoutPnl, .3, .95, .1, .95);
+            setPositionFormControl(newCustomerPnl, .3, .95, .1, .95);
+            setPositionFormControl(reportsPnl, .3, .95, .1, .95);
+            setPositionFormControl(adminPnl, .3, .95, .1, .95);
 
             setupReturnPnl();
             setupNewCustomerPnl();
             setupCheckoutPnl();
+            setupAdminPnl();
+            setupReportsPnl();
+
             Button[] mainButtons = { checkinBtn, newCustomerBtn, returnBtn, reportsBtn, adminBtn };
-            positionButtonsVertically(mainButtons);
+            setPositionVertically(mainButtons, mainButtonPnl);
         }
 
         /// <summary>
@@ -118,52 +143,65 @@ namespace TechableMovieManager
         /// </summary>
         public void setupNewCustomerPnl()
         {
-            positionObject(customerTitleLbl, newCustomerPnl, .4, .7, .1, .2);
+            setPositionPanelControl(customerTitleLbl, newCustomerPnl, .4, .7, .1, .2);
 
-            positionObject(newCustomer1Lbl, newCustomerPnl, .3, .5, .2, .3);
-            positionObject(newCustomer2Lbl, newCustomerPnl, .3, .5, .3, .4);
-            positionObject(newCustomer3Lbl, newCustomerPnl, .3, .5, .4, .5);
+            setPositionPanelControl(newCustomer1Lbl, newCustomerPnl, labelPos, textPos, .2, .3);
+            setPositionPanelControl(newCustomer2Lbl, newCustomerPnl, labelPos, textPos, .3, .4);
+            setPositionPanelControl(newCustomer3Lbl, newCustomerPnl, labelPos, textPos, .4, .5);
 
-            positionObject(newCustomer1Txt, newCustomerPnl, .5, .8, .2, .3);
-            positionObject(newCustomer2Txt, newCustomerPnl, .5, .8, .3, .4);
-            positionObject(newCustomer3Txt, newCustomerPnl, .5, .8, .4, .5);
+            setPositionPanelControl(newCustomer1Txt, newCustomerPnl, textPos, .8, .2, .3);
+            setPositionPanelControl(newCustomer2Txt, newCustomerPnl, textPos, .8, .3, .4);
+            setPositionPanelControl(newCustomer3Txt, newCustomerPnl, textPos, .8, .4, .5);
         }
 
         public void setupCheckoutPnl()
         {
-            positionObject(checkoutTitleLbl, newCustomerPnl, .4, .7, .1, .2);
+            setPositionPanelControl(checkoutTitleLbl, newCustomerPnl, .4, .7, .1, .2);
 
 
-            positionObject(checkout1Lbl, checkoutPnl, .3, .5, .2, .3);
-            positionObject(checkout2Lbl, checkoutPnl, .3, .5, .3, .4);
-            positionObject(checkout3Lbl, checkoutPnl, .3, .5, .4, .5);
-            positionObject(checkout4Lbl, checkoutPnl, .3, .5, .5, .6);
+            setPositionPanelControl(checkout1Lbl, checkoutPnl, labelPos, textPos, .2, .3);
+            setPositionPanelControl(checkout2Lbl, checkoutPnl, labelPos, textPos, .3, .4);
+            setPositionPanelControl(checkout3Lbl, checkoutPnl, labelPos, textPos, .4, .5);
+            setPositionPanelControl(checkout4Lbl, checkoutPnl, labelPos, textPos, .5, .6);
 
-            positionObject(checkout1Txt, checkoutPnl, .5, .8, .2, .3);
-            positionObject(checkout2Txt, checkoutPnl, .5, .8, .3, .4);
-            positionObject(checkout3Txt, checkoutPnl, .5, .8, .4, .5);
-            positionObject(checkout4Txt, checkoutPnl, .5, .8, .5, .6);
+            setPositionPanelControl(checkout1Txt, checkoutPnl, textPos, .8, .2, .3);
+            setPositionPanelControl(checkout2Txt, checkoutPnl, textPos, .8, .3, .4);
+            setPositionPanelControl(checkout3Txt, checkoutPnl, textPos, .8, .4, .5);
+            setPositionPanelControl(checkout4Txt, checkoutPnl, textPos, .8, .5, .6);
         }
 
         public void setupReturnPnl()
         {
-            positionObject(returnTitleLbl, newCustomerPnl, .4, .7, .1, .2);
+            setPositionPanelControl(returnTitleLbl, newCustomerPnl, .4, .7, .1, .2);
 
-            positionObject(return1Lbl, checkoutPnl, .3, .5, .2, .3);
-            positionObject(return2Lbl, checkoutPnl, .3, .5, .3, .4);
-            positionObject(return3Lbl, checkoutPnl, .3, .5, .4, .5);
+            setPositionPanelControl(return1Lbl, checkoutPnl, labelPos, textPos, .2, .3);
+            setPositionPanelControl(return2Lbl, checkoutPnl, labelPos, textPos, .3, .4);
+            setPositionPanelControl(return3Lbl, checkoutPnl, labelPos, textPos, .4, .5);
 
-            positionObject(return1Txt, checkoutPnl, .5, .8, .2, .3);
-            positionObject(return2Txt, checkoutPnl, .5, .8, .3, .4);
-            positionObject(return3Txt, checkoutPnl, .5, .8, .4, .5);
+            setPositionPanelControl(return1Txt, checkoutPnl, textPos, .8, .2, .3);
+            setPositionPanelControl(return2Txt, checkoutPnl, textPos, .8, .3, .4);
+            setPositionPanelControl(return3Txt, checkoutPnl, textPos, .8, .4, .5);
+        }
+        public void setupReportsPnl()
+        {
+            setPositionPanelControl(reportsTitleLbl, reportsPnl, .4, .7, .1, .2);
+
+            setPositionPanelControl(reportsTab, reportsPnl, .1, .9, .2, .9);
+        }
+
+        public void setupAdminPnl()
+        {
+            setPositionPanelControl(adminTitleLbl, adminPnl, .4, .7, .1, .2);
+
+            setPositionPanelControl(adminTab, adminPnl, .1, .9, .2, .9);
         }
 
         /*
          * Object Repositioning Methods
          * 
          */
-        
-        private void positionPanel(Panel panel, double left, double right, double top, double bottom)
+
+        private void setPositionFormControl(Control control, double left, double right, double top, double bottom)
         {
             int formWidth = this.Width;
             int formHeight = this.Height;
@@ -173,11 +211,11 @@ namespace TechableMovieManager
             int width = Convert.ToInt32(formWidth * right) - xPos;
             int height = Convert.ToInt32(formHeight * bottom) - yPos;
 
-            panel.Location = new Point(xPos, yPos);
-            panel.Size = new Size(width, height);
+            control.Location = new Point(xPos, yPos);
+            control.Size = new Size(width, height);
         }
 
-        private void positionObject(Control control, Panel panel, double left, double right, double top, double bottom)
+        private void setPositionPanelControl(Control control, Panel panel, double left, double right, double top, double bottom)
         {
             int formWidth = panel.Width;
             int formHeight = panel.Height;
@@ -191,7 +229,7 @@ namespace TechableMovieManager
             control.Size = new Size(width, height);
         }
 
-        private void setLocation(Control control, Panel panel, double x,  double y)
+        private void setLocationPanelControl(Control control, Panel panel, double x,  double y)
         {
             int formWidth = panel.Width;
             int formHeight = panel.Height;
@@ -202,20 +240,54 @@ namespace TechableMovieManager
             control.Location = new Point(xPos, yPos);
         }
 
-        private void positionButtonsVertically(Button[] buttons)
+        private void setSizePanelControl(Control control, Panel panel, double widthPercent, double heightPercent)
         {
-            int numberOfButtons = buttons.Length;
-            int panelWidth = panel1.Width;
-            int panelHeight = panel1.Height;
+            int formWidth = panel.Width;
+            int formHeight = panel.Height;
+            
+            int width = Convert.ToInt32(formWidth * widthPercent);
+            int height = Convert.ToInt32(formHeight * heightPercent);
+            
+            control.Size = new Size(width, height);
+        }
 
-            for (int i = 0; i < buttons.Length; i++)
+        private void setPositionVertically(Control[] controls, Panel panel)
+        {
+            int numberOfControls = controls.Length;
+            int panelWidth = panel.Width;
+            int panelHeight = panel.Height;
+
+            for (int i = 0; i < controls.Length; i++)
             {
-                Button button = buttons[i];
+                Control control = controls[i];
 
-                button.Location = new Point(0, i * panelHeight / numberOfButtons);
-                button.Width = panelWidth;
-                button.Height = panelHeight / numberOfButtons;
+                control.Location = new Point(0, i * panelHeight / numberOfControls);
+
+                control.Width = panelWidth;
+                control.Height = panelHeight / numberOfControls;
             }
+        }
+
+        private void setPositionHorizontally(Control[] controls, Panel panel)
+        {
+            int numberOfControls = controls.Length;
+            int panelWidth = panel.Width;
+            int panelHeight = panel.Height;
+
+            for (int i = 0; i < controls.Length; i++)
+            {
+                Control control = controls[i];
+
+                control.Location = new Point(i * panelHeight / numberOfControls, 0);
+
+                control.Width = panelWidth / numberOfControls;
+                control.Height = panelHeight;
+            }
+        }
+
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

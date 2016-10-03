@@ -24,6 +24,9 @@ namespace TechableMovieManager
             MainMenu.Show();
         }
 
-      
+        private void LoginMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

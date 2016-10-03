@@ -33,7 +33,7 @@
             this.returnBtn = new System.Windows.Forms.Button();
             this.reportsBtn = new System.Windows.Forms.Button();
             this.ChangeBtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainButtonPnl = new System.Windows.Forms.Panel();
             this.adminBtn = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,20 +62,7 @@
             this.return2Lbl = new System.Windows.Forms.Label();
             this.returnTitleLbl = new System.Windows.Forms.Label();
             this.reportsPnl = new System.Windows.Forms.Panel();
-            this.newCustomerPnl = new System.Windows.Forms.Panel();
-            this.newCustomer3Txt = new System.Windows.Forms.TextBox();
-            this.newCustomer2Txt = new System.Windows.Forms.TextBox();
-            this.newCustomer1Txt = new System.Windows.Forms.TextBox();
-            this.newCustomer3Lbl = new System.Windows.Forms.Label();
-            this.newCustomer1Lbl = new System.Windows.Forms.Label();
-            this.newCustomer2Lbl = new System.Windows.Forms.Label();
-            this.customerTitleLbl = new System.Windows.Forms.Label();
-            this.adminPnl = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.reportsTab = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,18 +72,39 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.reportsTitleLbl = new System.Windows.Forms.Label();
+            this.newCustomerPnl = new System.Windows.Forms.Panel();
+            this.newCustomer3Txt = new System.Windows.Forms.TextBox();
+            this.newCustomer2Txt = new System.Windows.Forms.TextBox();
+            this.newCustomer1Txt = new System.Windows.Forms.TextBox();
+            this.newCustomer3Lbl = new System.Windows.Forms.Label();
+            this.newCustomer1Lbl = new System.Windows.Forms.Label();
+            this.newCustomer2Lbl = new System.Windows.Forms.Label();
+            this.customerTitleLbl = new System.Windows.Forms.Label();
+            this.adminPnl = new System.Windows.Forms.Panel();
+            this.adminTab = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.adminTitleLbl = new System.Windows.Forms.Label();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.checkoutPnl.SuspendLayout();
             this.returnPnl.SuspendLayout();
             this.reportsPnl.SuspendLayout();
-            this.newCustomerPnl.SuspendLayout();
-            this.adminPnl.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabControl2.SuspendLayout();
+            this.reportsTab.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.newCustomerPnl.SuspendLayout();
+            this.adminPnl.SuspendLayout();
+            this.adminTab.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // checkinBtn
@@ -108,7 +116,7 @@
             this.checkinBtn.TabIndex = 1;
             this.checkinBtn.Text = "Check Out Movie";
             this.checkinBtn.UseVisualStyleBackColor = true;
-            this.checkinBtn.Click += new System.EventHandler(this.checkinBtn_Click);
+            this.checkinBtn.Click += new System.EventHandler(this.checkoutBtn_Click);
             // 
             // newCustomerBtn
             // 
@@ -117,7 +125,7 @@
             this.newCustomerBtn.Name = "newCustomerBtn";
             this.newCustomerBtn.Size = new System.Drawing.Size(160, 58);
             this.newCustomerBtn.TabIndex = 2;
-            this.newCustomerBtn.Text = "newCustomer";
+            this.newCustomerBtn.Text = "New Customer";
             this.newCustomerBtn.UseVisualStyleBackColor = true;
             this.newCustomerBtn.Click += new System.EventHandler(this.newCustomer_Click);
             // 
@@ -153,17 +161,17 @@
             this.ChangeBtn.UseVisualStyleBackColor = true;
             this.ChangeBtn.Click += new System.EventHandler(this.ChangeBtn_Click);
             // 
-            // panel1
+            // mainButtonPnl
             // 
-            this.panel1.Controls.Add(this.adminBtn);
-            this.panel1.Controls.Add(this.reportsBtn);
-            this.panel1.Controls.Add(this.returnBtn);
-            this.panel1.Controls.Add(this.checkinBtn);
-            this.panel1.Controls.Add(this.newCustomerBtn);
-            this.panel1.Location = new System.Drawing.Point(12, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(168, 361);
-            this.panel1.TabIndex = 6;
+            this.mainButtonPnl.Controls.Add(this.adminBtn);
+            this.mainButtonPnl.Controls.Add(this.reportsBtn);
+            this.mainButtonPnl.Controls.Add(this.returnBtn);
+            this.mainButtonPnl.Controls.Add(this.checkinBtn);
+            this.mainButtonPnl.Controls.Add(this.newCustomerBtn);
+            this.mainButtonPnl.Location = new System.Drawing.Point(12, 27);
+            this.mainButtonPnl.Name = "mainButtonPnl";
+            this.mainButtonPnl.Size = new System.Drawing.Size(168, 361);
+            this.mainButtonPnl.TabIndex = 6;
             // 
             // adminBtn
             // 
@@ -172,7 +180,7 @@
             this.adminBtn.Name = "adminBtn";
             this.adminBtn.Size = new System.Drawing.Size(158, 53);
             this.adminBtn.TabIndex = 13;
-            this.adminBtn.Text = "Admin";
+            this.adminBtn.Text = "Administrative";
             this.adminBtn.UseVisualStyleBackColor = true;
             this.adminBtn.Click += new System.EventHandler(this.adminBtn_Click);
             // 
@@ -216,12 +224,14 @@
             this.checkinToolStripMenuItem.Name = "checkinToolStripMenuItem";
             this.checkinToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.checkinToolStripMenuItem.Text = "Checkin";
+            this.checkinToolStripMenuItem.Click += new System.EventHandler(this.checkinToolStripMenuItem_Click);
             // 
             // checkoutToolStripMenuItem
             // 
             this.checkoutToolStripMenuItem.Name = "checkoutToolStripMenuItem";
             this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.checkoutToolStripMenuItem.Text = "Checkout";
+            this.checkoutToolStripMenuItem.Click += new System.EventHandler(this.checkoutToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
@@ -417,12 +427,107 @@
             // 
             // reportsPnl
             // 
-            this.reportsPnl.Controls.Add(this.tabControl2);
-            this.reportsPnl.Controls.Add(this.label1);
+            this.reportsPnl.Controls.Add(this.reportsTab);
+            this.reportsPnl.Controls.Add(this.reportsTitleLbl);
             this.reportsPnl.Location = new System.Drawing.Point(197, 30);
             this.reportsPnl.Name = "reportsPnl";
             this.reportsPnl.Size = new System.Drawing.Size(502, 341);
             this.reportsPnl.TabIndex = 10;
+            this.reportsPnl.Visible = false;
+            // 
+            // reportsTab
+            // 
+            this.reportsTab.Controls.Add(this.tabPage3);
+            this.reportsTab.Controls.Add(this.tabPage4);
+            this.reportsTab.Controls.Add(this.tabPage5);
+            this.reportsTab.Controls.Add(this.tabPage6);
+            this.reportsTab.Location = new System.Drawing.Point(45, 90);
+            this.reportsTab.Name = "reportsTab";
+            this.reportsTab.SelectedIndex = 0;
+            this.reportsTab.Size = new System.Drawing.Size(646, 427);
+            this.reportsTab.TabIndex = 7;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(638, 401);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Top Movies";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(635, 402);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Movie Name";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Director";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Year";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Times Rented";
+            this.Column4.Name = "Column4";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(638, 401);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "Top Customers";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(638, 401);
+            this.tabPage5.TabIndex = 2;
+            this.tabPage5.Text = "All Movies";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(638, 401);
+            this.tabPage6.TabIndex = 3;
+            this.tabPage6.Text = "Currently Rented";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // reportsTitleLbl
+            // 
+            this.reportsTitleLbl.AutoSize = true;
+            this.reportsTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportsTitleLbl.Location = new System.Drawing.Point(287, 32);
+            this.reportsTitleLbl.Name = "reportsTitleLbl";
+            this.reportsTitleLbl.Size = new System.Drawing.Size(177, 37);
+            this.reportsTitleLbl.TabIndex = 6;
+            this.reportsTitleLbl.Text = "Movie Data";
             // 
             // newCustomerPnl
             // 
@@ -505,33 +610,68 @@
             // 
             // adminPnl
             // 
-            this.adminPnl.Controls.Add(this.tabControl1);
-            this.adminPnl.Controls.Add(this.label2);
+            this.adminPnl.Controls.Add(this.adminTab);
+            this.adminPnl.Controls.Add(this.adminTitleLbl);
             this.adminPnl.Location = new System.Drawing.Point(705, 87);
             this.adminPnl.Name = "adminPnl";
             this.adminPnl.Size = new System.Drawing.Size(525, 516);
             this.adminPnl.TabIndex = 12;
             this.adminPnl.Visible = false;
             // 
-            // tabControl1
+            // adminTab
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(19, 59);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(480, 354);
-            this.tabControl1.TabIndex = 1;
+            this.adminTab.Controls.Add(this.tabPage1);
+            this.adminTab.Controls.Add(this.tabPage2);
+            this.adminTab.Controls.Add(this.tabPage7);
+            this.adminTab.Location = new System.Drawing.Point(19, 59);
+            this.adminTab.Name = "adminTab";
+            this.adminTab.SelectedIndex = 0;
+            this.adminTab.Size = new System.Drawing.Size(480, 354);
+            this.adminTab.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(472, 328);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Users";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dataGridView2.Location = new System.Drawing.Point(6, 11);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(548, 350);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Movie Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Director";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Year";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Times Rented";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // tabPage2
             // 
@@ -540,111 +680,27 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(472, 328);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Customers";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // adminTitleLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(127, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Admin Functions";
+            this.adminTitleLbl.AutoSize = true;
+            this.adminTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminTitleLbl.Location = new System.Drawing.Point(127, 16);
+            this.adminTitleLbl.Name = "adminTitleLbl";
+            this.adminTitleLbl.Size = new System.Drawing.Size(258, 37);
+            this.adminTitleLbl.TabIndex = 0;
+            this.adminTitleLbl.Text = "Admin Functions";
             // 
-            // tabControl2
+            // tabPage7
             // 
-            this.tabControl2.Controls.Add(this.tabPage3);
-            this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Location = new System.Drawing.Point(45, 90);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(646, 427);
-            this.tabControl2.TabIndex = 7;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dataGridView1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(638, 401);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "Top Movies";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(635, 402);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Movie Name";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Director";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Year";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Times Rented";
-            this.Column4.Name = "Column4";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(638, 401);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "Top Customers";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(638, 401);
-            this.tabPage5.TabIndex = 2;
-            this.tabPage5.Text = "All Movies";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(638, 401);
-            this.tabPage6.TabIndex = 3;
-            this.tabPage6.Text = "Currently Rented";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(287, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 37);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Movie Data";
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(472, 328);
+            this.tabPage7.TabIndex = 2;
+            this.tabPage7.Text = "Movies";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // MainMenu
             // 
@@ -656,16 +712,17 @@
             this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.ChangeBtn);
             this.Controls.Add(this.checkoutPnl);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.returnPnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.Resize += new System.EventHandler(this.MainMenu_Resize);
-            this.panel1.ResumeLayout(false);
+            this.mainButtonPnl.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.checkoutPnl.ResumeLayout(false);
@@ -674,14 +731,16 @@
             this.returnPnl.PerformLayout();
             this.reportsPnl.ResumeLayout(false);
             this.reportsPnl.PerformLayout();
+            this.reportsTab.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.newCustomerPnl.ResumeLayout(false);
             this.newCustomerPnl.PerformLayout();
             this.adminPnl.ResumeLayout(false);
             this.adminPnl.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.adminTab.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -693,7 +752,7 @@
         private System.Windows.Forms.Button returnBtn;
         private System.Windows.Forms.Button reportsBtn;
         private System.Windows.Forms.Button ChangeBtn;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel mainButtonPnl;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
@@ -731,11 +790,11 @@
         private System.Windows.Forms.Label checkout3Lbl;
         private System.Windows.Forms.Panel adminPnl;
         private System.Windows.Forms.Button adminBtn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label adminTitleLbl;
+        private System.Windows.Forms.TabControl adminTab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabControl reportsTab;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -745,7 +804,13 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label reportsTitleLbl;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.TabPage tabPage7;
     }
 }
 
