@@ -32,7 +32,7 @@ namespace TechableMovieManager
             //ensures all positions are correctly set at startup
             resizePage();
             //sets report panel to initial panel
-            setCurrentMainPanel(reportsPnl);
+            setCurrentMainPanel(checkoutPnl);
 
             TableExample tableExample = new TableExample();
             tableExample.Show();
@@ -137,29 +137,28 @@ namespace TechableMovieManager
             positionObject(checkoutTitleLbl, newCustomerPnl, .4, .7, .1, .2);
 
 
-            positionObject(label11, checkoutPnl, .3, .5, .2, .3);
-            positionObject(label1, checkoutPnl, .302, .5, .23, .35);
-            positionObject(label12, checkoutPnl, .3, .5, .3, .4);
-            positionObject(label1, checkoutPnl, .3, .5, .4, .5);
-            positionObject(label10, checkoutPnl, .3, .5, .5, .6);
+            positionObject(checkout1Lbl, checkoutPnl, .3, .5, .2, .3);
+            positionObject(checkout2Lbl, checkoutPnl, .3, .5, .3, .4);
+            positionObject(checkout3Lbl, checkoutPnl, .3, .5, .4, .5);
+            positionObject(checkout4Lbl, checkoutPnl, .3, .5, .5, .6);
 
-            positionObject(textBox9, checkoutPnl, .5, .8, .2, .3);
-            positionObject(textBox8, checkoutPnl, .5, .8, .3, .4);
-            positionObject(textBox10, checkoutPnl, .5, .8, .4, .5);
-            positionObject(textBox7, checkoutPnl, .5, .8, .5, .6);
+            positionObject(checkout1Txt, checkoutPnl, .5, .8, .2, .3);
+            positionObject(checkout2Txt, checkoutPnl, .5, .8, .3, .4);
+            positionObject(checkout3Txt, checkoutPnl, .5, .8, .4, .5);
+            positionObject(checkout4Txt, checkoutPnl, .5, .8, .5, .6);
         }
 
         public void setupReturnPnl()
         {
             positionObject(returnTitleLbl, newCustomerPnl, .4, .7, .1, .2);
 
-            positionObject(label7, checkoutPnl, .3, .5, .2, .3);
-            positionObject(label8, checkoutPnl, .3, .5, .3, .4);
-            positionObject(label6, checkoutPnl, .3, .5, .4, .5);
+            positionObject(return1Lbl, checkoutPnl, .3, .5, .2, .3);
+            positionObject(return2Lbl, checkoutPnl, .3, .5, .3, .4);
+            positionObject(return3Lbl, checkoutPnl, .3, .5, .4, .5);
 
-            positionObject(textBox6, checkoutPnl, .5, .8, .2, .3);
-            positionObject(textBox5, checkoutPnl, .5, .8, .3, .4);
-            positionObject(textBox4, checkoutPnl, .5, .8, .4, .5);
+            positionObject(return1Txt, checkoutPnl, .5, .8, .2, .3);
+            positionObject(return2Txt, checkoutPnl, .5, .8, .3, .4);
+            positionObject(return3Txt, checkoutPnl, .5, .8, .4, .5);
         }
 
         /*

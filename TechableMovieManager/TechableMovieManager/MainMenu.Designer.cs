@@ -44,22 +44,22 @@
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkoutPnl = new System.Windows.Forms.Panel();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.checkout3Txt = new System.Windows.Forms.TextBox();
+            this.checkout3Lbl = new System.Windows.Forms.Label();
+            this.checkout4Txt = new System.Windows.Forms.TextBox();
+            this.checkout2Txt = new System.Windows.Forms.TextBox();
+            this.checkout1Txt = new System.Windows.Forms.TextBox();
+            this.checkout4Lbl = new System.Windows.Forms.Label();
+            this.checkout1Lbl = new System.Windows.Forms.Label();
+            this.checkout2Lbl = new System.Windows.Forms.Label();
             this.checkoutTitleLbl = new System.Windows.Forms.Label();
             this.returnPnl = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.return3Txt = new System.Windows.Forms.TextBox();
+            this.return2Txt = new System.Windows.Forms.TextBox();
+            this.return1Txt = new System.Windows.Forms.TextBox();
+            this.return3Lbl = new System.Windows.Forms.Label();
+            this.return1Lbl = new System.Windows.Forms.Label();
+            this.return2Lbl = new System.Windows.Forms.Label();
             this.returnTitleLbl = new System.Windows.Forms.Label();
             this.reportsPnl = new System.Windows.Forms.Panel();
             this.newCustomerPnl = new System.Windows.Forms.Panel();
@@ -224,14 +224,14 @@
             // 
             // checkoutPnl
             // 
-            this.checkoutPnl.Controls.Add(this.textBox10);
-            this.checkoutPnl.Controls.Add(this.label1);
-            this.checkoutPnl.Controls.Add(this.textBox7);
-            this.checkoutPnl.Controls.Add(this.textBox8);
-            this.checkoutPnl.Controls.Add(this.textBox9);
-            this.checkoutPnl.Controls.Add(this.label10);
-            this.checkoutPnl.Controls.Add(this.label11);
-            this.checkoutPnl.Controls.Add(this.label12);
+            this.checkoutPnl.Controls.Add(this.checkout3Txt);
+            this.checkoutPnl.Controls.Add(this.checkout3Lbl);
+            this.checkoutPnl.Controls.Add(this.checkout4Txt);
+            this.checkoutPnl.Controls.Add(this.checkout2Txt);
+            this.checkoutPnl.Controls.Add(this.checkout1Txt);
+            this.checkoutPnl.Controls.Add(this.checkout4Lbl);
+            this.checkoutPnl.Controls.Add(this.checkout1Lbl);
+            this.checkoutPnl.Controls.Add(this.checkout2Lbl);
             this.checkoutPnl.Controls.Add(this.checkoutTitleLbl);
             this.checkoutPnl.Location = new System.Drawing.Point(199, 30);
             this.checkoutPnl.Name = "checkoutPnl";
@@ -241,75 +241,75 @@
             // 
             // textBox10
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(260, 208);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(185, 29);
-            this.textBox10.TabIndex = 22;
+            this.checkout3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkout3Txt.Location = new System.Drawing.Point(260, 208);
+            this.checkout3Txt.Name = "textBox10";
+            this.checkout3Txt.Size = new System.Drawing.Size(185, 29);
+            this.checkout3Txt.TabIndex = 22;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 213);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 24);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "First Name";
+            this.checkout3Lbl.AutoSize = true;
+            this.checkout3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkout3Lbl.Location = new System.Drawing.Point(3, 213);
+            this.checkout3Lbl.Name = "label1";
+            this.checkout3Lbl.Size = new System.Drawing.Size(101, 24);
+            this.checkout3Lbl.TabIndex = 21;
+            this.checkout3Lbl.Text = "First Name";
             // 
             // textBox7
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(260, 251);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(185, 29);
-            this.textBox7.TabIndex = 20;
+            this.checkout4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkout4Txt.Location = new System.Drawing.Point(260, 251);
+            this.checkout4Txt.Name = "textBox7";
+            this.checkout4Txt.Size = new System.Drawing.Size(185, 29);
+            this.checkout4Txt.TabIndex = 20;
             // 
             // textBox8
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(260, 160);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(185, 29);
-            this.textBox8.TabIndex = 19;
+            this.checkout2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkout2Txt.Location = new System.Drawing.Point(260, 160);
+            this.checkout2Txt.Name = "textBox8";
+            this.checkout2Txt.Size = new System.Drawing.Size(185, 29);
+            this.checkout2Txt.TabIndex = 19;
             // 
             // textBox9
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(260, 116);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(185, 29);
-            this.textBox9.TabIndex = 18;
+            this.checkout1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkout1Txt.Location = new System.Drawing.Point(260, 116);
+            this.checkout1Txt.Name = "textBox9";
+            this.checkout1Txt.Size = new System.Drawing.Size(185, 29);
+            this.checkout1Txt.TabIndex = 18;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 256);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(226, 24);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Customer Phone Number";
+            this.checkout4Lbl.AutoSize = true;
+            this.checkout4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkout4Lbl.Location = new System.Drawing.Point(3, 256);
+            this.checkout4Lbl.Name = "label10";
+            this.checkout4Lbl.Size = new System.Drawing.Size(226, 24);
+            this.checkout4Lbl.TabIndex = 17;
+            this.checkout4Lbl.Text = "Customer Phone Number";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 121);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 24);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Movie Id";
+            this.checkout1Lbl.AutoSize = true;
+            this.checkout1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkout1Lbl.Location = new System.Drawing.Point(3, 121);
+            this.checkout1Lbl.Name = "label11";
+            this.checkout1Lbl.Size = new System.Drawing.Size(81, 24);
+            this.checkout1Lbl.TabIndex = 16;
+            this.checkout1Lbl.Text = "Movie Id";
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 165);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 24);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Last Name";
+            this.checkout2Lbl.AutoSize = true;
+            this.checkout2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkout2Lbl.Location = new System.Drawing.Point(3, 165);
+            this.checkout2Lbl.Name = "label12";
+            this.checkout2Lbl.Size = new System.Drawing.Size(99, 24);
+            this.checkout2Lbl.TabIndex = 15;
+            this.checkout2Lbl.Text = "Last Name";
             // 
             // checkoutTitleLbl
             // 
@@ -323,12 +323,12 @@
             // 
             // returnPnl
             // 
-            this.returnPnl.Controls.Add(this.textBox4);
-            this.returnPnl.Controls.Add(this.textBox5);
-            this.returnPnl.Controls.Add(this.textBox6);
-            this.returnPnl.Controls.Add(this.label6);
-            this.returnPnl.Controls.Add(this.label7);
-            this.returnPnl.Controls.Add(this.label8);
+            this.returnPnl.Controls.Add(this.return3Txt);
+            this.returnPnl.Controls.Add(this.return2Txt);
+            this.returnPnl.Controls.Add(this.return1Txt);
+            this.returnPnl.Controls.Add(this.return3Lbl);
+            this.returnPnl.Controls.Add(this.return1Lbl);
+            this.returnPnl.Controls.Add(this.return2Lbl);
             this.returnPnl.Controls.Add(this.returnTitleLbl);
             this.returnPnl.Location = new System.Drawing.Point(721, 97);
             this.returnPnl.Name = "returnPnl";
@@ -338,57 +338,57 @@
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(239, 213);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 29);
-            this.textBox4.TabIndex = 13;
+            this.return3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return3Txt.Location = new System.Drawing.Point(239, 213);
+            this.return3Txt.Name = "textBox4";
+            this.return3Txt.Size = new System.Drawing.Size(100, 29);
+            this.return3Txt.TabIndex = 13;
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(239, 184);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 29);
-            this.textBox5.TabIndex = 12;
+            this.return2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return2Txt.Location = new System.Drawing.Point(239, 184);
+            this.return2Txt.Name = "textBox5";
+            this.return2Txt.Size = new System.Drawing.Size(100, 29);
+            this.return2Txt.TabIndex = 12;
             // 
             // textBox6
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(239, 158);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 29);
-            this.textBox6.TabIndex = 11;
+            this.return1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return1Txt.Location = new System.Drawing.Point(239, 158);
+            this.return1Txt.Name = "textBox6";
+            this.return1Txt.Size = new System.Drawing.Size(100, 29);
+            this.return1Txt.TabIndex = 11;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(126, 216);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 24);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Email";
+            this.return3Lbl.AutoSize = true;
+            this.return3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return3Lbl.Location = new System.Drawing.Point(126, 216);
+            this.return3Lbl.Name = "label6";
+            this.return3Lbl.Size = new System.Drawing.Size(57, 24);
+            this.return3Lbl.TabIndex = 10;
+            this.return3Lbl.Text = "Email";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(126, 160);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 24);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Name";
+            this.return1Lbl.AutoSize = true;
+            this.return1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return1Lbl.Location = new System.Drawing.Point(126, 160);
+            this.return1Lbl.Name = "label7";
+            this.return1Lbl.Size = new System.Drawing.Size(61, 24);
+            this.return1Lbl.TabIndex = 9;
+            this.return1Lbl.Text = "Name";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(126, 187);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 24);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Phone Number";
+            this.return2Lbl.AutoSize = true;
+            this.return2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return2Lbl.Location = new System.Drawing.Point(126, 187);
+            this.return2Lbl.Name = "label8";
+            this.return2Lbl.Size = new System.Drawing.Size(140, 24);
+            this.return2Lbl.TabIndex = 8;
+            this.return2Lbl.Text = "Phone Number";
             // 
             // returnTitleLbl
             // 
@@ -599,20 +599,20 @@
         private System.Windows.Forms.TextBox newCustomer2Txt;
         private System.Windows.Forms.TextBox newCustomer1Txt;
         private System.Windows.Forms.Label newCustomer3Lbl;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox return3Txt;
+        private System.Windows.Forms.TextBox return2Txt;
+        private System.Windows.Forms.TextBox return1Txt;
+        private System.Windows.Forms.Label return3Lbl;
+        private System.Windows.Forms.Label return1Lbl;
+        private System.Windows.Forms.Label return2Lbl;
+        private System.Windows.Forms.TextBox checkout4Txt;
+        private System.Windows.Forms.TextBox checkout2Txt;
+        private System.Windows.Forms.TextBox checkout1Txt;
+        private System.Windows.Forms.Label checkout4Lbl;
+        private System.Windows.Forms.Label checkout1Lbl;
+        private System.Windows.Forms.Label checkout2Lbl;
+        private System.Windows.Forms.TextBox checkout3Txt;
+        private System.Windows.Forms.Label checkout3Lbl;
         private System.Windows.Forms.Panel adminPnl;
         private System.Windows.Forms.Button adminBtn;
         private System.Windows.Forms.Label label2;
