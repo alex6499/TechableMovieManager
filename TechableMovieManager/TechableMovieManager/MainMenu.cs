@@ -33,9 +33,6 @@ namespace TechableMovieManager
             resizePage();
             //sets report panel to initial panel
             setCurrentMainPanel(checkoutPnl);
-
-            TableExample tableExample = new TableExample();
-            tableExample.Show();
         }
 
         private void MainMenu_Resize(object sender, EventArgs e)
