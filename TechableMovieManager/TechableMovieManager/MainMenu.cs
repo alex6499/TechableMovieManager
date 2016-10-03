@@ -12,6 +12,10 @@ namespace TechableMovieManager
 {
     public partial class MainMenu : Form
     {
+        /*
+         * Initialization and Resize Methods
+         */
+
         public MainMenu()
         {
             InitializeComponent();
@@ -24,192 +28,18 @@ namespace TechableMovieManager
             tableExample.Show();
         }
 
-
-
-        private void ChangeBtn_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
-
-        private void relocateObject(Panel panel, double left, double right, double top, double bottom)
-        {
-            int formWidth = this.Width;
-            int formHeight = this.Height;
-
-            int xPos = Convert.ToInt32(formWidth * left);
-            int yPos = Convert.ToInt32(formHeight * top);
-            int width = Convert.ToInt32(formWidth * right) - xPos;
-            int height = Convert.ToInt32(formHeight * bottom) - yPos;
-
-            panel.Location = new Point(xPos, yPos);
-            panel.Size = new Size(width, height);
-        }
-
-        private void relocateObject(Label label, Panel panel, double left, double right, double top, double bottom)
-        {
-            int formWidth = panel.Width;
-            int formHeight = panel.Height;
-
-            int xPos = Convert.ToInt32(formWidth * left);
-            int yPos = Convert.ToInt32(formHeight * top);
-            int width = Convert.ToInt32(formWidth * right) - xPos;
-            int height = Convert.ToInt32(formHeight * bottom) - yPos;
-
-            label.Location = new Point(xPos, yPos);
-            label.Size = new Size(width, height);
-        }
-        private void relocateObject(Button button, Panel panel, double left, double right, double top, double bottom)
-        {
-            int formWidth = panel.Width;
-            int formHeight = panel.Height;
-
-            int xPos = Convert.ToInt32(formWidth * left);
-            int yPos = Convert.ToInt32(formHeight * top);
-            int width = Convert.ToInt32(formWidth * right) - xPos;
-            int height = Convert.ToInt32(formHeight * bottom) - yPos;
-
-            button.Location = new Point(xPos, yPos);
-            button.Size = new Size(width, height);
-        }
-        private void relocateObject(TextBox textbox, Panel panel, double left, double right, double top, double bottom)
-        {
-            int formWidth = panel.Width;
-            int formHeight = panel.Height;
-
-            int xPos = Convert.ToInt32(formWidth * left);
-            int yPos = Convert.ToInt32(formHeight * top);
-            int width = Convert.ToInt32(formWidth * right) - xPos;
-            int height = Convert.ToInt32(formHeight * bottom) - yPos;
-
-            textbox.Location = new Point(xPos, yPos);
-            textbox.Size = new Size(width, height);
-        }
-
-        private void relocateButtonsSquare()
-        {
-            int panelWidth = panel1.Width;
-            int panelHeight = panel1.Height;
-
-            //relocate and size button1
-            checkinBtn.Location = new Point(0, 0);
-            checkinBtn.Width = panelWidth / 2;
-            checkinBtn.Height = panelHeight / 2;
-            //relocate and size button2
-            newCustomerBtn.Location = new Point(panelWidth / 2, 0);
-            newCustomerBtn.Width = panelWidth / 2;
-            newCustomerBtn.Height = panelHeight / 2;
-            //relocate and size button3
-            button3.Location = new Point(0, panelHeight / 2);
-            button3.Width = panelWidth / 2;
-            button3.Height = panelHeight / 2;
-            //relocate and size button4
-            button4.Location = new Point(panelWidth / 2, panelHeight / 2);
-            button4.Width = panelWidth / 2;
-            button4.Height = panelHeight / 2;
-        }
-
-        private void relocateButtonsVerticle(Button[] buttons)
-        {
-            int numberOfButtons = buttons.Length;
-            int panelWidth = panel1.Width;
-            int panelHeight = panel1.Height;
-
-            for (int i = 0; i < buttons.Length; i++)
-            {
-                Button button = buttons[i];
-
-                button.Location = new Point(0, i * panelHeight / numberOfButtons);
-                button.Width = panelWidth;
-                button.Height = panelHeight / numberOfButtons;
-            }
-            /*
-
-            //relocate and size button1
-            checkinBtn.Location = new Point(0, 0);
-            checkinBtn.Width = panelWidth;
-            checkinBtn.Height = panelHeight / 4;
-            //relocate and size button2
-            newCustomerBtn.Location = new Point(0, panelHeight / 4);
-            newCustomerBtn.Width = panelWidth;
-            newCustomerBtn.Height = panelHeight / 4;
-            //relocate and size button3
-            button3.Location = new Point(0, panelHeight / 2);
-            button3.Width = panelWidth;
-            button3.Height = panelHeight / 4;
-            //relocate and size button4
-            button4.Location = new Point(0, panelHeight * 3 / 4);
-            button4.Width = panelWidth;
-            button4.Height = panelHeight / 4;
-            */
-        }
-       
         private void MainMenu_Resize(object sender, EventArgs e)
         {
             resizePage();
         }
 
-        private void resizePage()
+        /*
+         * Button Click Events
+         */
+
+        private void ChangeBtn_Click(object sender, EventArgs e)
         {
-            //relocatePanels(panel1, .2, 1, .2, .95);
-            //relocateButtonsSquare();
-            relocateObject(panel1, 0, .3, .1, .95);
-            relocateObject(returnPnl, .3, .95, .1, .95);
-            relocateObject(checkoutPnl, .3, .95, .1, .95);
-            relocateObject(newCustomerPnl, .3, .95, .1, .95);
-            relocateObject(moviesPnl, .3, .95, .1, .95);
-
-            setupReturnPnl();
-            setupNewCustomerPnl();
-            setupCheckoutPnl();
-            Button[] buttons = { checkinBtn, newCustomerBtn, button3, button4, adminBtn };
-            relocateButtonsVerticle(buttons);
-        }
-
-        public void setupNewCustomerPnl()
-        {
-            relocateObject(customerTitleLbl, newCustomerPnl, .4, .7, .1, .2);
-
-            relocateObject(label4, newCustomerPnl, .3, .5, .2, .3);
-            relocateObject(label3, newCustomerPnl, .3, .5, .3, .4);
-            relocateObject(label5, newCustomerPnl, .3, .5, .4, .5);
-
-            relocateObject(textBox1, newCustomerPnl, .5, .8, .2, .3);
-            relocateObject(textBox2, newCustomerPnl, .5, .8, .3, .4);
-            relocateObject(textBox3, newCustomerPnl, .5, .8, .4, .5);
-        }
-
-        public void setupCheckoutPnl()
-        {
-            relocateObject(checkoutTitleLbl, newCustomerPnl, .4, .7, .1, .2);
-
-
-            relocateObject(label11, checkoutPnl, .3, .5, .2, .3);
-            relocateObject(label1, checkoutPnl, .302, .5, .23, .35);
-            relocateObject(label12, checkoutPnl, .3, .5, .3, .4);
-            relocateObject(label1, checkoutPnl, .3, .5, .4, .5);
-            relocateObject(label10, checkoutPnl, .3, .5, .5, .6);
-
-            relocateObject(textBox9, checkoutPnl, .5, .8, .2, .3);
-            relocateObject(textBox8, checkoutPnl, .5, .8, .3, .4);
-            relocateObject(textBox10, checkoutPnl, .5, .8, .4, .5);
-            relocateObject(textBox7, checkoutPnl, .5, .8, .5, .6);
-        }
-
-        public void setupReturnPnl()
-        {
-            relocateObject(returnTitleLbl, newCustomerPnl, .4, .7, .1, .2);
-
-            relocateObject(label7, checkoutPnl, .3, .5, .2, .3);
-            relocateObject(label8, checkoutPnl, .3, .5, .3, .4);
-            relocateObject(label6, checkoutPnl, .3, .5, .4, .5);
-
-            relocateObject(textBox6, checkoutPnl, .5, .8, .2, .3);
-            relocateObject(textBox5, checkoutPnl, .5, .8, .3, .4);
-            relocateObject(textBox4, checkoutPnl, .5, .8, .4, .5);
-        }
-        private void moviesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
+            Application.Restart();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -244,10 +74,127 @@ namespace TechableMovieManager
             moviesPnl.Visible = true;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        /*
+         * Page and Panel Positioning Methods
+         */
 
+        private void resizePage()
+        {
+            positionPanel(panel1, 0, .3, .1, .95);
+
+            positionPanel(returnPnl, .3, .95, .1, .95);
+            positionPanel(checkoutPnl, .3, .95, .1, .95);
+            positionPanel(newCustomerPnl, .3, .95, .1, .95);
+            positionPanel(moviesPnl, .3, .95, .1, .95);
+
+            setupReturnPnl();
+            setupNewCustomerPnl();
+            setupCheckoutPnl();
+            Button[] buttons = { checkinBtn, newCustomerBtn, returnBtn, reportsBtn, adminBtn };
+            positionButtonsVertically(buttons);
         }
+
+        public void setupNewCustomerPnl()
+        {
+            positionObject(customerTitleLbl, newCustomerPnl, .4, .7, .1, .2);
+
+            positionObject(label4, newCustomerPnl, .3, .5, .2, .3);
+            positionObject(label3, newCustomerPnl, .3, .5, .3, .4);
+            positionObject(label5, newCustomerPnl, .3, .5, .4, .5);
+
+            positionObject(textBox1, newCustomerPnl, .5, .8, .2, .3);
+            positionObject(textBox2, newCustomerPnl, .5, .8, .3, .4);
+            positionObject(textBox3, newCustomerPnl, .5, .8, .4, .5);
+        }
+
+        public void setupCheckoutPnl()
+        {
+            positionObject(checkoutTitleLbl, newCustomerPnl, .4, .7, .1, .2);
+
+
+            positionObject(label11, checkoutPnl, .3, .5, .2, .3);
+            positionObject(label1, checkoutPnl, .302, .5, .23, .35);
+            positionObject(label12, checkoutPnl, .3, .5, .3, .4);
+            positionObject(label1, checkoutPnl, .3, .5, .4, .5);
+            positionObject(label10, checkoutPnl, .3, .5, .5, .6);
+
+            positionObject(textBox9, checkoutPnl, .5, .8, .2, .3);
+            positionObject(textBox8, checkoutPnl, .5, .8, .3, .4);
+            positionObject(textBox10, checkoutPnl, .5, .8, .4, .5);
+            positionObject(textBox7, checkoutPnl, .5, .8, .5, .6);
+        }
+
+        public void setupReturnPnl()
+        {
+            positionObject(returnTitleLbl, newCustomerPnl, .4, .7, .1, .2);
+
+            positionObject(label7, checkoutPnl, .3, .5, .2, .3);
+            positionObject(label8, checkoutPnl, .3, .5, .3, .4);
+            positionObject(label6, checkoutPnl, .3, .5, .4, .5);
+
+            positionObject(textBox6, checkoutPnl, .5, .8, .2, .3);
+            positionObject(textBox5, checkoutPnl, .5, .8, .3, .4);
+            positionObject(textBox4, checkoutPnl, .5, .8, .4, .5);
+        }
+
+        /*
+         * Object Repositioning Methods
+         * 
+         */
+        
+        private void positionPanel(Panel panel, double left, double right, double top, double bottom)
+        {
+            int formWidth = this.Width;
+            int formHeight = this.Height;
+
+            int xPos = Convert.ToInt32(formWidth * left);
+            int yPos = Convert.ToInt32(formHeight * top);
+            int width = Convert.ToInt32(formWidth * right) - xPos;
+            int height = Convert.ToInt32(formHeight * bottom) - yPos;
+
+            panel.Location = new Point(xPos, yPos);
+            panel.Size = new Size(width, height);
+        }
+
+        private void positionObject(Control control, Panel panel, double left, double right, double top, double bottom)
+        {
+            int formWidth = panel.Width;
+            int formHeight = panel.Height;
+
+            int xPos = Convert.ToInt32(formWidth * left);
+            int yPos = Convert.ToInt32(formHeight * top);
+            int width = Convert.ToInt32(formWidth * right) - xPos;
+            int height = Convert.ToInt32(formHeight * bottom) - yPos;
+
+            control.Location = new Point(xPos, yPos);
+            control.Size = new Size(width, height);
+        }
+
+        private void setLocation(Control control, Panel panel, double x,  double y)
+        {
+            int formWidth = panel.Width;
+            int formHeight = panel.Height;
+
+            int xPos = Convert.ToInt32(formWidth * x);
+            int yPos = Convert.ToInt32(formHeight * y);
+
+            control.Location = new Point(xPos, yPos);
+        }
+
+        private void positionButtonsVertically(Button[] buttons)
+        {
+            int numberOfButtons = buttons.Length;
+            int panelWidth = panel1.Width;
+            int panelHeight = panel1.Height;
+
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                Button button = buttons[i];
+
+                button.Location = new Point(0, i * panelHeight / numberOfButtons);
+                button.Width = panelWidth;
+                button.Height = panelHeight / numberOfButtons;
+            }
+        } 
     }
-    
 }
