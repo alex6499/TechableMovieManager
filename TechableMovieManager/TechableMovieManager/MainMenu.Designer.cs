@@ -61,14 +61,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.returnTitleLbl = new System.Windows.Forms.Label();
-            this.moviesPnl = new System.Windows.Forms.Panel();
+            this.reportsPnl = new System.Windows.Forms.Panel();
             this.newCustomerPnl = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.newCustomer3Txt = new System.Windows.Forms.TextBox();
+            this.newCustomer2Txt = new System.Windows.Forms.TextBox();
+            this.newCustomer1Txt = new System.Windows.Forms.TextBox();
+            this.newCustomer3Lbl = new System.Windows.Forms.Label();
+            this.newCustomer1Lbl = new System.Windows.Forms.Label();
+            this.newCustomer2Lbl = new System.Windows.Forms.Label();
             this.customerTitleLbl = new System.Windows.Forms.Label();
             this.adminPnl = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -93,7 +93,7 @@
             this.checkinBtn.TabIndex = 1;
             this.checkinBtn.Text = "Check Out Movie";
             this.checkinBtn.UseVisualStyleBackColor = true;
-            this.checkinBtn.Click += new System.EventHandler(this.button1_Click);
+            this.checkinBtn.Click += new System.EventHandler(this.checkinBtn_Click);
             // 
             // newCustomerBtn
             // 
@@ -104,7 +104,7 @@
             this.newCustomerBtn.TabIndex = 2;
             this.newCustomerBtn.Text = "newCustomer";
             this.newCustomerBtn.UseVisualStyleBackColor = true;
-            this.newCustomerBtn.Click += new System.EventHandler(this.button2_Click);
+            this.newCustomerBtn.Click += new System.EventHandler(this.newCustomer_Click);
             // 
             // returnBtn
             // 
@@ -115,7 +115,7 @@
             this.returnBtn.TabIndex = 3;
             this.returnBtn.Text = "Return Movie";
             this.returnBtn.UseVisualStyleBackColor = true;
-            this.returnBtn.Click += new System.EventHandler(this.button3_Click);
+            this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // reportsBtn
             // 
@@ -126,7 +126,7 @@
             this.reportsBtn.TabIndex = 4;
             this.reportsBtn.Text = "Reports";
             this.reportsBtn.UseVisualStyleBackColor = true;
-            this.reportsBtn.Click += new System.EventHandler(this.button4_Click);
+            this.reportsBtn.Click += new System.EventHandler(this.reportsBtn_Click);
             // 
             // ChangeBtn
             // 
@@ -159,6 +159,7 @@
             this.adminBtn.TabIndex = 13;
             this.adminBtn.Text = "Admin";
             this.adminBtn.UseVisualStyleBackColor = true;
+            this.adminBtn.Click += new System.EventHandler(this.adminBtn_Click);
             // 
             // menuStrip1
             // 
@@ -399,21 +400,21 @@
             this.returnTitleLbl.TabIndex = 0;
             this.returnTitleLbl.Text = "return";
             // 
-            // moviesPnl
+            // reportsPnl
             // 
-            this.moviesPnl.Location = new System.Drawing.Point(991, 30);
-            this.moviesPnl.Name = "moviesPnl";
-            this.moviesPnl.Size = new System.Drawing.Size(200, 100);
-            this.moviesPnl.TabIndex = 10;
+            this.reportsPnl.Location = new System.Drawing.Point(991, 30);
+            this.reportsPnl.Name = "reportsPnl";
+            this.reportsPnl.Size = new System.Drawing.Size(200, 100);
+            this.reportsPnl.TabIndex = 10;
             // 
             // newCustomerPnl
             // 
-            this.newCustomerPnl.Controls.Add(this.textBox3);
-            this.newCustomerPnl.Controls.Add(this.textBox2);
-            this.newCustomerPnl.Controls.Add(this.textBox1);
-            this.newCustomerPnl.Controls.Add(this.label5);
-            this.newCustomerPnl.Controls.Add(this.label4);
-            this.newCustomerPnl.Controls.Add(this.label3);
+            this.newCustomerPnl.Controls.Add(this.newCustomer3Txt);
+            this.newCustomerPnl.Controls.Add(this.newCustomer2Txt);
+            this.newCustomerPnl.Controls.Add(this.newCustomer1Txt);
+            this.newCustomerPnl.Controls.Add(this.newCustomer3Lbl);
+            this.newCustomerPnl.Controls.Add(this.newCustomer1Lbl);
+            this.newCustomerPnl.Controls.Add(this.newCustomer2Lbl);
             this.newCustomerPnl.Controls.Add(this.customerTitleLbl);
             this.newCustomerPnl.Location = new System.Drawing.Point(242, 388);
             this.newCustomerPnl.Name = "newCustomerPnl";
@@ -423,57 +424,57 @@
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(243, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 29);
-            this.textBox3.TabIndex = 6;
+            this.newCustomer3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer3Txt.Location = new System.Drawing.Point(243, 112);
+            this.newCustomer3Txt.Name = "textBox3";
+            this.newCustomer3Txt.Size = new System.Drawing.Size(100, 29);
+            this.newCustomer3Txt.TabIndex = 6;
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(243, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 29);
-            this.textBox2.TabIndex = 5;
+            this.newCustomer2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer2Txt.Location = new System.Drawing.Point(243, 83);
+            this.newCustomer2Txt.Name = "textBox2";
+            this.newCustomer2Txt.Size = new System.Drawing.Size(100, 29);
+            this.newCustomer2Txt.TabIndex = 5;
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(243, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 29);
-            this.textBox1.TabIndex = 4;
+            this.newCustomer1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer1Txt.Location = new System.Drawing.Point(243, 57);
+            this.newCustomer1Txt.Name = "textBox1";
+            this.newCustomer1Txt.Size = new System.Drawing.Size(100, 29);
+            this.newCustomer1Txt.TabIndex = 4;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 24);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Email";
+            this.newCustomer3Lbl.AutoSize = true;
+            this.newCustomer3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer3Lbl.Location = new System.Drawing.Point(44, 112);
+            this.newCustomer3Lbl.Name = "label5";
+            this.newCustomer3Lbl.Size = new System.Drawing.Size(57, 24);
+            this.newCustomer3Lbl.TabIndex = 3;
+            this.newCustomer3Lbl.Text = "Email";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(44, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 24);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Name";
+            this.newCustomer1Lbl.AutoSize = true;
+            this.newCustomer1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer1Lbl.Location = new System.Drawing.Point(44, 56);
+            this.newCustomer1Lbl.Name = "label4";
+            this.newCustomer1Lbl.Size = new System.Drawing.Size(61, 24);
+            this.newCustomer1Lbl.TabIndex = 2;
+            this.newCustomer1Lbl.Text = "Name";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 24);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Phone Number";
+            this.newCustomer2Lbl.AutoSize = true;
+            this.newCustomer2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer2Lbl.Location = new System.Drawing.Point(44, 83);
+            this.newCustomer2Lbl.Name = "label3";
+            this.newCustomer2Lbl.Size = new System.Drawing.Size(140, 24);
+            this.newCustomer2Lbl.TabIndex = 1;
+            this.newCustomer2Lbl.Text = "Phone Number";
             // 
             // customerTitleLbl
             // 
@@ -493,6 +494,7 @@
             this.adminPnl.Name = "adminPnl";
             this.adminPnl.Size = new System.Drawing.Size(525, 516);
             this.adminPnl.TabIndex = 12;
+            this.adminPnl.Visible = false;
             // 
             // tabControl1
             // 
@@ -540,7 +542,7 @@
             this.ClientSize = new System.Drawing.Size(1242, 630);
             this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.newCustomerPnl);
-            this.Controls.Add(this.moviesPnl);
+            this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.ChangeBtn);
             this.Controls.Add(this.checkoutPnl);
             this.Controls.Add(this.panel1);
@@ -588,15 +590,15 @@
         private System.Windows.Forms.Panel returnPnl;
         private System.Windows.Forms.Label returnTitleLbl;
         private System.Windows.Forms.Label checkoutTitleLbl;
-        private System.Windows.Forms.Panel moviesPnl;
+        private System.Windows.Forms.Panel reportsPnl;
         private System.Windows.Forms.Panel newCustomerPnl;
         private System.Windows.Forms.Label customerTitleLbl;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label newCustomer1Lbl;
+        private System.Windows.Forms.Label newCustomer2Lbl;
+        private System.Windows.Forms.TextBox newCustomer3Txt;
+        private System.Windows.Forms.TextBox newCustomer2Txt;
+        private System.Windows.Forms.TextBox newCustomer1Txt;
+        private System.Windows.Forms.Label newCustomer3Lbl;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;

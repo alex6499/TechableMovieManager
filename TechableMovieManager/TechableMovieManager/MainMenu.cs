@@ -12,6 +12,12 @@ namespace TechableMovieManager
 {
     public partial class MainMenu : Form
     {
+
+        /*
+         * Globals
+         */
+        Panel currentMainPanel;
+
         /*
          * Initialization and Resize Methods
          */
@@ -23,7 +29,11 @@ namespace TechableMovieManager
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            //ensures all positions are correctly set at startup
             resizePage();
+            //sets report panel to initial panel
+            setCurrentMainPanel(reportsPnl);
+
             TableExample tableExample = new TableExample();
             tableExample.Show();
         }
@@ -42,42 +52,53 @@ namespace TechableMovieManager
             Application.Restart();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void checkinBtn_Click(object sender, EventArgs e)
         {
-            returnPnl.Visible = false;
-            newCustomerPnl.Visible = false;
-            moviesPnl.Visible = false;
-            checkoutPnl.Visible = true;
+            setCurrentMainPanel(checkoutPnl);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void returnBtn_Click(object sender, EventArgs e)
         {
-            checkoutPnl.Visible = false;
-            newCustomerPnl.Visible = false;
-            moviesPnl.Visible = false;
-            returnPnl.Visible = true;
+            setCurrentMainPanel(returnPnl);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void newCustomer_Click(object sender, EventArgs e)
         {
-            checkoutPnl.Visible = false;
-            moviesPnl.Visible = false;
-            returnPnl.Visible = false;
-            newCustomerPnl.Visible = true;
+            setCurrentMainPanel(newCustomerPnl);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void reportsBtn_Click(object sender, EventArgs e)
         {
-            checkoutPnl.Visible = false;
-            returnPnl.Visible = false;
-            newCustomerPnl.Visible = false;
-            moviesPnl.Visible = true;
+            setCurrentMainPanel(reportsPnl);
+        }
+
+        private void adminBtn_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(adminPnl);
+        }
+
+        /// <summary>
+        /// This method changes the current main panel to a new one specified
+        /// </summary>
+        /// <param name="panel">The new panel to show as the main panel</param>
+        private void setCurrentMainPanel(Panel panel)
+        {
+            if (currentMainPanel != null)
+            {
+                currentMainPanel.Visible = false;
+            }
+
+            currentMainPanel = panel;
+            currentMainPanel.Visible = true;
         }
 
         /*
          * Page and Panel Positioning Methods
          */
-
+        
+        /// <summary>
+        /// Sets the position of all components within the form based on percent relative locations
+        /// </summary>
         private void resizePage()
         {
             positionPanel(panel1, 0, .3, .1, .95);
@@ -85,26 +106,30 @@ namespace TechableMovieManager
             positionPanel(returnPnl, .3, .95, .1, .95);
             positionPanel(checkoutPnl, .3, .95, .1, .95);
             positionPanel(newCustomerPnl, .3, .95, .1, .95);
-            positionPanel(moviesPnl, .3, .95, .1, .95);
+            positionPanel(reportsPnl, .3, .95, .1, .95);
+            positionPanel(adminPnl, .3, .95, .1, .95);
 
             setupReturnPnl();
             setupNewCustomerPnl();
             setupCheckoutPnl();
-            Button[] buttons = { checkinBtn, newCustomerBtn, returnBtn, reportsBtn, adminBtn };
-            positionButtonsVertically(buttons);
+            Button[] mainButtons = { checkinBtn, newCustomerBtn, returnBtn, reportsBtn, adminBtn };
+            positionButtonsVertically(mainButtons);
         }
 
+        /// <summary>
+        /// Sets the position of all components within the new customer panel based on percent relative locations
+        /// </summary>
         public void setupNewCustomerPnl()
         {
             positionObject(customerTitleLbl, newCustomerPnl, .4, .7, .1, .2);
 
-            positionObject(label4, newCustomerPnl, .3, .5, .2, .3);
-            positionObject(label3, newCustomerPnl, .3, .5, .3, .4);
-            positionObject(label5, newCustomerPnl, .3, .5, .4, .5);
+            positionObject(newCustomer1Lbl, newCustomerPnl, .3, .5, .2, .3);
+            positionObject(newCustomer2Lbl, newCustomerPnl, .3, .5, .3, .4);
+            positionObject(newCustomer3Lbl, newCustomerPnl, .3, .5, .4, .5);
 
-            positionObject(textBox1, newCustomerPnl, .5, .8, .2, .3);
-            positionObject(textBox2, newCustomerPnl, .5, .8, .3, .4);
-            positionObject(textBox3, newCustomerPnl, .5, .8, .4, .5);
+            positionObject(newCustomer1Txt, newCustomerPnl, .5, .8, .2, .3);
+            positionObject(newCustomer2Txt, newCustomerPnl, .5, .8, .3, .4);
+            positionObject(newCustomer3Txt, newCustomerPnl, .5, .8, .4, .5);
         }
 
         public void setupCheckoutPnl()
@@ -195,6 +220,6 @@ namespace TechableMovieManager
                 button.Width = panelWidth;
                 button.Height = panelHeight / numberOfButtons;
             }
-        } 
+        }
     }
 }
