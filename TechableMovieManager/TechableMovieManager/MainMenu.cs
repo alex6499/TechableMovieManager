@@ -43,7 +43,7 @@ namespace TechableMovieManager
             textLeft = 0.3;
             textRight = 0.7;
 
-            isAdmin = true;
+            isAdmin = !true;
 
             if (isAdmin)
             {
@@ -71,7 +71,9 @@ namespace TechableMovieManager
         }
 
         /*
+         * ----------------------------------------------------------------------------------------------
          * Button Click Events
+         * ----------------------------------------------------------------------------------------------
          */
 
         private void ChangeBtn_Click(object sender, EventArgs e)
@@ -119,6 +121,10 @@ namespace TechableMovieManager
             setCurrentMainPanel(returnPnl);
         }
 
+        private void admin1Btn_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(addUserPnl);
+        }
         /// <summary>
         /// This method changes the current main panel to a new one specified
         /// </summary>
@@ -153,6 +159,7 @@ namespace TechableMovieManager
             setPositionFormControl(newCustomerPnl, buttonPanelWidth, .95, .1, .95);
             setPositionFormControl(reportsPnl, buttonPanelWidth, .95, .1, .95);
             setPositionFormControl(adminPnl, buttonPanelWidth, .95, .1, .95);
+            setPositionFormControl(addUserPnl, buttonPanelWidth, .95, .1, .95);
 
             setupReturnPnl();
             setupNewCustomerPnl();
@@ -160,6 +167,7 @@ namespace TechableMovieManager
             setupRent2Pnl();
             setupAdminPnl();
             setupReportsPnl();
+            setupAddUserPnl();
 
             if (isAdmin)
             {
@@ -183,20 +191,33 @@ namespace TechableMovieManager
             setPositionPanelControl(newCustomer1Lbl, newCustomerPnl, labelLeft, textLeft, .2, .3);
             setPositionPanelControl(newCustomer2Lbl, newCustomerPnl, labelLeft, textLeft, .3, .4);
             setPositionPanelControl(newCustomer3Lbl, newCustomerPnl, labelLeft, textLeft, .4, .5);
-            setPositionPanelControl(newCustomer3Lbl, newCustomerPnl, labelLeft, textLeft, .5, .6);
+            setPositionPanelControl(newCustomer4Lbl, newCustomerPnl, labelLeft, textLeft, .5, .6);
 
             setPositionPanelControl(newCustomer1Txt, newCustomerPnl, textLeft, textRight, .2, .3);
             setPositionPanelControl(newCustomer2Txt, newCustomerPnl, textLeft, textRight, .3, .4);
             setPositionPanelControl(newCustomer3Txt, newCustomerPnl, textLeft, textRight, .4, .5);
-            setPositionPanelControl(newCustomer3Txt, newCustomerPnl, labelLeft, textLeft, .5, .6);
+            setPositionPanelControl(newCustomer4Txt, newCustomerPnl, textLeft, textRight, .5, .6);
 
             setLocationPanelControl(newCustomer1Btn, newCustomerPnl, .4, .7);
+        }
+
+        public void setupAddUserPnl()
+        {
+            setPositionPanelControl(customerTitleLbl, newCustomerPnl, .4, .7, 0, .1);
+
+            setPositionPanelControl(addUser1Lbl, newCustomerPnl, labelLeft, textLeft, .2, .3);
+            setPositionPanelControl(addUser2Lbl, newCustomerPnl, labelLeft, textLeft, .3, .4);
+
+            setPositionPanelControl(addUser1Txt, newCustomerPnl, textLeft, textRight, .2, .3);
+            setPositionPanelControl(addUser2Txt, newCustomerPnl, textLeft, textRight, .3, .4);
+
+            setLocationPanelControl(addUserRdb, newCustomerPnl, .4, .4);
+            setLocationPanelControl(addUserBtn, newCustomerPnl, .4, .6);
         }
 
         public void setupRentPnl()
         {
             setPositionPanelControl(rentTitleLbl, rentPnl, .4, .7, 0, .1);
-
 
             setPositionPanelControl(checkout1Lbl, rentPnl, labelLeft, textLeft, .2, .3);
 
@@ -212,12 +233,12 @@ namespace TechableMovieManager
             
             setPositionPanelControl(checkout2Lbl, rent2Pnl, labelLeft, textLeft, .2, .3);
             setPositionPanelControl(checkout3Lbl, rent2Pnl, labelLeft, textLeft, .3, .4);
-            setPositionPanelControl(checkout4Lbl, rent2Pnl, labelLeft, textLeft, .4, .5);
-            
+            setPositionPanelControl(rent3Lbl, rent2Pnl, labelLeft, textLeft, .4, .5);
+
             setPositionPanelControl(checkout2Txt, rent2Pnl, textLeft, textRight, .2, .3);
             setPositionPanelControl(checkout3Txt, rent2Pnl, textLeft, textRight, .3, .4);
-            setPositionPanelControl(checkout4Txt, rent2Pnl, textLeft, textRight, .4, .5);
 
+            setLocationPanelControl(comboBox1, rent2Pnl, textLeft, .4);
             setLocationPanelControl(rent2Btn, rent2Pnl, .4, .5);
         }
 
@@ -241,6 +262,7 @@ namespace TechableMovieManager
             setControlPosition(reports2Data, 0, 1, 0, 1);
             setControlPosition(reports3Data, 0, 1, 0, 1);
             setControlPosition(reports4Data, 0, 1, 0, 1);
+            setControlPosition(reports5Data, 0, 1, 0, 1);
         }
 
         public void setupAdminPnl()
@@ -249,9 +271,17 @@ namespace TechableMovieManager
 
             setPositionPanelControl(adminTab, adminPnl, .1, .9, .1, .9);
 
-            setControlPosition(admin1Data, 0, 1, 0, 1);
-            setControlPosition(admin2Data, 0, 1, 0, 1);
-            setControlPosition(admin3Data, 0, 1, 0, 1);
+            setControlPosition(admin1Data, 0, 1, 0, .8);
+            setControlPosition(admin2Data, 0, 1, 0, .8);
+            setControlPosition(admin3Data, 0, 1, 0, .8);
+
+            setControlLocation(admin1Btn, .3, .85);
+            setControlLocation(admin2Btn, .6, .85);
+            setControlLocation(admin3Btn, .3, .85);
+            setControlLocation(admin4Btn, .6, .85);
+            setControlLocation(admin5Btn, .3, .85);
+            setControlLocation(admin6Btn, .6, .85);
+
         }
 
         /*
@@ -300,6 +330,18 @@ namespace TechableMovieManager
             control.Location = new Point(xPos, yPos);
             control.Size = new Size(width, height);
         }
+
+        private void setControlLocation(Control control, double x, double y)
+        {
+            int formWidth = control.Parent.Parent.Width;
+            int formHeight = control.Parent.Parent.Height;
+
+            int xPos = Convert.ToInt32(formWidth * x);
+            int yPos = Convert.ToInt32(formHeight * y);
+
+            control.Location = new Point(xPos, yPos);
+        }
+
         private void setLocationPanelControl(Control control, Panel panel, double x,  double y)
         {
             int formWidth = panel.Width;
@@ -374,6 +416,11 @@ namespace TechableMovieManager
         }
 
         private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }
