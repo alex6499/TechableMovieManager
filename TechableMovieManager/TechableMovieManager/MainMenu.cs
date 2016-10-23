@@ -31,12 +31,14 @@ namespace TechableMovieManager
 
         Boolean isAdmin;
 
+        string userName;
         /*
          * Initialization and Resize Methods
          */
 
-        public MainMenu()
+        public MainMenu(string userName)
         {
+            this.userName = userName;
             InitializeComponent();
         }
 
@@ -47,7 +49,7 @@ namespace TechableMovieManager
             labelLeft = 0.1;
             textLeft = 0.3;
             textRight = 0.7;
-
+            
             isAdmin = !true;
 
             if (isAdmin)

@@ -12,6 +12,8 @@ namespace TechableMovieManager
 {
     public partial class LoginMenu : Form
     {
+        public string userName;
+
         public LoginMenu()
         {
             InitializeComponent();
@@ -19,8 +21,10 @@ namespace TechableMovieManager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            userName = userNameTxt.Text;
+
             this.Hide();
-            MainMenu MainMenu = new MainMenu();
+            MainMenu MainMenu = new MainMenu(userName);
             MainMenu.Show();
         }
 
