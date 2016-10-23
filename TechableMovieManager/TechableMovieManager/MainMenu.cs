@@ -60,7 +60,6 @@ namespace TechableMovieManager
                 adminBtn.Visible = false;
             }
 
-
             setupPanels.Add(returnPnl, setupReturnPnl);
             setupPanels.Add(rentPnl, setupRentPnl);
             setupPanels.Add(rent2Pnl, setupRent2Pnl);

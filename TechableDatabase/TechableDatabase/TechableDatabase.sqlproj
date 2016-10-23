@@ -62,4 +62,7 @@
   <ItemGroup>
     <Build Include="Movies.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="TechableDatabase.refactorlog" />
+  </ItemGroup>
 </Project>

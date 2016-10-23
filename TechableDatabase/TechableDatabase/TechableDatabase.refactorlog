@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="fb2bfd22-50e7-4a4a-914e-57663172beb3" ChangeDateTime="10/23/2016 22:10:06">
+    <Property Name="ElementName" Value="[dbo].[Movies].[UPC]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Movies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="upc" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="432b421c-b6ae-40cf-9d8c-a560798add15" ChangeDateTime="10/23/2016 22:10:13">
+    <Property Name="ElementName" Value="[dbo].[Movies].[Quantity]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Movies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="quantityTotal" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1df7ba6b-a34f-4554-b96a-fa8d71857d0d" ChangeDateTime="10/23/2016 22:12:26">
+    <Property Name="ElementName" Value="[dbo].[Movies].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Movies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="upc" />
+  </Operation>
+</Operations>
