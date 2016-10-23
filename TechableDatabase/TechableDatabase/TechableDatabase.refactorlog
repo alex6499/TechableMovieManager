@@ -21,4 +21,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="upc" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="3b0376b4-c475-408e-b0ad-91d9bf427283" ChangeDateTime="10/23/2016 22:31:51">
+    <Property Name="ElementName" Value="[dbo].[Employees].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Employees]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="employeeID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4a00aa76-635a-49d6-be17-b29695d92ad5" ChangeDateTime="10/23/2016 22:32:01">
+    <Property Name="ElementName" Value="[dbo].[Customers].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Customers]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="customerId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="884e439b-fae9-49a0-9541-6eeec60347b0" ChangeDateTime="10/23/2016 22:32:40">
+    <Property Name="ElementName" Value="[dbo].[Movies].[upc]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Movies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="movieId" />
+  </Operation>
 </Operations>
