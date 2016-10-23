@@ -137,12 +137,6 @@ namespace TechableMovieManager
             setCurrentMainPanel(addUserPnl);
         }
     
-
-
-
-
-
-
         /// <summary>
         /// This method changes the current main panel to a new one specified
         /// </summary>
