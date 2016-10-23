@@ -42,6 +42,8 @@ namespace TechableMovieManager
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            this.AcceptButton = rent1Btn;
+            this.ActiveControl = checkout1Txt;
             labelLeft = 0.1;
             textLeft = 0.3;
             textRight = 0.7;
@@ -94,6 +96,8 @@ namespace TechableMovieManager
 
         private void checkoutBtn_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = checkout1Txt;
+            this.AcceptButton = rent1Btn;
             setCurrentMainPanel(rentPnl);
         }
 
@@ -104,6 +108,8 @@ namespace TechableMovieManager
 
         private void returnBtn_Click(object sender, EventArgs e)
         {
+            this.AcceptButton = return1Btn;
+            this.ActiveControl = return1Txt;
             setCurrentMainPanel(returnPnl);
         }
 
