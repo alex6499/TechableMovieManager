@@ -390,7 +390,7 @@
             this.returnPnl.Controls.Add(this.return1Txt);
             this.returnPnl.Controls.Add(this.return1Lbl);
             this.returnPnl.Controls.Add(this.returnTitleLbl);
-            this.returnPnl.Location = new System.Drawing.Point(929, 104);
+            this.returnPnl.Location = new System.Drawing.Point(828, 265);
             this.returnPnl.Name = "returnPnl";
             this.returnPnl.Size = new System.Drawing.Size(483, 358);
             this.returnPnl.TabIndex = 9;
@@ -759,7 +759,7 @@
             this.newCustomerPnl.Controls.Add(this.newCustomer1Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer2Lbl);
             this.newCustomerPnl.Controls.Add(this.customerTitleLbl);
-            this.newCustomerPnl.Location = new System.Drawing.Point(90, 345);
+            this.newCustomerPnl.Location = new System.Drawing.Point(119, 363);
             this.newCustomerPnl.Name = "newCustomerPnl";
             this.newCustomerPnl.Size = new System.Drawing.Size(446, 314);
             this.newCustomerPnl.TabIndex = 11;
@@ -862,7 +862,7 @@
             this.adminPnl.BackColor = System.Drawing.Color.Transparent;
             this.adminPnl.Controls.Add(this.adminTab);
             this.adminPnl.Controls.Add(this.adminTitleLbl);
-            this.adminPnl.Location = new System.Drawing.Point(221, 328);
+            this.adminPnl.Location = new System.Drawing.Point(226, 337);
             this.adminPnl.Name = "adminPnl";
             this.adminPnl.Size = new System.Drawing.Size(525, 516);
             this.adminPnl.TabIndex = 12;
@@ -1110,7 +1110,7 @@
             this.rent2Pnl.Controls.Add(this.checkout2Txt);
             this.rent2Pnl.Controls.Add(this.checkout2Lbl);
             this.rent2Pnl.Controls.Add(this.rentTitle2Lbl);
-            this.rent2Pnl.Location = new System.Drawing.Point(256, 109);
+            this.rent2Pnl.Location = new System.Drawing.Point(181, 115);
             this.rent2Pnl.Name = "rent2Pnl";
             this.rent2Pnl.Size = new System.Drawing.Size(500, 328);
             this.rent2Pnl.TabIndex = 13;
@@ -1296,8 +1296,8 @@
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.mainButtonPnl);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.returnPnl);
+            this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
