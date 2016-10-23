@@ -136,7 +136,14 @@ namespace TechableMovieManager
         {
             setCurrentMainPanel(addUserPnl);
         }
-    
+
+
+        /*
+         * ----------------------------------------------------------------------------------------------
+         * Resize methods
+         * ----------------------------------------------------------------------------------------------
+         */
+
         /// <summary>
         /// This method changes the current main panel to a new one specified
         /// </summary>
@@ -187,6 +194,12 @@ namespace TechableMovieManager
             setupMethod();
         }
 
+
+        /*
+         * ----------------------------------------------------------------------------------------------
+         * Button Click Events
+         * ----------------------------------------------------------------------------------------------
+         */
         /// <summary>
         /// Sets the position of all components within the new customer panel based on percent relative locations
         /// </summary>
