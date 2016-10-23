@@ -149,11 +149,11 @@
             this.addUserPnl = new System.Windows.Forms.Panel();
             this.addUserRdb = new System.Windows.Forms.RadioButton();
             this.addUserBtn = new System.Windows.Forms.Button();
+            this.addUser2Txt = new System.Windows.Forms.TextBox();
             this.addUser1Txt = new System.Windows.Forms.TextBox();
             this.addUser1Lbl = new System.Windows.Forms.Label();
-            this.addUserTitleLbl = new System.Windows.Forms.Label();
             this.addUser2Lbl = new System.Windows.Forms.Label();
-            this.addUser2Txt = new System.Windows.Forms.TextBox();
+            this.addUserTitleLbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -1222,6 +1222,14 @@
             this.addUserBtn.Text = "Submit";
             this.addUserBtn.UseVisualStyleBackColor = true;
             // 
+            // addUser2Txt
+            // 
+            this.addUser2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser2Txt.Location = new System.Drawing.Point(243, 83);
+            this.addUser2Txt.Name = "addUser2Txt";
+            this.addUser2Txt.Size = new System.Drawing.Size(100, 29);
+            this.addUser2Txt.TabIndex = 5;
+            // 
             // addUser1Txt
             // 
             this.addUser1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1240,17 +1248,6 @@
             this.addUser1Lbl.TabIndex = 2;
             this.addUser1Lbl.Text = "First Name";
             // 
-            // addUserTitleLbl
-            // 
-            this.addUserTitleLbl.AutoSize = true;
-            this.addUserTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUserTitleLbl.Location = new System.Drawing.Point(177, 22);
-            this.addUserTitleLbl.Name = "addUserTitleLbl";
-            this.addUserTitleLbl.Size = new System.Drawing.Size(209, 37);
-            this.addUserTitleLbl.TabIndex = 0;
-            this.addUserTitleLbl.Text = "Remove User";
-            this.addUserTitleLbl.Click += new System.EventHandler(this.label5_Click);
-            // 
             // addUser2Lbl
             // 
             this.addUser2Lbl.AutoSize = true;
@@ -1261,13 +1258,16 @@
             this.addUser2Lbl.TabIndex = 1;
             this.addUser2Lbl.Text = "Last Name";
             // 
-            // addUser2Txt
+            // addUserTitleLbl
             // 
-            this.addUser2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUser2Txt.Location = new System.Drawing.Point(243, 83);
-            this.addUser2Txt.Name = "addUser2Txt";
-            this.addUser2Txt.Size = new System.Drawing.Size(100, 29);
-            this.addUser2Txt.TabIndex = 5;
+            this.addUserTitleLbl.AutoSize = true;
+            this.addUserTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUserTitleLbl.Location = new System.Drawing.Point(177, 22);
+            this.addUserTitleLbl.Name = "addUserTitleLbl";
+            this.addUserTitleLbl.Size = new System.Drawing.Size(209, 37);
+            this.addUserTitleLbl.TabIndex = 0;
+            this.addUserTitleLbl.Text = "Remove User";
+            this.addUserTitleLbl.Click += new System.EventHandler(this.label5_Click);
             // 
             // MainMenu
             // 
