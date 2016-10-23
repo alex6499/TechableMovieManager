@@ -16,17 +16,20 @@ namespace TechableMovieManager
         /*
          * Globals
          */
-        enum Position { RIGHT, LEFT, TOP, BOTTOM };
+
+        public delegate void setupDelegate();
+        Dictionary<Panel, setupDelegate> setupPanels = new Dictionary<Panel, setupDelegate>();
 
         Panel currentMainPanel;
+
+        double buttonPanelWidth = 0.2;
+
         //The following two are formatting variables which will be used to normalize the location of textboxes
         double labelLeft;
         double textLeft;
         double textRight;
 
         Boolean isAdmin;
-
-        Position mainButtonsPosition;
 
         /*
          * Initialization and Resize Methods
@@ -52,13 +55,21 @@ namespace TechableMovieManager
             {
                 adminBtn.Visible = false;
             }
-            //ensures all positions are correctly set at startup
-            resizePage();
+
+
+            setupPanels.Add(returnPnl, setupReturnPnl);
+            setupPanels.Add(rentPnl, setupRentPnl);
+            setupPanels.Add(rent2Pnl, setupRent2Pnl);
+            setupPanels.Add(adminPnl, setupAdminPnl);
+            setupPanels.Add(reportsPnl, setupReportsPnl);
+            setupPanels.Add(newCustomerPnl, setupNewCustomerPnl);
+            setupPanels.Add(addUserPnl, setupAddUserPnl);
+
             //sets report panel to initial panel
             setCurrentMainPanel(rentPnl);
 
-
-            mainButtonsPosition = Position.LEFT;
+            //ensures all positions are correctly set at startup
+            resizePage();
         }
 
         private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
@@ -125,60 +136,61 @@ namespace TechableMovieManager
         {
             setCurrentMainPanel(addUserPnl);
         }
+    
+
+
+
+
+
+
         /// <summary>
         /// This method changes the current main panel to a new one specified
         /// </summary>
         /// <param name="panel">The new panel to show as the main panel</param>
         private void setCurrentMainPanel(Panel panel)
         {
+            resizeMainPanel(panel);
+            //make old panel invisible
             if (currentMainPanel != null)
             {
                 currentMainPanel.Visible = false;
             }
-
+            panel.Visible = true;
             currentMainPanel = panel;
-            currentMainPanel.Visible = true;
         }
 
         /*
          * Page and Panel Positioning Methods
          */
-        
+
         /// <summary>
         /// Sets the position of all components within the form based on percent relative locations
         /// </summary>
         private void resizePage()
         {
-            double buttonPanelWidth = 0.2;
-
             setPositionFormControl(mainButtonPnl, 0, buttonPanelWidth, .1, .95);
 
-            setPositionFormControl(returnPnl, buttonPanelWidth, .95, .1, .95);
-            setPositionFormControl(rentPnl, buttonPanelWidth, .95, .1, .95);
-            setPositionFormControl(rent2Pnl, buttonPanelWidth, .95, .1, .95);
-            setPositionFormControl(newCustomerPnl, buttonPanelWidth, .95, .1, .95);
-            setPositionFormControl(reportsPnl, buttonPanelWidth, .95, .1, .95);
-            setPositionFormControl(adminPnl, buttonPanelWidth, .95, .1, .95);
-            setPositionFormControl(addUserPnl, buttonPanelWidth, .95, .1, .95);
-
-            setupReturnPnl();
-            setupNewCustomerPnl();
-            setupRentPnl();
-            setupRent2Pnl();
-            setupAdminPnl();
-            setupReportsPnl();
-            setupAddUserPnl();
+            resizeMainPanel(currentMainPanel);
 
             if (isAdmin)
             {
                 Button[] mainButtons = { rentBtn, returnBtn, reportsBtn, adminBtn };
                 setPositionVertically(mainButtons, mainButtonPnl);
-            }else{
+            }
+            else
+            {
                 Button[] mainButtons = { rentBtn, returnBtn, reportsBtn, newCustomerBtn };
                 setPositionVertically(mainButtons, mainButtonPnl);
             }
-            
-            
+        }
+
+        private void resizeMainPanel(Panel panel)
+        {
+            setPositionFormControl(panel, buttonPanelWidth, .95, .1, .95);
+            //fetches method for seting up the panel from dictionary
+            setupDelegate setupMethod;
+            setupPanels.TryGetValue(panel, out setupMethod);
+            setupMethod();
         }
 
         /// <summary>
@@ -230,7 +242,7 @@ namespace TechableMovieManager
         {
             setPositionPanelControl(rentTitle2Lbl, newCustomerPnl, .4, .7, 0, .1);
 
-            
+
             setPositionPanelControl(checkout2Lbl, rent2Pnl, labelLeft, textLeft, .2, .3);
             setPositionPanelControl(checkout3Lbl, rent2Pnl, labelLeft, textLeft, .3, .4);
             setPositionPanelControl(rent3Lbl, rent2Pnl, labelLeft, textLeft, .4, .5);
@@ -244,13 +256,13 @@ namespace TechableMovieManager
 
         public void setupReturnPnl()
         {
-            setPositionPanelControl(returnTitleLbl, newCustomerPnl, .4, .7, 0, .1);
+            setPositionPanelControl(returnTitleLbl, returnPnl, .4, .7, 0, .1);
 
-            setPositionPanelControl(return1Lbl, rentPnl, labelLeft, textLeft, .2, .3);
+            setPositionPanelControl(return1Lbl, returnPnl, labelLeft, textLeft, .2, .3);
 
-            setPositionPanelControl(return1Txt, rentPnl, textLeft, textRight, .2, .3);
+            setPositionPanelControl(return1Txt, returnPnl, textLeft, textRight, .2, .3);
 
-            setLocationPanelControl(return1Btn, rent2Pnl, .4, .3);
+            setLocationPanelControl(return1Btn, returnPnl, .4, .3);
         }
         public void setupReportsPnl()
         {
@@ -281,7 +293,6 @@ namespace TechableMovieManager
             setControlLocation(admin4Btn, .6, .85);
             setControlLocation(admin5Btn, .3, .85);
             setControlLocation(admin6Btn, .6, .85);
-
         }
 
         /*
@@ -342,7 +353,7 @@ namespace TechableMovieManager
             control.Location = new Point(xPos, yPos);
         }
 
-        private void setLocationPanelControl(Control control, Panel panel, double x,  double y)
+        private void setLocationPanelControl(Control control, Panel panel, double x, double y)
         {
             int formWidth = panel.Width;
             int formHeight = panel.Height;
@@ -357,10 +368,10 @@ namespace TechableMovieManager
         {
             int formWidth = panel.Width;
             int formHeight = panel.Height;
-            
+
             int width = Convert.ToInt32(formWidth * widthPercent);
             int height = Convert.ToInt32(formHeight * heightPercent);
-            
+
             control.Size = new Size(width, height);
         }
 
@@ -396,33 +407,6 @@ namespace TechableMovieManager
                 control.Width = panelWidth / numberOfControls;
                 control.Height = panelHeight;
             }
-        }
-
-        
-
-        private void checkout1Lbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customerTitleLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

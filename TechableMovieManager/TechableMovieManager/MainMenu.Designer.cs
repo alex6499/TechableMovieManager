@@ -185,50 +185,59 @@
             // 
             // rentBtn
             // 
+            this.rentBtn.BackColor = System.Drawing.Color.SlateGray;
+            this.rentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentBtn.Location = new System.Drawing.Point(5, 3);
             this.rentBtn.Name = "rentBtn";
             this.rentBtn.Size = new System.Drawing.Size(158, 51);
             this.rentBtn.TabIndex = 1;
             this.rentBtn.Text = "Rent";
-            this.rentBtn.UseVisualStyleBackColor = true;
+            this.rentBtn.UseVisualStyleBackColor = false;
             this.rentBtn.Click += new System.EventHandler(this.checkoutBtn_Click);
             // 
             // newCustomerBtn
             // 
+            this.newCustomerBtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.newCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newCustomerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newCustomerBtn.Location = new System.Drawing.Point(3, 60);
             this.newCustomerBtn.Name = "newCustomerBtn";
             this.newCustomerBtn.Size = new System.Drawing.Size(160, 58);
             this.newCustomerBtn.TabIndex = 2;
             this.newCustomerBtn.Text = "New Customer";
-            this.newCustomerBtn.UseVisualStyleBackColor = true;
+            this.newCustomerBtn.UseVisualStyleBackColor = false;
             this.newCustomerBtn.Click += new System.EventHandler(this.newCustomer_Click);
             // 
             // returnBtn
             // 
+            this.returnBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.returnBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnBtn.Location = new System.Drawing.Point(5, 124);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(158, 57);
             this.returnBtn.TabIndex = 3;
             this.returnBtn.Text = "Return Movie";
-            this.returnBtn.UseVisualStyleBackColor = true;
+            this.returnBtn.UseVisualStyleBackColor = false;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // reportsBtn
             // 
+            this.reportsBtn.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.reportsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reportsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsBtn.Location = new System.Drawing.Point(5, 187);
             this.reportsBtn.Name = "reportsBtn";
             this.reportsBtn.Size = new System.Drawing.Size(158, 53);
             this.reportsBtn.TabIndex = 4;
             this.reportsBtn.Text = "Reports";
-            this.reportsBtn.UseVisualStyleBackColor = true;
+            this.reportsBtn.UseVisualStyleBackColor = false;
             this.reportsBtn.Click += new System.EventHandler(this.reportsBtn_Click);
             // 
             // mainButtonPnl
             // 
+            this.mainButtonPnl.BackColor = System.Drawing.Color.Transparent;
             this.mainButtonPnl.Controls.Add(this.adminBtn);
             this.mainButtonPnl.Controls.Add(this.reportsBtn);
             this.mainButtonPnl.Controls.Add(this.returnBtn);
@@ -241,13 +250,15 @@
             // 
             // adminBtn
             // 
+            this.adminBtn.BackColor = System.Drawing.Color.Crimson;
+            this.adminBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.adminBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminBtn.Location = new System.Drawing.Point(5, 246);
             this.adminBtn.Name = "adminBtn";
             this.adminBtn.Size = new System.Drawing.Size(158, 53);
             this.adminBtn.TabIndex = 13;
             this.adminBtn.Text = "Administrative";
-            this.adminBtn.UseVisualStyleBackColor = true;
+            this.adminBtn.UseVisualStyleBackColor = false;
             this.adminBtn.Click += new System.EventHandler(this.adminBtn_Click);
             // 
             // menuStrip1
@@ -322,11 +333,12 @@
             // 
             // rentPnl
             // 
+            this.rentPnl.BackColor = System.Drawing.Color.Transparent;
             this.rentPnl.Controls.Add(this.rent1Btn);
             this.rentPnl.Controls.Add(this.checkout1Txt);
             this.rentPnl.Controls.Add(this.checkout1Lbl);
             this.rentPnl.Controls.Add(this.rentTitleLbl);
-            this.rentPnl.Location = new System.Drawing.Point(1219, 72);
+            this.rentPnl.Location = new System.Drawing.Point(871, 76);
             this.rentPnl.Name = "rentPnl";
             this.rentPnl.Size = new System.Drawing.Size(500, 328);
             this.rentPnl.TabIndex = 8;
@@ -360,7 +372,6 @@
             this.checkout1Lbl.Size = new System.Drawing.Size(98, 24);
             this.checkout1Lbl.TabIndex = 16;
             this.checkout1Lbl.Text = "Enter UPC";
-            this.checkout1Lbl.Click += new System.EventHandler(this.checkout1Lbl_Click);
             // 
             // rentTitleLbl
             // 
@@ -374,6 +385,7 @@
             // 
             // returnPnl
             // 
+            this.returnPnl.BackColor = System.Drawing.Color.Transparent;
             this.returnPnl.Controls.Add(this.return1Btn);
             this.returnPnl.Controls.Add(this.return1Txt);
             this.returnPnl.Controls.Add(this.return1Lbl);
@@ -424,6 +436,7 @@
             // 
             // reportsPnl
             // 
+            this.reportsPnl.BackColor = System.Drawing.Color.Transparent;
             this.reportsPnl.Controls.Add(this.reportsTab);
             this.reportsPnl.Controls.Add(this.reportsTitleLbl);
             this.reportsPnl.Location = new System.Drawing.Point(17, 463);
@@ -626,7 +639,6 @@
             this.reports4Data.Name = "reports4Data";
             this.reports4Data.Size = new System.Drawing.Size(548, 350);
             this.reports4Data.TabIndex = 3;
-            this.reports4Data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView7_CellContentClick);
             // 
             // dataGridViewTextBoxColumn29
             // 
@@ -736,6 +748,7 @@
             // 
             // newCustomerPnl
             // 
+            this.newCustomerPnl.BackColor = System.Drawing.Color.Transparent;
             this.newCustomerPnl.Controls.Add(this.newCustomer4Txt);
             this.newCustomerPnl.Controls.Add(this.newCustomer4Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer1Btn);
@@ -843,10 +856,10 @@
             this.customerTitleLbl.Size = new System.Drawing.Size(223, 37);
             this.customerTitleLbl.TabIndex = 0;
             this.customerTitleLbl.Text = "Add Customer";
-            this.customerTitleLbl.Click += new System.EventHandler(this.customerTitleLbl_Click);
             // 
             // adminPnl
             // 
+            this.adminPnl.BackColor = System.Drawing.Color.Transparent;
             this.adminPnl.Controls.Add(this.adminTab);
             this.adminPnl.Controls.Add(this.adminTitleLbl);
             this.adminPnl.Location = new System.Drawing.Point(221, 328);
@@ -912,7 +925,6 @@
             this.admin1Data.Name = "admin1Data";
             this.admin1Data.Size = new System.Drawing.Size(413, 192);
             this.admin1Data.TabIndex = 1;
-            this.admin1Data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1089,6 +1101,7 @@
             // 
             // rent2Pnl
             // 
+            this.rent2Pnl.BackColor = System.Drawing.Color.Transparent;
             this.rent2Pnl.Controls.Add(this.rent3Lbl);
             this.rent2Pnl.Controls.Add(this.comboBox1);
             this.rent2Pnl.Controls.Add(this.rent2Btn);
@@ -1187,6 +1200,7 @@
             // 
             // addUserPnl
             // 
+            this.addUserPnl.BackColor = System.Drawing.Color.Transparent;
             this.addUserPnl.Controls.Add(this.addUserRdb);
             this.addUserPnl.Controls.Add(this.addUserBtn);
             this.addUserPnl.Controls.Add(this.addUser2Txt);
@@ -1267,12 +1281,13 @@
             this.addUserTitleLbl.Size = new System.Drawing.Size(209, 37);
             this.addUserTitleLbl.TabIndex = 0;
             this.addUserTitleLbl.Text = "Remove User";
-            this.addUserTitleLbl.Click += new System.EventHandler(this.label5_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.rentPnl);
