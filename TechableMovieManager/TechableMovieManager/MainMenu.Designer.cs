@@ -186,7 +186,7 @@
             // rentBtn
             // 
             this.rentBtn.BackColor = System.Drawing.Color.SlateGray;
-            this.rentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rentBtn.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
             this.rentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentBtn.Location = new System.Drawing.Point(5, 3);
             this.rentBtn.Name = "rentBtn";
@@ -199,7 +199,6 @@
             // newCustomerBtn
             // 
             this.newCustomerBtn.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.newCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newCustomerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newCustomerBtn.Location = new System.Drawing.Point(3, 60);
             this.newCustomerBtn.Name = "newCustomerBtn";
@@ -212,7 +211,6 @@
             // returnBtn
             // 
             this.returnBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.returnBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnBtn.Location = new System.Drawing.Point(5, 124);
             this.returnBtn.Name = "returnBtn";
@@ -225,7 +223,6 @@
             // reportsBtn
             // 
             this.reportsBtn.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.reportsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reportsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsBtn.Location = new System.Drawing.Point(5, 187);
             this.reportsBtn.Name = "reportsBtn";
@@ -251,7 +248,6 @@
             // adminBtn
             // 
             this.adminBtn.BackColor = System.Drawing.Color.Crimson;
-            this.adminBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.adminBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminBtn.Location = new System.Drawing.Point(5, 246);
             this.adminBtn.Name = "adminBtn";
@@ -346,13 +342,14 @@
             // 
             // rent1Btn
             // 
+            this.rent1Btn.BackColor = System.Drawing.Color.Goldenrod;
             this.rent1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rent1Btn.Location = new System.Drawing.Point(181, 189);
             this.rent1Btn.Name = "rent1Btn";
             this.rent1Btn.Size = new System.Drawing.Size(98, 32);
             this.rent1Btn.TabIndex = 19;
             this.rent1Btn.Text = "Submit";
-            this.rent1Btn.UseVisualStyleBackColor = true;
+            this.rent1Btn.UseVisualStyleBackColor = false;
             this.rent1Btn.Click += new System.EventHandler(this.rent1Btn_Click);
             // 
             // checkout1Txt
@@ -1286,7 +1283,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
             this.Controls.Add(this.addUserPnl);

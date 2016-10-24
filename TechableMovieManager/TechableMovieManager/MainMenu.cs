@@ -49,16 +49,29 @@ namespace TechableMovieManager
             labelLeft = 0.1;
             textLeft = 0.3;
             textRight = 0.7;
-            
-            isAdmin = !true;
 
+
+            this.Text = userName + " logged in";
+            isAdmin = userName.Equals("Admin");
+
+            System.Drawing.Color buttonColor; 
             if (isAdmin)
             {
                 newCustomerBtn.Visible = false;
-            }else
+                this.BackColor = System.Drawing.Color.Goldenrod;
+                buttonColor = System.Drawing.Color.SteelBlue;
+            }
+            else
             {
                 adminBtn.Visible = false;
+                this.BackColor = System.Drawing.Color.SteelBlue;
+                buttonColor = System.Drawing.Color.Goldenrod;
             }
+
+            rent1Btn.BackColor = buttonColor;
+            rent2Btn.BackColor = buttonColor;
+            return1Btn.BackColor = buttonColor;
+            newCustomer1Btn.BackColor = buttonColor;
 
             setupPanels.Add(returnPnl, setupReturnPnl);
             setupPanels.Add(rentPnl, setupRentPnl);
