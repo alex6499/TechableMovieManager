@@ -29,16 +29,15 @@ namespace TechableMovieManager
         double textLeft;
         double textRight;
 
-        Boolean isAdmin;
+        User currentUser;
 
-        string userName;
         /*
          * Initialization and Resize Methods
          */
 
         public MainMenu(string userName)
         {
-            this.userName = userName;
+            currentUser = new User(userName.Equals("Admin"), userName);
             InitializeComponent();
         }
 
@@ -51,11 +50,10 @@ namespace TechableMovieManager
             textRight = 0.7;
 
 
-            this.Text = userName + " logged in";
-            isAdmin = userName.Equals("Admin");
+            this.Text = currentUser.getUserName() + " logged in";
 
             System.Drawing.Color buttonColor; 
-            if (isAdmin)
+            if (currentUser.isAdmin())
             {
                 newCustomerBtn.Visible = false;
                 this.BackColor = System.Drawing.Color.Goldenrod;
@@ -193,7 +191,7 @@ namespace TechableMovieManager
 
             resizeMainPanel(currentMainPanel);
 
-            if (isAdmin)
+            if (currentUser.isAdmin())
             {
                 Button[] mainButtons = { rentBtn, returnBtn, reportsBtn, adminBtn };
                 setPositionVertically(mainButtons, mainButtonPnl);
@@ -434,6 +432,28 @@ namespace TechableMovieManager
                 control.Width = panelWidth / numberOfControls;
                 control.Height = panelHeight;
             }
+        }
+    }
+
+    public class User
+    {
+        private bool admin;
+        private string userName;
+        
+        public User(bool isAdmin, string userName)
+        {
+            this.admin = isAdmin;
+            this.userName = userName;
+        }
+
+        public bool isAdmin()
+        {
+            return admin;
+        }
+
+        public string getUserName()
+        {
+            return userName;
         }
     }
 }
