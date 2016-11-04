@@ -69,7 +69,6 @@
     <RefactorLog Include="TechableDatabase.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TechableDatabase.publish.xml" />
-    <None Include="TechableDatabase_1.publish.xml" />
+    <None Include="PopulateTables.sql" />
   </ItemGroup>
 </Project>
