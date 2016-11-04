@@ -756,7 +756,7 @@
             this.newCustomerPnl.Controls.Add(this.newCustomer1Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer2Lbl);
             this.newCustomerPnl.Controls.Add(this.customerTitleLbl);
-            this.newCustomerPnl.Location = new System.Drawing.Point(119, 363);
+            this.newCustomerPnl.Location = new System.Drawing.Point(39, 389);
             this.newCustomerPnl.Name = "newCustomerPnl";
             this.newCustomerPnl.Size = new System.Drawing.Size(446, 314);
             this.newCustomerPnl.TabIndex = 11;
