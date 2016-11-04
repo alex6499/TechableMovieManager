@@ -51,8 +51,7 @@ namespace TechableMovieManager
             labelLeft = 0.1;
             textLeft = 0.3;
             textRight = 0.7;
-
-            GetData("select * from Customers");
+            
             this.Text = currentUser.getUserName() + " logged in";
 
             System.Drawing.Color buttonColor; 
@@ -232,13 +231,15 @@ namespace TechableMovieManager
             setPositionPanelControl(newCustomer2Lbl, newCustomerPnl, labelLeft, textLeft, .3, .4);
             setPositionPanelControl(newCustomer3Lbl, newCustomerPnl, labelLeft, textLeft, .4, .5);
             setPositionPanelControl(newCustomer4Lbl, newCustomerPnl, labelLeft, textLeft, .5, .6);
+            setPositionPanelControl(newCustomer5Lbl, newCustomerPnl, labelLeft, textLeft, .6, .7);
 
             setPositionPanelControl(newCustomer1Txt, newCustomerPnl, textLeft, textRight, .2, .3);
             setPositionPanelControl(newCustomer2Txt, newCustomerPnl, textLeft, textRight, .3, .4);
             setPositionPanelControl(newCustomer3Txt, newCustomerPnl, textLeft, textRight, .4, .5);
             setPositionPanelControl(newCustomer4Txt, newCustomerPnl, textLeft, textRight, .5, .6);
+            setPositionPanelControl(newCustomer4Txt, newCustomerPnl, textLeft, textRight, .6, .7);
 
-            setLocationPanelControl(newCustomer1Btn, newCustomerPnl, .4, .7);
+            setLocationPanelControl(newCustomer1Btn, newCustomerPnl, .4, .8);
         }
 
         public void setupAddUserPnl()
@@ -435,6 +436,17 @@ namespace TechableMovieManager
                 control.Width = panelWidth / numberOfControls;
                 control.Height = panelHeight;
             }
+        }
+
+        private void newCustomer1Btn_Click(object sender, EventArgs e)
+        {
+            string fName = newCustomer1Txt.Text;
+            string lName = newCustomer2Txt.Text;
+            string phone = newCustomer3Txt.Text;
+            string email = newCustomer4Txt.Text;
+            string address = newCustomer5Txt.Text;
+
+            customersTable.add(20, lName, fName, email, address, phone);
         }
     }
 

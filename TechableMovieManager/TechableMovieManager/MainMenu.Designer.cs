@@ -97,6 +97,8 @@
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportsTitleLbl = new System.Windows.Forms.Label();
             this.newCustomerPnl = new System.Windows.Forms.Panel();
+            this.newCustomer5Txt = new System.Windows.Forms.TextBox();
+            this.newCustomer5Lbl = new System.Windows.Forms.Label();
             this.newCustomer4Txt = new System.Windows.Forms.TextBox();
             this.newCustomer4Lbl = new System.Windows.Forms.Label();
             this.newCustomer1Btn = new System.Windows.Forms.Button();
@@ -746,6 +748,8 @@
             // newCustomerPnl
             // 
             this.newCustomerPnl.BackColor = System.Drawing.Color.Transparent;
+            this.newCustomerPnl.Controls.Add(this.newCustomer5Txt);
+            this.newCustomerPnl.Controls.Add(this.newCustomer5Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer4Txt);
             this.newCustomerPnl.Controls.Add(this.newCustomer4Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer1Btn);
@@ -756,11 +760,29 @@
             this.newCustomerPnl.Controls.Add(this.newCustomer1Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer2Lbl);
             this.newCustomerPnl.Controls.Add(this.customerTitleLbl);
-            this.newCustomerPnl.Location = new System.Drawing.Point(39, 389);
+            this.newCustomerPnl.Location = new System.Drawing.Point(30, 353);
             this.newCustomerPnl.Name = "newCustomerPnl";
             this.newCustomerPnl.Size = new System.Drawing.Size(446, 314);
             this.newCustomerPnl.TabIndex = 11;
             this.newCustomerPnl.Visible = false;
+            // 
+            // newCustomer5Txt
+            // 
+            this.newCustomer5Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer5Txt.Location = new System.Drawing.Point(243, 173);
+            this.newCustomer5Txt.Name = "newCustomer5Txt";
+            this.newCustomer5Txt.Size = new System.Drawing.Size(100, 29);
+            this.newCustomer5Txt.TabIndex = 34;
+            // 
+            // newCustomer5Lbl
+            // 
+            this.newCustomer5Lbl.AutoSize = true;
+            this.newCustomer5Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomer5Lbl.Location = new System.Drawing.Point(44, 173);
+            this.newCustomer5Lbl.Name = "newCustomer5Lbl";
+            this.newCustomer5Lbl.Size = new System.Drawing.Size(80, 24);
+            this.newCustomer5Lbl.TabIndex = 33;
+            this.newCustomer5Lbl.Text = "Address";
             // 
             // newCustomer4Txt
             // 
@@ -789,6 +811,7 @@
             this.newCustomer1Btn.TabIndex = 30;
             this.newCustomer1Btn.Text = "Submit";
             this.newCustomer1Btn.UseVisualStyleBackColor = true;
+            this.newCustomer1Btn.Click += new System.EventHandler(this.newCustomer1Btn_Click);
             // 
             // newCustomer3Txt
             // 
@@ -859,7 +882,7 @@
             this.adminPnl.BackColor = System.Drawing.Color.Transparent;
             this.adminPnl.Controls.Add(this.adminTab);
             this.adminPnl.Controls.Add(this.adminTitleLbl);
-            this.adminPnl.Location = new System.Drawing.Point(194, 33);
+            this.adminPnl.Location = new System.Drawing.Point(786, 52);
             this.adminPnl.Name = "adminPnl";
             this.adminPnl.Size = new System.Drawing.Size(525, 516);
             this.adminPnl.TabIndex = 12;
@@ -1469,6 +1492,8 @@
         private System.Windows.Forms.Label rent3Lbl;
         private System.Windows.Forms.TextBox addUser2Txt;
         private System.Windows.Forms.Label addUser2Lbl;
+        private System.Windows.Forms.TextBox newCustomer5Txt;
+        private System.Windows.Forms.Label newCustomer5Lbl;
     }
 }
 
