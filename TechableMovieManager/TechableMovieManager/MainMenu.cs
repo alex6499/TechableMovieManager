@@ -50,6 +50,7 @@ namespace TechableMovieManager
             textRight = 0.7;
 
 
+
             this.Text = currentUser.getUserName() + " logged in";
 
             System.Drawing.Color buttonColor; 
@@ -215,7 +216,7 @@ namespace TechableMovieManager
 
         /*
          * ----------------------------------------------------------------------------------------------
-         * Button Click Events
+         * Setup Methods
          * ----------------------------------------------------------------------------------------------
          */
         /// <summary>
@@ -439,7 +440,7 @@ namespace TechableMovieManager
     {
         private bool admin;
         private string userName;
-        
+
         public User(bool isAdmin, string userName)
         {
             this.admin = isAdmin;
