@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace TechableMovieManager
         /*
          * Globals
          */
+        CustomersTable customersTable;
 
         public delegate void setupDelegate();
         Dictionary<Panel, setupDelegate> setupPanels = new Dictionary<Panel, setupDelegate>();
@@ -38,6 +40,7 @@ namespace TechableMovieManager
         public MainMenu(string userName)
         {
             currentUser = new User(userName.Equals("Admin"), userName);
+            customersTable = new CustomersTable();
             InitializeComponent();
         }
 
@@ -49,8 +52,7 @@ namespace TechableMovieManager
             textLeft = 0.3;
             textRight = 0.7;
 
-
-
+            GetData("select * from Customers");
             this.Text = currentUser.getUserName() + " logged in";
 
             System.Drawing.Color buttonColor; 
@@ -95,7 +97,50 @@ namespace TechableMovieManager
         {
             resizePage();
         }
+        
+        private void GetData(string selectCommand)
+        {
+            DataSet1.CustomersDataTable t = new DataSet1.CustomersDataTable();
 
+            customersTable.add(11, "Gingle", "Alexis", "aging3@uis.edu", "UIS", "3481324332");
+            
+
+            t = null;
+            
+            /*
+            try
+            {
+                                // Specify a connection string. Replace the given value with a 
+                // valid connection string for a Northwind SQL Server sample
+                // database accessible to your system.
+                String connectionString = "Server=(localdb)\\ProjectsV13;Integrated Security=true;";
+                
+                // Create a new data adapter based on the specified query.
+                dataAdapter = new SqlDataAdapter(selectCommand, connectionString);
+
+                // Create a command builder to generate SQL update, insert, and
+                // delete commands based on selectCommand. These are used to
+                // update the database.
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+                // Populate a new data table and bind it to the BindingSource.
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                dataAdapter.Fill(table);
+                bindingSource.DataSource = table;
+
+                // Resize the DataGridView columns to fit the newly loaded content.
+                admin1Data.AutoResizeColumns(
+                    DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("To run this example, replace the value of the " +
+                    "connectionString variable with a connection string that is " +
+                    "valid for your system.");
+            }
+            */
+        }
         /*
          * ----------------------------------------------------------------------------------------------
          * Button Click Events
@@ -456,5 +501,35 @@ namespace TechableMovieManager
         {
             return userName;
         }
+    }
+
+    public class CustomersTable
+    {
+        DataSet1.CustomersDataTable table;
+        DataSet1TableAdapters.CustomersTableAdapter cta;
+        public CustomersTable()
+        {
+            table = new DataSet1.CustomersDataTable();
+            cta = new DataSet1TableAdapters.CustomersTableAdapter();
+        }
+
+        public void add(int custId, string lName, string fName, string email, string address, string phone)
+        {
+            cta.Insert(custId, lName, fName, email, address, phone);
+        }
+
+        public void update(int custId, string lName, string fName, string email, string address, string phone)
+        {
+            DataRow anyRow = table.NewCustomersRow();
+            anyRow[0] = custId;
+            anyRow[1] = lName;
+            anyRow[2] = fName;
+            anyRow[3] = email;
+            anyRow[4] = address;
+            anyRow[5] = phone;
+
+            cta.Update(anyRow);
+        }
+        
     }
 }

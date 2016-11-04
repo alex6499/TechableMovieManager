@@ -6,7 +6,9 @@
     {
         partial class MoviesDataTable
         {
-
+            public void f()
+            {
+            }
         }
 
         partial class RentalsDataTable
