@@ -68,4 +68,7 @@
   <ItemGroup>
     <RefactorLog Include="TechableDatabase.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="PopulateTables.sql" />
+  </ItemGroup>
 </Project>
