@@ -859,7 +859,7 @@
             this.adminPnl.BackColor = System.Drawing.Color.Transparent;
             this.adminPnl.Controls.Add(this.adminTab);
             this.adminPnl.Controls.Add(this.adminTitleLbl);
-            this.adminPnl.Location = new System.Drawing.Point(226, 337);
+            this.adminPnl.Location = new System.Drawing.Point(194, 33);
             this.adminPnl.Name = "adminPnl";
             this.adminPnl.Size = new System.Drawing.Size(525, 516);
             this.adminPnl.TabIndex = 12;
@@ -1109,7 +1109,7 @@
             this.rent2Pnl.Controls.Add(this.rentTitle2Lbl);
             this.rent2Pnl.Location = new System.Drawing.Point(181, 115);
             this.rent2Pnl.Name = "rent2Pnl";
-            this.rent2Pnl.Size = new System.Drawing.Size(500, 328);
+            this.rent2Pnl.Size = new System.Drawing.Size(495, 211);
             this.rent2Pnl.TabIndex = 13;
             this.rent2Pnl.Visible = false;
             // 
@@ -1286,10 +1286,10 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.rentPnl);
             this.Controls.Add(this.rent2Pnl);
-            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.mainButtonPnl);
