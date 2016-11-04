@@ -123,6 +123,8 @@ namespace TechableMovieManager
             this.AcceptButton = return1Btn;
             this.ActiveControl = return1Txt;
             setCurrentMainPanel(returnPnl);
+
+           
         }
 
         private void newCustomer_Click(object sender, EventArgs e)
@@ -133,6 +135,10 @@ namespace TechableMovieManager
         private void reportsBtn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(reportsPnl);
+            DataSet1 ds = new DataSet1();
+            DataSet1.MoviesRow newMoviesRow = ds.Movies.NewMoviesRow();
+
+            
         }
 
         private void adminBtn_Click(object sender, EventArgs e)

@@ -6,8 +6,7 @@
     {
         partial class MoviesDataTable
         {
-            DataSet1.
-            var query = from MoviesDataTable in DataSet1
+            
 
         }
 
