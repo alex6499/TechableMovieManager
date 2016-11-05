@@ -1,7 +1,7 @@
 ﻿GO
 CREATE TABLE [dbo].[Movies]
 (
-	[movieId] INT NOT NULL PRIMARY KEY, 
+	[movieId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [quantityTotal] INT NOT NULL, 
     [quantityAvailable] INT NOT NULL, 
 	[upc] INT NOT NULL,

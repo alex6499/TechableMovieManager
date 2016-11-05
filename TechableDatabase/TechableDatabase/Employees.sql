@@ -1,7 +1,7 @@
 ﻿GO
 CREATE TABLE [dbo].[Employees]
 (
-	[employeeId] INT NOT NULL PRIMARY KEY, 
+	[employeeId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [firstName] CHAR(25) NOT NULL, 
     [lastName] NCHAR(25) NOT NULL, 
     [isAdmin] BIT NOT NULL, 

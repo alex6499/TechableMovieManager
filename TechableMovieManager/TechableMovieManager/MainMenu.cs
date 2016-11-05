@@ -243,7 +243,7 @@ namespace TechableMovieManager
             setPositionPanelControl(newCustomer2Txt, newCustomerPnl, textLeft, textRight, .3, .4);
             setPositionPanelControl(newCustomer3Txt, newCustomerPnl, textLeft, textRight, .4, .5);
             setPositionPanelControl(newCustomer4Txt, newCustomerPnl, textLeft, textRight, .5, .6);
-            setPositionPanelControl(newCustomer4Txt, newCustomerPnl, textLeft, textRight, .6, .7);
+            setPositionPanelControl(newCustomer5Txt, newCustomerPnl, textLeft, textRight, .6, .7);
 
             setLocationPanelControl(newCustomer1Btn, newCustomerPnl, .4, .8);
         }
@@ -452,7 +452,7 @@ namespace TechableMovieManager
             string email = newCustomer4Txt.Text;
             string address = newCustomer5Txt.Text;
 
-            customersTable.add(20, lName, fName, email, address, phone);
+            customersTable.add(lName, fName, email, address, phone);
         }
     }
 
@@ -481,30 +481,16 @@ namespace TechableMovieManager
     public class CustomersTable
     {
         DataSet1.CustomersDataTable table;
-        DataSet1TableAdapters.CustomersTableAdapter cta;
+        DataSet1TableAdapters.CustomersTableAdapter adapter;
         public CustomersTable()
         {
             table = new DataSet1.CustomersDataTable();
-            cta = new DataSet1TableAdapters.CustomersTableAdapter();
+            adapter = new DataSet1TableAdapters.CustomersTableAdapter();
         }
 
-        public void add(int custId, string lName, string fName, string email, string address, string phone)
+        public void add(string lName, string fName, string email, string address, string phone)
         {
-            cta.Insert(custId, lName, fName, email, address, phone);
-        }
-
-        public void update(int custId, string lName, string fName, string email, string address, string phone)
-        {
-            DataRow anyRow = table.NewCustomersRow();
-            anyRow[0] = custId;
-            anyRow[1] = lName;
-            anyRow[2] = fName;
-            anyRow[3] = email;
-            anyRow[4] = address;
-            anyRow[5] = phone;
-
-            cta.Update(anyRow);
-        }
-        
+            adapter.InsertQuery(lName, fName, email, address, phone);
+        }        
     }
 }

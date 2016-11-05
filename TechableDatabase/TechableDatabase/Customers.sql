@@ -6,7 +6,7 @@ INCREMENT BY 1;
 GO
 CREATE TABLE [dbo].[Customers]
 (
-	[customerId] int NOT NULL PRIMARY KEY, 
+	[customerId] int NOT NULL PRIMARY KEY IDENTITY, 
     [lastName] NCHAR(30) NOT NULL, 
     [firstName] NCHAR(30) NOT NULL, 
     [email] NCHAR(30) NULL, 
