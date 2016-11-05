@@ -490,7 +490,7 @@ namespace TechableMovieManager
 
         public void add(string lName, string fName, string email, string address, string phone)
         {
-            adapter.InsertQuery(lName, fName, email, address, phone);
+            adapter.InsertSansId(lName, fName, email, address, phone);
         }        
     }
 }
