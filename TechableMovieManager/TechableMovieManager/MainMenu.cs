@@ -83,6 +83,7 @@ namespace TechableMovieManager
             setupPanels.Add(addUserPnl, setupAddUserPnl);
             setupPanels.Add(passwordPnl, setupPasswordPnl);
             setupPanels.Add(removeCustomerPnl, setupRemoveCustomerPnl);
+            setupPanels.Add(removeUserPnl, setupRemoveUserPnl);
 
             //sets report panel to initial panel
             setCurrentMainPanel(rentPnl);
@@ -160,7 +161,10 @@ namespace TechableMovieManager
         {
             setCurrentMainPanel(passwordPnl);
         }
-
+        private void admin2Btn_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(removeUserPnl);
+        }
         private void admin3Btn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(newCustomerPnl);
@@ -331,6 +335,20 @@ namespace TechableMovieManager
             endOfText = setTextBoxPostions(panel, 0.2, removeCustomer1Txt);
 
             setLocationPanelControl(removeCustomer1Btn, panel, .4, endOfText + 0.1);
+        }
+
+        public void setupRemoveUserPnl()
+        {
+            Panel panel = removeUserPnl;
+            double endOfText;
+            double endOfLabels;
+
+            setTitlePosition(removeUserTitleLbl, panel);
+
+            endOfLabels = setLabelPostions(panel, 0.2, removeUser1Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, removeUser1Txt);
+
+            setLocationPanelControl(removeUser1Btn, panel, .4, endOfText + 0.1);
         }
 
         public void setupRentPnl()

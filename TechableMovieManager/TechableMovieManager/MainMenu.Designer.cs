@@ -181,6 +181,11 @@
             this.removeCustomer1Txt = new System.Windows.Forms.TextBox();
             this.removeCustomer1Lbl = new System.Windows.Forms.Label();
             this.removeCustomerTitleLbl = new System.Windows.Forms.Label();
+            this.removeUserPnl = new System.Windows.Forms.Panel();
+            this.removeUser1Btn = new System.Windows.Forms.Button();
+            this.removeUser1Txt = new System.Windows.Forms.TextBox();
+            this.removeUser1Lbl = new System.Windows.Forms.Label();
+            this.removeUserTitleLbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -210,6 +215,7 @@
             this.addUserPnl.SuspendLayout();
             this.passwordPnl.SuspendLayout();
             this.removeCustomerPnl.SuspendLayout();
+            this.removeUserPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // rentBtn
@@ -960,6 +966,7 @@
             this.admin2Btn.TabIndex = 32;
             this.admin2Btn.Text = "Remove";
             this.admin2Btn.UseVisualStyleBackColor = true;
+            this.admin2Btn.Click += new System.EventHandler(this.admin2Btn_Click);
             // 
             // admin1Btn
             // 
@@ -1589,6 +1596,57 @@
             this.removeCustomerTitleLbl.TabIndex = 10;
             this.removeCustomerTitleLbl.Text = "Remove Customer";
             // 
+            // removeUserPnl
+            // 
+            this.removeUserPnl.BackColor = System.Drawing.Color.Transparent;
+            this.removeUserPnl.Controls.Add(this.removeUser1Btn);
+            this.removeUserPnl.Controls.Add(this.removeUser1Txt);
+            this.removeUserPnl.Controls.Add(this.removeUser1Lbl);
+            this.removeUserPnl.Controls.Add(this.removeUserTitleLbl);
+            this.removeUserPnl.Location = new System.Drawing.Point(240, 101);
+            this.removeUserPnl.Name = "removeUserPnl";
+            this.removeUserPnl.Size = new System.Drawing.Size(495, 352);
+            this.removeUserPnl.TabIndex = 17;
+            this.removeUserPnl.Visible = false;
+            // 
+            // removeUser1Btn
+            // 
+            this.removeUser1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeUser1Btn.Location = new System.Drawing.Point(174, 254);
+            this.removeUser1Btn.Name = "removeUser1Btn";
+            this.removeUser1Btn.Size = new System.Drawing.Size(98, 32);
+            this.removeUser1Btn.TabIndex = 29;
+            this.removeUser1Btn.Text = "Submit";
+            this.removeUser1Btn.UseVisualStyleBackColor = true;
+            // 
+            // removeUser1Txt
+            // 
+            this.removeUser1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeUser1Txt.Location = new System.Drawing.Point(270, 67);
+            this.removeUser1Txt.Name = "removeUser1Txt";
+            this.removeUser1Txt.Size = new System.Drawing.Size(185, 29);
+            this.removeUser1Txt.TabIndex = 25;
+            // 
+            // removeUser1Lbl
+            // 
+            this.removeUser1Lbl.AutoSize = true;
+            this.removeUser1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeUser1Lbl.Location = new System.Drawing.Point(13, 72);
+            this.removeUser1Lbl.Name = "removeUser1Lbl";
+            this.removeUser1Lbl.Size = new System.Drawing.Size(116, 24);
+            this.removeUser1Lbl.TabIndex = 23;
+            this.removeUser1Lbl.Text = "Employee Id";
+            // 
+            // removeUserTitleLbl
+            // 
+            this.removeUserTitleLbl.AutoSize = true;
+            this.removeUserTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeUserTitleLbl.Location = new System.Drawing.Point(200, 25);
+            this.removeUserTitleLbl.Name = "removeUserTitleLbl";
+            this.removeUserTitleLbl.Size = new System.Drawing.Size(209, 37);
+            this.removeUserTitleLbl.TabIndex = 10;
+            this.removeUserTitleLbl.Text = "Remove User";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1597,6 +1655,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
             this.Controls.Add(this.adminPnl);
+            this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.removeCustomerPnl);
             this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.addUserPnl);
@@ -1653,6 +1712,8 @@
             this.passwordPnl.PerformLayout();
             this.removeCustomerPnl.ResumeLayout(false);
             this.removeCustomerPnl.PerformLayout();
+            this.removeUserPnl.ResumeLayout(false);
+            this.removeUserPnl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1812,6 +1873,11 @@
         private System.Windows.Forms.TextBox removeCustomer1Txt;
         private System.Windows.Forms.Label removeCustomer1Lbl;
         private System.Windows.Forms.Label removeCustomerTitleLbl;
+        private System.Windows.Forms.Panel removeUserPnl;
+        private System.Windows.Forms.Button removeUser1Btn;
+        private System.Windows.Forms.TextBox removeUser1Txt;
+        private System.Windows.Forms.Label removeUser1Lbl;
+        private System.Windows.Forms.Label removeUserTitleLbl;
     }
 }
 
