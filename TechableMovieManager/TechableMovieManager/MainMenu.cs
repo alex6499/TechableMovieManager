@@ -15,7 +15,9 @@ namespace TechableMovieManager
     {
 
         /*
-         * Globals
+         * ----------------------------------------------------------------------------------------------
+         * Part 1: Global variables
+         * ----------------------------------------------------------------------------------------------
          */
         CustomersTable customersTable;
 
@@ -34,7 +36,9 @@ namespace TechableMovieManager
         User currentUser;
 
         /*
-         * Initialization and Resize Methods
+         * ----------------------------------------------------------------------------------------------
+         * Part 2: Initialization methods and events
+         * ----------------------------------------------------------------------------------------------
          */
 
         public MainMenu(string userName)
@@ -81,9 +85,11 @@ namespace TechableMovieManager
             setupPanels.Add(reportsPnl, setupReportsPnl);
             setupPanels.Add(newCustomerPnl, setupNewCustomerPnl);
             setupPanels.Add(addUserPnl, setupAddUserPnl);
+            setupPanels.Add(addMoviePnl, setupAddMoviePnl);
             setupPanels.Add(passwordPnl, setupPasswordPnl);
             setupPanels.Add(removeCustomerPnl, setupRemoveCustomerPnl);
             setupPanels.Add(removeUserPnl, setupRemoveUserPnl);
+            setupPanels.Add(removeMoviePnl, setupRemoveMoviePnl);
 
             //sets report panel to initial panel
             setCurrentMainPanel(rentPnl);
@@ -105,7 +111,7 @@ namespace TechableMovieManager
 
         /*
          * ----------------------------------------------------------------------------------------------
-         * Button Click Events
+         * Part 3: Button Click Events
          * ----------------------------------------------------------------------------------------------
          */
 
@@ -175,7 +181,11 @@ namespace TechableMovieManager
         }
         private void admin5Btn_Click(object sender, EventArgs e)
         {
-
+            setCurrentMainPanel(addMoviePnl);
+        }
+        private void admin6Btn_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(removeMoviePnl);
         }
         private void checkoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -188,12 +198,9 @@ namespace TechableMovieManager
         }
         
 
-
-
-
         /*
          * ----------------------------------------------------------------------------------------------
-         * Resizing and positioning methods
+         * Part 4; Resizing and positioning methods
          * ----------------------------------------------------------------------------------------------
          */
 
@@ -212,10 +219,6 @@ namespace TechableMovieManager
             panel.Visible = true;
             currentMainPanel = panel;
         }
-
-        /*
-         * Page and Panel Positioning Methods
-         */
 
         /// <summary>
         /// Sets the position of all components within the form based on percent relative locations
@@ -249,34 +252,9 @@ namespace TechableMovieManager
 
         /*
          * ----------------------------------------------------------------------------------------------
-         * Setup Methods
+         * Part 5: Panel Setup Methods
          * ----------------------------------------------------------------------------------------------
          */
-        public void setTitlePosition(Label label, Panel panel)
-        {
-            setPositionPanelControl(label, panel, .4, .7, 0, .1);
-        }
-        public double setLabelPostions(Panel panel, double top, params Label[] labels)
-        {
-            for (int i = 0; i < labels.Length; i++)
-            {
-                setPositionPanelControl(labels[i], panel, labelLeft, textLeft, top, top + 0.1);
-                top += 0.1;
-            }
-
-            return top;
-        }
-
-        public double setTextBoxPostions(Panel panel, double top, params TextBox[] textBoxes)
-        {
-            for (int i = 0; i < textBoxes.Length; i++)
-            {
-                setPositionPanelControl(textBoxes[i], panel, textLeft, textRight, top, top + 0.1);
-                top += 0.1;
-            }
-
-            return top;
-        }
 
         /// <summary>
         /// Sets the position of all components within the new customer panel based on percent relative locations
@@ -308,7 +286,19 @@ namespace TechableMovieManager
             setLocationPanelControl(addUserRdb, panel, .4, endOfText);
             setLocationPanelControl(addUserBtn, panel, .4, endOfText + 0.1);
         }
+        public void setupAddMoviePnl()
+        {
+            Panel panel = addMoviePnl;
+            double endOfText;
+            double endOfLabels;
 
+            setTitlePosition(addMovieTitleLbl, panel);
+
+            endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl, addMovie4Lbl, addMovie5Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt, addMovie4Txt, addMovie5Txt);
+
+            setLocationPanelControl(addMovie1Btn, panel, .4, endOfText + 0.1);
+        }
 
         public void setupPasswordPnl()
         {
@@ -349,6 +339,20 @@ namespace TechableMovieManager
             endOfText = setTextBoxPostions(panel, 0.2, removeUser1Txt);
 
             setLocationPanelControl(removeUser1Btn, panel, .4, endOfText + 0.1);
+        }
+
+        public void setupRemoveMoviePnl()
+        {
+            Panel panel = removeMoviePnl;
+            double endOfText;
+            double endOfLabels;
+
+            setTitlePosition(removeMovieTitleLbl, panel);
+
+            endOfLabels = setLabelPostions(panel, 0.2, removeMovie1Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, removeMovie1Txt);
+
+            setLocationPanelControl(removeMovie1Btn, panel, .4, endOfText + 0.1);
         }
 
         public void setupRentPnl()
@@ -426,11 +430,37 @@ namespace TechableMovieManager
             setControlLocation(admin6Btn, .6, .85);
         }
 
-       
         /*
-         * Object Repositioning Methods
-         * 
-         */
+        * ----------------------------------------------------------------------------------------------
+        * Part 6: Set Position Methods
+        * ----------------------------------------------------------------------------------------------
+        */
+
+        public void setTitlePosition(Label label, Panel panel)
+        {
+            setPositionPanelControl(label, panel, .4, .7, 0, .1);
+        }
+        public double setLabelPostions(Panel panel, double top, params Label[] labels)
+        {
+            for (int i = 0; i < labels.Length; i++)
+            {
+                setPositionPanelControl(labels[i], panel, labelLeft, textLeft, top, top + 0.1);
+                top += 0.1;
+            }
+
+            return top;
+        }
+
+        public double setTextBoxPostions(Panel panel, double top, params TextBox[] textBoxes)
+        {
+            for (int i = 0; i < textBoxes.Length; i++)
+            {
+                setPositionPanelControl(textBoxes[i], panel, textLeft, textRight, top, top + 0.1);
+                top += 0.1;
+            }
+
+            return top;
+        }
 
         private void setPositionFormControl(Control control, double left, double right, double top, double bottom)
         {
@@ -563,6 +593,12 @@ namespace TechableMovieManager
         }
     }
 
+    /*
+    * ----------------------------------------------------------------------------------------------
+    * Part 7: User Class
+    * ----------------------------------------------------------------------------------------------
+    */
+
     public class User
     {
         private bool admin;
@@ -585,6 +621,12 @@ namespace TechableMovieManager
         }
     }
 
+    /*
+    * ----------------------------------------------------------------------------------------------
+    * Part 8: Customer Table Class
+    * ----------------------------------------------------------------------------------------------
+    */
+
     public class CustomersTable
     {
         DataSet1.CustomersDataTable table;
@@ -599,5 +641,53 @@ namespace TechableMovieManager
         {
             adapter.InsertSansId(lName, fName, email, address, phone);
         }        
+    }
+
+    public class EmployeesTable
+    {
+        DataSet1.EmployeesDataTable table;
+        DataSet1TableAdapters.EmployeesTableAdapter adapter;
+        public EmployeesTable()
+        {
+            table = new DataSet1.EmployeesDataTable();
+            adapter = new DataSet1TableAdapters.EmployeesTableAdapter();
+        }
+
+        public void add(string lName, string fName, bool isAdmin, string userName, string password)
+        {
+            adapter.InsertSansId(fName, lName, isAdmin, userName, password);
+        }
+    }
+
+    public class MoviesTable
+    {
+        DataSet1.MoviesDataTable table;
+        DataSet1TableAdapters.MoviesTableAdapter adapter;
+        public MoviesTable()
+        {
+            table = new DataSet1.MoviesDataTable();
+            adapter = new DataSet1TableAdapters.MoviesTableAdapter();
+        }
+
+        public void add(int quantityTotal, int quantityAvailable, int upc, string name, string date, string director)
+        {
+            adapter.InsertSansId(quantityTotal, quantityAvailable, upc, name, date, director);
+        }
+    }
+
+    public class RentalsTable
+    {
+        DataSet1.RentalsDataTable table;
+        DataSet1TableAdapters.RentalsTableAdapter adapter;
+        public RentalsTable()
+        {
+            table = new DataSet1.RentalsDataTable();
+            adapter = new DataSet1TableAdapters.RentalsTableAdapter();
+        }
+
+        public void add(int movieId, int customerId, int employeeId, string dueDate, decimal fine)
+        {
+            adapter.InsertSansId(movieId, customerId, employeeId, dueDate, fine);
+        }
     }
 }
