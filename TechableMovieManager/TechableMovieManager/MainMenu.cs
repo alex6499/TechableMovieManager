@@ -56,15 +56,9 @@ namespace TechableMovieManager
             customersTable = new CustomersTable();
             InitializeComponent();
         }
-
-        private void MainMenu_Load(object sender, EventArgs e)
+        private void setColorScheme()
         {
-            this.AcceptButton = rent1Btn;
-            this.ActiveControl = checkout1Txt;
-            
-            this.Text = currentUser.getUserName() + " logged in";
-
-            System.Drawing.Color buttonColor; 
+            System.Drawing.Color buttonColor;
             if (currentUser.isAdmin())
             {
                 newCustomerBtn.Visible = false;
@@ -82,7 +76,10 @@ namespace TechableMovieManager
             rent2Btn.BackColor = buttonColor;
             return1Btn.BackColor = buttonColor;
             newCustomer1Btn.BackColor = buttonColor;
-
+        }
+        
+        private void assignPanelSetupDelagates()
+        {
             //to create new panel, make a setup method, link it to the panel here, then make a event to show it
             setupPanels.Add(returnPnl, setupReturnPnl);
             setupPanels.Add(rentPnl, setupRentPnl);
@@ -96,6 +93,20 @@ namespace TechableMovieManager
             setupPanels.Add(removeCustomerPnl, setupRemoveCustomerPnl);
             setupPanels.Add(removeUserPnl, setupRemoveUserPnl);
             setupPanels.Add(removeMoviePnl, setupRemoveMoviePnl);
+        }
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = rent1Btn;
+            this.ActiveControl = checkout1Txt;
+            
+            //sets the text in the top bar
+            this.Text = currentUser.getUserName() + " is logged in";
+
+            //sets overall variable collor scheme
+            setColorScheme();
+
+            //assigns a setup method to each panel
+            assignPanelSetupDelagates();
 
             //sets report panel to initial panel
             setCurrentMainPanel(rentPnl);
@@ -663,7 +674,7 @@ namespace TechableMovieManager
 
     /*
     * ----------------------------------------------------------------------------------------------
-    * Part 8: Customer Table Class
+    * Part 8: Table Interface Classes
     * ----------------------------------------------------------------------------------------------
     */
 
