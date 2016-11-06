@@ -112,6 +112,7 @@
             this.adminPnl = new System.Windows.Forms.Panel();
             this.adminTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.adminPasswordBtn = new System.Windows.Forms.Button();
             this.admin2Btn = new System.Windows.Forms.Button();
             this.admin1Btn = new System.Windows.Forms.Button();
             this.admin1Data = new System.Windows.Forms.DataGridView();
@@ -139,16 +140,26 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminTitleLbl = new System.Windows.Forms.Label();
             this.rent2Pnl = new System.Windows.Forms.Panel();
-            this.rent3Lbl = new System.Windows.Forms.Label();
+            this.rent6Txt = new System.Windows.Forms.TextBox();
+            this.rent6Lbl = new System.Windows.Forms.Label();
+            this.rent5Txt = new System.Windows.Forms.TextBox();
+            this.rent5Lbl = new System.Windows.Forms.Label();
+            this.rent4Txt = new System.Windows.Forms.TextBox();
+            this.rent4Lbl = new System.Windows.Forms.Label();
+            this.rent7Lbl = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rent2Btn = new System.Windows.Forms.Button();
-            this.checkout3Txt = new System.Windows.Forms.TextBox();
-            this.checkout3Lbl = new System.Windows.Forms.Label();
-            this.checkout2Txt = new System.Windows.Forms.TextBox();
-            this.checkout2Lbl = new System.Windows.Forms.Label();
+            this.rent3Txt = new System.Windows.Forms.TextBox();
+            this.rent3Lbl = new System.Windows.Forms.Label();
+            this.rent2Txt = new System.Windows.Forms.TextBox();
+            this.rent2Lbl = new System.Windows.Forms.Label();
             this.rentTitle2Lbl = new System.Windows.Forms.Label();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserPnl = new System.Windows.Forms.Panel();
+            this.addUser4Txt = new System.Windows.Forms.TextBox();
+            this.addUser3Txt = new System.Windows.Forms.TextBox();
+            this.addUser3Lbl = new System.Windows.Forms.Label();
+            this.addUser4Lbl = new System.Windows.Forms.Label();
             this.addUserRdb = new System.Windows.Forms.RadioButton();
             this.addUserBtn = new System.Windows.Forms.Button();
             this.addUser2Txt = new System.Windows.Forms.TextBox();
@@ -156,10 +167,15 @@
             this.addUser1Lbl = new System.Windows.Forms.Label();
             this.addUser2Lbl = new System.Windows.Forms.Label();
             this.addUserTitleLbl = new System.Windows.Forms.Label();
-            this.addUser4Txt = new System.Windows.Forms.TextBox();
-            this.addUser3Txt = new System.Windows.Forms.TextBox();
-            this.addUser3Lbl = new System.Windows.Forms.Label();
-            this.addUser4Lbl = new System.Windows.Forms.Label();
+            this.passwordPnl = new System.Windows.Forms.Panel();
+            this.password3Txt = new System.Windows.Forms.TextBox();
+            this.password3Lbl = new System.Windows.Forms.Label();
+            this.password1Btn = new System.Windows.Forms.Button();
+            this.password2Txt = new System.Windows.Forms.TextBox();
+            this.password2Lbl = new System.Windows.Forms.Label();
+            this.password1Txt = new System.Windows.Forms.TextBox();
+            this.password1Lbl = new System.Windows.Forms.Label();
+            this.passwordTitleLbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -187,6 +203,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.admin3Data)).BeginInit();
             this.rent2Pnl.SuspendLayout();
             this.addUserPnl.SuspendLayout();
+            this.passwordPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // rentBtn
@@ -442,7 +459,7 @@
             this.reportsPnl.BackColor = System.Drawing.Color.Transparent;
             this.reportsPnl.Controls.Add(this.reportsTab);
             this.reportsPnl.Controls.Add(this.reportsTitleLbl);
-            this.reportsPnl.Location = new System.Drawing.Point(17, 463);
+            this.reportsPnl.Location = new System.Drawing.Point(511, 436);
             this.reportsPnl.Name = "reportsPnl";
             this.reportsPnl.Size = new System.Drawing.Size(502, 341);
             this.reportsPnl.TabIndex = 10;
@@ -905,6 +922,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.adminPasswordBtn);
             this.tabPage1.Controls.Add(this.admin2Btn);
             this.tabPage1.Controls.Add(this.admin1Btn);
             this.tabPage1.Controls.Add(this.admin1Data);
@@ -915,6 +933,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Users";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // adminPasswordBtn
+            // 
+            this.adminPasswordBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminPasswordBtn.Location = new System.Drawing.Point(111, 263);
+            this.adminPasswordBtn.Name = "adminPasswordBtn";
+            this.adminPasswordBtn.Size = new System.Drawing.Size(157, 34);
+            this.adminPasswordBtn.TabIndex = 33;
+            this.adminPasswordBtn.Text = "Set Password";
+            this.adminPasswordBtn.UseVisualStyleBackColor = true;
+            this.adminPasswordBtn.Click += new System.EventHandler(this.adminPasswordBtn_Click);
             // 
             // admin2Btn
             // 
@@ -1002,6 +1031,7 @@
             this.admin3Btn.TabIndex = 33;
             this.admin3Btn.Text = "Add";
             this.admin3Btn.UseVisualStyleBackColor = true;
+            this.admin3Btn.Click += new System.EventHandler(this.admin3Btn_Click);
             // 
             // admin2Data
             // 
@@ -1067,6 +1097,7 @@
             this.admin5Btn.TabIndex = 33;
             this.admin5Btn.Text = "Add";
             this.admin5Btn.UseVisualStyleBackColor = true;
+            this.admin5Btn.Click += new System.EventHandler(this.admin5Btn_Click);
             // 
             // admin3Data
             // 
@@ -1126,29 +1157,89 @@
             // rent2Pnl
             // 
             this.rent2Pnl.BackColor = System.Drawing.Color.Transparent;
-            this.rent2Pnl.Controls.Add(this.rent3Lbl);
+            this.rent2Pnl.Controls.Add(this.rent6Txt);
+            this.rent2Pnl.Controls.Add(this.rent6Lbl);
+            this.rent2Pnl.Controls.Add(this.rent5Txt);
+            this.rent2Pnl.Controls.Add(this.rent5Lbl);
+            this.rent2Pnl.Controls.Add(this.rent4Txt);
+            this.rent2Pnl.Controls.Add(this.rent4Lbl);
+            this.rent2Pnl.Controls.Add(this.rent7Lbl);
             this.rent2Pnl.Controls.Add(this.comboBox1);
             this.rent2Pnl.Controls.Add(this.rent2Btn);
-            this.rent2Pnl.Controls.Add(this.checkout3Txt);
-            this.rent2Pnl.Controls.Add(this.checkout3Lbl);
-            this.rent2Pnl.Controls.Add(this.checkout2Txt);
-            this.rent2Pnl.Controls.Add(this.checkout2Lbl);
+            this.rent2Pnl.Controls.Add(this.rent3Txt);
+            this.rent2Pnl.Controls.Add(this.rent3Lbl);
+            this.rent2Pnl.Controls.Add(this.rent2Txt);
+            this.rent2Pnl.Controls.Add(this.rent2Lbl);
             this.rent2Pnl.Controls.Add(this.rentTitle2Lbl);
-            this.rent2Pnl.Location = new System.Drawing.Point(181, 115);
+            this.rent2Pnl.Location = new System.Drawing.Point(507, 279);
             this.rent2Pnl.Name = "rent2Pnl";
-            this.rent2Pnl.Size = new System.Drawing.Size(495, 211);
+            this.rent2Pnl.Size = new System.Drawing.Size(495, 352);
             this.rent2Pnl.TabIndex = 13;
             this.rent2Pnl.Visible = false;
             // 
-            // rent3Lbl
+            // rent6Txt
             // 
-            this.rent3Lbl.AutoSize = true;
-            this.rent3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rent3Lbl.Location = new System.Drawing.Point(37, 211);
-            this.rent3Lbl.Name = "rent3Lbl";
-            this.rent3Lbl.Size = new System.Drawing.Size(152, 24);
-            this.rent3Lbl.TabIndex = 31;
-            this.rent3Lbl.Text = "Payment Method";
+            this.rent6Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent6Txt.Location = new System.Drawing.Point(236, 186);
+            this.rent6Txt.Name = "rent6Txt";
+            this.rent6Txt.Size = new System.Drawing.Size(100, 29);
+            this.rent6Txt.TabIndex = 40;
+            // 
+            // rent6Lbl
+            // 
+            this.rent6Lbl.AutoSize = true;
+            this.rent6Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent6Lbl.Location = new System.Drawing.Point(37, 186);
+            this.rent6Lbl.Name = "rent6Lbl";
+            this.rent6Lbl.Size = new System.Drawing.Size(80, 24);
+            this.rent6Lbl.TabIndex = 39;
+            this.rent6Lbl.Text = "Address";
+            // 
+            // rent5Txt
+            // 
+            this.rent5Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent5Txt.Location = new System.Drawing.Point(236, 159);
+            this.rent5Txt.Name = "rent5Txt";
+            this.rent5Txt.Size = new System.Drawing.Size(100, 29);
+            this.rent5Txt.TabIndex = 38;
+            // 
+            // rent5Lbl
+            // 
+            this.rent5Lbl.AutoSize = true;
+            this.rent5Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent5Lbl.Location = new System.Drawing.Point(37, 159);
+            this.rent5Lbl.Name = "rent5Lbl";
+            this.rent5Lbl.Size = new System.Drawing.Size(57, 24);
+            this.rent5Lbl.TabIndex = 37;
+            this.rent5Lbl.Text = "Email";
+            // 
+            // rent4Txt
+            // 
+            this.rent4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent4Txt.Location = new System.Drawing.Point(236, 125);
+            this.rent4Txt.Name = "rent4Txt";
+            this.rent4Txt.Size = new System.Drawing.Size(100, 29);
+            this.rent4Txt.TabIndex = 36;
+            // 
+            // rent4Lbl
+            // 
+            this.rent4Lbl.AutoSize = true;
+            this.rent4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent4Lbl.Location = new System.Drawing.Point(37, 125);
+            this.rent4Lbl.Name = "rent4Lbl";
+            this.rent4Lbl.Size = new System.Drawing.Size(81, 24);
+            this.rent4Lbl.TabIndex = 35;
+            this.rent4Lbl.Text = "Phone #";
+            // 
+            // rent7Lbl
+            // 
+            this.rent7Lbl.AutoSize = true;
+            this.rent7Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent7Lbl.Location = new System.Drawing.Point(37, 211);
+            this.rent7Lbl.Name = "rent7Lbl";
+            this.rent7Lbl.Size = new System.Drawing.Size(152, 24);
+            this.rent7Lbl.TabIndex = 31;
+            this.rent7Lbl.Text = "Payment Method";
             // 
             // comboBox1
             // 
@@ -1170,41 +1261,41 @@
             this.rent2Btn.Text = "Submit";
             this.rent2Btn.UseVisualStyleBackColor = true;
             // 
-            // checkout3Txt
+            // rent3Txt
             // 
-            this.checkout3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkout3Txt.Location = new System.Drawing.Point(286, 152);
-            this.checkout3Txt.Name = "checkout3Txt";
-            this.checkout3Txt.Size = new System.Drawing.Size(185, 29);
-            this.checkout3Txt.TabIndex = 28;
+            this.rent3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent3Txt.Location = new System.Drawing.Point(270, 96);
+            this.rent3Txt.Name = "rent3Txt";
+            this.rent3Txt.Size = new System.Drawing.Size(185, 29);
+            this.rent3Txt.TabIndex = 28;
             // 
-            // checkout3Lbl
+            // rent3Lbl
             // 
-            this.checkout3Lbl.AutoSize = true;
-            this.checkout3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkout3Lbl.Location = new System.Drawing.Point(29, 157);
-            this.checkout3Lbl.Name = "checkout3Lbl";
-            this.checkout3Lbl.Size = new System.Drawing.Size(101, 24);
-            this.checkout3Lbl.TabIndex = 27;
-            this.checkout3Lbl.Text = "First Name";
+            this.rent3Lbl.AutoSize = true;
+            this.rent3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent3Lbl.Location = new System.Drawing.Point(13, 101);
+            this.rent3Lbl.Name = "rent3Lbl";
+            this.rent3Lbl.Size = new System.Drawing.Size(101, 24);
+            this.rent3Lbl.TabIndex = 27;
+            this.rent3Lbl.Text = "First Name";
             // 
-            // checkout2Txt
+            // rent2Txt
             // 
-            this.checkout2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkout2Txt.Location = new System.Drawing.Point(286, 104);
-            this.checkout2Txt.Name = "checkout2Txt";
-            this.checkout2Txt.Size = new System.Drawing.Size(185, 29);
-            this.checkout2Txt.TabIndex = 25;
+            this.rent2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent2Txt.Location = new System.Drawing.Point(270, 67);
+            this.rent2Txt.Name = "rent2Txt";
+            this.rent2Txt.Size = new System.Drawing.Size(185, 29);
+            this.rent2Txt.TabIndex = 25;
             // 
-            // checkout2Lbl
+            // rent2Lbl
             // 
-            this.checkout2Lbl.AutoSize = true;
-            this.checkout2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkout2Lbl.Location = new System.Drawing.Point(29, 109);
-            this.checkout2Lbl.Name = "checkout2Lbl";
-            this.checkout2Lbl.Size = new System.Drawing.Size(99, 24);
-            this.checkout2Lbl.TabIndex = 23;
-            this.checkout2Lbl.Text = "Last Name";
+            this.rent2Lbl.AutoSize = true;
+            this.rent2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rent2Lbl.Location = new System.Drawing.Point(13, 72);
+            this.rent2Lbl.Name = "rent2Lbl";
+            this.rent2Lbl.Size = new System.Drawing.Size(99, 24);
+            this.rent2Lbl.TabIndex = 23;
+            this.rent2Lbl.Text = "Last Name";
             // 
             // rentTitle2Lbl
             // 
@@ -1236,11 +1327,48 @@
             this.addUserPnl.Controls.Add(this.addUser1Lbl);
             this.addUserPnl.Controls.Add(this.addUser2Lbl);
             this.addUserPnl.Controls.Add(this.addUserTitleLbl);
-            this.addUserPnl.Location = new System.Drawing.Point(290, 49);
+            this.addUserPnl.Location = new System.Drawing.Point(679, 39);
             this.addUserPnl.Name = "addUserPnl";
             this.addUserPnl.Size = new System.Drawing.Size(446, 314);
             this.addUserPnl.TabIndex = 14;
             this.addUserPnl.Visible = false;
+            // 
+            // addUser4Txt
+            // 
+            this.addUser4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser4Txt.Location = new System.Drawing.Point(243, 149);
+            this.addUser4Txt.Name = "addUser4Txt";
+            this.addUser4Txt.PasswordChar = '*';
+            this.addUser4Txt.Size = new System.Drawing.Size(100, 29);
+            this.addUser4Txt.TabIndex = 35;
+            // 
+            // addUser3Txt
+            // 
+            this.addUser3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser3Txt.Location = new System.Drawing.Point(243, 123);
+            this.addUser3Txt.Name = "addUser3Txt";
+            this.addUser3Txt.Size = new System.Drawing.Size(100, 29);
+            this.addUser3Txt.TabIndex = 34;
+            // 
+            // addUser3Lbl
+            // 
+            this.addUser3Lbl.AutoSize = true;
+            this.addUser3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser3Lbl.Location = new System.Drawing.Point(44, 122);
+            this.addUser3Lbl.Name = "addUser3Lbl";
+            this.addUser3Lbl.Size = new System.Drawing.Size(105, 24);
+            this.addUser3Lbl.TabIndex = 33;
+            this.addUser3Lbl.Text = "User Name";
+            // 
+            // addUser4Lbl
+            // 
+            this.addUser4Lbl.AutoSize = true;
+            this.addUser4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser4Lbl.Location = new System.Drawing.Point(44, 149);
+            this.addUser4Lbl.Name = "addUser4Lbl";
+            this.addUser4Lbl.Size = new System.Drawing.Size(92, 24);
+            this.addUser4Lbl.TabIndex = 32;
+            this.addUser4Lbl.Text = "Password";
             // 
             // addUserRdb
             // 
@@ -1311,42 +1439,97 @@
             this.addUserTitleLbl.Text = "Add User";
             this.addUserTitleLbl.Click += new System.EventHandler(this.addUserTitleLbl_Click);
             // 
-            // addUser4Txt
+            // passwordPnl
             // 
-            this.addUser4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUser4Txt.Location = new System.Drawing.Point(243, 149);
-            this.addUser4Txt.Name = "addUser4Txt";
-            this.addUser4Txt.PasswordChar = '*';
-            this.addUser4Txt.Size = new System.Drawing.Size(100, 29);
-            this.addUser4Txt.TabIndex = 35;
+            this.passwordPnl.BackColor = System.Drawing.Color.Transparent;
+            this.passwordPnl.Controls.Add(this.password3Txt);
+            this.passwordPnl.Controls.Add(this.password3Lbl);
+            this.passwordPnl.Controls.Add(this.password1Btn);
+            this.passwordPnl.Controls.Add(this.password2Txt);
+            this.passwordPnl.Controls.Add(this.password2Lbl);
+            this.passwordPnl.Controls.Add(this.password1Txt);
+            this.passwordPnl.Controls.Add(this.password1Lbl);
+            this.passwordPnl.Controls.Add(this.passwordTitleLbl);
+            this.passwordPnl.Location = new System.Drawing.Point(222, 49);
+            this.passwordPnl.Name = "passwordPnl";
+            this.passwordPnl.Size = new System.Drawing.Size(495, 352);
+            this.passwordPnl.TabIndex = 15;
+            this.passwordPnl.Visible = false;
             // 
-            // addUser3Txt
+            // password3Txt
             // 
-            this.addUser3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUser3Txt.Location = new System.Drawing.Point(243, 123);
-            this.addUser3Txt.Name = "addUser3Txt";
-            this.addUser3Txt.Size = new System.Drawing.Size(100, 29);
-            this.addUser3Txt.TabIndex = 34;
+            this.password3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password3Txt.Location = new System.Drawing.Point(236, 125);
+            this.password3Txt.Name = "password3Txt";
+            this.password3Txt.Size = new System.Drawing.Size(100, 29);
+            this.password3Txt.TabIndex = 36;
             // 
-            // addUser3Lbl
+            // password3Lbl
             // 
-            this.addUser3Lbl.AutoSize = true;
-            this.addUser3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUser3Lbl.Location = new System.Drawing.Point(44, 122);
-            this.addUser3Lbl.Name = "addUser3Lbl";
-            this.addUser3Lbl.Size = new System.Drawing.Size(105, 24);
-            this.addUser3Lbl.TabIndex = 33;
-            this.addUser3Lbl.Text = "User Name";
+            this.password3Lbl.AutoSize = true;
+            this.password3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password3Lbl.Location = new System.Drawing.Point(37, 125);
+            this.password3Lbl.Name = "password3Lbl";
+            this.password3Lbl.Size = new System.Drawing.Size(170, 24);
+            this.password3Lbl.TabIndex = 35;
+            this.password3Lbl.Text = "Re-enter Password";
             // 
-            // addUser4Lbl
+            // password1Btn
             // 
-            this.addUser4Lbl.AutoSize = true;
-            this.addUser4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUser4Lbl.Location = new System.Drawing.Point(44, 149);
-            this.addUser4Lbl.Name = "addUser4Lbl";
-            this.addUser4Lbl.Size = new System.Drawing.Size(92, 24);
-            this.addUser4Lbl.TabIndex = 32;
-            this.addUser4Lbl.Text = "Password";
+            this.password1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password1Btn.Location = new System.Drawing.Point(174, 254);
+            this.password1Btn.Name = "password1Btn";
+            this.password1Btn.Size = new System.Drawing.Size(98, 32);
+            this.password1Btn.TabIndex = 29;
+            this.password1Btn.Text = "Submit";
+            this.password1Btn.UseVisualStyleBackColor = true;
+            // 
+            // password2Txt
+            // 
+            this.password2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password2Txt.Location = new System.Drawing.Point(270, 96);
+            this.password2Txt.Name = "password2Txt";
+            this.password2Txt.Size = new System.Drawing.Size(185, 29);
+            this.password2Txt.TabIndex = 28;
+            // 
+            // password2Lbl
+            // 
+            this.password2Lbl.AutoSize = true;
+            this.password2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password2Lbl.Location = new System.Drawing.Point(13, 101);
+            this.password2Lbl.Name = "password2Lbl";
+            this.password2Lbl.Size = new System.Drawing.Size(92, 24);
+            this.password2Lbl.TabIndex = 27;
+            this.password2Lbl.Text = "Password";
+            // 
+            // password1Txt
+            // 
+            this.password1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password1Txt.Location = new System.Drawing.Point(270, 67);
+            this.password1Txt.Name = "password1Txt";
+            this.password1Txt.Size = new System.Drawing.Size(185, 29);
+            this.password1Txt.TabIndex = 25;
+            // 
+            // password1Lbl
+            // 
+            this.password1Lbl.AutoSize = true;
+            this.password1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password1Lbl.Location = new System.Drawing.Point(13, 72);
+            this.password1Lbl.Name = "password1Lbl";
+            this.password1Lbl.Size = new System.Drawing.Size(116, 24);
+            this.password1Lbl.TabIndex = 23;
+            this.password1Lbl.Text = "Unser Name";
+            // 
+            // passwordTitleLbl
+            // 
+            this.passwordTitleLbl.AutoSize = true;
+            this.passwordTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTitleLbl.Location = new System.Drawing.Point(200, 25);
+            this.passwordTitleLbl.Name = "passwordTitleLbl";
+            this.passwordTitleLbl.Size = new System.Drawing.Size(196, 37);
+            this.passwordTitleLbl.TabIndex = 10;
+            this.passwordTitleLbl.Text = "Set Pssword";
+            this.passwordTitleLbl.Click += new System.EventHandler(this.label7_Click);
             // 
             // MainMenu
             // 
@@ -1355,6 +1538,7 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.rentPnl);
@@ -1406,6 +1590,8 @@
             this.rent2Pnl.PerformLayout();
             this.addUserPnl.ResumeLayout(false);
             this.addUserPnl.PerformLayout();
+            this.passwordPnl.ResumeLayout(false);
+            this.passwordPnl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1458,10 +1644,10 @@
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Button rent1Btn;
         private System.Windows.Forms.Panel rent2Pnl;
-        private System.Windows.Forms.TextBox checkout3Txt;
-        private System.Windows.Forms.Label checkout3Lbl;
-        private System.Windows.Forms.TextBox checkout2Txt;
-        private System.Windows.Forms.Label checkout2Lbl;
+        private System.Windows.Forms.TextBox rent3Txt;
+        private System.Windows.Forms.Label rent3Lbl;
+        private System.Windows.Forms.TextBox rent2Txt;
+        private System.Windows.Forms.Label rent2Lbl;
         private System.Windows.Forms.Label rentTitle2Lbl;
         private System.Windows.Forms.Button rent2Btn;
         private System.Windows.Forms.Button return1Btn;
@@ -1535,7 +1721,7 @@
         private System.Windows.Forms.Label addUserTitleLbl;
         private System.Windows.Forms.RadioButton addUserRdb;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label rent3Lbl;
+        private System.Windows.Forms.Label rent7Lbl;
         private System.Windows.Forms.TextBox addUser2Txt;
         private System.Windows.Forms.Label addUser2Lbl;
         private System.Windows.Forms.TextBox newCustomer5Txt;
@@ -1544,6 +1730,22 @@
         private System.Windows.Forms.TextBox addUser3Txt;
         private System.Windows.Forms.Label addUser3Lbl;
         private System.Windows.Forms.Label addUser4Lbl;
+        private System.Windows.Forms.TextBox rent6Txt;
+        private System.Windows.Forms.Label rent6Lbl;
+        private System.Windows.Forms.TextBox rent5Txt;
+        private System.Windows.Forms.Label rent5Lbl;
+        private System.Windows.Forms.TextBox rent4Txt;
+        private System.Windows.Forms.Label rent4Lbl;
+        private System.Windows.Forms.Panel passwordPnl;
+        private System.Windows.Forms.TextBox password3Txt;
+        private System.Windows.Forms.Label password3Lbl;
+        private System.Windows.Forms.Button password1Btn;
+        private System.Windows.Forms.TextBox password2Txt;
+        private System.Windows.Forms.Label password2Lbl;
+        private System.Windows.Forms.TextBox password1Txt;
+        private System.Windows.Forms.Label password1Lbl;
+        private System.Windows.Forms.Label passwordTitleLbl;
+        private System.Windows.Forms.Button adminPasswordBtn;
     }
 }
 
