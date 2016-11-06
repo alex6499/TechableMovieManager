@@ -156,6 +156,10 @@
             this.addUser1Lbl = new System.Windows.Forms.Label();
             this.addUser2Lbl = new System.Windows.Forms.Label();
             this.addUserTitleLbl = new System.Windows.Forms.Label();
+            this.addUser4Txt = new System.Windows.Forms.TextBox();
+            this.addUser3Txt = new System.Windows.Forms.TextBox();
+            this.addUser3Lbl = new System.Windows.Forms.Label();
+            this.addUser4Lbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -1221,6 +1225,10 @@
             // addUserPnl
             // 
             this.addUserPnl.BackColor = System.Drawing.Color.Transparent;
+            this.addUserPnl.Controls.Add(this.addUser4Txt);
+            this.addUserPnl.Controls.Add(this.addUser3Txt);
+            this.addUserPnl.Controls.Add(this.addUser3Lbl);
+            this.addUserPnl.Controls.Add(this.addUser4Lbl);
             this.addUserPnl.Controls.Add(this.addUserRdb);
             this.addUserPnl.Controls.Add(this.addUserBtn);
             this.addUserPnl.Controls.Add(this.addUser2Txt);
@@ -1228,7 +1236,7 @@
             this.addUserPnl.Controls.Add(this.addUser1Lbl);
             this.addUserPnl.Controls.Add(this.addUser2Lbl);
             this.addUserPnl.Controls.Add(this.addUserTitleLbl);
-            this.addUserPnl.Location = new System.Drawing.Point(333, 30);
+            this.addUserPnl.Location = new System.Drawing.Point(290, 49);
             this.addUserPnl.Name = "addUserPnl";
             this.addUserPnl.Size = new System.Drawing.Size(446, 314);
             this.addUserPnl.TabIndex = 14;
@@ -1238,7 +1246,7 @@
             // 
             this.addUserRdb.AutoSize = true;
             this.addUserRdb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUserRdb.Location = new System.Drawing.Point(163, 146);
+            this.addUserRdb.Location = new System.Drawing.Point(285, 240);
             this.addUserRdb.Name = "addUserRdb";
             this.addUserRdb.Size = new System.Drawing.Size(101, 28);
             this.addUserRdb.TabIndex = 31;
@@ -1298,9 +1306,47 @@
             this.addUserTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addUserTitleLbl.Location = new System.Drawing.Point(177, 22);
             this.addUserTitleLbl.Name = "addUserTitleLbl";
-            this.addUserTitleLbl.Size = new System.Drawing.Size(209, 37);
+            this.addUserTitleLbl.Size = new System.Drawing.Size(151, 37);
             this.addUserTitleLbl.TabIndex = 0;
-            this.addUserTitleLbl.Text = "Remove User";
+            this.addUserTitleLbl.Text = "Add User";
+            this.addUserTitleLbl.Click += new System.EventHandler(this.addUserTitleLbl_Click);
+            // 
+            // addUser4Txt
+            // 
+            this.addUser4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser4Txt.Location = new System.Drawing.Point(243, 149);
+            this.addUser4Txt.Name = "addUser4Txt";
+            this.addUser4Txt.PasswordChar = '*';
+            this.addUser4Txt.Size = new System.Drawing.Size(100, 29);
+            this.addUser4Txt.TabIndex = 35;
+            // 
+            // addUser3Txt
+            // 
+            this.addUser3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser3Txt.Location = new System.Drawing.Point(243, 123);
+            this.addUser3Txt.Name = "addUser3Txt";
+            this.addUser3Txt.Size = new System.Drawing.Size(100, 29);
+            this.addUser3Txt.TabIndex = 34;
+            // 
+            // addUser3Lbl
+            // 
+            this.addUser3Lbl.AutoSize = true;
+            this.addUser3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser3Lbl.Location = new System.Drawing.Point(44, 122);
+            this.addUser3Lbl.Name = "addUser3Lbl";
+            this.addUser3Lbl.Size = new System.Drawing.Size(105, 24);
+            this.addUser3Lbl.TabIndex = 33;
+            this.addUser3Lbl.Text = "User Name";
+            // 
+            // addUser4Lbl
+            // 
+            this.addUser4Lbl.AutoSize = true;
+            this.addUser4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser4Lbl.Location = new System.Drawing.Point(44, 149);
+            this.addUser4Lbl.Name = "addUser4Lbl";
+            this.addUser4Lbl.Size = new System.Drawing.Size(92, 24);
+            this.addUser4Lbl.TabIndex = 32;
+            this.addUser4Lbl.Text = "Password";
             // 
             // MainMenu
             // 
@@ -1494,6 +1540,10 @@
         private System.Windows.Forms.Label addUser2Lbl;
         private System.Windows.Forms.TextBox newCustomer5Txt;
         private System.Windows.Forms.Label newCustomer5Lbl;
+        private System.Windows.Forms.TextBox addUser4Txt;
+        private System.Windows.Forms.TextBox addUser3Txt;
+        private System.Windows.Forms.Label addUser3Lbl;
+        private System.Windows.Forms.Label addUser4Lbl;
     }
 }
 

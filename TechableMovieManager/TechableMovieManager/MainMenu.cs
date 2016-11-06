@@ -226,40 +226,63 @@ namespace TechableMovieManager
          * Setup Methods
          * ----------------------------------------------------------------------------------------------
          */
+        public void setTitlePosition(Label label, Panel panel)
+        {
+            setPositionPanelControl(label, panel, .4, .7, 0, .1);
+        }
+
         /// <summary>
         /// Sets the position of all components within the new customer panel based on percent relative locations
         /// </summary>
         public void setupNewCustomerPnl()
         {
-            setPositionPanelControl(customerTitleLbl, newCustomerPnl, .4, .7, 0, .1);
+            Panel panel = newCustomerPnl;
 
-            setPositionPanelControl(newCustomer1Lbl, newCustomerPnl, labelLeft, textLeft, .2, .3);
-            setPositionPanelControl(newCustomer2Lbl, newCustomerPnl, labelLeft, textLeft, .3, .4);
-            setPositionPanelControl(newCustomer3Lbl, newCustomerPnl, labelLeft, textLeft, .4, .5);
-            setPositionPanelControl(newCustomer4Lbl, newCustomerPnl, labelLeft, textLeft, .5, .6);
-            setPositionPanelControl(newCustomer5Lbl, newCustomerPnl, labelLeft, textLeft, .6, .7);
+            setPositionPanelControl(customerTitleLbl,panel, .4, .7, 0, .1);
 
-            setPositionPanelControl(newCustomer1Txt, newCustomerPnl, textLeft, textRight, .2, .3);
-            setPositionPanelControl(newCustomer2Txt, newCustomerPnl, textLeft, textRight, .3, .4);
-            setPositionPanelControl(newCustomer3Txt, newCustomerPnl, textLeft, textRight, .4, .5);
-            setPositionPanelControl(newCustomer4Txt, newCustomerPnl, textLeft, textRight, .5, .6);
-            setPositionPanelControl(newCustomer5Txt, newCustomerPnl, textLeft, textRight, .6, .7);
+            setPositionPanelControl(newCustomer1Lbl, panel, labelLeft, textLeft, .2, .3);
+            setPositionPanelControl(newCustomer2Lbl, panel, labelLeft, textLeft, .3, .4);
+            setPositionPanelControl(newCustomer3Lbl, panel, labelLeft, textLeft, .4, .5);
+            setPositionPanelControl(newCustomer4Lbl, panel, labelLeft, textLeft, .5, .6);
+            setPositionPanelControl(newCustomer5Lbl, panel, labelLeft, textLeft, .6, .7);
 
-            setLocationPanelControl(newCustomer1Btn, newCustomerPnl, .4, .8);
+            setPositionPanelControl(newCustomer1Txt, panel, textLeft, textRight, .2, .3);
+            setPositionPanelControl(newCustomer2Txt, panel, textLeft, textRight, .3, .4);
+            setPositionPanelControl(newCustomer3Txt, panel, textLeft, textRight, .4, .5);
+            setPositionPanelControl(newCustomer4Txt, panel, textLeft, textRight, .5, .6);
+            setPositionPanelControl(newCustomer5Txt, panel, textLeft, textRight, .6, .7);
+
+            setLocationPanelControl(newCustomer1Btn, panel, .4, .8);
         }
 
+
+        public void setLabelPostions(Panel panel, double top, params Label[] labels)
+        {
+            for(int i = 0; i < labels.Length; i++)
+            {
+                setPositionPanelControl(labels[i], panel, labelLeft, textLeft, top, top + 0.1);
+                top += 0.1;
+            }
+        }
+
+        public void setTextBoxPostions(Panel panel, double top, params TextBox[] textBoxes)
+        {
+            for (int i = 0; i < textBoxes.Length; i++)
+            {
+                setPositionPanelControl(textBoxes[i], panel, textLeft, textRight, top, top + 0.1);
+                top += 0.1;
+            }
+        }
         public void setupAddUserPnl()
         {
-            setPositionPanelControl(customerTitleLbl, newCustomerPnl, .4, .7, 0, .1);
+            Panel panel = addUserPnl;
 
-            setPositionPanelControl(addUser1Lbl, newCustomerPnl, labelLeft, textLeft, .2, .3);
-            setPositionPanelControl(addUser2Lbl, newCustomerPnl, labelLeft, textLeft, .3, .4);
-
-            setPositionPanelControl(addUser1Txt, newCustomerPnl, textLeft, textRight, .2, .3);
-            setPositionPanelControl(addUser2Txt, newCustomerPnl, textLeft, textRight, .3, .4);
-
-            setLocationPanelControl(addUserRdb, newCustomerPnl, .4, .4);
-            setLocationPanelControl(addUserBtn, newCustomerPnl, .4, .6);
+            setTitlePosition(addUserTitleLbl, panel);
+            setLabelPostions(panel, 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl, addUser4Lbl);
+            setTextBoxPostions(panel, 0.2, addUser1Txt, addUser2Txt, addUser3Txt, addUser4Txt);
+            
+            setLocationPanelControl(addUserRdb, panel, .4, .6);
+            setLocationPanelControl(addUserBtn, panel, .4, .7);
         }
 
         public void setupRentPnl()
@@ -453,6 +476,11 @@ namespace TechableMovieManager
             string address = newCustomer5Txt.Text;
 
             customersTable.add(lName, fName, email, address, phone);
+        }
+
+        private void addUserTitleLbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
