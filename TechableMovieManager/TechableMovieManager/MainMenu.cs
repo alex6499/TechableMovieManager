@@ -21,10 +21,10 @@ namespace TechableMovieManager
          */
 
         //table interfaec objects
-        CustomersTable customersTable;
-        CustomersTable moviesTable;
-        CustomersTable employeesTable;
-        CustomersTable rentalsTable;
+        CustomersTable customersTable = new CustomersTable();
+        MoviesTable moviesTable = new MoviesTable();
+        EmployeesTable employeesTable = new EmployeesTable();
+        RentalsTable rentalsTable = new RentalsTable();
 
         //The current User
         User currentUser;
@@ -50,10 +50,9 @@ namespace TechableMovieManager
          * ----------------------------------------------------------------------------------------------
          */
 
-        public MainMenu(string userName)
+        public MainMenu(User user)
         {
-            currentUser = new User(userName.Equals("Admin"), userName);
-            customersTable = new CustomersTable();
+            currentUser = user;
             InitializeComponent();
         }
         private void setColorScheme()
@@ -100,8 +99,8 @@ namespace TechableMovieManager
             this.ActiveControl = checkout1Txt;
             
             //sets the text in the top bar
-            this.Text = currentUser.getUserName() + " is logged in";
-
+            this.Text = currentUser.getFirstName() + " " + currentUser.getLastName() + " is logged in";
+            
             //sets overall variable collor scheme
             setColorScheme();
 
@@ -620,57 +619,7 @@ namespace TechableMovieManager
     * ----------------------------------------------------------------------------------------------
     */
 
-    public class User
-    {
-        private bool admin;
-        private int userId;
-        private string userName;
-        private string firstName;
-        private string lastName;
-
-        public User(bool isAdmin, string userName)
-        {
-            this.admin = isAdmin;
-            this.userId = userId;
-            this.userName = userName;
-            this.firstName = firstName;
-            this.lastName = lastName;
-        }
-
-        public User(bool isAdmin, string userName, string firstName, string lastName, int userId)
-        {
-            this.admin = isAdmin;
-            this.userId = userId;
-            this.userName = userName;
-            this.firstName = firstName;
-            this.lastName = lastName;
-        }
-
-        public bool isAdmin()
-        {
-            return admin;
-        }
-
-        public string getUserName()
-        {
-            return userName;
-        }
-
-        public int getUserId()
-        {
-            return userId;
-        }
-
-        public string getFirstName()
-        {
-            return firstName;
-        }
-
-        public string getLastName()
-        {
-            return lastName;
-        }
-    }
+    
 
     /*
     * ----------------------------------------------------------------------------------------------
@@ -691,24 +640,19 @@ namespace TechableMovieManager
         public void add(string lName, string fName, string email, string address, string phone)
         {
             adapter.InsertSansId(lName, fName, email, address, phone);
-        }        
-    }
-
-    public class EmployeesTable
-    {
-        DataSet1.EmployeesDataTable table;
-        DataSet1TableAdapters.EmployeesTableAdapter adapter;
-        public EmployeesTable()
-        {
-            table = new DataSet1.EmployeesDataTable();
-            adapter = new DataSet1TableAdapters.EmployeesTableAdapter();
         }
 
-        public void add(string lName, string fName, bool isAdmin, string userName, string password)
+        public Object[] get()
         {
-            adapter.InsertSansId(fName, lName, isAdmin, userName, password);
+            //table = adapter.GetData();
+
+            DataRow[] row = adapter.GetData().Select();
+            
+            return(row[0].ItemArray);
         }
     }
+
+    
 
     public class MoviesTable
     {
@@ -739,6 +683,15 @@ namespace TechableMovieManager
         public void add(int movieId, int customerId, int employeeId, string dueDate, decimal fine)
         {
             adapter.InsertSansId(movieId, customerId, employeeId, dueDate, fine);
+        }
+
+        public void get()
+        {
+            //table = adapter.GetData();
+
+            DataTableReader reader = table.CreateDataReader();
+
+            reader.GetInt32(1);
         }
     }
 }
