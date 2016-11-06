@@ -108,7 +108,7 @@
             this.newCustomer3Lbl = new System.Windows.Forms.Label();
             this.newCustomer1Lbl = new System.Windows.Forms.Label();
             this.newCustomer2Lbl = new System.Windows.Forms.Label();
-            this.customerTitleLbl = new System.Windows.Forms.Label();
+            this.newCustomerTitleLbl = new System.Windows.Forms.Label();
             this.adminPnl = new System.Windows.Forms.Panel();
             this.adminTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -176,6 +176,11 @@
             this.password1Txt = new System.Windows.Forms.TextBox();
             this.password1Lbl = new System.Windows.Forms.Label();
             this.passwordTitleLbl = new System.Windows.Forms.Label();
+            this.removeCustomerPnl = new System.Windows.Forms.Panel();
+            this.removeCustomer1Btn = new System.Windows.Forms.Button();
+            this.removeCustomer1Txt = new System.Windows.Forms.TextBox();
+            this.removeCustomer1Lbl = new System.Windows.Forms.Label();
+            this.removeCustomerTitleLbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -204,6 +209,7 @@
             this.rent2Pnl.SuspendLayout();
             this.addUserPnl.SuspendLayout();
             this.passwordPnl.SuspendLayout();
+            this.removeCustomerPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // rentBtn
@@ -780,7 +786,7 @@
             this.newCustomerPnl.Controls.Add(this.newCustomer3Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer1Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer2Lbl);
-            this.newCustomerPnl.Controls.Add(this.customerTitleLbl);
+            this.newCustomerPnl.Controls.Add(this.newCustomerTitleLbl);
             this.newCustomerPnl.Location = new System.Drawing.Point(30, 353);
             this.newCustomerPnl.Name = "newCustomerPnl";
             this.newCustomerPnl.Size = new System.Drawing.Size(446, 314);
@@ -888,24 +894,24 @@
             this.newCustomer2Lbl.TabIndex = 1;
             this.newCustomer2Lbl.Text = "Last Name";
             // 
-            // customerTitleLbl
+            // newCustomerTitleLbl
             // 
-            this.customerTitleLbl.AutoSize = true;
-            this.customerTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerTitleLbl.Location = new System.Drawing.Point(177, 22);
-            this.customerTitleLbl.Name = "customerTitleLbl";
-            this.customerTitleLbl.Size = new System.Drawing.Size(223, 37);
-            this.customerTitleLbl.TabIndex = 0;
-            this.customerTitleLbl.Text = "Add Customer";
+            this.newCustomerTitleLbl.AutoSize = true;
+            this.newCustomerTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newCustomerTitleLbl.Location = new System.Drawing.Point(177, 22);
+            this.newCustomerTitleLbl.Name = "newCustomerTitleLbl";
+            this.newCustomerTitleLbl.Size = new System.Drawing.Size(223, 37);
+            this.newCustomerTitleLbl.TabIndex = 0;
+            this.newCustomerTitleLbl.Text = "Add Customer";
             // 
             // adminPnl
             // 
             this.adminPnl.BackColor = System.Drawing.Color.Transparent;
             this.adminPnl.Controls.Add(this.adminTab);
             this.adminPnl.Controls.Add(this.adminTitleLbl);
-            this.adminPnl.Location = new System.Drawing.Point(786, 52);
+            this.adminPnl.Location = new System.Drawing.Point(299, 39);
             this.adminPnl.Name = "adminPnl";
-            this.adminPnl.Size = new System.Drawing.Size(525, 516);
+            this.adminPnl.Size = new System.Drawing.Size(600, 553);
             this.adminPnl.TabIndex = 12;
             this.adminPnl.Visible = false;
             // 
@@ -1021,6 +1027,7 @@
             this.admin4Btn.TabIndex = 34;
             this.admin4Btn.Text = "Remove";
             this.admin4Btn.UseVisualStyleBackColor = true;
+            this.admin4Btn.Click += new System.EventHandler(this.admin4Btn_Click);
             // 
             // admin3Btn
             // 
@@ -1171,7 +1178,7 @@
             this.rent2Pnl.Controls.Add(this.rent2Txt);
             this.rent2Pnl.Controls.Add(this.rent2Lbl);
             this.rent2Pnl.Controls.Add(this.rentTitle2Lbl);
-            this.rent2Pnl.Location = new System.Drawing.Point(507, 279);
+            this.rent2Pnl.Location = new System.Drawing.Point(10, 384);
             this.rent2Pnl.Name = "rent2Pnl";
             this.rent2Pnl.Size = new System.Drawing.Size(495, 352);
             this.rent2Pnl.TabIndex = 13;
@@ -1450,7 +1457,7 @@
             this.passwordPnl.Controls.Add(this.password1Txt);
             this.passwordPnl.Controls.Add(this.password1Lbl);
             this.passwordPnl.Controls.Add(this.passwordTitleLbl);
-            this.passwordPnl.Location = new System.Drawing.Point(222, 49);
+            this.passwordPnl.Location = new System.Drawing.Point(563, 178);
             this.passwordPnl.Name = "passwordPnl";
             this.passwordPnl.Size = new System.Drawing.Size(495, 352);
             this.passwordPnl.TabIndex = 15;
@@ -1531,6 +1538,57 @@
             this.passwordTitleLbl.Text = "Set Pssword";
             this.passwordTitleLbl.Click += new System.EventHandler(this.label7_Click);
             // 
+            // removeCustomerPnl
+            // 
+            this.removeCustomerPnl.BackColor = System.Drawing.Color.Transparent;
+            this.removeCustomerPnl.Controls.Add(this.removeCustomer1Btn);
+            this.removeCustomerPnl.Controls.Add(this.removeCustomer1Txt);
+            this.removeCustomerPnl.Controls.Add(this.removeCustomer1Lbl);
+            this.removeCustomerPnl.Controls.Add(this.removeCustomerTitleLbl);
+            this.removeCustomerPnl.Location = new System.Drawing.Point(55, 345);
+            this.removeCustomerPnl.Name = "removeCustomerPnl";
+            this.removeCustomerPnl.Size = new System.Drawing.Size(495, 352);
+            this.removeCustomerPnl.TabIndex = 16;
+            this.removeCustomerPnl.Visible = false;
+            // 
+            // removeCustomer1Btn
+            // 
+            this.removeCustomer1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCustomer1Btn.Location = new System.Drawing.Point(174, 254);
+            this.removeCustomer1Btn.Name = "removeCustomer1Btn";
+            this.removeCustomer1Btn.Size = new System.Drawing.Size(98, 32);
+            this.removeCustomer1Btn.TabIndex = 29;
+            this.removeCustomer1Btn.Text = "Submit";
+            this.removeCustomer1Btn.UseVisualStyleBackColor = true;
+            // 
+            // removeCustomer1Txt
+            // 
+            this.removeCustomer1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCustomer1Txt.Location = new System.Drawing.Point(270, 67);
+            this.removeCustomer1Txt.Name = "removeCustomer1Txt";
+            this.removeCustomer1Txt.Size = new System.Drawing.Size(185, 29);
+            this.removeCustomer1Txt.TabIndex = 25;
+            // 
+            // removeCustomer1Lbl
+            // 
+            this.removeCustomer1Lbl.AutoSize = true;
+            this.removeCustomer1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCustomer1Lbl.Location = new System.Drawing.Point(13, 72);
+            this.removeCustomer1Lbl.Name = "removeCustomer1Lbl";
+            this.removeCustomer1Lbl.Size = new System.Drawing.Size(111, 24);
+            this.removeCustomer1Lbl.TabIndex = 23;
+            this.removeCustomer1Lbl.Text = "Customer Id";
+            // 
+            // removeCustomerTitleLbl
+            // 
+            this.removeCustomerTitleLbl.AutoSize = true;
+            this.removeCustomerTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCustomerTitleLbl.Location = new System.Drawing.Point(200, 25);
+            this.removeCustomerTitleLbl.Name = "removeCustomerTitleLbl";
+            this.removeCustomerTitleLbl.Size = new System.Drawing.Size(281, 37);
+            this.removeCustomerTitleLbl.TabIndex = 10;
+            this.removeCustomerTitleLbl.Text = "Remove Customer";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1538,8 +1596,9 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
-            this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.adminPnl);
+            this.Controls.Add(this.removeCustomerPnl);
+            this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.rentPnl);
             this.Controls.Add(this.rent2Pnl);
@@ -1592,6 +1651,8 @@
             this.addUserPnl.PerformLayout();
             this.passwordPnl.ResumeLayout(false);
             this.passwordPnl.PerformLayout();
+            this.removeCustomerPnl.ResumeLayout(false);
+            this.removeCustomerPnl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1617,7 +1678,7 @@
         private System.Windows.Forms.Label rentTitleLbl;
         private System.Windows.Forms.Panel reportsPnl;
         private System.Windows.Forms.Panel newCustomerPnl;
-        private System.Windows.Forms.Label customerTitleLbl;
+        private System.Windows.Forms.Label newCustomerTitleLbl;
         private System.Windows.Forms.Label newCustomer1Lbl;
         private System.Windows.Forms.Label newCustomer2Lbl;
         private System.Windows.Forms.TextBox newCustomer3Txt;
@@ -1746,6 +1807,11 @@
         private System.Windows.Forms.Label password1Lbl;
         private System.Windows.Forms.Label passwordTitleLbl;
         private System.Windows.Forms.Button adminPasswordBtn;
+        private System.Windows.Forms.Panel removeCustomerPnl;
+        private System.Windows.Forms.Button removeCustomer1Btn;
+        private System.Windows.Forms.TextBox removeCustomer1Txt;
+        private System.Windows.Forms.Label removeCustomer1Lbl;
+        private System.Windows.Forms.Label removeCustomerTitleLbl;
     }
 }
 

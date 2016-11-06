@@ -82,6 +82,7 @@ namespace TechableMovieManager
             setupPanels.Add(newCustomerPnl, setupNewCustomerPnl);
             setupPanels.Add(addUserPnl, setupAddUserPnl);
             setupPanels.Add(passwordPnl, setupPasswordPnl);
+            setupPanels.Add(removeCustomerPnl, setupRemoveCustomerPnl);
 
             //sets report panel to initial panel
             setCurrentMainPanel(rentPnl);
@@ -99,10 +100,7 @@ namespace TechableMovieManager
             resizePage();
         }
         
-        public abstract class MainPanel
-        {
 
-        }
 
         /*
          * ----------------------------------------------------------------------------------------------
@@ -167,6 +165,10 @@ namespace TechableMovieManager
         {
             setCurrentMainPanel(newCustomerPnl);
         }
+        private void admin4Btn_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(removeCustomerPnl);
+        }
         private void admin5Btn_Click(object sender, EventArgs e)
         {
 
@@ -180,6 +182,10 @@ namespace TechableMovieManager
         {
             setCurrentMainPanel(returnPnl);
         }
+        
+
+
+
 
         /*
          * ----------------------------------------------------------------------------------------------
@@ -237,7 +243,6 @@ namespace TechableMovieManager
             setupMethod();
         }
 
-
         /*
          * ----------------------------------------------------------------------------------------------
          * Setup Methods
@@ -275,46 +280,57 @@ namespace TechableMovieManager
         public void setupNewCustomerPnl()
         {
             Panel panel = newCustomerPnl;
+            double endOfText;
+            double endOfLabels;
 
-            setPositionPanelControl(customerTitleLbl,panel, .4, .7, 0, .1);
+            setTitlePosition(newCustomerTitleLbl, panel);
 
-            setPositionPanelControl(newCustomer1Lbl, panel, labelLeft, textLeft, .2, .3);
-            setPositionPanelControl(newCustomer2Lbl, panel, labelLeft, textLeft, .3, .4);
-            setPositionPanelControl(newCustomer3Lbl, panel, labelLeft, textLeft, .4, .5);
-            setPositionPanelControl(newCustomer4Lbl, panel, labelLeft, textLeft, .5, .6);
-            setPositionPanelControl(newCustomer5Lbl, panel, labelLeft, textLeft, .6, .7);
+            endOfLabels = setLabelPostions(panel, 0.2, newCustomer1Lbl, newCustomer2Lbl, newCustomer3Lbl, newCustomer4Lbl, newCustomer5Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, newCustomer1Txt, newCustomer2Txt, newCustomer3Txt, newCustomer4Txt, newCustomer5Txt);
 
-            setPositionPanelControl(newCustomer1Txt, panel, textLeft, textRight, .2, .3);
-            setPositionPanelControl(newCustomer2Txt, panel, textLeft, textRight, .3, .4);
-            setPositionPanelControl(newCustomer3Txt, panel, textLeft, textRight, .4, .5);
-            setPositionPanelControl(newCustomer4Txt, panel, textLeft, textRight, .5, .6);
-            setPositionPanelControl(newCustomer5Txt, panel, textLeft, textRight, .6, .7);
-
-            setLocationPanelControl(newCustomer1Btn, panel, .4, .8);
+            setLocationPanelControl(newCustomer1Btn, panel, .4, endOfText + 0.1);
         }
 
         public void setupAddUserPnl()
         {
             Panel panel = addUserPnl;
+            double endOfText;
+            double endOfLabels;
 
             setTitlePosition(addUserTitleLbl, panel);
-            setLabelPostions(panel, 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl, addUser4Lbl);
-            setTextBoxPostions(panel, 0.2, addUser1Txt, addUser2Txt, addUser3Txt, addUser4Txt);
+            endOfLabels = setLabelPostions(panel, 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl, addUser4Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, addUser1Txt, addUser2Txt, addUser3Txt, addUser4Txt);
             
-            setLocationPanelControl(addUserRdb, panel, .4, .6);
-            setLocationPanelControl(addUserBtn, panel, .4, .7);
+            setLocationPanelControl(addUserRdb, panel, .4, endOfText);
+            setLocationPanelControl(addUserBtn, panel, .4, endOfText + 0.1);
         }
 
 
         public void setupPasswordPnl()
         {
             Panel panel = passwordPnl;
+            double endOfText;
+            double endOfLabels;
 
             setTitlePosition(passwordTitleLbl, panel);
-            setLabelPostions(panel, 0.2, password1Lbl, password2Lbl, password3Lbl);
-            double endOfText = setTextBoxPostions(panel, 0.2, password1Txt, password2Txt, password3Txt);
+            endOfLabels = setLabelPostions(panel, 0.2, password1Lbl, password2Lbl, password3Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, password1Txt, password2Txt, password3Txt);
             
             setLocationPanelControl(password1Btn, panel, .4, endOfText + 0.1);
+        }
+
+        public void setupRemoveCustomerPnl()
+        {
+            Panel panel = removeCustomerPnl;
+            double endOfText;
+            double endOfLabels;
+
+            setTitlePosition(removeCustomerTitleLbl, panel);
+
+            endOfLabels = setLabelPostions(panel, 0.2, removeCustomer1Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, removeCustomer1Txt);
+
+            setLocationPanelControl(removeCustomer1Btn, panel, .4, endOfText + 0.1);
         }
 
         public void setupRentPnl()
@@ -331,13 +347,15 @@ namespace TechableMovieManager
         public void setupRent2Pnl()
         {
             Panel panel = rent2Pnl;
+            double endOfText;
+            double endOfLabels;
 
             setPositionPanelControl(rentTitle2Lbl, panel, .4, .7, 0, .1);
 
-            double endOfLabels = setLabelPostions(panel, 0.2, rent2Lbl, rent3Lbl, rent4Lbl, rent5Lbl, rent6Lbl);
-            double endOfText = setTextBoxPostions(panel, 0.2, rent2Txt, rent3Txt, rent4Txt, rent5Txt, rent6Txt);
+            endOfLabels = setLabelPostions(panel, 0.2, rent2Lbl, rent3Lbl, rent4Lbl, rent5Lbl, rent6Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, rent2Txt, rent3Txt, rent4Txt, rent5Txt, rent6Txt);
             
-            setPositionPanelControl(rent7Lbl, rent2Pnl, labelLeft, textLeft, endOfLabels, endOfLabels + 0.1);
+            setPositionPanelControl(rent7Lbl, rent2Pnl, labelLeft, textLeft, endOfText, endOfText + 0.1);
             setLocationPanelControl(comboBox1, rent2Pnl, textLeft, endOfText);
 
             setLocationPanelControl(rent2Btn, rent2Pnl, 0.4, endOfLabels + 0.2);
@@ -376,14 +394,21 @@ namespace TechableMovieManager
             setControlPosition(admin2Data, 0, 1, 0, .8);
             setControlPosition(admin3Data, 0, 1, 0, .8);
 
-            setControlLocation(admin1Btn, .3, .85);
-            setControlLocation(admin2Btn, .6, .85);
+            //user Buttons
+            setControlLocation(admin1Btn, .1, .85);
+            setControlLocation(adminPasswordBtn, .4, .85);
+            setControlLocation(admin2Btn, .7, .85);
+
+            //customer buttons
             setControlLocation(admin3Btn, .3, .85);
             setControlLocation(admin4Btn, .6, .85);
+
+            //movie buttons
             setControlLocation(admin5Btn, .3, .85);
             setControlLocation(admin6Btn, .6, .85);
         }
 
+       
         /*
          * Object Repositioning Methods
          * 
