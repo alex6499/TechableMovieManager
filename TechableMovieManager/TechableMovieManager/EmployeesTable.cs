@@ -20,6 +20,11 @@ namespace TechableMovieManager
             adapter.InsertSansId(fName, lName, isAdmin, userName, password, false);
         }
 
+        public void setDeleted(bool deleted, int employeeId)
+        {
+            adapter.UpdateDeleted(deleted, employeeId);
+        }
+
         public Object[] getEmployee(string userName, string password)
         {
             DataSet1.EmployeesDataTable table;
