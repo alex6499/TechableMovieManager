@@ -2,8 +2,7 @@
 CREATE TABLE [dbo].[Movies]
 (
 	[movieId] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [quantityTotal] INT NOT NULL, 
-    [quantityAvailable] INT NOT NULL, 
+    [available] BIT NOT NULL, 
 	[upc] INT NOT NULL,
     [name] NCHAR(70) NULL, 
     [date] DATE NULL, 
