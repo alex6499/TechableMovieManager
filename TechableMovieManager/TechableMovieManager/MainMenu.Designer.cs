@@ -198,12 +198,12 @@
             this.addMovie4Lbl = new System.Windows.Forms.Label();
             this.addMovie1Btn = new System.Windows.Forms.Button();
             this.addMovie3Txt = new System.Windows.Forms.TextBox();
-            this.addMovie2Txt = new System.Windows.Forms.TextBox();
             this.addMovie1Txt = new System.Windows.Forms.TextBox();
             this.addMovie3Lbl = new System.Windows.Forms.Label();
             this.addMovie1Lbl = new System.Windows.Forms.Label();
             this.addMovie2Lbl = new System.Windows.Forms.Label();
             this.addMovieTitleLbl = new System.Windows.Forms.Label();
+            this.addMovie2Txt = new System.Windows.Forms.TextBox();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -1736,7 +1736,7 @@
             this.addMoviePnl.Controls.Add(this.addMovie1Lbl);
             this.addMoviePnl.Controls.Add(this.addMovie2Lbl);
             this.addMoviePnl.Controls.Add(this.addMovieTitleLbl);
-            this.addMoviePnl.Location = new System.Drawing.Point(227, 160);
+            this.addMoviePnl.Location = new System.Drawing.Point(217, 153);
             this.addMoviePnl.Name = "addMoviePnl";
             this.addMoviePnl.Size = new System.Drawing.Size(446, 314);
             this.addMoviePnl.TabIndex = 19;
@@ -1796,14 +1796,6 @@
             this.addMovie3Txt.Size = new System.Drawing.Size(100, 29);
             this.addMovie3Txt.TabIndex = 6;
             // 
-            // addMovie2Txt
-            // 
-            this.addMovie2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie2Txt.Location = new System.Drawing.Point(243, 83);
-            this.addMovie2Txt.Name = "addMovie2Txt";
-            this.addMovie2Txt.Size = new System.Drawing.Size(100, 29);
-            this.addMovie2Txt.TabIndex = 5;
-            // 
             // addMovie1Txt
             // 
             this.addMovie1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1852,6 +1844,14 @@
             this.addMovieTitleLbl.TabIndex = 0;
             this.addMovieTitleLbl.Text = "Add Movie";
             // 
+            // addMovie2Txt
+            // 
+            this.addMovie2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addMovie2Txt.Location = new System.Drawing.Point(243, 83);
+            this.addMovie2Txt.Name = "addMovie2Txt";
+            this.addMovie2Txt.Size = new System.Drawing.Size(100, 29);
+            this.addMovie2Txt.TabIndex = 5;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1859,9 +1859,9 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
-            this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.returnPnl);
             this.Controls.Add(this.rent2Pnl);
+            this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.removeCustomerPnl);
             this.Controls.Add(this.addUserPnl);
@@ -2101,12 +2101,12 @@
         private System.Windows.Forms.Label addMovie4Lbl;
         private System.Windows.Forms.Button addMovie1Btn;
         private System.Windows.Forms.TextBox addMovie3Txt;
-        private System.Windows.Forms.TextBox addMovie2Txt;
         private System.Windows.Forms.TextBox addMovie1Txt;
         private System.Windows.Forms.Label addMovie3Lbl;
         private System.Windows.Forms.Label addMovie1Lbl;
         private System.Windows.Forms.Label addMovie2Lbl;
         private System.Windows.Forms.Label addMovieTitleLbl;
+        private System.Windows.Forms.TextBox addMovie2Txt;
     }
 }
 
