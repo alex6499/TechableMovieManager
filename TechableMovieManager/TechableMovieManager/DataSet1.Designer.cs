@@ -2615,13 +2615,15 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Customers] ([lastName], [firstName], [email], [address], [phon" +
-                "eNumber]) VALUES (@lastName, @firstName, @email, @address, @phoneNumber);";
+                "eNumber], [deleted]) \r\nVALUES (@lastName, @firstName, @email, @address, @phoneNu" +
+                "mber, @deleted);";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNumber", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2888,7 +2890,7 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertSansId(string lastName, string firstName, string email, string address, string phoneNumber) {
+        public virtual int InsertSansId(string lastName, string firstName, string email, string address, string phoneNumber, global::System.Nullable<bool> deleted) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((lastName == null)) {
                 throw new global::System.ArgumentNullException("lastName");
@@ -2919,6 +2921,12 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
             }
             else {
                 command.Parameters[4].Value = ((string)(phoneNumber));
+            }
+            if ((deleted.HasValue == true)) {
+                command.Parameters[5].Value = ((bool)(deleted.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3124,21 +3132,24 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT employeeId, firstName, lastName, isAdmin, userName, password\r\nFROM dbo.Emp" +
-                "loyees\r\nWHERE userName = @userName AND password = @password";
+            this._commandCollection[1].CommandText = "SELECT employeeId, firstName, lastName, isAdmin, userName, password, deleted\r\nFRO" +
+                "M dbo.Employees\r\nWHERE userName = @userName AND password = @password AND deleted" +
+                " = 0";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "INSERT INTO [dbo].[Employees] ( [firstName], [lastName], [isAdmin], [userName], [" +
-                "password]) VALUES (@firstName, @lastName, @isAdmin, @userName, @password);";
+                "password], [deleted]) \r\nVALUES (@firstName, @lastName, @isAdmin, @userName, @pas" +
+                "sword, @deleted);";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.Char, 25, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.NChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isAdmin", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "isAdmin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3396,7 +3407,7 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertSansId(string firstName, string lastName, bool isAdmin, string userName, string password) {
+        public virtual int InsertSansId(string firstName, string lastName, bool isAdmin, string userName, string password, bool deleted) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((firstName == null)) {
                 throw new global::System.ArgumentNullException("firstName");
@@ -3423,6 +3434,7 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
             else {
                 command.Parameters[4].Value = ((string)(password));
             }
+            command.Parameters[5].Value = ((bool)(deleted));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3639,8 +3651,8 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Movies] ([quantityTotal], [quantityAvailable], [upc], [name], " +
-                "[date], [director]) VALUES (@quantityTotal, @quantityAvailable, @upc, @name, @da" +
-                "te, @director);";
+                "[date], [director], [deleted]) VALUES (@quantityTotal, @quantityAvailable, @upc," +
+                " @name, @date, @director, @deleted);";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantityTotal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "quantityTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantityAvailable", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "quantityAvailable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3648,6 +3660,7 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NChar, 70, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@director", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "director", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3878,7 +3891,7 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertSansId(int quantityTotal, int quantityAvailable, int upc, string name, string date, string director) {
+        public virtual int InsertSansId(int quantityTotal, int quantityAvailable, int upc, string name, string date, string director, bool deleted) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(quantityTotal));
             command.Parameters[1].Value = ((int)(quantityAvailable));
@@ -3901,6 +3914,7 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
             else {
                 command.Parameters[5].Value = ((string)(director));
             }
+            command.Parameters[6].Value = ((bool)(deleted));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4106,13 +4120,15 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Rentals] ([movieId], [customerId], [employeeId], [dueDate], [f" +
-                "ine]) VALUES (@movieId, @customerId, @employeeId, @dueDate, @fine);";
+                "ine], [deleted]) \r\nVALUES (@movieId, @customerId, @employeeId, @dueDate, @fine, " +
+                "@deleted);";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "employeeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dueDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "dueDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fine", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "fine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4290,7 +4306,7 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertSansId(int movieId, int customerId, int employeeId, string dueDate, global::System.Nullable<decimal> fine) {
+        public virtual int InsertSansId(int movieId, int customerId, int employeeId, string dueDate, global::System.Nullable<decimal> fine, object deleted) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(movieId));
             command.Parameters[1].Value = ((int)(customerId));
@@ -4306,6 +4322,12 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
             }
             else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((deleted == null)) {
+                throw new global::System.ArgumentNullException("deleted");
+            }
+            else {
+                command.Parameters[5].Value = ((object)(deleted));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
