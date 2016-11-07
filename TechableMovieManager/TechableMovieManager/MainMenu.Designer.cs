@@ -442,7 +442,7 @@
             this.returnPnl.Controls.Add(this.return1Txt);
             this.returnPnl.Controls.Add(this.return1Lbl);
             this.returnPnl.Controls.Add(this.returnTitleLbl);
-            this.returnPnl.Location = new System.Drawing.Point(828, 265);
+            this.returnPnl.Location = new System.Drawing.Point(243, 90);
             this.returnPnl.Name = "returnPnl";
             this.returnPnl.Size = new System.Drawing.Size(483, 358);
             this.returnPnl.TabIndex = 9;
@@ -457,6 +457,7 @@
             this.return1Btn.TabIndex = 30;
             this.return1Btn.Text = "Submit";
             this.return1Btn.UseVisualStyleBackColor = true;
+            this.return1Btn.Click += new System.EventHandler(this.return1Btn_Click);
             // 
             // return1Txt
             // 
@@ -813,7 +814,7 @@
             this.newCustomerPnl.Controls.Add(this.newCustomer1Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomer2Lbl);
             this.newCustomerPnl.Controls.Add(this.newCustomerTitleLbl);
-            this.newCustomerPnl.Location = new System.Drawing.Point(31, 356);
+            this.newCustomerPnl.Location = new System.Drawing.Point(280, 115);
             this.newCustomerPnl.Name = "newCustomerPnl";
             this.newCustomerPnl.Size = new System.Drawing.Size(446, 314);
             this.newCustomerPnl.TabIndex = 11;
@@ -1572,7 +1573,7 @@
             this.removeCustomerPnl.Controls.Add(this.removeCustomer1Txt);
             this.removeCustomerPnl.Controls.Add(this.removeCustomer1Lbl);
             this.removeCustomerPnl.Controls.Add(this.removeCustomerTitleLbl);
-            this.removeCustomerPnl.Location = new System.Drawing.Point(55, 345);
+            this.removeCustomerPnl.Location = new System.Drawing.Point(262, 138);
             this.removeCustomerPnl.Name = "removeCustomerPnl";
             this.removeCustomerPnl.Size = new System.Drawing.Size(495, 352);
             this.removeCustomerPnl.TabIndex = 16;
@@ -1624,7 +1625,7 @@
             this.removeUserPnl.Controls.Add(this.removeUser1Txt);
             this.removeUserPnl.Controls.Add(this.removeUser1Lbl);
             this.removeUserPnl.Controls.Add(this.removeUserTitleLbl);
-            this.removeUserPnl.Location = new System.Drawing.Point(205, 312);
+            this.removeUserPnl.Location = new System.Drawing.Point(128, 360);
             this.removeUserPnl.Name = "removeUserPnl";
             this.removeUserPnl.Size = new System.Drawing.Size(495, 352);
             this.removeUserPnl.TabIndex = 17;
@@ -1735,7 +1736,7 @@
             this.addMoviePnl.Controls.Add(this.addMovie1Lbl);
             this.addMoviePnl.Controls.Add(this.addMovie2Lbl);
             this.addMoviePnl.Controls.Add(this.addMovieTitleLbl);
-            this.addMoviePnl.Location = new System.Drawing.Point(292, 116);
+            this.addMoviePnl.Location = new System.Drawing.Point(227, 160);
             this.addMoviePnl.Name = "addMoviePnl";
             this.addMoviePnl.Size = new System.Drawing.Size(446, 314);
             this.addMoviePnl.TabIndex = 19;
@@ -1858,19 +1859,19 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.addMoviePnl);
+            this.Controls.Add(this.returnPnl);
+            this.Controls.Add(this.rent2Pnl);
+            this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.removeCustomerPnl);
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.removeMoviePnl);
-            this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.rentPnl);
-            this.Controls.Add(this.rent2Pnl);
-            this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.mainButtonPnl);
-            this.Controls.Add(this.returnPnl);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
