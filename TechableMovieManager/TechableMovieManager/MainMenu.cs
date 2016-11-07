@@ -491,6 +491,8 @@ namespace TechableMovieManager
         public void add(int custId, string lName, string fName, string email, string address, string phone)
         {
             cta.Insert(custId, lName, fName, email, address, phone);
+            cta.Adapter.InsertCommand.CommandText =;
+            
         }
 
         public void update(int custId, string lName, string fName, string email, string address, string phone)
@@ -504,6 +506,7 @@ namespace TechableMovieManager
             anyRow[5] = phone;
 
             cta.Update(anyRow);
+            
         }
         
     }
