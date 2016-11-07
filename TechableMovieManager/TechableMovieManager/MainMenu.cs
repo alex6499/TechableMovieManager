@@ -146,6 +146,8 @@ namespace TechableMovieManager
         private void rent1Btn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(rent2Pnl);
+
+
         }
 
         private void returnBtn_Click(object sender, EventArgs e)
@@ -280,8 +282,8 @@ namespace TechableMovieManager
 
             setTitlePosition(addMovieTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl, addMovie4Lbl, addMovie5Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt, addMovie4Txt, addMovie5Txt);
+            endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie3Lbl, addMovie4Lbl, addMovie5Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie3Txt, addMovie4Txt, addMovie5Txt);
 
             setLocationPanelControl(addMovie1Btn, panel, .4, endOfText + 0.1);
         }
@@ -646,11 +648,46 @@ namespace TechableMovieManager
                 textBox.Clear();
             }
         }
+      
+
+        private void removeUser1Btn_Click(object sender, EventArgs e)
+        {
+            int employeeId = Convert.ToInt32(removeUser1Txt.Text);
+
+            employeesTable.setDeleted(true, employeeId);
+            removeUser1Txt.Clear();
+            
+        }
+
+        private void removeUser1Btn_Click_1(object sender, EventArgs e)
+        {
+            int employeeId = Convert.ToInt32(removeUser1Txt.Text);
+
+            employeesTable.setDeleted(true, employeeId);
+            removeUser1Txt.Clear();
+        }
+
+        private void rent2Pnl_Paint(object sender, PaintEventArgs e)
+        {
+            int movieId = Convert.ToInt32(removeMovie1Txt.Text);
+
+            moviesTable.setDeleted(true, movieId);
+            removeMovie1Txt.Clear();
+        }
+
         private void removeMovie1Btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        
+        private void addMovie1Btn_Click(object sender, EventArgs e)
+        {
+            int upc = Convert.ToInt32(addMovie1Txt.Text);
+            string Date = (addMovie5Txt.Text);
+            String Name = (addMovie3Txt.Text);
+            String Director = (addMovie4Txt.Text);
+            moviesTable.add(upc, Name, Date, Director);
+            clearTextBoxes(addMoviePnl);
+        }
     }
 }
