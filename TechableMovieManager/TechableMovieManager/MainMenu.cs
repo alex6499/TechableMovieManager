@@ -54,6 +54,12 @@ namespace TechableMovieManager
         {
             currentUser = user;
             InitializeComponent();
+
+            //assigns a setup method to each panel
+            assignPanelSetupDelagates();
+
+            //sets report panel to initial panel
+            setCurrentMainPanel(rentPnl);
         }
         private void setColorScheme()
         {
@@ -103,12 +109,6 @@ namespace TechableMovieManager
             
             //sets overall variable collor scheme
             setColorScheme();
-
-            //assigns a setup method to each panel
-            assignPanelSetupDelagates();
-
-            //sets report panel to initial panel
-            setCurrentMainPanel(rentPnl);
 
             //ensures all positions are correctly set at startup
             resizePage();
@@ -610,88 +610,6 @@ namespace TechableMovieManager
         private void label7_Click(object sender, EventArgs e)
         {
 
-        }
-    }
-
-    /*
-    * ----------------------------------------------------------------------------------------------
-    * Part 7: User Class
-    * ----------------------------------------------------------------------------------------------
-    */
-
-    
-
-    /*
-    * ----------------------------------------------------------------------------------------------
-    * Part 8: Table Interface Classes
-    * ----------------------------------------------------------------------------------------------
-    */
-
-    public class CustomersTable
-    {
-        DataSet1.CustomersDataTable table;
-        DataSet1TableAdapters.CustomersTableAdapter adapter;
-        public CustomersTable()
-        {
-            table = new DataSet1.CustomersDataTable();
-            adapter = new DataSet1TableAdapters.CustomersTableAdapter();
-        }
-
-        public void add(string lName, string fName, string email, string address, string phone)
-        {
-            adapter.InsertSansId(lName, fName, email, address, phone);
-        }
-
-        public Object[] get()
-        {
-            //table = adapter.GetData();
-
-            DataRow[] row = adapter.GetData().Select();
-            
-            return(row[0].ItemArray);
-        }
-    }
-
-    
-
-    public class MoviesTable
-    {
-        DataSet1.MoviesDataTable table;
-        DataSet1TableAdapters.MoviesTableAdapter adapter;
-        public MoviesTable()
-        {
-            table = new DataSet1.MoviesDataTable();
-            adapter = new DataSet1TableAdapters.MoviesTableAdapter();
-        }
-
-        public void add(int quantityTotal, int quantityAvailable, int upc, string name, string date, string director)
-        {
-            adapter.InsertSansId(quantityTotal, quantityAvailable, upc, name, date, director);
-        }
-    }
-
-    public class RentalsTable
-    {
-        DataSet1.RentalsDataTable table;
-        DataSet1TableAdapters.RentalsTableAdapter adapter;
-        public RentalsTable()
-        {
-            table = new DataSet1.RentalsDataTable();
-            adapter = new DataSet1TableAdapters.RentalsTableAdapter();
-        }
-
-        public void add(int movieId, int customerId, int employeeId, string dueDate, decimal fine)
-        {
-            adapter.InsertSansId(movieId, customerId, employeeId, dueDate, fine);
-        }
-
-        public void get()
-        {
-            //table = adapter.GetData();
-
-            DataTableReader reader = table.CreateDataReader();
-
-            reader.GetInt32(1);
         }
     }
 }
