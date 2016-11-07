@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Check.cs" />
     <Compile Include="CustomersTable.cs" />
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -77,6 +78,7 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="EmployeesTable.cs" />
+    <Compile Include="GlobalControl.cs" />
     <Compile Include="LoginMenu.cs">
       <SubType>Form</SubType>
     </Compile>

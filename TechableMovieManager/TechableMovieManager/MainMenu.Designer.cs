@@ -464,6 +464,7 @@
             this.return1Txt.Name = "return1Txt";
             this.return1Txt.Size = new System.Drawing.Size(100, 29);
             this.return1Txt.TabIndex = 11;
+            this.return1Txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.return1Txt_KeyPress);
             // 
             // return1Lbl
             // 

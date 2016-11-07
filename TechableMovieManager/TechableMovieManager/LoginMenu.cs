@@ -16,12 +16,14 @@ namespace TechableMovieManager
         public LoginMenu()
         {
             InitializeComponent();
+            GlobalControl.setTextBoxMaxLength(this, 20);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string userName = userNameTxt.Text;
             string password = passwordTxt.Text;
+            
             Object[] i = employeesTable.getEmployee(userName, password);
             if (i != null)
             {

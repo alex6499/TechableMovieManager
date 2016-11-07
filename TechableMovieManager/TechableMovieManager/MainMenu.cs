@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,6 +56,9 @@ namespace TechableMovieManager
             currentUser = user;
             InitializeComponent();
 
+            //restricts max chars in all textboxes
+            GlobalControl.setTextBoxMaxLength(this, 20);
+
             //assigns a setup method to each panel
             assignPanelSetupDelagates();
 
@@ -101,8 +105,8 @@ namespace TechableMovieManager
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = rent1Btn;
-            this.ActiveControl = checkout1Txt;
+            //this.AcceptButton = rent1Btn;
+            //this.ActiveControl = checkout1Txt;
             
             //sets the text in the top bar
             this.Text = currentUser.getFirstName() + " " + currentUser.getLastName() + " is logged in";
@@ -657,6 +661,9 @@ namespace TechableMovieManager
 
         private void return1Btn_Click(object sender, EventArgs e)
         {
+            string a = "123a";
+
+            
             int upc = Convert.ToInt32(return1Txt.Text);
 
             rentalsTable.returnMovie(upc);
@@ -685,6 +692,13 @@ namespace TechableMovieManager
 
             clearRadioButtons(addMoviePnl);
             clearTextBoxes(addMoviePnl);
+        }
+
+        private void return1Txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar)){
+                e.Handled = true;
+            }
         }
     }
 }
