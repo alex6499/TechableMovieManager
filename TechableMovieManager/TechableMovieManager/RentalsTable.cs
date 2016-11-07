@@ -18,7 +18,7 @@ namespace TechableMovieManager
 
         public void add(int movieId, int customerId, int employeeId, string dueDate, decimal fine)
         {
-            adapter.InsertSansId(movieId, customerId, employeeId, dueDate, fine);
+            adapter.InsertSansId(movieId, customerId, employeeId, dueDate, fine, false);
         }
     }
 }

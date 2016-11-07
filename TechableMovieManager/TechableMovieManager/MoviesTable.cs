@@ -18,7 +18,7 @@ namespace TechableMovieManager
 
         public void add(int quantityTotal, int quantityAvailable, int upc, string name, string date, string director)
         {
-            adapter.InsertSansId(quantityTotal, quantityAvailable, upc, name, date, director);
+            adapter.InsertSansId(quantityTotal, quantityAvailable, upc, name, date, director, false);
         }
     }
 }
