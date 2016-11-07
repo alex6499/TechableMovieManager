@@ -1,7 +1,7 @@
 ﻿GO
 CREATE TABLE [dbo].[Rentals]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[rentalId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [movieId] INT NOT NULL, 
 	FOREIGN KEY (movieId)
 		REFERENCES Movies (movieId),
