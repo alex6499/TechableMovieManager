@@ -16,9 +16,9 @@ namespace TechableMovieManager
             adapter = new DataSet1TableAdapters.MoviesTableAdapter();
         }
 
-        public void add(bool available, int upc, string name, string date, string director)
+        public void add(int upc, string name, string date, string director)
         {
-            adapter.InsertSansId(available, upc, name, date, director, false);
+            adapter.InsertSansId(true, upc, name, date, director, false);
         }
 
         public void setDeleted(bool deleted, int movieId)
