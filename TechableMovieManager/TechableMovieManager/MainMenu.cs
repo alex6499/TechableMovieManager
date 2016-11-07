@@ -658,30 +658,46 @@ namespace TechableMovieManager
         }
         private void removeMovie1Btn_Click(object sender, EventArgs e)
         {
-            int movieId = Convert.ToInt32(removeMovie1Txt.Text);
-
-            CustomersTable.setDeleted(true, movieId);
-
-            clearTextBoxes(removeMoviePnl);
+            string movieId = removeMovie1Txt.Text;
+            if (Check.isInt32(movieId))
+            {
+                MoviesTable.setDeleted(true, Int32.Parse(movieId));
+                clearTextBoxes(removeMoviePnl);
+            }
+            else
+            {
+                Prompt.enterInt32("Movie Id");
+            }
         }
 
         private void return1Btn_Click(object sender, EventArgs e)
         {
-            int upc = Convert.ToInt32(return1Txt.Text);
+            string upc = return1Txt.Text;
+            if (Check.isInt32(upc))
+            {
+                RentalsTable.returnMovie(Int32.Parse(upc));
+                MoviesTable.makeAvailable(Int32.Parse(upc));
 
-            RentalsTable.returnMovie(upc);
-            MoviesTable.makeAvailable(upc);
-
-            clearTextBoxes(returnPnl);
+                clearTextBoxes(returnPnl);
+            }
+            else
+            {
+                Prompt.enterInt32("UPC");
+            }
+            
         }
 
         private void removeUser1Btn_Click(object sender, EventArgs e)
         {
-            int employeeId = Convert.ToInt32(removeUser1Txt.Text);
-
-            CustomersTable.setDeleted(true, employeeId);
-
-            clearTextBoxes(removeUserPnl);
+            string employeeId = removeUser1Txt.Text;
+            if (Check.isInt32(employeeId)) {
+                EmployeesTable.setDeleted(true, Int32.Parse(employeeId));
+                clearTextBoxes(removeUserPnl);
+            }
+            else
+            {
+                Prompt.enterInt32("Employee Id");
+            } 
         }
 
         private void addMovie1Btn_Click(object sender, EventArgs e)
@@ -702,6 +718,11 @@ namespace TechableMovieManager
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar)){
                 e.Handled = true;
             }
+        }
+
+        private void rent2Btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

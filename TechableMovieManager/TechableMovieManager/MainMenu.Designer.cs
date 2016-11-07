@@ -1295,6 +1295,7 @@
             this.rent2Btn.TabIndex = 29;
             this.rent2Btn.Text = "Submit";
             this.rent2Btn.UseVisualStyleBackColor = true;
+            this.rent2Btn.Click += new System.EventHandler(this.rent2Btn_Click);
             // 
             // rent3Txt
             // 
