@@ -12,7 +12,8 @@ CREATE TABLE [dbo].[Rentals]
 	FOREIGN KEY (employeeId)
 		REFERENCES Employees (employeeId),
 	[dueDate] DATE NOT NULL, 
-    [fine] MONEY NULL
+    [fine] MONEY NULL, 
+    [returned] BIT NOT NULL
 )
 
 GO

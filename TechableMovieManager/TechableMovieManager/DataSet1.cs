@@ -4,3 +4,10 @@
     {
     }
 }
+
+namespace TechableMovieManager.DataSet1TableAdapters {
+    
+    
+    public partial class RentalsTableAdapter {
+    }
+}

@@ -11,5 +11,6 @@ CREATE TABLE [dbo].[Customers]
     [firstName] NCHAR(30) NOT NULL, 
     [email] NCHAR(30) NULL, 
     [address] NCHAR(30) NULL, 
-    [phoneNumber] NCHAR(30) NULL
+    [phoneNumber] NCHAR(30) NULL, 
+    [deleted] BIT NULL
 )

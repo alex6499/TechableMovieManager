@@ -8,4 +8,5 @@ CREATE TABLE [dbo].[Movies]
     [name] NCHAR(70) NULL, 
     [date] DATE NULL, 
     [director] NCHAR(40) NULL, 
+    [deleted] BIT NOT NULL, 
 )

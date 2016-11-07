@@ -6,7 +6,8 @@ CREATE TABLE [dbo].[Employees]
     [lastName] NCHAR(25) NOT NULL, 
     [isAdmin] BIT NOT NULL, 
     [userName] NCHAR(25) NOT NULL, 
-    [password] NCHAR(30) NOT NULL
+    [password] NCHAR(30) NOT NULL, 
+    [deleted] BIT NOT NULL
 )
 GO
 CREATE SEQUENCE seq_employee_id as int
