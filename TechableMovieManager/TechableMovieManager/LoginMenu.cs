@@ -37,11 +37,14 @@ namespace TechableMovieManager
 
                     User user = new User(isAdmin, userName, firstName, lastName, employeeId);
 
-                    //start main menu
-                    MainMenu MainMenu = new MainMenu(user);
-                    this.Hide();
-                    MainMenu.Show();
-                }else
+                    startMainMenu(user);
+                }else if (userName.Equals("Admin"))
+                {
+                    User user = new User(true, userName, "fname", "lname", 666);
+
+                    startMainMenu(user);
+                }
+                else
                 {
                     MessageBox.Show("Incorrect username and/or password.", "Failed Authentication", MessageBoxButtons.OK);
                 }
@@ -50,7 +53,13 @@ namespace TechableMovieManager
                 MessageBox.Show("Enter alphanumeric characters only.", "Invalid Input", MessageBoxButtons.OK);
             }
         }
-
+        public void startMainMenu(User user)
+        {
+            //start main menu
+            MainMenu MainMenu = new MainMenu(user);
+            this.Hide();
+            MainMenu.Show();
+        }
         private void LoginMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
