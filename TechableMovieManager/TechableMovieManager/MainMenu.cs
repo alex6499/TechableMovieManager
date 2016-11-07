@@ -467,7 +467,7 @@ namespace TechableMovieManager
                 setPositionPanelControl(labels[i], panel, LABEL_LEFT, TEXT_LEFT, top, top + 0.1);
                 top += 0.1;
             }
-
+            
             return top;
         }
 
