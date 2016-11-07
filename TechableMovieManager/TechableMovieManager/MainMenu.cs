@@ -600,14 +600,9 @@ namespace TechableMovieManager
             string address = newCustomer5Txt.Text;
 
             customersTable.add(lName, fName, email, address, phone);
+           
         }
-
-        private void addUserTitleLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
+        private void removeMovie1Btn_Click(object sender, EventArgs e)
         {
 
         }

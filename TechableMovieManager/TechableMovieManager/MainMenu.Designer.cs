@@ -1690,6 +1690,7 @@
             this.removeMovie1Btn.TabIndex = 29;
             this.removeMovie1Btn.Text = "Submit";
             this.removeMovie1Btn.UseVisualStyleBackColor = true;
+            this.removeMovie1Btn.Click += new System.EventHandler(this.removeMovie1Btn_Click);
             // 
             // removeMovie1Txt
             // 
