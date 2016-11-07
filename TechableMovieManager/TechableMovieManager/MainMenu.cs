@@ -51,7 +51,8 @@ namespace TechableMovieManager
             InitializeComponent();
 
             //restricts max chars in all textboxes
-            GlobalControl.setTextBoxMaxLength(this, 20);
+            GlobalControl.setNestedTextBoxMaxLength(this, 40);
+            setEmailTextBoxSize(100);
 
             //assigns a setup method to each panel
             assignPanelSetupDelagates();
@@ -59,6 +60,17 @@ namespace TechableMovieManager
             //sets report panel to initial panel
             setCurrentMainPanel(rentPnl);
         }
+
+        public void setEmailTextBoxSize(int maxLength)
+        {
+            TextBox[] emailBoxes = { rent5Txt, newCustomer4Txt};
+
+            foreach(TextBox emailBox in emailBoxes)
+            {
+                emailBox.MaxLength = maxLength;
+            }
+        }
+
         private void setColorScheme()
         {
             System.Drawing.Color buttonColor;

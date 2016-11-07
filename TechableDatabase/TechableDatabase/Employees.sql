@@ -2,11 +2,11 @@
 CREATE TABLE [dbo].[Employees]
 (
 	[employeeId] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [firstName] CHAR(25) NOT NULL, 
-    [lastName] NCHAR(25) NOT NULL, 
+    [firstName] CHAR(40) NOT NULL, 
+    [lastName] NCHAR(40) NOT NULL, 
     [isAdmin] BIT NOT NULL, 
-    [userName] NCHAR(25) NOT NULL, 
-    [password] NCHAR(30) NOT NULL, 
+    [userName] NCHAR(40) NOT NULL, 
+    [password] NCHAR(40) NOT NULL, 
     [deleted] BIT NOT NULL
 )
 GO

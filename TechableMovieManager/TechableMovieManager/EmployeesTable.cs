@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TechableMovieManager
 {
-    public static class EmployeesTable
+    class EmployeesTable
     {
         public static void add(string lName, string fName, bool isAdmin, string userName, string password)
         {
             DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
-            adapter.InsertSansId(fName, lName, isAdmin, userName, password, false);
+            adapter.Insert(fName, lName, isAdmin, userName, password, false);
             adapter.Dispose();
         }
 
@@ -22,12 +22,12 @@ namespace TechableMovieManager
             adapter.Dispose();
         }
 
-        public static Object[] getEmployee(string userName, string password)
+        public static  Object[] getEmployee(string userName, string password)
         {
             DataSet2.EmployeesDataTable table;
 
             DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
-            table = adapter.GetEmployeeByCredential(userName, password);
+            table = adapter.GetDataBy(userName, password);
             adapter.Dispose();
             
             if (table.Select().Length > 0)

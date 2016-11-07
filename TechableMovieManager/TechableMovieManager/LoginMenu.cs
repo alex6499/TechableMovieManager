@@ -15,7 +15,7 @@ namespace TechableMovieManager
         public LoginMenu()
         {
             InitializeComponent();
-            GlobalControl.setTextBoxMaxLength(this, 20);
+            GlobalControl.setTextBoxMaxLength(this, 40);
         }
 
         private void button1_Click(object sender, EventArgs e)

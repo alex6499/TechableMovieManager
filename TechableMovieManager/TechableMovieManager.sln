@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechableMovieManager", "TechableMovieManager\TechableMovieManager.csproj", "{44CA9BED-A666-4496-A326-8EC24FB08C32}"
-	ProjectSection(ProjectDependencies) = postProject
-		{63C3087F-043B-41A3-ADE7-E98EDB8AA2B3} = {63C3087F-043B-41A3-ADE7-E98EDB8AA2B3}
-	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TechableDatabase", "..\TechableDatabase\TechableDatabase\TechableDatabase.sqlproj", "{63C3087F-043B-41A3-ADE7-E98EDB8AA2B3}"
 EndProject
