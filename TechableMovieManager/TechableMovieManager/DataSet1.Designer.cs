@@ -417,6 +417,8 @@ namespace TechableMovieManager {
             
             private global::System.Data.DataColumn columnphoneNumber;
             
+            private global::System.Data.DataColumn columndeleted;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CustomersDataTable() {
@@ -500,6 +502,14 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn deletedColumn {
+                get {
+                    return this.columndeleted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -535,7 +545,7 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CustomersRow AddCustomersRow(int customerId, string lastName, string firstName, string email, string address, string phoneNumber) {
+            public CustomersRow AddCustomersRow(int customerId, string lastName, string firstName, string email, string address, string phoneNumber, bool deleted) {
                 CustomersRow rowCustomersRow = ((CustomersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         customerId,
@@ -543,7 +553,8 @@ namespace TechableMovieManager {
                         firstName,
                         email,
                         address,
-                        phoneNumber};
+                        phoneNumber,
+                        deleted};
                 rowCustomersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomersRow);
                 return rowCustomersRow;
@@ -579,6 +590,7 @@ namespace TechableMovieManager {
                 this.columnemail = base.Columns["email"];
                 this.columnaddress = base.Columns["address"];
                 this.columnphoneNumber = base.Columns["phoneNumber"];
+                this.columndeleted = base.Columns["deleted"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,6 +608,8 @@ namespace TechableMovieManager {
                 base.Columns.Add(this.columnaddress);
                 this.columnphoneNumber = new global::System.Data.DataColumn("phoneNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnphoneNumber);
+                this.columndeleted = new global::System.Data.DataColumn("deleted", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndeleted);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncustomerId}, true));
                 this.columncustomerId.AllowDBNull = false;
@@ -752,6 +766,8 @@ namespace TechableMovieManager {
             
             private global::System.Data.DataColumn columnpassword;
             
+            private global::System.Data.DataColumn columndeleted;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public EmployeesDataTable() {
@@ -835,6 +851,14 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn deletedColumn {
+                get {
+                    return this.columndeleted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -870,7 +894,7 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EmployeesRow AddEmployeesRow(int employeeId, string firstName, string lastName, bool isAdmin, string userName, string password) {
+            public EmployeesRow AddEmployeesRow(int employeeId, string firstName, string lastName, bool isAdmin, string userName, string password, bool deleted) {
                 EmployeesRow rowEmployeesRow = ((EmployeesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         employeeId,
@@ -878,7 +902,8 @@ namespace TechableMovieManager {
                         lastName,
                         isAdmin,
                         userName,
-                        password};
+                        password,
+                        deleted};
                 rowEmployeesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmployeesRow);
                 return rowEmployeesRow;
@@ -914,6 +939,7 @@ namespace TechableMovieManager {
                 this.columnisAdmin = base.Columns["isAdmin"];
                 this.columnuserName = base.Columns["userName"];
                 this.columnpassword = base.Columns["password"];
+                this.columndeleted = base.Columns["deleted"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -931,6 +957,8 @@ namespace TechableMovieManager {
                 base.Columns.Add(this.columnuserName);
                 this.columnpassword = new global::System.Data.DataColumn("password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpassword);
+                this.columndeleted = new global::System.Data.DataColumn("deleted", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndeleted);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnemployeeId}, true));
                 this.columnemployeeId.AllowDBNull = false;
@@ -944,6 +972,7 @@ namespace TechableMovieManager {
                 this.columnuserName.MaxLength = 25;
                 this.columnpassword.AllowDBNull = false;
                 this.columnpassword.MaxLength = 30;
+                this.columndeleted.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1091,6 +1120,8 @@ namespace TechableMovieManager {
             
             private global::System.Data.DataColumn columndirector;
             
+            private global::System.Data.DataColumn columndeleted;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MoviesDataTable() {
@@ -1182,6 +1213,14 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn deletedColumn {
+                get {
+                    return this.columndeleted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1217,7 +1256,7 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MoviesRow AddMoviesRow(int movieId, int quantityTotal, int quantityAvailable, int upc, string name, System.DateTime date, string director) {
+            public MoviesRow AddMoviesRow(int movieId, int quantityTotal, int quantityAvailable, int upc, string name, System.DateTime date, string director, bool deleted) {
                 MoviesRow rowMoviesRow = ((MoviesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         movieId,
@@ -1226,7 +1265,8 @@ namespace TechableMovieManager {
                         upc,
                         name,
                         date,
-                        director};
+                        director,
+                        deleted};
                 rowMoviesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMoviesRow);
                 return rowMoviesRow;
@@ -1263,6 +1303,7 @@ namespace TechableMovieManager {
                 this.columnname = base.Columns["name"];
                 this.columndate = base.Columns["date"];
                 this.columndirector = base.Columns["director"];
+                this.columndeleted = base.Columns["deleted"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1282,6 +1323,8 @@ namespace TechableMovieManager {
                 base.Columns.Add(this.columndate);
                 this.columndirector = new global::System.Data.DataColumn("director", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndirector);
+                this.columndeleted = new global::System.Data.DataColumn("deleted", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndeleted);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnmovieId}, true));
                 this.columnmovieId.AllowDBNull = false;
@@ -1291,6 +1334,7 @@ namespace TechableMovieManager {
                 this.columnupc.AllowDBNull = false;
                 this.columnname.MaxLength = 70;
                 this.columndirector.MaxLength = 40;
+                this.columndeleted.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1436,6 +1480,8 @@ namespace TechableMovieManager {
             
             private global::System.Data.DataColumn columnfine;
             
+            private global::System.Data.DataColumn columnreturned;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RentalsDataTable() {
@@ -1519,6 +1565,14 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn returnedColumn {
+                get {
+                    return this.columnreturned;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1554,7 +1608,7 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RentalsRow AddRentalsRow(MoviesRow parentMoviesRowByFK__Rentals__movieId__3A81B327, CustomersRow parentCustomersRowByFK__Rentals__custome__3B75D760, EmployeesRow parentEmployeesRowByFK__Rentals__employe__398D8EEE, System.DateTime dueDate, decimal fine) {
+            public RentalsRow AddRentalsRow(MoviesRow parentMoviesRowByFK__Rentals__movieId__3A81B327, CustomersRow parentCustomersRowByFK__Rentals__custome__3B75D760, EmployeesRow parentEmployeesRowByFK__Rentals__employe__398D8EEE, System.DateTime dueDate, decimal fine, bool returned) {
                 RentalsRow rowRentalsRow = ((RentalsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1562,7 +1616,8 @@ namespace TechableMovieManager {
                         null,
                         null,
                         dueDate,
-                        fine};
+                        fine,
+                        returned};
                 if ((parentMoviesRowByFK__Rentals__movieId__3A81B327 != null)) {
                     columnValuesArray[1] = parentMoviesRowByFK__Rentals__movieId__3A81B327[0];
                 }
@@ -1607,6 +1662,7 @@ namespace TechableMovieManager {
                 this.columnemployeeId = base.Columns["employeeId"];
                 this.columndueDate = base.Columns["dueDate"];
                 this.columnfine = base.Columns["fine"];
+                this.columnreturned = base.Columns["returned"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1624,6 +1680,8 @@ namespace TechableMovieManager {
                 base.Columns.Add(this.columndueDate);
                 this.columnfine = new global::System.Data.DataColumn("fine", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfine);
+                this.columnreturned = new global::System.Data.DataColumn("returned", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnreturned);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnrentalId}, true));
                 this.columnrentalId.AutoIncrement = true;
@@ -1636,6 +1694,7 @@ namespace TechableMovieManager {
                 this.columncustomerId.AllowDBNull = false;
                 this.columnemployeeId.AllowDBNull = false;
                 this.columndueDate.AllowDBNull = false;
+                this.columnreturned.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1859,6 +1918,22 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool deleted {
+                get {
+                    try {
+                        return ((bool)(this[this.tableCustomers.deletedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'deleted\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.deletedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsemailNull() {
                 return this.IsNull(this.tableCustomers.emailColumn);
             }
@@ -1891,6 +1966,18 @@ namespace TechableMovieManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetphoneNumberNull() {
                 this[this.tableCustomers.phoneNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdeletedNull() {
+                return this.IsNull(this.tableCustomers.deletedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdeletedNull() {
+                this[this.tableCustomers.deletedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1982,6 +2069,17 @@ namespace TechableMovieManager {
                 }
                 set {
                     this[this.tableEmployees.passwordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool deleted {
+                get {
+                    return ((bool)(this[this.tableEmployees.deletedColumn]));
+                }
+                set {
+                    this[this.tableEmployees.deletedColumn] = value;
                 }
             }
             
@@ -2100,6 +2198,17 @@ namespace TechableMovieManager {
                 }
                 set {
                     this[this.tableMovies.directorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool deleted {
+                get {
+                    return ((bool)(this[this.tableMovies.deletedColumn]));
+                }
+                set {
+                    this[this.tableMovies.deletedColumn] = value;
                 }
             }
             
@@ -2233,6 +2342,17 @@ namespace TechableMovieManager {
                 }
                 set {
                     this[this.tableRentals.fineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool returned {
+                get {
+                    return ((bool)(this[this.tableRentals.returnedColumn]));
+                }
+                set {
+                    this[this.tableRentals.returnedColumn] = value;
                 }
             }
             
@@ -2549,10 +2669,11 @@ namespace TechableMovieManager.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("email", "email");
             tableMapping.ColumnMappings.Add("address", "address");
             tableMapping.ColumnMappings.Add("phoneNumber", "phoneNumber");
+            tableMapping.ColumnMappings.Add("deleted", "deleted");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Customers] WHERE (([customerId] = @Original_customerId) AND ([lastName] = @Original_lastName) AND ([firstName] = @Original_firstName) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_address = 1 AND [address] IS NULL) OR ([address] = @Original_address)) AND ((@IsNull_phoneNumber = 1 AND [phoneNumber] IS NULL) OR ([phoneNumber] = @Original_phoneNumber)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Customers] WHERE (([customerId] = @Original_customerId) AND ([lastName] = @Original_lastName) AND ([firstName] = @Original_firstName) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_address = 1 AND [address] IS NULL) OR ([address] = @Original_address)) AND ((@IsNull_phoneNumber = 1 AND [phoneNumber] IS NULL) OR ([phoneNumber] = @Original_phoneNumber)) AND ((@IsNull_deleted = 1 AND [deleted] IS NULL) OR ([deleted] = @Original_deleted)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lastName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2563,28 +2684,30 @@ namespace TechableMovieManager.DataSet1TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_phoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phoneNumber", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_deleted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Customers] ([customerId], [lastName], [firstName], [email], [address], [phoneNumber]) VALUES (@customerId, @lastName, @firstName, @email, @address, @phoneNumber);
-SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Customers WHERE (customerId = @customerId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Customers] ([lastName], [firstName], [email], [address], [phoneNumber], [deleted]) VALUES (@lastName, @firstName, @email, @address, @phoneNumber, @deleted);
+SELECT customerId, lastName, firstName, email, address, phoneNumber, deleted FROM Customers WHERE (customerId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNumber", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Customers] SET [customerId] = @customerId, [lastName] = @lastName, [firstName] = @firstName, [email] = @email, [address] = @address, [phoneNumber] = @phoneNumber WHERE (([customerId] = @Original_customerId) AND ([lastName] = @Original_lastName) AND ([firstName] = @Original_firstName) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_address = 1 AND [address] IS NULL) OR ([address] = @Original_address)) AND ((@IsNull_phoneNumber = 1 AND [phoneNumber] IS NULL) OR ([phoneNumber] = @Original_phoneNumber)));
-SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Customers WHERE (customerId = @customerId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Customers] SET [lastName] = @lastName, [firstName] = @firstName, [email] = @email, [address] = @address, [phoneNumber] = @phoneNumber, [deleted] = @deleted WHERE (([customerId] = @Original_customerId) AND ([lastName] = @Original_lastName) AND ([firstName] = @Original_firstName) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_address = 1 AND [address] IS NULL) OR ([address] = @Original_address)) AND ((@IsNull_phoneNumber = 1 AND [phoneNumber] IS NULL) OR ([phoneNumber] = @Original_phoneNumber)) AND ((@IsNull_deleted = 1 AND [deleted] IS NULL) OR ([deleted] = @Original_deleted)));
+SELECT customerId, lastName, firstName, email, address, phoneNumber, deleted FROM Customers WHERE (customerId = @customerId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNumber", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lastName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_firstName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2594,6 +2717,9 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_phoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phoneNumber", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_deleted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2609,8 +2735,8 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT customerId, lastName, firstName, email, address, phoneNumber FROM dbo.Cust" +
-                "omers";
+            this._commandCollection[0].CommandText = "SELECT customerId, lastName, firstName, email, address, phoneNumber, deleted FROM" +
+                " dbo.Customers";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -2683,7 +2809,7 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_customerId, string Original_lastName, string Original_firstName, string Original_email, string Original_address, string Original_phoneNumber) {
+        public virtual int Delete(int Original_customerId, string Original_lastName, string Original_firstName, string Original_email, string Original_address, string Original_phoneNumber, global::System.Nullable<bool> Original_deleted) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_customerId));
             if ((Original_lastName == null)) {
                 throw new global::System.ArgumentNullException("Original_lastName");
@@ -2721,6 +2847,14 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_phoneNumber));
             }
+            if ((Original_deleted.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_deleted.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2741,37 +2875,42 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int customerId, string lastName, string firstName, string email, string address, string phoneNumber) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(customerId));
+        public virtual int Insert(string lastName, string firstName, string email, string address, string phoneNumber, global::System.Nullable<bool> deleted) {
             if ((lastName == null)) {
                 throw new global::System.ArgumentNullException("lastName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(lastName));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(lastName));
             }
             if ((firstName == null)) {
                 throw new global::System.ArgumentNullException("firstName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(firstName));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(firstName));
             }
             if ((email == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(email));
+            }
+            if ((address == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(email));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(address));
             }
-            if ((address == null)) {
+            if ((phoneNumber == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(address));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(phoneNumber));
             }
-            if ((phoneNumber == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((deleted.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(deleted.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(phoneNumber));
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2793,37 +2932,42 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int customerId, string lastName, string firstName, string email, string address, string phoneNumber, int Original_customerId, string Original_lastName, string Original_firstName, string Original_email, string Original_address, string Original_phoneNumber) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(customerId));
+        public virtual int Update(string lastName, string firstName, string email, string address, string phoneNumber, global::System.Nullable<bool> deleted, int Original_customerId, string Original_lastName, string Original_firstName, string Original_email, string Original_address, string Original_phoneNumber, global::System.Nullable<bool> Original_deleted, int customerId) {
             if ((lastName == null)) {
                 throw new global::System.ArgumentNullException("lastName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(lastName));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(lastName));
             }
             if ((firstName == null)) {
                 throw new global::System.ArgumentNullException("firstName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(firstName));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(firstName));
             }
             if ((email == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(email));
+            }
+            if ((address == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(email));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(address));
             }
-            if ((address == null)) {
+            if ((phoneNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(address));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(phoneNumber));
             }
-            if ((phoneNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((deleted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(deleted.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(phoneNumber));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_customerId));
             if ((Original_lastName == null)) {
@@ -2862,6 +3006,15 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_phoneNumber));
             }
+            if ((Original_deleted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_deleted.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(customerId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2882,8 +3035,8 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string lastName, string firstName, string email, string address, string phoneNumber, int Original_customerId, string Original_lastName, string Original_firstName, string Original_email, string Original_address, string Original_phoneNumber) {
-            return this.Update(Original_customerId, lastName, firstName, email, address, phoneNumber, Original_customerId, Original_lastName, Original_firstName, Original_email, Original_address, Original_phoneNumber);
+        public virtual int Update(string lastName, string firstName, string email, string address, string phoneNumber, global::System.Nullable<bool> deleted, int Original_customerId, string Original_lastName, string Original_firstName, string Original_email, string Original_address, string Original_phoneNumber, global::System.Nullable<bool> Original_deleted) {
+            return this.Update(lastName, firstName, email, address, phoneNumber, deleted, Original_customerId, Original_lastName, Original_firstName, Original_email, Original_address, Original_phoneNumber, Original_deleted, Original_customerId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3073,10 +3226,11 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
             tableMapping.ColumnMappings.Add("isAdmin", "isAdmin");
             tableMapping.ColumnMappings.Add("userName", "userName");
             tableMapping.ColumnMappings.Add("password", "password");
+            tableMapping.ColumnMappings.Add("deleted", "deleted");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Employees] WHERE (([employeeId] = @Original_employeeId) AND ([firstName] = @Original_firstName) AND ([lastName] = @Original_lastName) AND ([isAdmin] = @Original_isAdmin) AND ([userName] = @Original_userName) AND ([password] = @Original_password))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Employees] WHERE (([employeeId] = @Original_employeeId) AND ([firstName] = @Original_firstName) AND ([lastName] = @Original_lastName) AND ([isAdmin] = @Original_isAdmin) AND ([userName] = @Original_userName) AND ([password] = @Original_password) AND ([deleted] = @Original_deleted))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employeeId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_firstName", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3084,34 +3238,37 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber FROM Custome
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_isAdmin", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isAdmin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Employees] ([employeeId], [firstName], [lastName], [isAdmin], [userName], [password]) VALUES (@employeeId, @firstName, @lastName, @isAdmin, @userName, @password);
-SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employees WHERE (employeeId = @employeeId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Employees] ([firstName], [lastName], [isAdmin], [userName], [password], [deleted]) VALUES (@firstName, @lastName, @isAdmin, @userName, @password, @deleted);
+SELECT employeeId, firstName, lastName, isAdmin, userName, password, deleted FROM Employees WHERE (employeeId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isAdmin", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isAdmin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Employees] SET [employeeId] = @employeeId, [firstName] = @firstName, [lastName] = @lastName, [isAdmin] = @isAdmin, [userName] = @userName, [password] = @password WHERE (([employeeId] = @Original_employeeId) AND ([firstName] = @Original_firstName) AND ([lastName] = @Original_lastName) AND ([isAdmin] = @Original_isAdmin) AND ([userName] = @Original_userName) AND ([password] = @Original_password));
-SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employees WHERE (employeeId = @employeeId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Employees] SET [firstName] = @firstName, [lastName] = @lastName, [isAdmin] = @isAdmin, [userName] = @userName, [password] = @password, [deleted] = @deleted WHERE (([employeeId] = @Original_employeeId) AND ([firstName] = @Original_firstName) AND ([lastName] = @Original_lastName) AND ([isAdmin] = @Original_isAdmin) AND ([userName] = @Original_userName) AND ([password] = @Original_password) AND ([deleted] = @Original_deleted));
+SELECT employeeId, firstName, lastName, isAdmin, userName, password, deleted FROM Employees WHERE (employeeId = @employeeId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isAdmin", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isAdmin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employeeId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_firstName", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lastName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_isAdmin", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isAdmin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "employeeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3127,14 +3284,14 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM dbo.Empl" +
-                "oyees";
+            this._commandCollection[0].CommandText = "SELECT employeeId, firstName, lastName, isAdmin, userName, password, deleted FROM" +
+                " dbo.Employees";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT employeeId, firstName, lastName, isAdmin, userName, password, deleted\r\nFRO" +
-                "M dbo.Employees\r\nWHERE userName = @userName AND password = @password AND deleted" +
-                " = 0";
+            this._commandCollection[1].CommandText = "SELECT deleted, employeeId, firstName, isAdmin, lastName, password, userName FROM" +
+                " Employees WHERE (userName = @userName) AND (password = @password) AND (deleted " +
+                "= 0)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3232,7 +3389,7 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_employeeId, string Original_firstName, string Original_lastName, bool Original_isAdmin, string Original_userName, string Original_password) {
+        public virtual int Delete(int Original_employeeId, string Original_firstName, string Original_lastName, bool Original_isAdmin, string Original_userName, string Original_password, bool Original_deleted) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_employeeId));
             if ((Original_firstName == null)) {
                 throw new global::System.ArgumentNullException("Original_firstName");
@@ -3259,6 +3416,7 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_password));
             }
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_deleted));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3279,33 +3437,33 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int employeeId, string firstName, string lastName, bool isAdmin, string userName, string password) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(employeeId));
+        public virtual int Insert(string firstName, string lastName, bool isAdmin, string userName, string password, bool deleted) {
             if ((firstName == null)) {
                 throw new global::System.ArgumentNullException("firstName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(firstName));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(firstName));
             }
             if ((lastName == null)) {
                 throw new global::System.ArgumentNullException("lastName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(lastName));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(lastName));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(isAdmin));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(isAdmin));
             if ((userName == null)) {
                 throw new global::System.ArgumentNullException("userName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(userName));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(userName));
             }
             if ((password == null)) {
                 throw new global::System.ArgumentNullException("password");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(password));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(password));
             }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(deleted));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3326,33 +3484,33 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int employeeId, string firstName, string lastName, bool isAdmin, string userName, string password, int Original_employeeId, string Original_firstName, string Original_lastName, bool Original_isAdmin, string Original_userName, string Original_password) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(employeeId));
+        public virtual int Update(string firstName, string lastName, bool isAdmin, string userName, string password, bool deleted, int Original_employeeId, string Original_firstName, string Original_lastName, bool Original_isAdmin, string Original_userName, string Original_password, bool Original_deleted, int employeeId) {
             if ((firstName == null)) {
                 throw new global::System.ArgumentNullException("firstName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(firstName));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(firstName));
             }
             if ((lastName == null)) {
                 throw new global::System.ArgumentNullException("lastName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(lastName));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(lastName));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(isAdmin));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(isAdmin));
             if ((userName == null)) {
                 throw new global::System.ArgumentNullException("userName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(userName));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(userName));
             }
             if ((password == null)) {
                 throw new global::System.ArgumentNullException("password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(password));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(password));
             }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(deleted));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_employeeId));
             if ((Original_firstName == null)) {
                 throw new global::System.ArgumentNullException("Original_firstName");
@@ -3379,6 +3537,8 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_password));
             }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(Original_deleted));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(employeeId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3399,8 +3559,8 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string firstName, string lastName, bool isAdmin, string userName, string password, int Original_employeeId, string Original_firstName, string Original_lastName, bool Original_isAdmin, string Original_userName, string Original_password) {
-            return this.Update(Original_employeeId, firstName, lastName, isAdmin, userName, password, Original_employeeId, Original_firstName, Original_lastName, Original_isAdmin, Original_userName, Original_password);
+        public virtual int Update(string firstName, string lastName, bool isAdmin, string userName, string password, bool deleted, int Original_employeeId, string Original_firstName, string Original_lastName, bool Original_isAdmin, string Original_userName, string Original_password, bool Original_deleted) {
+            return this.Update(firstName, lastName, isAdmin, userName, password, deleted, Original_employeeId, Original_firstName, Original_lastName, Original_isAdmin, Original_userName, Original_password, Original_deleted, Original_employeeId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3581,10 +3741,11 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("date", "date");
             tableMapping.ColumnMappings.Add("director", "director");
+            tableMapping.ColumnMappings.Add("deleted", "deleted");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Movies] WHERE (([movieId] = @Original_movieId) AND ([quantityTotal] = @Original_quantityTotal) AND ([quantityAvailable] = @Original_quantityAvailable) AND ([upc] = @Original_upc) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_date)) AND ((@IsNull_director = 1 AND [director] IS NULL) OR ([director] = @Original_director)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Movies] WHERE (([movieId] = @Original_movieId) AND ([quantityTotal] = @Original_quantityTotal) AND ([quantityAvailable] = @Original_quantityAvailable) AND ([upc] = @Original_upc) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_date)) AND ((@IsNull_director = 1 AND [director] IS NULL) OR ([director] = @Original_director)) AND ([deleted] = @Original_deleted))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_quantityTotal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantityTotal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3596,30 +3757,31 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password FROM Employe
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_director", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "director", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_director", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "director", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Movies] ([movieId], [quantityTotal], [quantityAvailable], [upc], [name], [date], [director]) VALUES (@movieId, @quantityTotal, @quantityAvailable, @upc, @name, @date, @director);
-SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM Movies WHERE (movieId = @movieId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Movies] ([quantityTotal], [quantityAvailable], [upc], [name], [date], [director], [deleted]) VALUES (@quantityTotal, @quantityAvailable, @upc, @name, @date, @director, @deleted);
+SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director, deleted FROM Movies WHERE (movieId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantityTotal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantityTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantityAvailable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantityAvailable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@director", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "director", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Movies] SET [movieId] = @movieId, [quantityTotal] = @quantityTotal, [quantityAvailable] = @quantityAvailable, [upc] = @upc, [name] = @name, [date] = @date, [director] = @director WHERE (([movieId] = @Original_movieId) AND ([quantityTotal] = @Original_quantityTotal) AND ([quantityAvailable] = @Original_quantityAvailable) AND ([upc] = @Original_upc) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_date)) AND ((@IsNull_director = 1 AND [director] IS NULL) OR ([director] = @Original_director)));
-SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM Movies WHERE (movieId = @movieId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Movies] SET [quantityTotal] = @quantityTotal, [quantityAvailable] = @quantityAvailable, [upc] = @upc, [name] = @name, [date] = @date, [director] = @director, [deleted] = @deleted WHERE (([movieId] = @Original_movieId) AND ([quantityTotal] = @Original_quantityTotal) AND ([quantityAvailable] = @Original_quantityAvailable) AND ([upc] = @Original_upc) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_date)) AND ((@IsNull_director = 1 AND [director] IS NULL) OR ([director] = @Original_director)) AND ([deleted] = @Original_deleted));
+SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director, deleted FROM Movies WHERE (movieId = @movieId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantityTotal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantityTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantityAvailable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantityAvailable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@director", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "director", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_quantityTotal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantityTotal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_quantityAvailable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantityAvailable", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3630,6 +3792,8 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_director", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "director", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_director", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "director", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3645,8 +3809,8 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM " +
-                "dbo.Movies";
+            this._commandCollection[0].CommandText = "SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director, dele" +
+                "ted FROM dbo.Movies";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -3720,7 +3884,7 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_movieId, int Original_quantityTotal, int Original_quantityAvailable, int Original_upc, string Original_name, global::System.Nullable<global::System.DateTime> Original_date, string Original_director) {
+        public virtual int Delete(int Original_movieId, int Original_quantityTotal, int Original_quantityAvailable, int Original_upc, string Original_name, global::System.Nullable<global::System.DateTime> Original_date, string Original_director, bool Original_deleted) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_movieId));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_quantityTotal));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_quantityAvailable));
@@ -3749,6 +3913,7 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_director));
             }
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_deleted));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3769,29 +3934,29 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int movieId, int quantityTotal, int quantityAvailable, int upc, string name, global::System.Nullable<global::System.DateTime> date, string director) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(movieId));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(quantityTotal));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(quantityAvailable));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(upc));
+        public virtual int Insert(int quantityTotal, int quantityAvailable, int upc, string name, global::System.Nullable<global::System.DateTime> date, string director, bool deleted) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(quantityTotal));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(quantityAvailable));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(upc));
             if ((name == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(name));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(name));
             }
             if ((date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(date.Value));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(date.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((director == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(director));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(director));
             }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(deleted));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3812,29 +3977,45 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int movieId, int quantityTotal, int quantityAvailable, int upc, string name, global::System.Nullable<global::System.DateTime> date, string director, int Original_movieId, int Original_quantityTotal, int Original_quantityAvailable, int Original_upc, string Original_name, global::System.Nullable<global::System.DateTime> Original_date, string Original_director) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(movieId));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(quantityTotal));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(quantityAvailable));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(upc));
+        public virtual int Update(
+                    int quantityTotal, 
+                    int quantityAvailable, 
+                    int upc, 
+                    string name, 
+                    global::System.Nullable<global::System.DateTime> date, 
+                    string director, 
+                    bool deleted, 
+                    int Original_movieId, 
+                    int Original_quantityTotal, 
+                    int Original_quantityAvailable, 
+                    int Original_upc, 
+                    string Original_name, 
+                    global::System.Nullable<global::System.DateTime> Original_date, 
+                    string Original_director, 
+                    bool Original_deleted, 
+                    int movieId) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(quantityTotal));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(quantityAvailable));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(upc));
             if ((name == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(name));
             }
             if ((date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(date.Value));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(date.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((director == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(director));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(director));
             }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(deleted));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_movieId));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_quantityTotal));
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_quantityAvailable));
@@ -3863,6 +4044,8 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_director));
             }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Original_deleted));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(movieId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3883,8 +4066,8 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int quantityTotal, int quantityAvailable, int upc, string name, global::System.Nullable<global::System.DateTime> date, string director, int Original_movieId, int Original_quantityTotal, int Original_quantityAvailable, int Original_upc, string Original_name, global::System.Nullable<global::System.DateTime> Original_date, string Original_director) {
-            return this.Update(Original_movieId, quantityTotal, quantityAvailable, upc, name, date, director, Original_movieId, Original_quantityTotal, Original_quantityAvailable, Original_upc, Original_name, Original_date, Original_director);
+        public virtual int Update(int quantityTotal, int quantityAvailable, int upc, string name, global::System.Nullable<global::System.DateTime> date, string director, bool deleted, int Original_movieId, int Original_quantityTotal, int Original_quantityAvailable, int Original_upc, string Original_name, global::System.Nullable<global::System.DateTime> Original_date, string Original_director, bool Original_deleted) {
+            return this.Update(quantityTotal, quantityAvailable, upc, name, date, director, deleted, Original_movieId, Original_quantityTotal, Original_quantityAvailable, Original_upc, Original_name, Original_date, Original_director, Original_deleted, Original_movieId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4060,10 +4243,11 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
             tableMapping.ColumnMappings.Add("employeeId", "employeeId");
             tableMapping.ColumnMappings.Add("dueDate", "dueDate");
             tableMapping.ColumnMappings.Add("fine", "fine");
+            tableMapping.ColumnMappings.Add("returned", "returned");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Rentals] WHERE (([rentalId] = @Original_rentalId) AND ([movieId] = @Original_movieId) AND ([customerId] = @Original_customerId) AND ([employeeId] = @Original_employeeId) AND ([dueDate] = @Original_dueDate) AND ((@IsNull_fine = 1 AND [fine] IS NULL) OR ([fine] = @Original_fine)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Rentals] WHERE (([rentalId] = @Original_rentalId) AND ([movieId] = @Original_movieId) AND ([customerId] = @Original_customerId) AND ([employeeId] = @Original_employeeId) AND ([dueDate] = @Original_dueDate) AND ((@IsNull_fine = 1 AND [fine] IS NULL) OR ([fine] = @Original_fine)) AND ([returned] = @Original_returned))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rentalId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rentalId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4072,26 +4256,29 @@ SELECT movieId, quantityTotal, quantityAvailable, upc, name, date, director FROM
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dueDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fine", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fine", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_returned", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "returned", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Rentals] ([movieId], [customerId], [employeeId], [dueDate], [fine]) VALUES (@movieId, @customerId, @employeeId, @dueDate, @fine);
-SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHERE (rentalId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Rentals] ([movieId], [customerId], [employeeId], [dueDate], [fine], [returned]) VALUES (@movieId, @customerId, @employeeId, @dueDate, @fine, @returned);
+SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM Rentals WHERE (rentalId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dueDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fine", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@returned", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "returned", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Rentals] SET [movieId] = @movieId, [customerId] = @customerId, [employeeId] = @employeeId, [dueDate] = @dueDate, [fine] = @fine WHERE (([rentalId] = @Original_rentalId) AND ([movieId] = @Original_movieId) AND ([customerId] = @Original_customerId) AND ([employeeId] = @Original_employeeId) AND ([dueDate] = @Original_dueDate) AND ((@IsNull_fine = 1 AND [fine] IS NULL) OR ([fine] = @Original_fine)));
-SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHERE (rentalId = @rentalId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Rentals] SET [movieId] = @movieId, [customerId] = @customerId, [employeeId] = @employeeId, [dueDate] = @dueDate, [fine] = @fine, [returned] = @returned WHERE (([rentalId] = @Original_rentalId) AND ([movieId] = @Original_movieId) AND ([customerId] = @Original_customerId) AND ([employeeId] = @Original_employeeId) AND ([dueDate] = @Original_dueDate) AND ((@IsNull_fine = 1 AND [fine] IS NULL) OR ([fine] = @Original_fine)) AND ([returned] = @Original_returned));
+SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM Rentals WHERE (rentalId = @rentalId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dueDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fine", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@returned", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "returned", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rentalId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rentalId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4099,6 +4286,7 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dueDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fine", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fine", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_returned", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "returned", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rentalId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "rentalId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -4115,7 +4303,8 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM dbo.Rentals";
+            this._commandCollection[0].CommandText = "SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM db" +
+                "o.Rentals";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -4188,7 +4377,7 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_rentalId, int Original_movieId, int Original_customerId, int Original_employeeId, System.DateTime Original_dueDate, global::System.Nullable<decimal> Original_fine) {
+        public virtual int Delete(int Original_rentalId, int Original_movieId, int Original_customerId, int Original_employeeId, System.DateTime Original_dueDate, global::System.Nullable<decimal> Original_fine, bool Original_returned) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_rentalId));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_movieId));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_customerId));
@@ -4202,6 +4391,7 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_returned));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4222,7 +4412,7 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int movieId, int customerId, int employeeId, System.DateTime dueDate, global::System.Nullable<decimal> fine) {
+        public virtual int Insert(int movieId, int customerId, int employeeId, System.DateTime dueDate, global::System.Nullable<decimal> fine, bool returned) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(movieId));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(customerId));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(employeeId));
@@ -4233,6 +4423,7 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(returned));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4253,7 +4444,7 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int movieId, int customerId, int employeeId, System.DateTime dueDate, global::System.Nullable<decimal> fine, int Original_rentalId, int Original_movieId, int Original_customerId, int Original_employeeId, System.DateTime Original_dueDate, global::System.Nullable<decimal> Original_fine, int rentalId) {
+        public virtual int Update(int movieId, int customerId, int employeeId, System.DateTime dueDate, global::System.Nullable<decimal> fine, bool returned, int Original_rentalId, int Original_movieId, int Original_customerId, int Original_employeeId, System.DateTime Original_dueDate, global::System.Nullable<decimal> Original_fine, bool Original_returned, int rentalId) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(movieId));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(customerId));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(employeeId));
@@ -4264,20 +4455,22 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_rentalId));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_movieId));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_customerId));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_employeeId));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_dueDate));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(returned));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_rentalId));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_movieId));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_customerId));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_employeeId));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_dueDate));
             if ((Original_fine.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_fine.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_fine.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(rentalId));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(Original_returned));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(rentalId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4298,8 +4491,8 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine FROM Rentals WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int movieId, int customerId, int employeeId, System.DateTime dueDate, global::System.Nullable<decimal> fine, int Original_rentalId, int Original_movieId, int Original_customerId, int Original_employeeId, System.DateTime Original_dueDate, global::System.Nullable<decimal> Original_fine) {
-            return this.Update(movieId, customerId, employeeId, dueDate, fine, Original_rentalId, Original_movieId, Original_customerId, Original_employeeId, Original_dueDate, Original_fine, Original_rentalId);
+        public virtual int Update(int movieId, int customerId, int employeeId, System.DateTime dueDate, global::System.Nullable<decimal> fine, bool returned, int Original_rentalId, int Original_movieId, int Original_customerId, int Original_employeeId, System.DateTime Original_dueDate, global::System.Nullable<decimal> Original_fine, bool Original_returned) {
+            return this.Update(movieId, customerId, employeeId, dueDate, fine, returned, Original_rentalId, Original_movieId, Original_customerId, Original_employeeId, Original_dueDate, Original_fine, Original_returned, Original_rentalId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
