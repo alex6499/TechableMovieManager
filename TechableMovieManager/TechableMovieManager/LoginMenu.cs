@@ -12,7 +12,6 @@ namespace TechableMovieManager
 {
     public partial class LoginMenu : Form
     {
-        EmployeesTable employeesTable = new EmployeesTable();
         public LoginMenu()
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace TechableMovieManager
 
             if (Check.isAllAlphaNumeric(userName, password))
             {
-                Object[] i = employeesTable.getEmployee(userName, password);
+                Object[] i = EmployeesTable.getEmployee(userName, password);
                 bool isValidCredentials = i != null;
                 if (isValidCredentials)
                 {

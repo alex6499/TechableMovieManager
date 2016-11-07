@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace TechableMovieManager
 {
-    public class RentalsTable
+    public static class RentalsTable
     {
-        DataSet1.RentalsDataTable table;
-        DataSet1TableAdapters.RentalsTableAdapter adapter;
-        public RentalsTable()
+        public static void add(int movieId, int customerId, int employeeId, string dueDate, decimal fine)
         {
-            table = new DataSet1.RentalsDataTable();
-            adapter = new DataSet1TableAdapters.RentalsTableAdapter();
-        }
-
-        public void add(int movieId, int customerId, int employeeId, string dueDate, decimal fine)
-        {
+            DataSet1TableAdapters.RentalsTableAdapter adapter = new DataSet1TableAdapters.RentalsTableAdapter();
             adapter.InsertSansId(movieId, customerId, employeeId, dueDate, fine, false);
+            adapter.Dispose();
         }
 
-        public void returnMovie(int upc)
+        public static void returnMovie(int upc)
         {
+            DataSet1TableAdapters.RentalsTableAdapter adapter = new DataSet1TableAdapters.RentalsTableAdapter();
             adapter.ReturnMovie(upc);
+            adapter.Dispose();
         }
     }
 }

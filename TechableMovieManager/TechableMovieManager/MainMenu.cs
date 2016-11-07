@@ -21,12 +21,6 @@ namespace TechableMovieManager
          * ----------------------------------------------------------------------------------------------
          */
 
-        //table interfaec objects
-        CustomersTable customersTable = new CustomersTable();
-        MoviesTable moviesTable = new MoviesTable();
-        EmployeesTable employeesTable = new EmployeesTable();
-        RentalsTable rentalsTable = new RentalsTable();
-
         //The current User
         User currentUser;
 
@@ -603,7 +597,7 @@ namespace TechableMovieManager
             string email = newCustomer4Txt.Text;
             string address = newCustomer5Txt.Text;
 
-            customersTable.add(lName, fName, email, address, phone);
+            CustomersTable.add(lName, fName, email, address, phone);
 
             clearRadioButtons(newCustomerPnl);
             clearTextBoxes(newCustomerPnl);
@@ -617,7 +611,7 @@ namespace TechableMovieManager
             string password = addUser4Txt.Text;
             bool isAdmin = addUserRdb.Checked;
 
-            employeesTable.add(lName, fName, isAdmin, userName, password);
+            EmployeesTable.add(lName, fName, isAdmin, userName, password);
 
             clearTextBoxes(addUserPnl);
         }
@@ -626,7 +620,7 @@ namespace TechableMovieManager
         {
             int customerId = Convert.ToInt32(removeCustomer1Txt.Text);
 
-            customersTable.setDeleted(true, customerId);
+            CustomersTable.setDeleted(true, customerId);
 
             clearTextBoxes(removeCustomerPnl);
         }
@@ -654,7 +648,7 @@ namespace TechableMovieManager
         {
             int movieId = Convert.ToInt32(removeMovie1Txt.Text);
 
-            customersTable.setDeleted(true, movieId);
+            CustomersTable.setDeleted(true, movieId);
 
             clearTextBoxes(removeMoviePnl);
         }
@@ -663,8 +657,8 @@ namespace TechableMovieManager
         {
             int upc = Convert.ToInt32(return1Txt.Text);
 
-            rentalsTable.returnMovie(upc);
-            moviesTable.makeAvailable(upc);
+            RentalsTable.returnMovie(upc);
+            MoviesTable.makeAvailable(upc);
 
             clearTextBoxes(returnPnl);
         }
@@ -673,7 +667,7 @@ namespace TechableMovieManager
         {
             int employeeId = Convert.ToInt32(removeUser1Txt.Text);
 
-            customersTable.setDeleted(true, employeeId);
+            CustomersTable.setDeleted(true, employeeId);
 
             clearTextBoxes(removeUserPnl);
         }
@@ -685,7 +679,7 @@ namespace TechableMovieManager
             string director= addMovie3Txt.Text;
             string date = addMovie4Txt.Text;
 
-            moviesTable.add(upc, name, date, director);
+            MoviesTable.add(upc, name, date, director);
 
             clearRadioButtons(addMoviePnl);
             clearTextBoxes(addMoviePnl);

@@ -6,29 +6,27 @@ using System.Threading.Tasks;
 
 namespace TechableMovieManager
 {
-    public class MoviesTable
+    public static class MoviesTable
     {
-        DataSet1.MoviesDataTable table;
-        DataSet1TableAdapters.MoviesTableAdapter adapter;
-        public MoviesTable()
+        public static void add(int upc, string name, string date, string director)
         {
-            table = new DataSet1.MoviesDataTable();
-            adapter = new DataSet1TableAdapters.MoviesTableAdapter();
-        }
-
-        public void add(int upc, string name, string date, string director)
-        {
+            DataSet1TableAdapters.MoviesTableAdapter adapter = new DataSet1TableAdapters.MoviesTableAdapter();
             adapter.InsertSansId(true, upc, name, date, director, false);
+            adapter.Dispose();
         }
 
-        public void setDeleted(bool deleted, int movieId)
+        public static void setDeleted(bool deleted, int movieId)
         {
+            DataSet1TableAdapters.MoviesTableAdapter adapter = new DataSet1TableAdapters.MoviesTableAdapter();
             adapter.UpdateDeleted(deleted, movieId);
+            adapter.Dispose();
         }
 
-        public void makeAvailable(int upc)
+        public static void makeAvailable(int upc)
         {
+            DataSet1TableAdapters.MoviesTableAdapter adapter = new DataSet1TableAdapters.MoviesTableAdapter();
             adapter.MakeAvailable(upc);
+            adapter.Dispose();
         }
     }
 }

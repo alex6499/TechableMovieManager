@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace TechableMovieManager
 {
-    class EmployeesTable
+    public static class EmployeesTable
     {
-
-        DataSet1TableAdapters.EmployeesTableAdapter adapter;
-        public EmployeesTable()
+        public static void add(string lName, string fName, bool isAdmin, string userName, string password)
         {
-            adapter = new DataSet1TableAdapters.EmployeesTableAdapter();
-        }
-
-        public void add(string lName, string fName, bool isAdmin, string userName, string password)
-        {
+            DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
             adapter.InsertSansId(fName, lName, isAdmin, userName, password, false);
+            adapter.Dispose();
         }
 
-        public void setDeleted(bool deleted, int employeeId)
+        public static void setDeleted(bool deleted, int employeeId)
         {
+            DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
             adapter.UpdateDeleted(deleted, employeeId);
+            adapter.Dispose();
         }
 
-        public Object[] getEmployee(string userName, string password)
+        public static Object[] getEmployee(string userName, string password)
         {
-            DataSet1.EmployeesDataTable table;
-            
+            DataSet2.EmployeesDataTable table;
+
+            DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
             table = adapter.GetEmployeeByCredential(userName, password);
+            adapter.Dispose();
+            
             if (table.Select().Length > 0)
             {
                 return table.Select()[0].ItemArray;
@@ -38,7 +38,6 @@ namespace TechableMovieManager
             {
                 return null;
             }
-
         }
     }
 }

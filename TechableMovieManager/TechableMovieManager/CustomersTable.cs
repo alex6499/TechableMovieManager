@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace TechableMovieManager
 {
-    public class CustomersTable
+    public static class CustomersTable
     {
-        DataSet1.CustomersDataTable table;
-        DataSet1TableAdapters.CustomersTableAdapter adapter;
-        public CustomersTable()
+        public static void add(string lName, string fName, string email, string address, string phone)
         {
-            table = new DataSet1.CustomersDataTable();
-            adapter = new DataSet1TableAdapters.CustomersTableAdapter();
-        }
-
-        public void add(string lName, string fName, string email, string address, string phone)
-        {
+            DataSet1TableAdapters.CustomersTableAdapter adapter = new DataSet1TableAdapters.CustomersTableAdapter();
             adapter.InsertSansId(lName, fName, email, address, phone, false);
+            adapter.Dispose();
         }
 
-        public void setDeleted(bool deleted, int customerId)
+        public static void setDeleted(bool deleted, int customerId)
         {
+            DataSet1TableAdapters.CustomersTableAdapter adapter = new DataSet1TableAdapters.CustomersTableAdapter();
             adapter.UpdateDeleted(deleted, customerId);
+            adapter.Dispose();
         }
     }
 }
