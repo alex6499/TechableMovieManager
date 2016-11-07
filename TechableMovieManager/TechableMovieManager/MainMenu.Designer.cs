@@ -1426,6 +1426,7 @@
             this.addUserBtn.TabIndex = 30;
             this.addUserBtn.Text = "Submit";
             this.addUserBtn.UseVisualStyleBackColor = true;
+            this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
             // 
             // addUser2Txt
             // 
@@ -1472,7 +1473,6 @@
             this.addUserTitleLbl.Size = new System.Drawing.Size(151, 37);
             this.addUserTitleLbl.TabIndex = 0;
             this.addUserTitleLbl.Text = "Add User";
-            this.addUserTitleLbl.Click += new System.EventHandler(this.addUserTitleLbl_Click);
             // 
             // passwordPnl
             // 
@@ -1564,7 +1564,6 @@
             this.passwordTitleLbl.Size = new System.Drawing.Size(196, 37);
             this.passwordTitleLbl.TabIndex = 10;
             this.passwordTitleLbl.Text = "Set Pssword";
-            this.passwordTitleLbl.Click += new System.EventHandler(this.label7_Click);
             // 
             // removeCustomerPnl
             // 
@@ -1588,6 +1587,7 @@
             this.removeCustomer1Btn.TabIndex = 29;
             this.removeCustomer1Btn.Text = "Submit";
             this.removeCustomer1Btn.UseVisualStyleBackColor = true;
+            this.removeCustomer1Btn.Click += new System.EventHandler(this.removeCustomer1Btn_Click);
             // 
             // removeCustomer1Txt
             // 
@@ -1675,7 +1675,7 @@
             this.removeMoviePnl.Controls.Add(this.removeMovie1Txt);
             this.removeMoviePnl.Controls.Add(this.removeMovie1Lbl);
             this.removeMoviePnl.Controls.Add(this.removeMovieTitleLbl);
-            this.removeMoviePnl.Location = new System.Drawing.Point(197, 42);
+            this.removeMoviePnl.Location = new System.Drawing.Point(205, 181);
             this.removeMoviePnl.Name = "removeMoviePnl";
             this.removeMoviePnl.Size = new System.Drawing.Size(495, 352);
             this.removeMoviePnl.TabIndex = 18;
@@ -1858,13 +1858,13 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.removeCustomerPnl);
+            this.Controls.Add(this.addUserPnl);
+            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.removeMoviePnl);
             this.Controls.Add(this.addMoviePnl);
-            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.removeUserPnl);
-            this.Controls.Add(this.removeCustomerPnl);
             this.Controls.Add(this.passwordPnl);
-            this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.rentPnl);
             this.Controls.Add(this.rent2Pnl);
             this.Controls.Add(this.newCustomerPnl);

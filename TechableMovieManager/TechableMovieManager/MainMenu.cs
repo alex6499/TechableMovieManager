@@ -600,11 +600,57 @@ namespace TechableMovieManager
             string address = newCustomer5Txt.Text;
 
             customersTable.add(lName, fName, email, address, phone);
-           
+
+            clearRadioButtons(newCustomerPnl);
+            clearTextBoxes(newCustomerPnl);
+        }
+
+        private void addUserBtn_Click(object sender, EventArgs e)
+        {
+            string fName = addUser1Txt.Text;
+            string lName = addUser2Txt.Text;
+            string userName = addUser3Txt.Text;
+            string password = addUser4Txt.Text;
+            bool isAdmin = addUserRdb.Checked;
+
+            employeesTable.add(lName, fName, isAdmin, userName, password);
+
+            clearTextBoxes(addUserPnl);
+        }
+
+        private void removeCustomer1Btn_Click(object sender, EventArgs e)
+        {
+            int customerId = Convert.ToInt32(removeCustomer1Txt.Text);
+
+            customersTable.setDeleted(true, customerId);
+
+            clearTextBoxes(removeCustomerPnl);
+        }
+
+        public void clearRadioButtons(Panel panel)
+        {
+            RadioButton[] radioButtons = panel.Controls.OfType<RadioButton>().ToArray<RadioButton>();
+
+            foreach(RadioButton radioButton in radioButtons)
+            {
+                radioButton.Checked = false;
+            }
+        }
+
+        public void clearTextBoxes(Panel panel)
+        {
+            TextBox[] textBoxes = panel.Controls.OfType<TextBox>().ToArray<TextBox>();
+
+            foreach (TextBox textBox in textBoxes)
+            {
+                textBox.Clear();
+            }
         }
         private void removeMovie1Btn_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }
