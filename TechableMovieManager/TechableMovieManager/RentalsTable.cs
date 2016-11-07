@@ -20,5 +20,10 @@ namespace TechableMovieManager
         {
             adapter.InsertSansId(movieId, customerId, employeeId, dueDate, fine, false);
         }
+
+        public void returnMovie(int upc)
+        {
+            adapter.ReturnMovie(upc);
+        }
     }
 }

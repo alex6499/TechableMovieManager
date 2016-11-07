@@ -25,5 +25,10 @@ namespace TechableMovieManager
         {
             adapter.UpdateDeleted(deleted, movieId);
         }
+
+        public void makeAvailable(int upc)
+        {
+            adapter.MakeAvailable(upc);
+        }
     }
 }

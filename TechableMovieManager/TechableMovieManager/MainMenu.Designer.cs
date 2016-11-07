@@ -192,18 +192,16 @@
             this.removeMovie1Lbl = new System.Windows.Forms.Label();
             this.removeMovieTitleLbl = new System.Windows.Forms.Label();
             this.addMoviePnl = new System.Windows.Forms.Panel();
-            this.addMovie5Txt = new System.Windows.Forms.TextBox();
-            this.addMovie5Lbl = new System.Windows.Forms.Label();
-            this.addMovie4Txt = new System.Windows.Forms.TextBox();
             this.addMovie4Lbl = new System.Windows.Forms.Label();
+            this.addMovie4Txt = new System.Windows.Forms.TextBox();
+            this.addMovie3Lbl = new System.Windows.Forms.Label();
             this.addMovie1Btn = new System.Windows.Forms.Button();
             this.addMovie3Txt = new System.Windows.Forms.TextBox();
-            this.addMovie1Txt = new System.Windows.Forms.TextBox();
-            this.addMovie3Lbl = new System.Windows.Forms.Label();
-            this.addMovie1Lbl = new System.Windows.Forms.Label();
-            this.addMovie2Lbl = new System.Windows.Forms.Label();
-            this.addMovieTitleLbl = new System.Windows.Forms.Label();
             this.addMovie2Txt = new System.Windows.Forms.TextBox();
+            this.addMovie1Txt = new System.Windows.Forms.TextBox();
+            this.addMovie2Lbl = new System.Windows.Forms.Label();
+            this.addMovie1Lbl = new System.Windows.Forms.Label();
+            this.addMovieTitleLbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -1640,6 +1638,7 @@
             this.removeUser1Btn.TabIndex = 29;
             this.removeUser1Btn.Text = "Submit";
             this.removeUser1Btn.UseVisualStyleBackColor = true;
+            this.removeUser1Btn.Click += new System.EventHandler(this.removeUser1Btn_Click);
             // 
             // removeUser1Txt
             // 
@@ -1724,41 +1723,31 @@
             // addMoviePnl
             // 
             this.addMoviePnl.BackColor = System.Drawing.Color.Transparent;
-            this.addMoviePnl.Controls.Add(this.addMovie5Txt);
-            this.addMoviePnl.Controls.Add(this.addMovie5Lbl);
-            this.addMoviePnl.Controls.Add(this.addMovie4Txt);
             this.addMoviePnl.Controls.Add(this.addMovie4Lbl);
+            this.addMoviePnl.Controls.Add(this.addMovie4Txt);
+            this.addMoviePnl.Controls.Add(this.addMovie3Lbl);
             this.addMoviePnl.Controls.Add(this.addMovie1Btn);
             this.addMoviePnl.Controls.Add(this.addMovie3Txt);
             this.addMoviePnl.Controls.Add(this.addMovie2Txt);
             this.addMoviePnl.Controls.Add(this.addMovie1Txt);
-            this.addMoviePnl.Controls.Add(this.addMovie3Lbl);
-            this.addMoviePnl.Controls.Add(this.addMovie1Lbl);
             this.addMoviePnl.Controls.Add(this.addMovie2Lbl);
+            this.addMoviePnl.Controls.Add(this.addMovie1Lbl);
             this.addMoviePnl.Controls.Add(this.addMovieTitleLbl);
-            this.addMoviePnl.Location = new System.Drawing.Point(217, 153);
+            this.addMoviePnl.Location = new System.Drawing.Point(205, 128);
             this.addMoviePnl.Name = "addMoviePnl";
             this.addMoviePnl.Size = new System.Drawing.Size(446, 314);
             this.addMoviePnl.TabIndex = 19;
             this.addMoviePnl.Visible = false;
             // 
-            // addMovie5Txt
+            // addMovie4Lbl
             // 
-            this.addMovie5Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie5Txt.Location = new System.Drawing.Point(243, 173);
-            this.addMovie5Txt.Name = "addMovie5Txt";
-            this.addMovie5Txt.Size = new System.Drawing.Size(100, 29);
-            this.addMovie5Txt.TabIndex = 34;
-            // 
-            // addMovie5Lbl
-            // 
-            this.addMovie5Lbl.AutoSize = true;
-            this.addMovie5Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie5Lbl.Location = new System.Drawing.Point(44, 173);
-            this.addMovie5Lbl.Name = "addMovie5Lbl";
-            this.addMovie5Lbl.Size = new System.Drawing.Size(48, 24);
-            this.addMovie5Lbl.TabIndex = 33;
-            this.addMovie5Lbl.Text = "Date";
+            this.addMovie4Lbl.AutoSize = true;
+            this.addMovie4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addMovie4Lbl.Location = new System.Drawing.Point(53, 146);
+            this.addMovie4Lbl.Name = "addMovie4Lbl";
+            this.addMovie4Lbl.Size = new System.Drawing.Size(48, 24);
+            this.addMovie4Lbl.TabIndex = 33;
+            this.addMovie4Lbl.Text = "Date";
             // 
             // addMovie4Txt
             // 
@@ -1768,15 +1757,15 @@
             this.addMovie4Txt.Size = new System.Drawing.Size(100, 29);
             this.addMovie4Txt.TabIndex = 32;
             // 
-            // addMovie4Lbl
+            // addMovie3Lbl
             // 
-            this.addMovie4Lbl.AutoSize = true;
-            this.addMovie4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie4Lbl.Location = new System.Drawing.Point(44, 146);
-            this.addMovie4Lbl.Name = "addMovie4Lbl";
-            this.addMovie4Lbl.Size = new System.Drawing.Size(75, 24);
-            this.addMovie4Lbl.TabIndex = 31;
-            this.addMovie4Lbl.Text = "Director";
+            this.addMovie3Lbl.AutoSize = true;
+            this.addMovie3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addMovie3Lbl.Location = new System.Drawing.Point(46, 112);
+            this.addMovie3Lbl.Name = "addMovie3Lbl";
+            this.addMovie3Lbl.Size = new System.Drawing.Size(75, 24);
+            this.addMovie3Lbl.TabIndex = 31;
+            this.addMovie3Lbl.Text = "Director";
             // 
             // addMovie1Btn
             // 
@@ -1787,6 +1776,7 @@
             this.addMovie1Btn.TabIndex = 30;
             this.addMovie1Btn.Text = "Submit";
             this.addMovie1Btn.UseVisualStyleBackColor = true;
+            this.addMovie1Btn.Click += new System.EventHandler(this.addMovie1Btn_Click);
             // 
             // addMovie3Txt
             // 
@@ -1796,6 +1786,14 @@
             this.addMovie3Txt.Size = new System.Drawing.Size(100, 29);
             this.addMovie3Txt.TabIndex = 6;
             // 
+            // addMovie2Txt
+            // 
+            this.addMovie2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addMovie2Txt.Location = new System.Drawing.Point(243, 83);
+            this.addMovie2Txt.Name = "addMovie2Txt";
+            this.addMovie2Txt.Size = new System.Drawing.Size(100, 29);
+            this.addMovie2Txt.TabIndex = 5;
+            // 
             // addMovie1Txt
             // 
             this.addMovie1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1804,15 +1802,15 @@
             this.addMovie1Txt.Size = new System.Drawing.Size(100, 29);
             this.addMovie1Txt.TabIndex = 4;
             // 
-            // addMovie3Lbl
+            // addMovie2Lbl
             // 
-            this.addMovie3Lbl.AutoSize = true;
-            this.addMovie3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie3Lbl.Location = new System.Drawing.Point(44, 112);
-            this.addMovie3Lbl.Name = "addMovie3Lbl";
-            this.addMovie3Lbl.Size = new System.Drawing.Size(61, 24);
-            this.addMovie3Lbl.TabIndex = 3;
-            this.addMovie3Lbl.Text = "Name";
+            this.addMovie2Lbl.AutoSize = true;
+            this.addMovie2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addMovie2Lbl.Location = new System.Drawing.Point(46, 83);
+            this.addMovie2Lbl.Name = "addMovie2Lbl";
+            this.addMovie2Lbl.Size = new System.Drawing.Size(61, 24);
+            this.addMovie2Lbl.TabIndex = 3;
+            this.addMovie2Lbl.Text = "Name";
             // 
             // addMovie1Lbl
             // 
@@ -1824,16 +1822,6 @@
             this.addMovie1Lbl.TabIndex = 2;
             this.addMovie1Lbl.Text = "Scan UPC";
             // 
-            // addMovie2Lbl
-            // 
-            this.addMovie2Lbl.AutoSize = true;
-            this.addMovie2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie2Lbl.Location = new System.Drawing.Point(44, 83);
-            this.addMovie2Lbl.Name = "addMovie2Lbl";
-            this.addMovie2Lbl.Size = new System.Drawing.Size(78, 24);
-            this.addMovie2Lbl.TabIndex = 1;
-            this.addMovie2Lbl.Text = "Quantity";
-            // 
             // addMovieTitleLbl
             // 
             this.addMovieTitleLbl.AutoSize = true;
@@ -1844,14 +1832,6 @@
             this.addMovieTitleLbl.TabIndex = 0;
             this.addMovieTitleLbl.Text = "Add Movie";
             // 
-            // addMovie2Txt
-            // 
-            this.addMovie2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie2Txt.Location = new System.Drawing.Point(243, 83);
-            this.addMovie2Txt.Name = "addMovie2Txt";
-            this.addMovie2Txt.Size = new System.Drawing.Size(100, 29);
-            this.addMovie2Txt.TabIndex = 5;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1860,14 +1840,14 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
             this.Controls.Add(this.returnPnl);
-            this.Controls.Add(this.rent2Pnl);
+            this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.addMoviePnl);
+            this.Controls.Add(this.rent2Pnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.removeCustomerPnl);
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.removeMoviePnl);
-            this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.rentPnl);
             this.Controls.Add(this.reportsPnl);
@@ -2095,16 +2075,14 @@
         private System.Windows.Forms.Label removeMovie1Lbl;
         private System.Windows.Forms.Label removeMovieTitleLbl;
         private System.Windows.Forms.Panel addMoviePnl;
-        private System.Windows.Forms.TextBox addMovie5Txt;
-        private System.Windows.Forms.Label addMovie5Lbl;
-        private System.Windows.Forms.TextBox addMovie4Txt;
         private System.Windows.Forms.Label addMovie4Lbl;
+        private System.Windows.Forms.TextBox addMovie4Txt;
+        private System.Windows.Forms.Label addMovie3Lbl;
         private System.Windows.Forms.Button addMovie1Btn;
         private System.Windows.Forms.TextBox addMovie3Txt;
         private System.Windows.Forms.TextBox addMovie1Txt;
-        private System.Windows.Forms.Label addMovie3Lbl;
-        private System.Windows.Forms.Label addMovie1Lbl;
         private System.Windows.Forms.Label addMovie2Lbl;
+        private System.Windows.Forms.Label addMovie1Lbl;
         private System.Windows.Forms.Label addMovieTitleLbl;
         private System.Windows.Forms.TextBox addMovie2Txt;
     }

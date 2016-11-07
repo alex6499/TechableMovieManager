@@ -10,8 +10,6 @@
 
 #pragma warning disable 1591
 
-using System;
-
 namespace TechableMovieManager {
     
     
@@ -3862,8 +3860,8 @@ SELECT movieId, available, upc, name, date, director, deleted FROM Movies WHERE 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        movieId, available, upc, name, date, director, deleted\r\nFROM       " +
-                "     Movies\r\nWHERE        (upc = @upc) AND (deleted = 0)";
+            this._commandCollection[1].CommandText = "SELECT available, date, deleted, director, movieId, name, upc FROM Movies WHERE (" +
+                "upc = @upc) AND (deleted = 0)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -3871,7 +3869,7 @@ SELECT movieId, available, upc, name, date, director, deleted FROM Movies WHERE 
             this._commandCollection[2].CommandText = "INSERT INTO Movies\r\n                         (available, upc, name, date, directo" +
                 "r, deleted)\r\nVALUES        (@available,@upc,@name,@date,@director,@deleted)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NChar, 70, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4122,14 +4120,9 @@ SELECT movieId, available, upc, name, date, director, deleted FROM Movies WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertSansId(object available, int upc, string name, string date, string director, bool deleted) {
+        public virtual int InsertSansId(bool available, int upc, string name, string date, string director, bool deleted) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            if ((available == null)) {
-                throw new global::System.ArgumentNullException("available");
-            }
-            else {
-                command.Parameters[0].Value = ((object)(available));
-            }
+            command.Parameters[0].Value = ((bool)(available));
             command.Parameters[1].Value = ((int)(upc));
             if ((name == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
@@ -4445,16 +4438,14 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM R
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@returned", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "returned", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE       Rentals\r\nSET                returned = 1\r\nWHERE        (movieId =\r\n " +
-                "                            (SELECT        movieId\r\n                            " +
-                "   FROM            Movies\r\n                               WHERE        (upc = @U" +
-                "PC)));";
+            this._commandCollection[2].CommandText = "UPDATE Rentals\r\nSET returned = 1\r\nFROM Rentals, Movies\r\nWHERE Movies.upc = @upc \r" +
+                "\nAND Movies.movieId = Rentals.movieId";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UPC", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE       Rentals, Movies\r\nSET                available = @available, rented =" +
-                " @available\r\nWHERE       upc = @upc AND MOVIES.movieId = Rentals.movieId";
+            this._commandCollection[3].CommandText = "UPDATE       Rentals, Movies\r\nSET                available = 1, rented = 1\r\nWHERE" +
+                "       upc = @upc AND MOVIES.movieId = Rentals.movieId;";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4678,9 +4669,9 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM R
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int returnMovie(int UPC) {
+        public virtual int ReturnMovie(int upc) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            command.Parameters[0].Value = ((int)(UPC));
+            command.Parameters[0].Value = ((int)(upc));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

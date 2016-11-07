@@ -280,8 +280,8 @@ namespace TechableMovieManager
 
             setTitlePosition(addMovieTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl, addMovie4Lbl, addMovie5Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt, addMovie4Txt, addMovie5Txt);
+            endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl, addMovie4Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt, addMovie4Txt);
 
             setLocationPanelControl(addMovie1Btn, panel, .4, endOfText + 0.1);
         }
@@ -648,12 +648,43 @@ namespace TechableMovieManager
         }
         private void removeMovie1Btn_Click(object sender, EventArgs e)
         {
+            int movieId = Convert.ToInt32(removeMovie1Txt.Text);
 
+            customersTable.setDeleted(true, movieId);
+
+            clearTextBoxes(removeMoviePnl);
         }
 
         private void return1Btn_Click(object sender, EventArgs e)
         {
+            int upc = Convert.ToInt32(return1Txt.Text);
 
+            rentalsTable.returnMovie(upc);
+            moviesTable.makeAvailable(upc);
+
+            clearTextBoxes(returnPnl);
+        }
+
+        private void removeUser1Btn_Click(object sender, EventArgs e)
+        {
+            int employeeId = Convert.ToInt32(removeUser1Txt.Text);
+
+            customersTable.setDeleted(true, employeeId);
+
+            clearTextBoxes(removeUserPnl);
+        }
+
+        private void addMovie1Btn_Click(object sender, EventArgs e)
+        {
+            int upc = Convert.ToInt32(addMovie1Txt.Text);
+            string name = addMovie2Txt.Text;
+            string director= addMovie3Txt.Text;
+            string date = addMovie4Txt.Text;
+
+            moviesTable.add(upc, name, date, director);
+
+            clearRadioButtons(addMoviePnl);
+            clearTextBoxes(addMoviePnl);
         }
     }
 }
