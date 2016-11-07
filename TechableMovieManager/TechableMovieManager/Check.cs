@@ -15,7 +15,7 @@ namespace TechableMovieManager
 
             foreach (string input in inputs)
             {
-                if (isAlphaNumeric(input))
+                if (!isAlphaNumeric(input))
                 {
                     isAlphaNum = false;
                     break;
@@ -28,7 +28,8 @@ namespace TechableMovieManager
         public static bool isAlphaNumeric(string input)
         {
             Regex alphaNumeric = new Regex("^[a-zA-Z0-9]*$");
-            return (alphaNumeric.IsMatch(input));
+            bool isAlphaNum = alphaNumeric.IsMatch(input);
+            return (isAlphaNum);
         }
 
         public static bool isAllInt32(params string[] inputs)
@@ -37,7 +38,7 @@ namespace TechableMovieManager
 
             foreach (string input in inputs)
             {
-                if (isInt32(input))
+                if (!isInt32(input))
                 {
                     isNum = false;
                     break;

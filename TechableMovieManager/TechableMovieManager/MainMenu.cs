@@ -661,9 +661,6 @@ namespace TechableMovieManager
 
         private void return1Btn_Click(object sender, EventArgs e)
         {
-            string a = "123a";
-
-            
             int upc = Convert.ToInt32(return1Txt.Text);
 
             rentalsTable.returnMovie(upc);
