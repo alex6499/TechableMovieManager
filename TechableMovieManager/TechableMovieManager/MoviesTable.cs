@@ -20,5 +20,10 @@ namespace TechableMovieManager
         {
             adapter.InsertSansId(available, upc, name, date, director, false);
         }
+
+        public void setDeleted(bool deleted, int movieId)
+        {
+            adapter.UpdateDeleted(deleted, movieId);
+        }
     }
 }
