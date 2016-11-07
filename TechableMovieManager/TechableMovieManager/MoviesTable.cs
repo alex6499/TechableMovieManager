@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,17 @@ namespace TechableMovieManager
 {
     public static class MoviesTable
     {
+        public static DataTable getAll()
+        {
+            DataSet2.MoviesDataTable table;
+
+            DataSet2TableAdapters.MoviesTableAdapter adapter = new DataSet2TableAdapters.MoviesTableAdapter();
+            table = adapter.GetData();
+            adapter.Dispose();
+
+            return table;
+        }
+
         public static void add(int upc, string name, string date, string director)
         {
             DataSet1TableAdapters.MoviesTableAdapter adapter = new DataSet1TableAdapters.MoviesTableAdapter();

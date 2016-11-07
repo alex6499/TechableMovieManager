@@ -312,6 +312,10 @@ namespace TechableMovieManager
 
         public void setupAdminPnl()
         {
+            admin1Data.DataSource = EmployeesTable.getAll();
+            admin2Data.DataSource = CustomersTable.getAll();
+            admin3Data.DataSource = MoviesTable.getAll();
+
             setPositionPanelControl(adminTitleLbl, adminPnl, .4, .7, 0, .1);
 
             setPositionPanelControl(adminTab, adminPnl, .1, .9, .1, .9);
@@ -721,6 +725,11 @@ namespace TechableMovieManager
         }
 
         private void rent2Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void admin1Data_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,17 @@ namespace TechableMovieManager
             DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
             adapter.UpdateDeleted(deleted, employeeId);
             adapter.Dispose();
+        }
+
+        public static DataTable getAll()
+        {
+            DataSet2.EmployeesDataTable table;
+
+            DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
+            table = adapter.GetData();
+            adapter.Dispose();
+
+            return table;
         }
 
         public static  Object[] getEmployee(string userName, string password)
