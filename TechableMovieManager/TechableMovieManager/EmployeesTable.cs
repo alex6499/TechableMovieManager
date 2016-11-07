@@ -17,8 +17,7 @@ namespace TechableMovieManager
 
         public void add(string lName, string fName, bool isAdmin, string userName, string password)
         {
-            bool f = false;
-            adapter.InsertSansId(fName, lName, isAdmin, userName, password, deleted);
+            adapter.InsertSansId(fName, lName, isAdmin, userName, password, false);
         }
 
         public Object[] getEmployee(string userName, string password)

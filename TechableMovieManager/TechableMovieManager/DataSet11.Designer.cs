@@ -3042,7 +3042,7 @@ SELECT customerId, lastName, firstName, email, address, phoneNumber, deleted FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertCustomer(string lastName, string firstName, string email, string address, string phoneNumber, global::System.Nullable<bool> deleted) {
+        public virtual int InsertSansId(string lastName, string firstName, string email, string address, string phoneNumber, global::System.Nullable<bool> deleted) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((lastName == null)) {
                 throw new global::System.ArgumentNullException("lastName");
@@ -3552,7 +3552,7 @@ SELECT employeeId, firstName, lastName, isAdmin, userName, password, deleted FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertEmployee(string firstName, string lastName, bool isAdmin, string userName, string password, bool deleted) {
+        public virtual int InsertSansId(string firstName, string lastName, bool isAdmin, string userName, string password, bool deleted) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((firstName == null)) {
                 throw new global::System.ArgumentNullException("firstName");
@@ -3802,7 +3802,7 @@ SELECT movieId, available, upc, name, date, director, deleted FROM Movies WHERE 
             this._commandCollection[2].CommandText = "INSERT INTO Movies\r\n                         (available, upc, name, date, directo" +
                 "r, deleted)\r\nVALUES        (@available,@upc,@name,@date,@director,@deleted)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NChar, 70, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4047,9 +4047,14 @@ SELECT movieId, available, upc, name, date, director, deleted FROM Movies WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertMovie(bool available, int upc, string name, string date, string director, bool deleted) {
+        public virtual int InsertSansId(object available, int upc, string name, string date, string director, bool deleted) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            command.Parameters[0].Value = ((bool)(available));
+            if ((available == null)) {
+                throw new global::System.ArgumentNullException("available");
+            }
+            else {
+                command.Parameters[0].Value = ((object)(available));
+            }
             command.Parameters[1].Value = ((int)(upc));
             if ((name == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
@@ -4340,16 +4345,12 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM R
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@returned", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "returned", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"UPDATE       Rentals
-SET                returned = 1
-WHERE        (movieId =
-                             (SELECT        movieId
-                               FROM            Movies
-                               WHERE        (upc = @UPC))); 
-SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM Rentals WHERE (rentalId = @rentalId)";
+            this._commandCollection[2].CommandText = "UPDATE       Rentals\r\nSET                returned = 1\r\nWHERE        (movieId =\r\n " +
+                "                            (SELECT        movieId\r\n                            " +
+                "   FROM            Movies\r\n                               WHERE        (upc = @U" +
+                "PC)));";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UPC", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rentalId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "rentalId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "UPDATE       Rentals\r\nSET                returned = 1\r\nWHERE        (upc = @upc);" +
@@ -4524,7 +4525,7 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM R
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertRental(int movieId, int customerId, int employeeId, string dueDate, global::System.Nullable<decimal> fine, bool returned) {
+        public virtual int InsertSansId(int movieId, int customerId, int employeeId, string dueDate, global::System.Nullable<decimal> fine, bool returned) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(movieId));
             command.Parameters[1].Value = ((int)(customerId));
@@ -4563,10 +4564,9 @@ SELECT rentalId, movieId, customerId, employeeId, dueDate, fine, returned FROM R
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int returnMovie(int UPC, int rentalId) {
+        public virtual int returnMovie(int UPC) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             command.Parameters[0].Value = ((int)(UPC));
-            command.Parameters[1].Value = ((int)(rentalId));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
