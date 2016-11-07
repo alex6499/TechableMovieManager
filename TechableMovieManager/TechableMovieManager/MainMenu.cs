@@ -591,12 +591,6 @@ namespace TechableMovieManager
             }
         }
 
-       /*
-       * ----------------------------------------------------------------------------------------------
-       * Part 7: Submit Button Events
-       * ----------------------------------------------------------------------------------------------
-       */
-
         private void newCustomer1Btn_Click(object sender, EventArgs e)
         {
             string fName = newCustomer1Txt.Text;
@@ -606,39 +600,16 @@ namespace TechableMovieManager
             string address = newCustomer5Txt.Text;
 
             customersTable.add(lName, fName, email, address, phone);
-
-            clearTextBoxes(newCustomerPnl);
-        }
-        
-        private void addUserBtn_Click(object sender, EventArgs e)
-        {
-            string firstName = addUser1Txt.Text;
-            string lastName = addUser2Txt.Text;
-            string userName = addUser3Txt.Text;
-            string password = addUser4Txt.Text;
-            bool isAdmin = addUserRdb.Checked;
-
-            employeesTable.add(lastName, firstName, isAdmin, userName, password);
-
-            clearTextBoxes(addUserPnl);
-            clearRadioButtons(addUserPnl);
         }
 
-        public void clearTextBoxes(Panel panel)
+        private void addUserTitleLbl_Click(object sender, EventArgs e)
         {
-            TextBox[] textBoxes = panel.Controls.OfType<TextBox>().ToArray();
-            foreach (TextBox textBox in textBoxes)
-            {
-                textBox.Clear();
-            }
+
         }
-        public void clearRadioButtons(Panel panel)
+
+        private void label7_Click(object sender, EventArgs e)
         {
-            RadioButton[] radioButtons = panel.Controls.OfType<RadioButton>().ToArray();
-            foreach (RadioButton radioButton in radioButtons)
-            {
-                radioButton.Checked = false;
-            }
+
         }
     }
 }
