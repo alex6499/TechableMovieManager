@@ -1106,7 +1106,7 @@
             this.rent2Pnl.Controls.Add(this.rent2Txt);
             this.rent2Pnl.Controls.Add(this.rent2Lbl);
             this.rent2Pnl.Controls.Add(this.rentTitle2Lbl);
-            this.rent2Pnl.Location = new System.Drawing.Point(222, 52);
+            this.rent2Pnl.Location = new System.Drawing.Point(463, 27);
             this.rent2Pnl.Name = "rent2Pnl";
             this.rent2Pnl.Size = new System.Drawing.Size(495, 352);
             this.rent2Pnl.TabIndex = 13;
@@ -1183,7 +1183,7 @@
             this.comboBox1.Location = new System.Drawing.Point(286, 200);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(169, 32);
-            this.comboBox1.TabIndex = 30;
+            this.comboBox1.TabIndex = 41;
             this.comboBox1.Text = "Visa";
             // 
             // rent2Btn
@@ -1192,7 +1192,7 @@
             this.rent2Btn.Location = new System.Drawing.Point(174, 254);
             this.rent2Btn.Name = "rent2Btn";
             this.rent2Btn.Size = new System.Drawing.Size(98, 32);
-            this.rent2Btn.TabIndex = 29;
+            this.rent2Btn.TabIndex = 42;
             this.rent2Btn.Text = "Submit";
             this.rent2Btn.UseVisualStyleBackColor = true;
             this.rent2Btn.Click += new System.EventHandler(this.rent2Btn_Click);
@@ -1525,7 +1525,7 @@
             this.removeUserPnl.Controls.Add(this.removeUser1Txt);
             this.removeUserPnl.Controls.Add(this.removeUser1Lbl);
             this.removeUserPnl.Controls.Add(this.removeUserTitleLbl);
-            this.removeUserPnl.Location = new System.Drawing.Point(119, 581);
+            this.removeUserPnl.Location = new System.Drawing.Point(102, 422);
             this.removeUserPnl.Name = "removeUserPnl";
             this.removeUserPnl.Size = new System.Drawing.Size(495, 352);
             this.removeUserPnl.TabIndex = 17;
@@ -1577,7 +1577,7 @@
             this.removeMoviePnl.Controls.Add(this.removeMovie1Txt);
             this.removeMoviePnl.Controls.Add(this.removeMovie1Lbl);
             this.removeMoviePnl.Controls.Add(this.removeMovieTitleLbl);
-            this.removeMoviePnl.Location = new System.Drawing.Point(205, 181);
+            this.removeMoviePnl.Location = new System.Drawing.Point(197, 181);
             this.removeMoviePnl.Name = "removeMoviePnl";
             this.removeMoviePnl.Size = new System.Drawing.Size(495, 352);
             this.removeMoviePnl.TabIndex = 18;
@@ -1675,7 +1675,7 @@
             this.addMovie1Btn.Location = new System.Drawing.Point(166, 224);
             this.addMovie1Btn.Name = "addMovie1Btn";
             this.addMovie1Btn.Size = new System.Drawing.Size(98, 32);
-            this.addMovie1Btn.TabIndex = 30;
+            this.addMovie1Btn.TabIndex = 45;
             this.addMovie1Btn.Text = "Submit";
             this.addMovie1Btn.UseVisualStyleBackColor = true;
             this.addMovie1Btn.Click += new System.EventHandler(this.addMovie1Btn_Click);
@@ -1741,13 +1741,13 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.addMoviePnl);
+            this.Controls.Add(this.rent2Pnl);
             this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.rent2Pnl);
             this.Controls.Add(this.returnPnl);
-            this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.removeCustomerPnl);
             this.Controls.Add(this.removeMoviePnl);

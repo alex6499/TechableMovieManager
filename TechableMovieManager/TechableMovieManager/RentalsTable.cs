@@ -10,14 +10,14 @@ namespace TechableMovieManager
     {
         public static void add(int movieId, int customerId, int employeeId, string dueDate, decimal fine)
         {
-            DataSet1TableAdapters.RentalsTableAdapter adapter = new DataSet1TableAdapters.RentalsTableAdapter();
+            DataSet2TableAdapters.RentalsTableAdapter adapter = new DataSet2TableAdapters.RentalsTableAdapter();
             adapter.InsertSansId(movieId, customerId, employeeId, dueDate, fine, false);
             adapter.Dispose();
         }
 
         public static void returnMovie(int upc)
         {
-            DataSet1TableAdapters.RentalsTableAdapter adapter = new DataSet1TableAdapters.RentalsTableAdapter();
+            DataSet2TableAdapters.RentalsTableAdapter adapter = new DataSet2TableAdapters.RentalsTableAdapter();
             adapter.ReturnMovie(upc);
             adapter.Dispose();
         }

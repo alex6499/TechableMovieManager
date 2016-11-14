@@ -22,21 +22,21 @@ namespace TechableMovieManager
 
         public static void add(int upc, string name, string date, string director)
         {
-            DataSet1TableAdapters.MoviesTableAdapter adapter = new DataSet1TableAdapters.MoviesTableAdapter();
+            DataSet2TableAdapters.MoviesTableAdapter adapter = new DataSet2TableAdapters.MoviesTableAdapter();
             adapter.InsertSansId(true, upc, name, date, director, false);
             adapter.Dispose();
         }
 
         public static void setDeleted(bool deleted, int movieId)
         {
-            DataSet1TableAdapters.MoviesTableAdapter adapter = new DataSet1TableAdapters.MoviesTableAdapter();
+            DataSet2TableAdapters.MoviesTableAdapter adapter = new DataSet2TableAdapters.MoviesTableAdapter();
             adapter.UpdateDeleted(deleted, movieId);
             adapter.Dispose();
         }
 
         public static void makeAvailable(int upc)
         {
-            DataSet1TableAdapters.MoviesTableAdapter adapter = new DataSet1TableAdapters.MoviesTableAdapter();
+            DataSet2TableAdapters.MoviesTableAdapter adapter = new DataSet2TableAdapters.MoviesTableAdapter();
             adapter.MakeAvailable(upc);
             adapter.Dispose();
         }

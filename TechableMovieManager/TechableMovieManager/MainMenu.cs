@@ -173,10 +173,8 @@ namespace TechableMovieManager
         private void reportsBtn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(reportsPnl);
-            DataSet1 ds = new DataSet1();
-            DataSet1.MoviesRow newMoviesRow = ds.Movies.NewMoviesRow();
-
-            
+            DataSet2 ds = new DataSet2();
+            DataSet2.MoviesRow newMoviesRow = ds.Movies.NewMoviesRow();
         }
 
         private void adminBtn_Click(object sender, EventArgs e)
@@ -605,6 +603,69 @@ namespace TechableMovieManager
             }
         }
 
+        
+
+        public void clearRadioButtons(Panel panel)
+        {
+            RadioButton[] radioButtons = panel.Controls.OfType<RadioButton>().ToArray<RadioButton>();
+
+            foreach(RadioButton radioButton in radioButtons)
+            {
+                radioButton.Checked = false;
+            }
+        }
+
+        public void clearTextBoxes(Panel panel)
+        {
+            TextBox[] textBoxes = panel.Controls.OfType<TextBox>().ToArray<TextBox>();
+
+            foreach (TextBox textBox in textBoxes)
+            {
+                textBox.Clear();
+            }
+        }
+
+        private void removeMovie1Btn_Click(object sender, EventArgs e)
+        {
+            string movieId = removeMovie1Txt.Text;
+            if (Check.isInt32(movieId))
+            {
+                Prompt.enterInt32("Movie Id");
+                return;
+            }
+
+            MoviesTable.setDeleted(true, Int32.Parse(movieId));
+            clearTextBoxes(removeMoviePnl);
+        }
+
+        private void return1Btn_Click(object sender, EventArgs e)
+        {
+            string upc = return1Txt.Text;
+            if (Check.isInt32(upc))
+            {
+                Prompt.enterInt32("UPC");
+                return;
+            }
+
+            RentalsTable.returnMovie(Int32.Parse(upc));
+            MoviesTable.makeAvailable(Int32.Parse(upc));
+
+            clearTextBoxes(returnPnl);
+
+        }
+
+        private void removeUser1Btn_Click(object sender, EventArgs e)
+        {
+            string employeeId = removeUser1Txt.Text;
+            if (!Check.isInt32(employeeId)) {
+                Prompt.enterInt32("Employee Id");
+                return;
+            }
+
+            EmployeesTable.setDeleted(true, Int32.Parse(employeeId));
+
+            clearTextBoxes(removeUserPnl);
+        }
         private void newCustomer1Btn_Click(object sender, EventArgs e)
         {
             string fName = newCustomer1Txt.Text;
@@ -634,87 +695,35 @@ namespace TechableMovieManager
 
         private void removeCustomer1Btn_Click(object sender, EventArgs e)
         {
-            int customerId = Convert.ToInt32(removeCustomer1Txt.Text);
+            string customerId = removeCustomer1Txt.Text;
+            if (Check.isInt32(customerId))
+            {
+                Prompt.enterInt32("Customer Id");
+                return;
+            }
 
-            CustomersTable.setDeleted(true, customerId);
+            CustomersTable.setDeleted(true, Int32.Parse(customerId));
 
             clearTextBoxes(removeCustomerPnl);
         }
-
-        public void clearRadioButtons(Panel panel)
-        {
-            RadioButton[] radioButtons = panel.Controls.OfType<RadioButton>().ToArray<RadioButton>();
-
-            foreach(RadioButton radioButton in radioButtons)
-            {
-                radioButton.Checked = false;
-            }
-        }
-
-        public void clearTextBoxes(Panel panel)
-        {
-            TextBox[] textBoxes = panel.Controls.OfType<TextBox>().ToArray<TextBox>();
-
-            foreach (TextBox textBox in textBoxes)
-            {
-                textBox.Clear();
-            }
-        }
-        private void removeMovie1Btn_Click(object sender, EventArgs e)
-        {
-            string movieId = removeMovie1Txt.Text;
-            if (Check.isInt32(movieId))
-            {
-                MoviesTable.setDeleted(true, Int32.Parse(movieId));
-                clearTextBoxes(removeMoviePnl);
-            }
-            else
-            {
-                Prompt.enterInt32("Movie Id");
-            }
-        }
-
-        private void return1Btn_Click(object sender, EventArgs e)
-        {
-            string upc = return1Txt.Text;
-            if (Check.isInt32(upc))
-            {
-                RentalsTable.returnMovie(Int32.Parse(upc));
-                MoviesTable.makeAvailable(Int32.Parse(upc));
-
-                clearTextBoxes(returnPnl);
-            }
-            else
-            {
-                Prompt.enterInt32("UPC");
-            }
-            
-        }
-
-        private void removeUser1Btn_Click(object sender, EventArgs e)
-        {
-            string employeeId = removeUser1Txt.Text;
-            if (Check.isInt32(employeeId)) {
-                EmployeesTable.setDeleted(true, Int32.Parse(employeeId));
-                clearTextBoxes(removeUserPnl);
-            }
-            else
-            {
-                Prompt.enterInt32("Employee Id");
-            } 
-        }
-
         private void addMovie1Btn_Click(object sender, EventArgs e)
         {
-            int upc = Convert.ToInt32(addMovie1Txt.Text);
+            string upc = addMovie1Txt.Text;
+            if (Check.isInt32(upc))
+            {
+                Prompt.enterInt32("UPC");
+                return;
+            }
+
             string name = addMovie2Txt.Text;
-            string director= addMovie3Txt.Text;
+            string director = addMovie3Txt.Text;
             string date = addMovie4Txt.Text;
 
-            MoviesTable.add(upc, name, date, director);
+            MoviesTable.add(Int32.Parse(upc), name, date, director);
 
             clearRadioButtons(addMoviePnl);
             clearTextBoxes(addMoviePnl);
+
         }
 
         private void return1Txt_KeyPress(object sender, KeyPressEventArgs e)
