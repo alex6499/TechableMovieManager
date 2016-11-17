@@ -173,8 +173,8 @@ namespace TechableMovieManager
         private void reportsBtn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(reportsPnl);
-            DataSet2 ds = new DataSet2();
-            DataSet2.MoviesRow newMoviesRow = ds.Movies.NewMoviesRow();
+            TechableDS ds = new TechableDS();
+            TechableDS.MoviesRow newMoviesRow = ds.Movies.NewMoviesRow();
         }
 
         private void adminBtn_Click(object sender, EventArgs e)

@@ -11,9 +11,9 @@ namespace TechableMovieManager
     {
         public static DataTable getAll()
         {
-            DataSet2.CustomersDataTable table;
+            TechableDS.CustomersDataTable table;
 
-            DataSet2TableAdapters.CustomersTableAdapter adapter = new DataSet2TableAdapters.CustomersTableAdapter();
+            TechableDSTableAdapters.CustomersTableAdapter adapter = new TechableDSTableAdapters.CustomersTableAdapter();
             table = adapter.GetData();
             adapter.Dispose();
 
@@ -22,14 +22,14 @@ namespace TechableMovieManager
 
         public static void add(string lName, string fName, string email, string address, string phone)
         {
-            DataSet2TableAdapters.CustomersTableAdapter adapter = new DataSet2TableAdapters.CustomersTableAdapter();
+            TechableDSTableAdapters.CustomersTableAdapter adapter = new TechableDSTableAdapters.CustomersTableAdapter();
             adapter.Insert(lName, fName, email, address, phone, false);
             adapter.Dispose();
         }
 
         public static void setDeleted(bool deleted, int customerId)
         {
-            DataSet2TableAdapters.CustomersTableAdapter adapter = new DataSet2TableAdapters.CustomersTableAdapter();
+            TechableDSTableAdapters.CustomersTableAdapter adapter = new TechableDSTableAdapters.CustomersTableAdapter();
             adapter.UpdateDeleted(deleted, customerId);
             adapter.Dispose();
         }

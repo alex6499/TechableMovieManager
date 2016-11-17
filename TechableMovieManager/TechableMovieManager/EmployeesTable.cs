@@ -11,23 +11,23 @@ namespace TechableMovieManager
     {
         public static void add(string lName, string fName, bool isAdmin, string userName, string password)
         {
-            DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
+            TechableDSTableAdapters.EmployeesTableAdapter adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
             adapter.Insert(fName, lName, isAdmin, userName, password, false);
             adapter.Dispose();
         }
 
         public static void setDeleted(bool deleted, int employeeId)
         {
-            DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
+            TechableDSTableAdapters.EmployeesTableAdapter adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
             adapter.UpdateDeleted(deleted, employeeId);
             adapter.Dispose();
         }
 
         public static DataTable getAll()
         {
-            DataSet2.EmployeesDataTable table;
+            TechableDS.EmployeesDataTable table;
 
-            DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
+            TechableDSTableAdapters.EmployeesTableAdapter adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
             table = adapter.GetData();
             adapter.Dispose();
 
@@ -36,9 +36,9 @@ namespace TechableMovieManager
 
         public static  Object[] getEmployee(string userName, string password)
         {
-            DataSet2.EmployeesDataTable table;
+            TechableDS.EmployeesDataTable table;
 
-            DataSet2TableAdapters.EmployeesTableAdapter adapter = new DataSet2TableAdapters.EmployeesTableAdapter();
+            TechableDSTableAdapters.EmployeesTableAdapter adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
             table = adapter.GetDataBy(userName, password);
             adapter.Dispose();
             

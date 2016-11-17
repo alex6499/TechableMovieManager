@@ -69,19 +69,6 @@
   <ItemGroup>
     <Compile Include="Check.cs" />
     <Compile Include="CustomersTable.cs" />
-    <Compile Include="DataSet2.cs">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet21.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="EmployeesTable.cs" />
     <Compile Include="GlobalControl.cs" />
     <Compile Include="LoginMenu.cs">
@@ -110,11 +97,6 @@
     <Compile Include="TechableDS.cs">
       <DependentUpon>TechableDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="TechableDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TechableDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="TechableDS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,17 +122,6 @@
     <EmbeddedResource Include="TableExample.resx">
       <DependentUpon>TableExample.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet2.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet21.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
