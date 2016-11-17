@@ -43,8 +43,3 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
     @level1name = N'Rentals',
     @level2type = N'COLUMN',
     @level2name = N'employeeId'
-GO
-CREATE SEQUENCE seq_rentals_id as int
-MINVALUE 100
-START WITH 100
-INCREMENT BY 1

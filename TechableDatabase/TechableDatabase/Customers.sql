@@ -1,9 +1,4 @@
 ﻿GO
-CREATE SEQUENCE [dbo].[seq_customer_id]
-As int
-INCREMENT BY 1;
-
-GO
 CREATE TABLE [dbo].[Customers]
 (
 	[customerId] int NOT NULL PRIMARY KEY IDENTITY, 
