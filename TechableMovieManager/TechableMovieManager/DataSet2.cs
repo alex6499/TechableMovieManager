@@ -10,9 +10,12 @@
     }
 }
 
-namespace TechableMovieManager.DataSet2TableAdapters {
-    
-    
+namespace TechableMovieManager.DataSet2TableAdapters
+{
+    partial class MoviesTableAdapter
+    {
+    }
+
     public partial class EmployeesTableAdapter {
     }
 }
