@@ -77,6 +77,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EmployeesTable.cs" />
     <Compile Include="GlobalControl.cs" />
     <Compile Include="LoginMenu.cs">
@@ -101,6 +106,9 @@
     </Compile>
     <Compile Include="TableExample.Designer.cs">
       <DependentUpon>TableExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TechableDS.cs">
+      <DependentUpon>TechableDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="TechableDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -138,7 +146,7 @@
     <None Include="DataSet2.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSet21.Designer.cs</LastGenOutput>
     </None>
     <None Include="DataSet2.xss">
       <DependentUpon>DataSet2.xsd</DependentUpon>
