@@ -45,5 +45,16 @@ namespace TechableMovieManager.Properties {
                 return ((string)(this["TechableConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WIN-EBAS1CBC4OQ;Initial Catalog=Techable;User ID=remote_user;Password" +
+            "=Password1;Encrypt=False;TrustServerCertificate=True")]
+        public string TechableConnectionString1 {
+            get {
+                return ((string)(this["TechableConnectionString1"]));
+            }
+        }
     }
 }

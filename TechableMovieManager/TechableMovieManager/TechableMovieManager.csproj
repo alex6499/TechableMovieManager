@@ -102,6 +102,11 @@
     <Compile Include="TableExample.Designer.cs">
       <DependentUpon>TableExample.cs</DependentUpon>
     </Compile>
+    <Compile Include="TechableDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TechableDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="LoginMenu.resx">
       <DependentUpon>LoginMenu.cs</DependentUpon>
@@ -142,6 +147,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TechableDS.xsc">
+      <DependentUpon>TechableDS.xsd</DependentUpon>
+    </None>
+    <None Include="TechableDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TechableDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TechableDS.xss">
+      <DependentUpon>TechableDS.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
