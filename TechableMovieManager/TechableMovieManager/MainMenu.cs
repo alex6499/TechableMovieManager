@@ -63,7 +63,7 @@ namespace TechableMovieManager
 
         public void setEmailTextBoxSize(int maxLength)
         {
-            TextBox[] emailBoxes = { rent5Txt, newCustomer4Txt};
+            TextBox[] emailBoxes = { rent6Txt, newCustomer5Txt};
 
             foreach(TextBox emailBox in emailBoxes)
             {

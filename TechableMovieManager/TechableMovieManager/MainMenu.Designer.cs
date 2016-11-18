@@ -477,7 +477,7 @@
             this.reportsPnl.BackColor = System.Drawing.Color.Transparent;
             this.reportsPnl.Controls.Add(this.reportsTab);
             this.reportsPnl.Controls.Add(this.reportsTitleLbl);
-            this.reportsPnl.Location = new System.Drawing.Point(511, 436);
+            this.reportsPnl.Location = new System.Drawing.Point(115, 377);
             this.reportsPnl.Name = "reportsPnl";
             this.reportsPnl.Size = new System.Drawing.Size(502, 341);
             this.reportsPnl.TabIndex = 10;
@@ -519,6 +519,7 @@
             this.dataGridViewTextBoxColumn18});
             this.reports1Data.Location = new System.Drawing.Point(0, 0);
             this.reports1Data.Name = "reports1Data";
+            this.reports1Data.ReadOnly = true;
             this.reports1Data.Size = new System.Drawing.Size(548, 350);
             this.reports1Data.TabIndex = 3;
             // 
@@ -573,6 +574,7 @@
             this.dataGridViewTextBoxColumn22});
             this.reports2Data.Location = new System.Drawing.Point(0, 0);
             this.reports2Data.Name = "reports2Data";
+            this.reports2Data.ReadOnly = true;
             this.reports2Data.Size = new System.Drawing.Size(548, 350);
             this.reports2Data.TabIndex = 3;
             // 
@@ -618,6 +620,7 @@
             this.dataGridViewTextBoxColumn28});
             this.reports3Data.Location = new System.Drawing.Point(0, 0);
             this.reports3Data.Name = "reports3Data";
+            this.reports3Data.ReadOnly = true;
             this.reports3Data.Size = new System.Drawing.Size(548, 350);
             this.reports3Data.TabIndex = 3;
             // 
@@ -675,6 +678,7 @@
             this.dataGridViewTextBoxColumn34});
             this.reports4Data.Location = new System.Drawing.Point(0, 0);
             this.reports4Data.Name = "reports4Data";
+            this.reports4Data.ReadOnly = true;
             this.reports4Data.Size = new System.Drawing.Size(548, 350);
             this.reports4Data.TabIndex = 3;
             // 
@@ -741,6 +745,7 @@
             this.dataGridViewTextBoxColumn40});
             this.reports5Data.Location = new System.Drawing.Point(0, 0);
             this.reports5Data.Name = "reports5Data";
+            this.reports5Data.ReadOnly = true;
             this.reports5Data.Size = new System.Drawing.Size(548, 350);
             this.reports5Data.TabIndex = 4;
             // 
@@ -990,6 +995,7 @@
             this.admin1Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.admin1Data.Location = new System.Drawing.Point(6, 11);
             this.admin1Data.Name = "admin1Data";
+            this.admin1Data.ReadOnly = true;
             this.admin1Data.Size = new System.Drawing.Size(413, 192);
             this.admin1Data.TabIndex = 1;
             this.admin1Data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.admin1Data_CellContentClick);
@@ -1034,6 +1040,7 @@
             this.admin2Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.admin2Data.Location = new System.Drawing.Point(15, 15);
             this.admin2Data.Name = "admin2Data";
+            this.admin2Data.ReadOnly = true;
             this.admin2Data.Size = new System.Drawing.Size(427, 179);
             this.admin2Data.TabIndex = 2;
             // 
@@ -1076,6 +1083,7 @@
             this.admin3Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.admin3Data.Location = new System.Drawing.Point(16, 15);
             this.admin3Data.Name = "admin3Data";
+            this.admin3Data.ReadOnly = true;
             this.admin3Data.Size = new System.Drawing.Size(433, 141);
             this.admin3Data.TabIndex = 2;
             // 
@@ -1452,9 +1460,9 @@
             this.password1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password1Lbl.Location = new System.Drawing.Point(13, 72);
             this.password1Lbl.Name = "password1Lbl";
-            this.password1Lbl.Size = new System.Drawing.Size(116, 24);
+            this.password1Lbl.Size = new System.Drawing.Size(105, 24);
             this.password1Lbl.TabIndex = 23;
-            this.password1Lbl.Text = "Unser Name";
+            this.password1Lbl.Text = "User Name";
             // 
             // passwordTitleLbl
             // 
@@ -1462,9 +1470,9 @@
             this.passwordTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTitleLbl.Location = new System.Drawing.Point(200, 25);
             this.passwordTitleLbl.Name = "passwordTitleLbl";
-            this.passwordTitleLbl.Size = new System.Drawing.Size(196, 37);
+            this.passwordTitleLbl.Size = new System.Drawing.Size(214, 37);
             this.passwordTitleLbl.TabIndex = 10;
-            this.passwordTitleLbl.Text = "Set Pssword";
+            this.passwordTitleLbl.Text = "Set Password";
             // 
             // removeCustomerPnl
             // 
@@ -1525,7 +1533,7 @@
             this.removeUserPnl.Controls.Add(this.removeUser1Txt);
             this.removeUserPnl.Controls.Add(this.removeUser1Lbl);
             this.removeUserPnl.Controls.Add(this.removeUserTitleLbl);
-            this.removeUserPnl.Location = new System.Drawing.Point(102, 422);
+            this.removeUserPnl.Location = new System.Drawing.Point(208, 72);
             this.removeUserPnl.Name = "removeUserPnl";
             this.removeUserPnl.Size = new System.Drawing.Size(495, 352);
             this.removeUserPnl.TabIndex = 17;
@@ -1741,20 +1749,20 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
-            this.Controls.Add(this.addMoviePnl);
-            this.Controls.Add(this.rent2Pnl);
-            this.Controls.Add(this.adminPnl);
-            this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.passwordPnl);
+            this.Controls.Add(this.addUserPnl);
+            this.Controls.Add(this.rentPnl);
+            this.Controls.Add(this.adminPnl);
+            this.Controls.Add(this.addMoviePnl);
+            this.Controls.Add(this.rent2Pnl);
+            this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.returnPnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.removeCustomerPnl);
-            this.Controls.Add(this.removeMoviePnl);
-            this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.reportsPnl);
-            this.Controls.Add(this.addUserPnl);
-            this.Controls.Add(this.rentPnl);
+            this.Controls.Add(this.removeMoviePnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "Main Menu";

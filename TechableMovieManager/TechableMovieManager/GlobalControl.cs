@@ -13,14 +13,15 @@ namespace TechableMovieManager
         {
             foreach (TextBox item in form.Controls.OfType<TextBox>())
             {
-                item.MaxLength = 20;
+                item.MaxLength = maxLength;
             }
         }
+
         public static void setTextBoxMaxLength(Panel form, int maxLength)
         {
             foreach (TextBox item in form.Controls.OfType<TextBox>())
             {
-                item.MaxLength = 20;
+                item.MaxLength = maxLength;
             }
         }
 
