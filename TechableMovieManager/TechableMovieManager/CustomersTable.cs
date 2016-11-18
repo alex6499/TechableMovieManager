@@ -23,7 +23,7 @@ namespace TechableMovieManager
         public static void add(string lName, string fName, string email, string address, string phone)
         {
             TechableDSTableAdapters.CustomersTableAdapter adapter = new TechableDSTableAdapters.CustomersTableAdapter();
-            adapter.Insert(lName, fName, email, address, phone, false);
+            adapter.Insert(lName, fName, email, address, phone, false, 0);
             adapter.Dispose();
         }
 
