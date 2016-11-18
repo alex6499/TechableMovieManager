@@ -65,11 +65,9 @@
     <Build Include="Customers.sql" />
     <Build Include="Employees.sql" />
     <Build Include="Rentals.sql" />
+    <Build Include="Copies.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="TechableDatabase.refactorlog" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PopulateTables.sql" />
   </ItemGroup>
 </Project>

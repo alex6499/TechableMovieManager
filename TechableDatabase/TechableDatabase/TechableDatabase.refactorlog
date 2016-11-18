@@ -63,4 +63,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="available" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="84075da5-40c4-40c2-8dee-5dedd8e1955c" ChangeDateTime="11/18/2016 21:46:01">
+    <Property Name="ElementName" Value="[dbo].[Copies].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Copies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CopyId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0390d6b5-5b6c-45a8-8197-188155c53332" ChangeDateTime="11/18/2016 22:15:26">
+    <Property Name="ElementName" Value="[dbo].[Copies].[CopyId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Copies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="copyId" />
+  </Operation>
 </Operations>

@@ -2,9 +2,9 @@
 CREATE TABLE [dbo].[Rentals]
 (
 	[rentalId] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [movieId] INT NOT NULL, 
-	FOREIGN KEY (movieId)
-		REFERENCES Movies (movieId),
+    [copyId] INT NOT NULL, 
+	FOREIGN KEY (copyId)
+		REFERENCES Copies ([copyId]),
     [customerId] INT NOT NULL,
 	FOREIGN KEY (customerId)
 		REFERENCES Customers (customerId),
@@ -24,7 +24,7 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
     @level1type = N'TABLE',
     @level1name = N'Rentals',
     @level2type = N'COLUMN',
-    @level2name = N'movieId'
+    @level2name = N'copyId'
 GO
 EXEC sp_addextendedproperty @name = N'MS_Description',
     @value = N'Customer who the movie is rented to.',

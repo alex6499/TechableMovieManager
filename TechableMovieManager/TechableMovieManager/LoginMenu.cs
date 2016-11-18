@@ -63,5 +63,10 @@ namespace TechableMovieManager
         {
             Application.Exit();
         }
+
+        private void LoginMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
