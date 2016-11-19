@@ -34,6 +34,41 @@ namespace TechableMovieManager
             adapter.Dispose();
         }
 
+        public static bool hasCustomer(string firstName, string lastName, string phone)
+        {
+            bool hasId;
+            DataTable table;
+
+            adapter = getNewAdapter();
+            table = adapter.GetDataBy(lastName, firstName, phone);
+            adapter.Dispose();
+
+            hasId = table.Select().Length > 0;
+
+            return hasId;
+        }
+
+        public static void incrementTimesRented(int customerId)
+        {
+            adapter = getNewAdapter();
+            adapter.IncrementTimesRented(customerId);
+            adapter.Dispose();
+        }
+
+        public static int getCustomerId(string firstName, string lastName, string phone)
+        {
+            int customerId = 4;
+            DataTable table;
+
+            adapter = getNewAdapter();
+            table = adapter.GetDataBy(lastName, firstName, phone);
+            adapter.Dispose();
+
+            customerId = (int)table.Select()[0].ItemArray[0];
+
+            return customerId;
+        }
+
         public static void setDeleted(bool deleted, int customerId)
         {
             adapter = getNewAdapter();

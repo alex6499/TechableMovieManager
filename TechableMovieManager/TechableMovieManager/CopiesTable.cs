@@ -17,23 +17,51 @@ namespace TechableMovieManager
             return new TechableDSTableAdapters.CopiesTableAdapter();
         }
 
-        public static string getMovie(int upc)
+        public static bool hasCopy(int upc)
         {
-            string movieName = null;
+            bool hasCopy;
 
             adapter = getNewAdapter();
-            
-            DataTable table = adapter.GetMovie(upc);
-            
-            if (table.Select().Length > 0 && table.Select()[0].ItemArray.Length > 0)
-            {
-                movieName = (string)adapter.GetMovie(upc).Select()[0].ItemArray[0];
-            }
-
+            DataTable table = adapter.GetCopy(upc);
             adapter.Dispose();
 
-            return movieName;
+            hasCopy = table.Select().Length > 0;
+
+            return hasCopy;
         }
+
+        public static bool isAvailable(int upc)
+        {
+            bool isAvailable = false;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetCopy(upc);
+            adapter.Dispose();
+
+            if (table.Select().Length > 0)
+            {
+                isAvailable = (bool)table.Select()[0].ItemArray[2];
+            }
+
+            return isAvailable;
+        }
+
+        public static void makeAvailable(int upc)
+        {
+            setAvailable(true, upc);
+        }
+        public static void makeUnavailable(int upc)
+        {
+            setAvailable(false, upc);
+        }
+        public static void setAvailable(bool available, int upc)
+        {
+            adapter = getNewAdapter();
+            adapter.UpdateAvailable(available, upc);
+            adapter.Dispose();
+
+        }
+
         public static DataTable getAll()
         {
             TechableDS.CopiesDataTable table;
@@ -49,13 +77,6 @@ namespace TechableMovieManager
         {
             adapter = getNewAdapter();
             adapter.Insert(upc, movieId, true, false);
-            adapter.Dispose();
-        }
-
-        public static void makeAvailable(int upc)
-        {
-            adapter = getNewAdapter();
-            adapter.UpdateAvailable(true, upc);
             adapter.Dispose();
         }
     }

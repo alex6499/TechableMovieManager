@@ -24,6 +24,7 @@ namespace TechableMovieManager
         //The current User
         User currentUser;
         DVD currentDVD;
+        Customer currentCustomer;
 
         //panel to setup method relation
         public delegate void setupDelegate();
@@ -163,15 +164,20 @@ namespace TechableMovieManager
                 Prompt.enterInt32("UPC");
                 return;
             }
-
-            string movie = MoviesTable.getMovie(Int32.Parse(upc));
-
-            if (movie != null)
-            {
-                currentDVD = new DVD(movie, Int32.Parse(upc));
-                clearTextBoxes(rentPnl);
-                setCurrentMainPanel(rent2Pnl);
+            if(!CopiesTable.hasCopy(Int32.Parse(upc))){
+                Prompt.noCopy();
+                return;
             }
+            if (!CopiesTable.isAvailable(Int32.Parse(upc))){
+                Prompt.copyUnavailable();
+                return;
+            }
+
+            string movie = MoviesTable.getMovieName(Int32.Parse(upc));
+            currentDVD = new DVD(movie, Int32.Parse(upc));
+            clearTextBoxes(rentPnl);
+            setCurrentMainPanel(rent2Pnl);
+            
         }
 
         private void returnBtn_Click(object sender, EventArgs e)
@@ -761,6 +767,27 @@ namespace TechableMovieManager
             string phone = rent4Txt.Text;
             int customerId;
 
+            if (!Check.isPhone(phone))
+            {
+                Prompt.enterPhone();
+                return;
+            }
+
+            if (!CustomersTable.hasCustomer(firstName, lastName, phone))
+            {
+                Prompt.notACustomer();
+                return;
+            }
+
+            customerId = CustomersTable.getCustomerId(firstName, lastName, phone);
+
+            currentCustomer = new Customer(customerId, firstName, lastName);
+
+            CopiesTable.makeUnavailable(currentDVD.getUpc());
+            RentalsTable.add(currentDVD.getUpc(), currentCustomer.getCustomerId(), currentUser.getUserName(), DateTime.Now);
+            CustomersTable.incrementTimesRented(currentCustomer.getCustomerId());
+            MoviesTable.incrementTimesRented(currentDVD.getUpc());
+            clearTextBoxes(rent2Pnl);
         }
 
         private void admin1Data_CellContentClick(object sender, DataGridViewCellEventArgs e)
