@@ -63,7 +63,7 @@ namespace TechableMovieManager
 
         public void setEmailTextBoxSize(int maxLength)
         {
-            TextBox[] emailBoxes = { rent6Txt, newCustomer5Txt};
+            TextBox[] emailBoxes = { newCustomer5Txt};
 
             foreach(TextBox emailBox in emailBoxes)
             {
@@ -429,11 +429,8 @@ namespace TechableMovieManager
 
             setPositionPanelControl(rentTitle2Lbl, panel, .4, .7, 0, .1);
 
-            endOfLabels = setLabelPostions(panel, 0.2, rent2Lbl, rent3Lbl, rent4Lbl, rent5Lbl, rent6Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, rent2Txt, rent3Txt, rent4Txt, rent5Txt, rent6Txt);
-            
-            setPositionPanelControl(rent7Lbl, rent2Pnl, LABEL_LEFT, TEXT_LEFT, endOfText, endOfText + 0.1);
-            setLocationPanelControl(comboBox1, rent2Pnl, TEXT_LEFT, endOfText);
+            endOfLabels = setLabelPostions(panel, 0.2, rent2Lbl, rent3Lbl, rent4Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, rent2Txt, rent3Txt, rent4Txt);
 
             setLocationPanelControl(rent2Btn, rent2Pnl, 0.4, endOfLabels + 0.2);
         }
