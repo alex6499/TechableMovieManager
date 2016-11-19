@@ -19,7 +19,7 @@ namespace TechableMovieManager
         public static void add(string lName, string fName, bool isAdmin, string userName, string password)
         {
             adapter = getNewAdapter();
-            adapter.Insert(fName, lName, isAdmin, userName, password, false);
+            adapter.Insert(userName, fName, lName, isAdmin, password, false);
             adapter.Dispose();
         }
 

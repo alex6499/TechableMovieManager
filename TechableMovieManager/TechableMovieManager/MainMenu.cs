@@ -696,7 +696,7 @@ namespace TechableMovieManager
             string email = newCustomer4Txt.Text;
             string address = newCustomer5Txt.Text;
 
-            //CustomersTable.add(lName, fName, email, address, phone);
+            CustomersTable.add(lName, fName, email, address, phone);
 
             clearRadioButtons(newCustomerPnl);
             clearTextBoxes(newCustomerPnl);

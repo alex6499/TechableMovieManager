@@ -89,17 +89,11 @@ namespace TechableMovieManager
                 bool isValidCredentials = i != null;
                 if (isValidCredentials)
                 {
-                    int employeeId = (int)i[0];
-                    string firstName = (string)i[1];
-                    string lastName = (string)i[2];
-                    bool isAdmin = (bool)i[3];
+                    string firstName = (string)i[0];
+                    string lastName = (string)i[1];
+                    bool isAdmin = (bool)i[2];
 
-                    User user = new User(isAdmin, userName, firstName, lastName, employeeId);
-
-                    startMainMenu(user);
-                }else if (userName.Equals("Admin"))
-                {
-                    User user = new User(true, userName, "fname", "lname", 666);
+                    User user = new User(isAdmin, userName, firstName, lastName);
 
                     startMainMenu(user);
                 }

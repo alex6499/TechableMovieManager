@@ -15,10 +15,10 @@ namespace TechableMovieManager
             return new TechableDSTableAdapters.RentalsTableAdapter();
         }
 
-        public static void add(int movieId, int customerId, int employeeId, string dueDate, decimal fine)
+        public static void add(int upc, int customerId, string userName, DateTime dueDate)
         {
             adapter = getNewAdapter();
-            adapter.Insert(movieId, customerId, employeeId, System.DateTime.Parse(dueDate), fine, false);
+            adapter.Insert(upc, customerId, userName, dueDate, false);
             adapter.Dispose();
         }
 

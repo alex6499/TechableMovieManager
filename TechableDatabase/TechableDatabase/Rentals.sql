@@ -8,11 +8,10 @@ CREATE TABLE [dbo].[Rentals]
     [customerId] INT NOT NULL,
 	FOREIGN KEY (customerId)
 		REFERENCES Customers (customerId),
-	[employeeId] INT NOT NULL,
-	FOREIGN KEY (employeeId)
-		REFERENCES Employees (employeeId),
+	[userName] NCHAR(40) NOT NULL,
+	FOREIGN KEY (userName)
+		REFERENCES Employees (userName),
 	[dueDate] DATE NOT NULL, 
-    [fine] MONEY NULL, 
     [returned] BIT NOT NULL
 )
 
@@ -42,4 +41,4 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
     @level1type = N'TABLE',
     @level1name = N'Rentals',
     @level2type = N'COLUMN',
-    @level2name = N'employeeId'
+    @level2name = N'userName'
