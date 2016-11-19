@@ -91,12 +91,6 @@
     <Compile Include="Prompt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentalsTable.cs" />
-    <Compile Include="TableExample.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TableExample.Designer.cs">
-      <DependentUpon>TableExample.cs</DependentUpon>
-    </Compile>
     <Compile Include="TechableDS.cs">
       <DependentUpon>TechableDS.xsd</DependentUpon>
     </Compile>
@@ -122,9 +116,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TableExample.resx">
-      <DependentUpon>TableExample.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
