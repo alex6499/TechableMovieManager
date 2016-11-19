@@ -15,6 +15,19 @@ namespace TechableMovieManager
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
 
+        public static void cannotDeleteSelf()
+        {
+            string prompt = "You cannot delete yourself.";
+            MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
+        }
+
+
+        public static void beingWorkedOn(string message)
+        {
+            string prompt = "This functionality is still being worked on.\n" + message;
+            MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
+        }
+
         public static void enterPhone()
         {
             string prompt = "Please enter phone number in the format format 012-345-6789.";

@@ -332,6 +332,7 @@ namespace TechableMovieManager
 
         public void setupAdminPnl()
         {
+            //fill the data tables with info
             admin1Data.DataSource = EmployeesTable.getAll();
             admin2Data.DataSource = CustomersTable.getAll();
             admin3Data.DataSource = MoviesTable.getAll();
@@ -461,6 +462,12 @@ namespace TechableMovieManager
 
         public void setupReportsPnl()
         {
+            reports1Data.DataSource = MoviesTable.getAll();
+            reports2Data.DataSource = CustomersTable.getAll();
+            reports3Data.DataSource = MoviesTable.getAll();
+            reports4Data.DataSource = RentalsTable.getNotReturned();
+            reports5Data.DataSource = RentalsTable.getNotReturned();
+
             setPositionPanelControl(reportsTitleLbl, reportsPnl, .4, .7, 0, .1);
 
             setPositionPanelControl(reportsTab, reportsPnl, .1, .9, .1, .9);
@@ -649,20 +656,21 @@ namespace TechableMovieManager
         private void removeMovie1Btn_Click(object sender, EventArgs e)
         {
             string movieId = removeMovie1Txt.Text;
-            if (Check.isInt32(movieId))
+            if (!Check.isInt32(movieId))
             {
                 Prompt.enterInt32("Movie Id");
                 return;
             }
 
-            MoviesTable.setDeleted(true, Int32.Parse(movieId));
-            clearTextBoxes(removeMoviePnl);
+            Prompt.beingWorkedOn("Need to ensure no Copy points to a Movie before deletion.");
+            //MoviesTable.setDeleted(true, Int32.Parse(movieId));
+            //clearTextBoxes(removeMoviePnl);
         }
 
         private void return1Btn_Click(object sender, EventArgs e)
         {
             string upc = return1Txt.Text;
-            if (Check.isInt32(upc))
+            if (!Check.isInt32(upc))
             {
                 Prompt.enterInt32("UPC");
                 return;
@@ -677,13 +685,14 @@ namespace TechableMovieManager
 
         private void removeUser1Btn_Click(object sender, EventArgs e)
         {
-            string employeeId = removeUser1Txt.Text;
-            if (!Check.isInt32(employeeId)) {
-                Prompt.enterInt32("Employee Id");
+            string userName = removeUser1Txt.Text;
+
+            if (currentUser.getUserName().Equals(userName))
+            {
+                Prompt.cannotDeleteSelf();
                 return;
             }
-
-            EmployeesTable.setDeleted(true, Int32.Parse(employeeId));
+            EmployeesTable.delete(userName);
 
             clearTextBoxes(removeUserPnl);
         }
@@ -724,7 +733,7 @@ namespace TechableMovieManager
         private void removeCustomer1Btn_Click(object sender, EventArgs e)
         {
             string customerId = removeCustomer1Txt.Text;
-            if (Check.isInt32(customerId))
+            if (!Check.isInt32(customerId))
             {
                 Prompt.enterInt32("Customer Id");
                 return;

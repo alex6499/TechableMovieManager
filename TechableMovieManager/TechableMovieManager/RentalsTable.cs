@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,16 @@ namespace TechableMovieManager
             adapter.Insert(upc, customerId, userName, dueDate, false);
             adapter.Dispose();
         }
+        public static DataTable getNotReturned()
+        {
+            DataTable table;
 
+            adapter = getNewAdapter();
+            table = adapter.GetCurrentlyRented();
+            adapter.Dispose();
+
+            return table;
+        }
         public static void returnMovie(int upc)
         {
             adapter = getNewAdapter();

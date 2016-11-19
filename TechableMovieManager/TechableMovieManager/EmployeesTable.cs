@@ -22,11 +22,15 @@ namespace TechableMovieManager
             adapter.Insert(userName, fName, lName, isAdmin, password, false);
             adapter.Dispose();
         }
+        public static void delete(string userName)
+        {
+            setDeleted(true, userName);
+        }
 
-        public static void setDeleted(bool deleted, int employeeId)
+        private static void setDeleted(bool deleted, string userName)
         {
             adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
-            adapter.UpdateDeleted(deleted, employeeId);
+            adapter.UpdateDeleted(deleted, userName);
             adapter.Dispose();
         }
 

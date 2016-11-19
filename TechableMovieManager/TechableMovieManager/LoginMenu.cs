@@ -83,28 +83,24 @@ namespace TechableMovieManager
             string userName = userNameTxt.Text;
             string password = passwordTxt.Text;
 
-            if (Check.isAllAlphaNumeric(userName, password))
+            
+            Object[] i = EmployeesTable.getEmployee(userName, password);
+            bool isValidCredentials = i != null;
+            if (isValidCredentials)
             {
-                Object[] i = EmployeesTable.getEmployee(userName, password);
-                bool isValidCredentials = i != null;
-                if (isValidCredentials)
-                {
-                    string firstName = (string)i[0];
-                    string lastName = (string)i[1];
-                    bool isAdmin = (bool)i[2];
+                string firstName = (string)i[0];
+                string lastName = (string)i[1];
+                bool isAdmin = (bool)i[2];
 
-                    User user = new User(isAdmin, userName, firstName, lastName);
+                User user = new User(isAdmin, userName, firstName, lastName);
 
-                    startMainMenu(user);
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect username and/or password.", "Failed Authentication", MessageBoxButtons.OK);
-                }
-            }else
-            {
-                MessageBox.Show("Enter alphanumeric characters only.", "Invalid Input", MessageBoxButtons.OK);
+                startMainMenu(user);
             }
+            else
+            {
+                MessageBox.Show("Incorrect username and/or password.", "Failed Authentication", MessageBoxButtons.OK);
+            }
+            
         }
         public void startMainMenu(User user)
         {

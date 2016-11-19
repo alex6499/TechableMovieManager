@@ -18,7 +18,7 @@ namespace TechableMovieManager
 
         public static DataTable getAll()
         {
-            TechableDS.MoviesDataTable table;
+            DataTable table;
 
             adapter = getNewAdapter();
             table = adapter.GetData();
