@@ -934,9 +934,9 @@
             this.rent3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rent3Lbl.Location = new System.Drawing.Point(13, 101);
             this.rent3Lbl.Name = "rent3Lbl";
-            this.rent3Lbl.Size = new System.Drawing.Size(101, 24);
+            this.rent3Lbl.Size = new System.Drawing.Size(99, 24);
             this.rent3Lbl.TabIndex = 27;
-            this.rent3Lbl.Text = "First Name";
+            this.rent3Lbl.Text = "Last Name";
             // 
             // rent2Txt
             // 
@@ -952,9 +952,9 @@
             this.rent2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rent2Lbl.Location = new System.Drawing.Point(13, 72);
             this.rent2Lbl.Name = "rent2Lbl";
-            this.rent2Lbl.Size = new System.Drawing.Size(99, 24);
+            this.rent2Lbl.Size = new System.Drawing.Size(101, 24);
             this.rent2Lbl.TabIndex = 23;
-            this.rent2Lbl.Text = "Last Name";
+            this.rent2Lbl.Text = "First Name";
             // 
             // rentTitle2Lbl
             // 

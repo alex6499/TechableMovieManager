@@ -793,10 +793,12 @@ namespace TechableMovieManager
             currentCustomer = new Customer(customerId, firstName, lastName);
 
             CopiesTable.makeUnavailable(currentDVD.getUpc());
-            RentalsTable.add(currentDVD.getUpc(), currentCustomer.getCustomerId(), currentUser.getUserName(), DateTime.Now);
+
+            RentalsTable.add(currentDVD.getUpc(), currentCustomer.getCustomerId(), currentUser.getUserName(), Date.dateAfter(7));
             CustomersTable.incrementTimesRented(currentCustomer.getCustomerId());
             MoviesTable.incrementTimesRented(currentDVD.getUpc());
             clearTextBoxes(rent2Pnl);
+            setCurrentMainPanel(rentPnl);
         }
 
         private void admin1Data_CellContentClick(object sender, DataGridViewCellEventArgs e)

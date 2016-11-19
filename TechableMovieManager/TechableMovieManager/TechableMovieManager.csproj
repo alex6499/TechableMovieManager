@@ -71,6 +71,7 @@
     <Compile Include="CopiesTable.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomersTable.cs" />
+    <Compile Include="Date.cs" />
     <Compile Include="DVD.cs" />
     <Compile Include="EmployeesTable.cs" />
     <Compile Include="GlobalControl.cs" />
