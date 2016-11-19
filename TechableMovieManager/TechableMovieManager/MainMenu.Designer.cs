@@ -126,14 +126,8 @@
             this.admin3Data = new System.Windows.Forms.DataGridView();
             this.adminTitleLbl = new System.Windows.Forms.Label();
             this.rent2Pnl = new System.Windows.Forms.Panel();
-            this.rent6Txt = new System.Windows.Forms.TextBox();
-            this.rent6Lbl = new System.Windows.Forms.Label();
-            this.rent5Txt = new System.Windows.Forms.TextBox();
-            this.rent5Lbl = new System.Windows.Forms.Label();
             this.rent4Txt = new System.Windows.Forms.TextBox();
             this.rent4Lbl = new System.Windows.Forms.Label();
-            this.rent7Lbl = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rent2Btn = new System.Windows.Forms.Button();
             this.rent3Txt = new System.Windows.Forms.TextBox();
             this.rent3Lbl = new System.Windows.Forms.Label();
@@ -178,8 +172,6 @@
             this.removeMovie1Lbl = new System.Windows.Forms.Label();
             this.removeMovieTitleLbl = new System.Windows.Forms.Label();
             this.addMoviePnl = new System.Windows.Forms.Panel();
-            this.addMovie4Lbl = new System.Windows.Forms.Label();
-            this.addMovie4Txt = new System.Windows.Forms.TextBox();
             this.addMovie3Lbl = new System.Windows.Forms.Label();
             this.addMovie1Btn = new System.Windows.Forms.Button();
             this.addMovie3Txt = new System.Windows.Forms.TextBox();
@@ -527,31 +519,37 @@
             // 
             this.dataGridViewTextBoxColumn13.HeaderText = "UPC";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.HeaderText = "Name";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.HeaderText = "Director";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.HeaderText = "Year";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.HeaderText = "Times Rented";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.HeaderText = "In Stock";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // tabPage4
             // 
@@ -582,21 +580,25 @@
             // 
             this.dataGridViewTextBoxColumn19.HeaderText = "Customer ID";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.HeaderText = "First Name";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.HeaderText = "Last Name";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.HeaderText = "Fees";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
             // 
             // tabPage5
             // 
@@ -628,31 +630,37 @@
             // 
             this.dataGridViewTextBoxColumn23.HeaderText = "UPC";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn24
             // 
             this.dataGridViewTextBoxColumn24.HeaderText = "Name";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn25
             // 
             this.dataGridViewTextBoxColumn25.HeaderText = "Director";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn26
             // 
             this.dataGridViewTextBoxColumn26.HeaderText = "Year";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn27
             // 
             this.dataGridViewTextBoxColumn27.HeaderText = "Times Rented";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn28
             // 
             this.dataGridViewTextBoxColumn28.HeaderText = "In Stock";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
             // 
             // tabPage6
             // 
@@ -686,41 +694,49 @@
             // 
             this.dataGridViewTextBoxColumn29.HeaderText = "UPC";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.HeaderText = "Movie Name";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn31
             // 
             this.dataGridViewTextBoxColumn31.HeaderText = "Customer ID";
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.ReadOnly = true;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "First Name";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Last Name";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn32
             // 
             this.dataGridViewTextBoxColumn32.HeaderText = "Due Date";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn33
             // 
             this.dataGridViewTextBoxColumn33.HeaderText = "Fine";
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn34
             // 
             this.dataGridViewTextBoxColumn34.HeaderText = "In Stock";
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
             // 
             // tabPage8
             // 
@@ -753,31 +769,37 @@
             // 
             this.dataGridViewTextBoxColumn35.HeaderText = "UPC";
             this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn36
             // 
             this.dataGridViewTextBoxColumn36.HeaderText = "Name";
             this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn37
             // 
             this.dataGridViewTextBoxColumn37.HeaderText = "Director";
             this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn38
             // 
             this.dataGridViewTextBoxColumn38.HeaderText = "Year";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn39
             // 
             this.dataGridViewTextBoxColumn39.HeaderText = "Times Rented";
             this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn40
             // 
             this.dataGridViewTextBoxColumn40.HeaderText = "In Stock";
             this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.ReadOnly = true;
             // 
             // reportsTitleLbl
             // 
@@ -1100,14 +1122,8 @@
             // rent2Pnl
             // 
             this.rent2Pnl.BackColor = System.Drawing.Color.Transparent;
-            this.rent2Pnl.Controls.Add(this.rent6Txt);
-            this.rent2Pnl.Controls.Add(this.rent6Lbl);
-            this.rent2Pnl.Controls.Add(this.rent5Txt);
-            this.rent2Pnl.Controls.Add(this.rent5Lbl);
             this.rent2Pnl.Controls.Add(this.rent4Txt);
             this.rent2Pnl.Controls.Add(this.rent4Lbl);
-            this.rent2Pnl.Controls.Add(this.rent7Lbl);
-            this.rent2Pnl.Controls.Add(this.comboBox1);
             this.rent2Pnl.Controls.Add(this.rent2Btn);
             this.rent2Pnl.Controls.Add(this.rent3Txt);
             this.rent2Pnl.Controls.Add(this.rent3Lbl);
@@ -1119,42 +1135,6 @@
             this.rent2Pnl.Size = new System.Drawing.Size(495, 352);
             this.rent2Pnl.TabIndex = 13;
             this.rent2Pnl.Visible = false;
-            // 
-            // rent6Txt
-            // 
-            this.rent6Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rent6Txt.Location = new System.Drawing.Point(236, 186);
-            this.rent6Txt.Name = "rent6Txt";
-            this.rent6Txt.Size = new System.Drawing.Size(100, 29);
-            this.rent6Txt.TabIndex = 40;
-            // 
-            // rent6Lbl
-            // 
-            this.rent6Lbl.AutoSize = true;
-            this.rent6Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rent6Lbl.Location = new System.Drawing.Point(37, 186);
-            this.rent6Lbl.Name = "rent6Lbl";
-            this.rent6Lbl.Size = new System.Drawing.Size(80, 24);
-            this.rent6Lbl.TabIndex = 39;
-            this.rent6Lbl.Text = "Address";
-            // 
-            // rent5Txt
-            // 
-            this.rent5Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rent5Txt.Location = new System.Drawing.Point(236, 159);
-            this.rent5Txt.Name = "rent5Txt";
-            this.rent5Txt.Size = new System.Drawing.Size(100, 29);
-            this.rent5Txt.TabIndex = 38;
-            // 
-            // rent5Lbl
-            // 
-            this.rent5Lbl.AutoSize = true;
-            this.rent5Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rent5Lbl.Location = new System.Drawing.Point(37, 159);
-            this.rent5Lbl.Name = "rent5Lbl";
-            this.rent5Lbl.Size = new System.Drawing.Size(57, 24);
-            this.rent5Lbl.TabIndex = 37;
-            this.rent5Lbl.Text = "Email";
             // 
             // rent4Txt
             // 
@@ -1173,26 +1153,6 @@
             this.rent4Lbl.Size = new System.Drawing.Size(81, 24);
             this.rent4Lbl.TabIndex = 35;
             this.rent4Lbl.Text = "Phone #";
-            // 
-            // rent7Lbl
-            // 
-            this.rent7Lbl.AutoSize = true;
-            this.rent7Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rent7Lbl.Location = new System.Drawing.Point(37, 211);
-            this.rent7Lbl.Name = "rent7Lbl";
-            this.rent7Lbl.Size = new System.Drawing.Size(152, 24);
-            this.rent7Lbl.TabIndex = 31;
-            this.rent7Lbl.Text = "Payment Method";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(286, 200);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 32);
-            this.comboBox1.TabIndex = 41;
-            this.comboBox1.Text = "Visa";
             // 
             // rent2Btn
             // 
@@ -1271,7 +1231,7 @@
             this.addUserPnl.Controls.Add(this.addUser1Lbl);
             this.addUserPnl.Controls.Add(this.addUser2Lbl);
             this.addUserPnl.Controls.Add(this.addUserTitleLbl);
-            this.addUserPnl.Location = new System.Drawing.Point(679, 39);
+            this.addUserPnl.Location = new System.Drawing.Point(978, 41);
             this.addUserPnl.Name = "addUserPnl";
             this.addUserPnl.Size = new System.Drawing.Size(446, 314);
             this.addUserPnl.TabIndex = 14;
@@ -1633,8 +1593,6 @@
             // addMoviePnl
             // 
             this.addMoviePnl.BackColor = System.Drawing.Color.Transparent;
-            this.addMoviePnl.Controls.Add(this.addMovie4Lbl);
-            this.addMoviePnl.Controls.Add(this.addMovie4Txt);
             this.addMoviePnl.Controls.Add(this.addMovie3Lbl);
             this.addMoviePnl.Controls.Add(this.addMovie1Btn);
             this.addMoviePnl.Controls.Add(this.addMovie3Txt);
@@ -1649,33 +1607,15 @@
             this.addMoviePnl.TabIndex = 19;
             this.addMoviePnl.Visible = false;
             // 
-            // addMovie4Lbl
-            // 
-            this.addMovie4Lbl.AutoSize = true;
-            this.addMovie4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie4Lbl.Location = new System.Drawing.Point(53, 146);
-            this.addMovie4Lbl.Name = "addMovie4Lbl";
-            this.addMovie4Lbl.Size = new System.Drawing.Size(48, 24);
-            this.addMovie4Lbl.TabIndex = 33;
-            this.addMovie4Lbl.Text = "Date";
-            // 
-            // addMovie4Txt
-            // 
-            this.addMovie4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovie4Txt.Location = new System.Drawing.Point(243, 146);
-            this.addMovie4Txt.Name = "addMovie4Txt";
-            this.addMovie4Txt.Size = new System.Drawing.Size(100, 29);
-            this.addMovie4Txt.TabIndex = 32;
-            // 
             // addMovie3Lbl
             // 
             this.addMovie3Lbl.AutoSize = true;
             this.addMovie3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMovie3Lbl.Location = new System.Drawing.Point(46, 112);
             this.addMovie3Lbl.Name = "addMovie3Lbl";
-            this.addMovie3Lbl.Size = new System.Drawing.Size(75, 24);
+            this.addMovie3Lbl.Size = new System.Drawing.Size(49, 24);
             this.addMovie3Lbl.TabIndex = 31;
-            this.addMovie3Lbl.Text = "Director";
+            this.addMovie3Lbl.Text = "Year";
             // 
             // addMovie1Btn
             // 
@@ -1718,9 +1658,9 @@
             this.addMovie2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMovie2Lbl.Location = new System.Drawing.Point(46, 83);
             this.addMovie2Lbl.Name = "addMovie2Lbl";
-            this.addMovie2Lbl.Size = new System.Drawing.Size(61, 24);
+            this.addMovie2Lbl.Size = new System.Drawing.Size(63, 24);
             this.addMovie2Lbl.TabIndex = 3;
-            this.addMovie2Lbl.Text = "Name";
+            this.addMovie2Lbl.Text = "Studio";
             // 
             // addMovie1Lbl
             // 
@@ -1728,9 +1668,10 @@
             this.addMovie1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMovie1Lbl.Location = new System.Drawing.Point(44, 56);
             this.addMovie1Lbl.Name = "addMovie1Lbl";
-            this.addMovie1Lbl.Size = new System.Drawing.Size(96, 24);
+            this.addMovie1Lbl.Size = new System.Drawing.Size(61, 24);
             this.addMovie1Lbl.TabIndex = 2;
-            this.addMovie1Lbl.Text = "Scan UPC";
+            this.addMovie1Lbl.Text = "Name";
+            this.addMovie1Lbl.Click += new System.EventHandler(this.addMovie1Lbl_Click);
             // 
             // addMovieTitleLbl
             // 
@@ -1751,11 +1692,7 @@
             this.ClientSize = new System.Drawing.Size(1242, 630);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.passwordPnl);
-            this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.rentPnl);
-            this.Controls.Add(this.adminPnl);
-            this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.rent2Pnl);
             this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.returnPnl);
@@ -1763,6 +1700,10 @@
             this.Controls.Add(this.removeCustomerPnl);
             this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.removeMoviePnl);
+            this.Controls.Add(this.addUserPnl);
+            this.Controls.Add(this.addMoviePnl);
+            this.Controls.Add(this.passwordPnl);
+            this.Controls.Add(this.adminPnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
@@ -1929,8 +1870,6 @@
         private System.Windows.Forms.Label addUser1Lbl;
         private System.Windows.Forms.Label addUserTitleLbl;
         private System.Windows.Forms.RadioButton addUserRdb;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label rent7Lbl;
         private System.Windows.Forms.TextBox addUser2Txt;
         private System.Windows.Forms.Label addUser2Lbl;
         private System.Windows.Forms.TextBox newCustomer5Txt;
@@ -1939,10 +1878,6 @@
         private System.Windows.Forms.TextBox addUser3Txt;
         private System.Windows.Forms.Label addUser3Lbl;
         private System.Windows.Forms.Label addUser4Lbl;
-        private System.Windows.Forms.TextBox rent6Txt;
-        private System.Windows.Forms.Label rent6Lbl;
-        private System.Windows.Forms.TextBox rent5Txt;
-        private System.Windows.Forms.Label rent5Lbl;
         private System.Windows.Forms.TextBox rent4Txt;
         private System.Windows.Forms.Label rent4Lbl;
         private System.Windows.Forms.Panel passwordPnl;
@@ -1971,8 +1906,6 @@
         private System.Windows.Forms.Label removeMovie1Lbl;
         private System.Windows.Forms.Label removeMovieTitleLbl;
         private System.Windows.Forms.Panel addMoviePnl;
-        private System.Windows.Forms.Label addMovie4Lbl;
-        private System.Windows.Forms.TextBox addMovie4Txt;
         private System.Windows.Forms.Label addMovie3Lbl;
         private System.Windows.Forms.Button addMovie1Btn;
         private System.Windows.Forms.TextBox addMovie3Txt;

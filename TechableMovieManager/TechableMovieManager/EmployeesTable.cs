@@ -9,16 +9,23 @@ namespace TechableMovieManager
 {
     class EmployeesTable
     {
+        private static TechableDSTableAdapters.EmployeesTableAdapter adapter;
+
+        private static TechableDSTableAdapters.EmployeesTableAdapter getNewAdapter()
+        {
+            return new TechableDSTableAdapters.EmployeesTableAdapter();
+        }
+
         public static void add(string lName, string fName, bool isAdmin, string userName, string password)
         {
-            TechableDSTableAdapters.EmployeesTableAdapter adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
+            adapter = getNewAdapter();
             adapter.Insert(fName, lName, isAdmin, userName, password, false);
             adapter.Dispose();
         }
 
         public static void setDeleted(bool deleted, int employeeId)
         {
-            TechableDSTableAdapters.EmployeesTableAdapter adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
+            adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
             adapter.UpdateDeleted(deleted, employeeId);
             adapter.Dispose();
         }
@@ -27,7 +34,7 @@ namespace TechableMovieManager
         {
             TechableDS.EmployeesDataTable table;
 
-            TechableDSTableAdapters.EmployeesTableAdapter adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
+            adapter = getNewAdapter();
             table = adapter.GetData();
             adapter.Dispose();
 
@@ -38,7 +45,7 @@ namespace TechableMovieManager
         {
             TechableDS.EmployeesDataTable table;
 
-            TechableDSTableAdapters.EmployeesTableAdapter adapter = new TechableDSTableAdapters.EmployeesTableAdapter();
+            adapter = getNewAdapter();
             table = adapter.GetDataBy(userName, password);
             adapter.Dispose();
             

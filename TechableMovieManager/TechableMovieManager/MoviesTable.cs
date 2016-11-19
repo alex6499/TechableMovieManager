@@ -9,34 +9,41 @@ namespace TechableMovieManager
 {
     public static class MoviesTable
     {
+        private static TechableDSTableAdapters.MoviesTableAdapter adapter;
+
+        private static TechableDSTableAdapters.MoviesTableAdapter getNewAdapter()
+        {
+            return new TechableDSTableAdapters.MoviesTableAdapter();
+        }
+
         public static DataTable getAll()
         {
             TechableDS.MoviesDataTable table;
 
-            TechableDSTableAdapters.MoviesTableAdapter adapter = new TechableDSTableAdapters.MoviesTableAdapter();
+            adapter = getNewAdapter();
             table = adapter.GetData();
             adapter.Dispose();
 
             return table;
         }
 
-        public static void add(int upc, string name, string date, string director)
+        public static void add(string name, int year, string studio)
         {
-            TechableDSTableAdapters.MoviesTableAdapter adapter = new TechableDSTableAdapters.MoviesTableAdapter();
-            adapter.InsertSansId(true, upc, name, date, director, false);
+            adapter = getNewAdapter();
+            adapter.Insert(name, year, studio, false, 0);
             adapter.Dispose();
         }
 
         public static void setDeleted(bool deleted, int movieId)
         {
-            TechableDSTableAdapters.MoviesTableAdapter adapter = new TechableDSTableAdapters.MoviesTableAdapter();
+            adapter = getNewAdapter();
             adapter.UpdateDeleted(deleted, movieId);
             adapter.Dispose();
         }
 
         public static void makeAvailable(int upc)
         {
-            TechableDSTableAdapters.MoviesTableAdapter adapter = new TechableDSTableAdapters.MoviesTableAdapter();
+            adapter = getNewAdapter();
             adapter.MakeAvailable(upc);
             adapter.Dispose();
         }

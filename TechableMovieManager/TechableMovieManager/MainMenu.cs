@@ -288,8 +288,8 @@ namespace TechableMovieManager
 
             setTitlePosition(addMovieTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl, addMovie4Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt, addMovie4Txt);
+            endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt);
 
             setLocationPanelControl(addMovie1Btn, panel, .4, endOfText + 0.1);
         }
@@ -648,7 +648,7 @@ namespace TechableMovieManager
             }
 
             RentalsTable.returnMovie(Int32.Parse(upc));
-            MoviesTable.makeAvailable(Int32.Parse(upc));
+            CopiesTable.makeAvailable(Int32.Parse(upc));
 
             clearTextBoxes(returnPnl);
 
@@ -706,20 +706,19 @@ namespace TechableMovieManager
 
             clearTextBoxes(removeCustomerPnl);
         }
+
         private void addMovie1Btn_Click(object sender, EventArgs e)
         {
-            string upc = addMovie1Txt.Text;
-            if (Check.isInt32(upc))
+            string name = addMovie1Txt.Text;
+            string studio = addMovie2Txt.Text;
+            string year = addMovie3Txt.Text;
+            if (!Check.isInt32(year))
             {
-                Prompt.enterInt32("UPC");
+                Prompt.enterInt32("year");
                 return;
             }
 
-            string name = addMovie2Txt.Text;
-            string director = addMovie3Txt.Text;
-            string date = addMovie4Txt.Text;
-
-            MoviesTable.add(Int32.Parse(upc), name, date, director);
+            MoviesTable.add(name, Int32.Parse(year), studio);
 
             clearRadioButtons(addMoviePnl);
             clearTextBoxes(addMoviePnl);
@@ -739,6 +738,11 @@ namespace TechableMovieManager
         }
 
         private void admin1Data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void addMovie1Lbl_Click(object sender, EventArgs e)
         {
 
         }
