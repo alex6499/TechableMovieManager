@@ -9,6 +9,15 @@ namespace TechableMovieManager
 {
     abstract class Check
     {
+        
+
+            
+        public static bool isPhone(string input)
+        {
+            Regex phoneRegex = new Regex(@"^\d{3}-\d{3}-\d{4}$");
+            return phoneRegex.IsMatch(input);
+        }
+
         public static bool isAllAlphaNumeric(params string[] inputs)
         {
             bool isAlphaNum = true;

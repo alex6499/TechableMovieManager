@@ -23,6 +23,7 @@ namespace TechableMovieManager
 
         //The current User
         User currentUser;
+        DVD currentDVD;
 
         //panel to setup method relation
         public delegate void setupDelegate();
@@ -155,7 +156,22 @@ namespace TechableMovieManager
 
         private void rent1Btn_Click(object sender, EventArgs e)
         {
-            setCurrentMainPanel(rent2Pnl);
+            string upc = checkout1Txt.Text;
+
+            if (!Check.isInt32(upc))
+            {
+                Prompt.enterInt32("UPC");
+                return;
+            }
+
+            string movie = MoviesTable.getMovie(Int32.Parse(upc));
+
+            if (movie != null)
+            {
+                currentDVD = new DVD(movie, Int32.Parse(upc));
+                clearTextBoxes(rentPnl);
+                setCurrentMainPanel(rent2Pnl);
+            }
         }
 
         private void returnBtn_Click(object sender, EventArgs e)
@@ -291,7 +307,7 @@ namespace TechableMovieManager
             endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl);
             endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt);
 
-            setLocationPanelControl(addMovie1Btn, panel, .4, endOfText + 0.1);
+            setLocationPanelControl(addMovie1Btn, panel, .4, endOfText);
         }
 
         public void setupAddUserPnl()
@@ -349,7 +365,7 @@ namespace TechableMovieManager
             endOfLabels = setLabelPostions(panel, 0.2, newCustomer1Lbl, newCustomer2Lbl, newCustomer3Lbl, newCustomer4Lbl, newCustomer5Lbl);
             endOfText = setTextBoxPostions(panel, 0.2, newCustomer1Txt, newCustomer2Txt, newCustomer3Txt, newCustomer4Txt, newCustomer5Txt);
 
-            setLocationPanelControl(newCustomer1Btn, panel, .4, endOfText + 0.1);
+            setLocationPanelControl(newCustomer1Btn, panel, .4, endOfText);
         }
 
         
@@ -365,7 +381,7 @@ namespace TechableMovieManager
             endOfLabels = setLabelPostions(panel, 0.2, password1Lbl, password2Lbl, password3Lbl);
             endOfText = setTextBoxPostions(panel, 0.2, password1Txt, password2Txt, password3Txt);
             
-            setLocationPanelControl(password1Btn, panel, .4, endOfText + 0.1);
+            setLocationPanelControl(password1Btn, panel, .4, endOfText);
         }
 
         public void setupRemoveCustomerPnl()
@@ -379,7 +395,7 @@ namespace TechableMovieManager
             endOfLabels = setLabelPostions(panel, 0.2, removeCustomer1Lbl);
             endOfText = setTextBoxPostions(panel, 0.2, removeCustomer1Txt);
 
-            setLocationPanelControl(removeCustomer1Btn, panel, .4, endOfText + 0.1);
+            setLocationPanelControl(removeCustomer1Btn, panel, .4, endOfText);
         }
 
         public void setupRemoveMoviePnl()
@@ -393,7 +409,7 @@ namespace TechableMovieManager
             endOfLabels = setLabelPostions(panel, 0.2, removeMovie1Lbl);
             endOfText = setTextBoxPostions(panel, 0.2, removeMovie1Txt);
 
-            setLocationPanelControl(removeMovie1Btn, panel, .4, endOfText + 0.1);
+            setLocationPanelControl(removeMovie1Btn, panel, .4, endOfText);
         }
 
         public void setupRemoveUserPnl()
@@ -427,12 +443,14 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
+            rentTitle2Lbl.Text = "Enter Customer Info:\nRenting " + currentDVD.getMovieName();
+
             setPositionPanelControl(rentTitle2Lbl, panel, .4, .7, 0, .1);
 
             endOfLabels = setLabelPostions(panel, 0.2, rent2Lbl, rent3Lbl, rent4Lbl);
             endOfText = setTextBoxPostions(panel, 0.2, rent2Txt, rent3Txt, rent4Txt);
 
-            setLocationPanelControl(rent2Btn, rent2Pnl, 0.4, endOfLabels + 0.2);
+            setLocationPanelControl(rent2Btn, rent2Pnl, 0.4, endOfLabels);
         }
 
         public void setupReportsPnl()
@@ -668,10 +686,17 @@ namespace TechableMovieManager
             string fName = newCustomer1Txt.Text;
             string lName = newCustomer2Txt.Text;
             string phone = newCustomer3Txt.Text;
+
+            if (!Check.isPhone(phone))
+            {
+                Prompt.enterPhone();
+                return;
+            }
+
             string email = newCustomer4Txt.Text;
             string address = newCustomer5Txt.Text;
 
-            CustomersTable.add(lName, fName, email, address, phone);
+            //CustomersTable.add(lName, fName, email, address, phone);
 
             clearRadioButtons(newCustomerPnl);
             clearTextBoxes(newCustomerPnl);
@@ -731,6 +756,10 @@ namespace TechableMovieManager
 
         private void rent2Btn_Click(object sender, EventArgs e)
         {
+            string firstName = rent2Txt.Text;
+            string lastName = rent3Txt.Text;
+            string phone = rent4Txt.Text;
+            int customerId;
 
         }
 

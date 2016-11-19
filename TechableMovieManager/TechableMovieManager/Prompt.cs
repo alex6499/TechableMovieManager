@@ -14,5 +14,11 @@ namespace TechableMovieManager
             string prompt = "Enter an 32bit integer into " + field + ".";
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
+
+        public static void enterPhone()
+        {
+            string prompt = "Please enter phone number in the format format 012-345-6789.";
+            MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
+        }
     }
 }

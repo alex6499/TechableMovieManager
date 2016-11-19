@@ -17,6 +17,23 @@ namespace TechableMovieManager
             return new TechableDSTableAdapters.CopiesTableAdapter();
         }
 
+        public static string getMovie(int upc)
+        {
+            string movieName = null;
+
+            adapter = getNewAdapter();
+            
+            DataTable table = adapter.GetMovie(upc);
+            
+            if (table.Select().Length > 0 && table.Select()[0].ItemArray.Length > 0)
+            {
+                movieName = (string)adapter.GetMovie(upc).Select()[0].ItemArray[0];
+            }
+
+            adapter.Dispose();
+
+            return movieName;
+        }
         public static DataTable getAll()
         {
             TechableDS.CopiesDataTable table;

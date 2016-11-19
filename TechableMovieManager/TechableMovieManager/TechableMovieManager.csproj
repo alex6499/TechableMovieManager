@@ -69,7 +69,9 @@
   <ItemGroup>
     <Compile Include="Check.cs" />
     <Compile Include="CopiesTable.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="CustomersTable.cs" />
+    <Compile Include="DVD.cs" />
     <Compile Include="EmployeesTable.cs" />
     <Compile Include="GlobalControl.cs" />
     <Compile Include="LoginMenu.cs">
@@ -98,7 +100,7 @@
     <Compile Include="TechableDS.cs">
       <DependentUpon>TechableDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="TechableDS1.Designer.cs">
+    <Compile Include="TechableDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TechableDS.xsd</DependentUpon>
@@ -138,7 +140,7 @@
     <None Include="TechableDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TechableDS1.Designer.cs</LastGenOutput>
+      <LastGenOutput>TechableDS.Designer.cs</LastGenOutput>
     </None>
     <None Include="TechableDS.xss">
       <DependentUpon>TechableDS.xsd</DependentUpon>

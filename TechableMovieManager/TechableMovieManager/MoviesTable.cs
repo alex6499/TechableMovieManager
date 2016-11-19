@@ -47,5 +47,23 @@ namespace TechableMovieManager
             adapter.MakeAvailable(upc);
             adapter.Dispose();
         }
+
+        public static string getMovie(int upc)
+        {
+            string movieName = null;
+
+            adapter = getNewAdapter();
+
+            DataTable table = adapter.GetMovieByUPC(upc);
+
+            if (table.Select().Length > 0 && table.Select()[0].ItemArray.Length > 1)
+            {
+                movieName = (string) table.Select()[0].ItemArray[1];
+            }
+
+            adapter.Dispose();
+
+            return movieName;
+        }
     }
 }
