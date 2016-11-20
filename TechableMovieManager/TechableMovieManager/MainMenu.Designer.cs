@@ -713,7 +713,7 @@
             this.adminPnl.BackColor = System.Drawing.Color.Transparent;
             this.adminPnl.Controls.Add(this.adminTab);
             this.adminPnl.Controls.Add(this.adminTitleLbl);
-            this.adminPnl.Location = new System.Drawing.Point(299, 39);
+            this.adminPnl.Location = new System.Drawing.Point(199, 27);
             this.adminPnl.Name = "adminPnl";
             this.adminPnl.Size = new System.Drawing.Size(600, 553);
             this.adminPnl.TabIndex = 12;
@@ -1482,6 +1482,7 @@
             this.addCopy1Btn.TabIndex = 42;
             this.addCopy1Btn.Text = "Submit";
             this.addCopy1Btn.UseVisualStyleBackColor = true;
+            this.addCopy1Btn.Click += new System.EventHandler(this.addCopy1Btn_Click);
             // 
             // addCopy2Txt
             // 
@@ -1536,7 +1537,6 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
-            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.mainButtonPnl);
@@ -1551,6 +1551,7 @@
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.passwordPnl);
+            this.Controls.Add(this.adminPnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "Main Menu";

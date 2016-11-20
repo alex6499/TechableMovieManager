@@ -170,7 +170,7 @@ namespace TechableMovieManager
                 return;
             }
             if(!CopiesTable.hasCopy(Int32.Parse(upc))){
-                Prompt.noCopy();
+                Prompt.notInDB("dvd", "UPC");
                 return;
             }
             if (!CopiesTable.isAvailable(Int32.Parse(upc))){
@@ -864,6 +864,39 @@ namespace TechableMovieManager
         private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void addCopy1Btn_Click(object sender, EventArgs e)
+        {
+            string movieId = addCopy1Txt.Text;
+            string upc = addCopy2Txt.Text;
+
+            if (!Check.isInt32(movieId))
+            {
+                Prompt.enterInt32("movie ID");
+                return;
+            }
+            if (!Check.isInt32(upc))
+            {
+                Prompt.enterInt32("UPC");
+                return;
+            }
+            if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
+            {
+                Prompt.notInDB("movie", "movie ID");
+                return;
+            }
+
+            //UPC ust be unique
+            if (CopiesTable.hasCopy(Int32.Parse(upc)))
+            {
+                Prompt.notUnique("UPC");
+                return;
+            }
+
+            CopiesTable.add(Int32.Parse(upc), Int32.Parse(movieId));
+
+            addCopy2Txt.Clear();
         }
     }
 }

@@ -48,22 +48,30 @@ namespace TechableMovieManager
             adapter.Dispose();
         }
 
-        public static string hasMovie(int upc)
+        public static bool hasMovieByUpc(int upc)
         {
-            string movieName = null;
+            bool hasMovie;
 
             adapter = getNewAdapter();
             DataTable table = adapter.GetMovieByUPC(upc);
             adapter.Dispose();
 
-            if (table.Select().Length > 0 && table.Select()[0].ItemArray.Length > 1)
-            {
-                movieName = (string)table.Select()[0].ItemArray[1];
-            }
+            hasMovie = (table.Select().Length > 0);
 
-            return movieName;
+            return hasMovie;
         }
+        public static bool hasMovieById(int movieId)
+        {
+            bool hasMovie;
 
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetById(movieId);
+            adapter.Dispose();
+
+            hasMovie = (table.Select().Length > 0);
+
+            return hasMovie;
+        }
         public static void incrementTimesRented(int upc)
         {
             adapter = getNewAdapter();

@@ -33,9 +33,14 @@ namespace TechableMovieManager
             string prompt = "Please enter phone number in the format format 012-345-6789.";
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
-        public static void noCopy()
+        public static void notUnique(String subject)
         {
-            string prompt = "No dvd has that UPC.";
+            string prompt = "This " + subject + "already exists in the database.";
+            MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
+        }
+        public static void notInDB(string subject, string searchedBy)
+        {
+            string prompt = "There is no " + subject + " with that " + searchedBy;
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
         public static void copyUnavailable()

@@ -4262,10 +4262,9 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT deleted, movieId, name, studio, timesRented, year FROM Movies WHERE (upc =" +
-                " @upc)";
+            this._commandCollection[1].CommandText = "SELECT *\r\nFROM dbo.Movies\r\nWHERE deleted = 0 AND movieId = @movieId";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT Movies.deleted, Movies.movieId, Movies.name, Movies.studio, Movies.timesRe" +
@@ -4337,9 +4336,9 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(TechableDS.MoviesDataTable dataTable, int upc) {
+        public virtual int FillBy(TechableDS.MoviesDataTable dataTable, int movieId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(upc));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(movieId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -4351,9 +4350,9 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual TechableDS.MoviesDataTable GetDataByUpc(int upc) {
+        public virtual TechableDS.MoviesDataTable GetById(int movieId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(upc));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(movieId));
             TechableDS.MoviesDataTable dataTable = new TechableDS.MoviesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
