@@ -495,7 +495,7 @@ namespace TechableMovieManager
 
         public void sortBy(DataGridView data, int colNum, bool isAscending)
         {
-            if (0 < colNum && colNum < data.ColumnCount)
+            if (0 <= colNum && colNum < data.ColumnCount)
             {
                 ListSortDirection direction;
                 if (isAscending) {
@@ -503,7 +503,7 @@ namespace TechableMovieManager
                 } else {
                     direction = ListSortDirection.Descending;
                 }
-                data.Sort(data.Columns[5], direction);
+                data.Sort(data.Columns[colNum], direction);
             }
         }
         public void setupReportsPnl()
@@ -513,7 +513,7 @@ namespace TechableMovieManager
                 reports1Data.DataSource = MoviesTable.getAll();
                 sortBy(reports1Data, 5, false);
                 reports2Data.DataSource = CustomersTable.getAll();
-                sortBy(reports2Data, 7, true);
+                sortBy(reports2Data, 7, false);
                 reports3Data.DataSource = MoviesTable.getAll();
                 reports4Data.DataSource = RentalsTable.getNotReturned();
                 sortBy(reports4Data, 4, true);
