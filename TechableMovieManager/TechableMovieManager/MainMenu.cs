@@ -356,6 +356,8 @@ namespace TechableMovieManager
                 admin1Data.DataSource = EmployeesTable.getAll();
                 admin2Data.DataSource = CustomersTable.getAll();
                 admin3Data.DataSource = MoviesTable.getAll();
+                admin4Data.DataSource = CopiesTable.getAll();
+                sortBy(admin4Data, 0, true);
             }
 
             Reposition.setControl(adminTitleLbl, .4, .7, 0, .1);
@@ -365,6 +367,7 @@ namespace TechableMovieManager
             Reposition.setNestedControlPosition(admin1Data, .05, .95, 0, .8);
             Reposition.setNestedControlPosition(admin2Data, .05, .95, 0, .8);
             Reposition.setNestedControlPosition(admin3Data, .05, .95, 0, .8);
+            Reposition.setNestedControlPosition(admin4Data, .05, .95, 0, .8);
 
             //user Buttons
             Reposition.setNestedControlLocation(admin1Btn, .1, .85);
@@ -376,9 +379,12 @@ namespace TechableMovieManager
             Reposition.setNestedControlLocation(admin4Btn, .6, .85);
 
             //movie buttons
-            Reposition.setNestedControlLocation(admin5Btn, .1, .85);
-            Reposition.setNestedControlLocation(admin6Btn, .4, .85);
-            Reposition.setNestedControlLocation(admin7Btn, .7, .85);
+            Reposition.setNestedControlLocation(admin5Btn, .3, .85);
+            Reposition.setNestedControlLocation(admin6Btn, .6, .85);
+
+            //upc buttons
+            Reposition.setNestedControlLocation(admin7Btn, .3, .85);
+            Reposition.setNestedControlLocation(admin8Btn, .6, .85);
         }
         /// <summary>
         /// Sets the position of all components within the new customer panel based on percent relative locations
@@ -717,6 +723,11 @@ namespace TechableMovieManager
 
             clearRadioButtons(newCustomerPnl);
             clearTextBoxes(newCustomerPnl);
+
+            if (currentUser.isAdmin())
+            {
+                setCurrentMainPanel(adminPnl);
+            }
         }
 
         private void addUserBtn_Click(object sender, EventArgs e)
@@ -771,6 +782,8 @@ namespace TechableMovieManager
             CustomersTable.setDeleted(true, Int32.Parse(customerId));
 
             clearTextBoxes(removeCustomerPnl);
+            //exit to admin panel
+            setCurrentMainPanel(adminPnl);
         }
 
         private void addMovie1Btn_Click(object sender, EventArgs e)
@@ -864,6 +877,47 @@ namespace TechableMovieManager
         {
             setCurrentMainPanel(newCustomerPnl);
         }
-        
+
+        private void adminPnl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void admin8Btn_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(removeCopyPnl);
+        }
+
+        private void removeCopy1Btn_Click(object sender, EventArgs e)
+        {
+            string upc = removeCustomer1Txt.Text.Trim(' ');
+
+            if (!Check.areValidInputs(upc))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
+            if (!Check.isUPC(upc))
+            {
+                Prompt.enterUPC();
+                return;
+            }
+            if (!CopiesTable.hasCopy(upc))
+            {
+                Prompt.notInDB("dvd", "upc");
+                return;
+            }
+            if (RentalsTable.upcIsRenting(upc))
+            {
+                Prompt.removalDependency("upc", "rental");
+                return;
+            }
+
+            //CustomersTable.setDeleted(true, Int32.Parse(upc));
+
+            //clearTextBoxes(removeCustomerPnl);
+            //exit to admin panel
+            //setCurrentMainPanel(adminPnl);
+        }
     }
 }

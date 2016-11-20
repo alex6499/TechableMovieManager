@@ -65,6 +65,8 @@
             this.reports4Data = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.reports5Data = new System.Windows.Forms.DataGridView();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.reports6Data = new System.Windows.Forms.DataGridView();
             this.reportsTitleLbl = new System.Windows.Forms.Label();
             this.newCustomerPnl = new System.Windows.Forms.Panel();
             this.newCustomer5Txt = new System.Windows.Forms.TextBox();
@@ -91,10 +93,13 @@
             this.admin3Btn = new System.Windows.Forms.Button();
             this.admin2Data = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.admin6Btn = new System.Windows.Forms.Button();
+            this.admin8Btn = new System.Windows.Forms.Button();
             this.admin7Btn = new System.Windows.Forms.Button();
+            this.admin6Btn = new System.Windows.Forms.Button();
             this.admin5Btn = new System.Windows.Forms.Button();
             this.admin3Data = new System.Windows.Forms.DataGridView();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.admin4Data = new System.Windows.Forms.DataGridView();
             this.adminTitleLbl = new System.Windows.Forms.Label();
             this.rent2Pnl = new System.Windows.Forms.Panel();
             this.rent4Txt = new System.Windows.Forms.TextBox();
@@ -158,8 +163,11 @@
             this.addCopy1Txt = new System.Windows.Forms.TextBox();
             this.addCopy1Lbl = new System.Windows.Forms.Label();
             this.addCopyTitleLbl = new System.Windows.Forms.Label();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.reports6Data = new System.Windows.Forms.DataGridView();
+            this.removeCopyPnl = new System.Windows.Forms.Panel();
+            this.removeCopy1Btn = new System.Windows.Forms.Button();
+            this.removeCopy1Txt = new System.Windows.Forms.TextBox();
+            this.removeCopy1Lbl = new System.Windows.Forms.Label();
+            this.removeCopyTitleLbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -176,6 +184,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.reports4Data)).BeginInit();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reports5Data)).BeginInit();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reports6Data)).BeginInit();
             this.newCustomerPnl.SuspendLayout();
             this.adminPnl.SuspendLayout();
             this.adminTab.SuspendLayout();
@@ -185,6 +195,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.admin2Data)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admin3Data)).BeginInit();
+            this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.admin4Data)).BeginInit();
             this.rent2Pnl.SuspendLayout();
             this.addUserPnl.SuspendLayout();
             this.passwordPnl.SuspendLayout();
@@ -193,8 +205,7 @@
             this.removeMoviePnl.SuspendLayout();
             this.addMoviePnl.SuspendLayout();
             this.addCopyPnl.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reports6Data)).BeginInit();
+            this.removeCopyPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // rentBtn
@@ -295,14 +306,14 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitProgramToolStripMenuItem
             // 
             this.exitProgramToolStripMenuItem.Name = "exitProgramToolStripMenuItem";
-            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.exitProgramToolStripMenuItem.Text = "Exit Program";
             this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.exitProgramToolStripMenuItem_Click);
             // 
@@ -572,6 +583,25 @@
             this.reports5Data.Size = new System.Drawing.Size(548, 350);
             this.reports5Data.TabIndex = 4;
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.reports6Data);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(638, 401);
+            this.tabPage9.TabIndex = 5;
+            this.tabPage9.Text = "UPCs";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // reports6Data
+            // 
+            this.reports6Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reports6Data.Location = new System.Drawing.Point(-1, 0);
+            this.reports6Data.Name = "reports6Data";
+            this.reports6Data.ReadOnly = true;
+            this.reports6Data.Size = new System.Drawing.Size(548, 350);
+            this.reports6Data.TabIndex = 4;
+            // 
             // reportsTitleLbl
             // 
             this.reportsTitleLbl.AutoSize = true;
@@ -724,12 +754,14 @@
             this.adminPnl.Size = new System.Drawing.Size(600, 553);
             this.adminPnl.TabIndex = 12;
             this.adminPnl.Visible = false;
+            this.adminPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.adminPnl_Paint);
             // 
             // adminTab
             // 
             this.adminTab.Controls.Add(this.tabPage1);
             this.adminTab.Controls.Add(this.tabPage2);
             this.adminTab.Controls.Add(this.tabPage7);
+            this.adminTab.Controls.Add(this.tabPage10);
             this.adminTab.Location = new System.Drawing.Point(19, 59);
             this.adminTab.Name = "adminTab";
             this.adminTab.SelectedIndex = 0;
@@ -839,7 +871,6 @@
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.admin6Btn);
-            this.tabPage7.Controls.Add(this.admin7Btn);
             this.tabPage7.Controls.Add(this.admin5Btn);
             this.tabPage7.Controls.Add(this.admin3Data);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
@@ -849,27 +880,38 @@
             this.tabPage7.Text = "Movies";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // admin6Btn
+            // admin8Btn
             // 
-            this.admin6Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin6Btn.Location = new System.Drawing.Point(148, 227);
-            this.admin6Btn.Name = "admin6Btn";
-            this.admin6Btn.Size = new System.Drawing.Size(157, 34);
-            this.admin6Btn.TabIndex = 35;
-            this.admin6Btn.Text = "Add UPC";
-            this.admin6Btn.UseVisualStyleBackColor = true;
-            this.admin6Btn.Click += new System.EventHandler(this.copyBtn_Click);
+            this.admin8Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin8Btn.Location = new System.Drawing.Point(237, 213);
+            this.admin8Btn.Name = "admin8Btn";
+            this.admin8Btn.Size = new System.Drawing.Size(136, 30);
+            this.admin8Btn.TabIndex = 36;
+            this.admin8Btn.Text = "Remove";
+            this.admin8Btn.UseVisualStyleBackColor = true;
+            this.admin8Btn.Click += new System.EventHandler(this.admin8Btn_Click);
             // 
             // admin7Btn
             // 
             this.admin7Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin7Btn.Location = new System.Drawing.Point(311, 226);
+            this.admin7Btn.Location = new System.Drawing.Point(65, 213);
             this.admin7Btn.Name = "admin7Btn";
-            this.admin7Btn.Size = new System.Drawing.Size(98, 32);
-            this.admin7Btn.TabIndex = 34;
-            this.admin7Btn.Text = "Remove";
+            this.admin7Btn.Size = new System.Drawing.Size(107, 31);
+            this.admin7Btn.TabIndex = 35;
+            this.admin7Btn.Text = "Add";
             this.admin7Btn.UseVisualStyleBackColor = true;
-            this.admin7Btn.Click += new System.EventHandler(this.admin6Btn_Click);
+            this.admin7Btn.Click += new System.EventHandler(this.copyBtn_Click);
+            // 
+            // admin6Btn
+            // 
+            this.admin6Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin6Btn.Location = new System.Drawing.Point(311, 226);
+            this.admin6Btn.Name = "admin6Btn";
+            this.admin6Btn.Size = new System.Drawing.Size(98, 32);
+            this.admin6Btn.TabIndex = 34;
+            this.admin6Btn.Text = "Remove";
+            this.admin6Btn.UseVisualStyleBackColor = true;
+            this.admin6Btn.Click += new System.EventHandler(this.admin6Btn_Click);
             // 
             // admin5Btn
             // 
@@ -890,6 +932,27 @@
             this.admin3Data.ReadOnly = true;
             this.admin3Data.Size = new System.Drawing.Size(433, 141);
             this.admin3Data.TabIndex = 2;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.admin8Btn);
+            this.tabPage10.Controls.Add(this.admin4Data);
+            this.tabPage10.Controls.Add(this.admin7Btn);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(472, 328);
+            this.tabPage10.TabIndex = 3;
+            this.tabPage10.Text = "UPCs";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // admin4Data
+            // 
+            this.admin4Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.admin4Data.Location = new System.Drawing.Point(17, 15);
+            this.admin4Data.Name = "admin4Data";
+            this.admin4Data.ReadOnly = true;
+            this.admin4Data.Size = new System.Drawing.Size(433, 141);
+            this.admin4Data.TabIndex = 3;
             // 
             // adminTitleLbl
             // 
@@ -1536,24 +1599,58 @@
             this.addCopyTitleLbl.TabIndex = 10;
             this.addCopyTitleLbl.Text = "Add a DVD";
             // 
-            // tabPage9
+            // removeCopyPnl
             // 
-            this.tabPage9.Controls.Add(this.reports6Data);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(638, 401);
-            this.tabPage9.TabIndex = 5;
-            this.tabPage9.Text = "UPCs";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            this.removeCopyPnl.BackColor = System.Drawing.Color.Transparent;
+            this.removeCopyPnl.Controls.Add(this.removeCopy1Btn);
+            this.removeCopyPnl.Controls.Add(this.removeCopy1Txt);
+            this.removeCopyPnl.Controls.Add(this.removeCopy1Lbl);
+            this.removeCopyPnl.Controls.Add(this.removeCopyTitleLbl);
+            this.removeCopyPnl.Location = new System.Drawing.Point(279, 58);
+            this.removeCopyPnl.Name = "removeCopyPnl";
+            this.removeCopyPnl.Size = new System.Drawing.Size(500, 328);
+            this.removeCopyPnl.TabIndex = 21;
+            this.removeCopyPnl.Visible = false;
             // 
-            // reports6Data
+            // removeCopy1Btn
             // 
-            this.reports6Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.reports6Data.Location = new System.Drawing.Point(-1, 0);
-            this.reports6Data.Name = "reports6Data";
-            this.reports6Data.ReadOnly = true;
-            this.reports6Data.Size = new System.Drawing.Size(548, 350);
-            this.reports6Data.TabIndex = 4;
+            this.removeCopy1Btn.BackColor = System.Drawing.Color.Goldenrod;
+            this.removeCopy1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCopy1Btn.Location = new System.Drawing.Point(181, 189);
+            this.removeCopy1Btn.Name = "removeCopy1Btn";
+            this.removeCopy1Btn.Size = new System.Drawing.Size(98, 32);
+            this.removeCopy1Btn.TabIndex = 19;
+            this.removeCopy1Btn.Text = "Submit";
+            this.removeCopy1Btn.UseVisualStyleBackColor = false;
+            this.removeCopy1Btn.Click += new System.EventHandler(this.removeCopy1Btn_Click);
+            // 
+            // removeCopy1Txt
+            // 
+            this.removeCopy1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCopy1Txt.Location = new System.Drawing.Point(260, 116);
+            this.removeCopy1Txt.Name = "removeCopy1Txt";
+            this.removeCopy1Txt.Size = new System.Drawing.Size(180, 29);
+            this.removeCopy1Txt.TabIndex = 18;
+            // 
+            // removeCopy1Lbl
+            // 
+            this.removeCopy1Lbl.AutoSize = true;
+            this.removeCopy1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCopy1Lbl.Location = new System.Drawing.Point(3, 121);
+            this.removeCopy1Lbl.Name = "removeCopy1Lbl";
+            this.removeCopy1Lbl.Size = new System.Drawing.Size(98, 24);
+            this.removeCopy1Lbl.TabIndex = 16;
+            this.removeCopy1Lbl.Text = "Enter UPC";
+            // 
+            // removeCopyTitleLbl
+            // 
+            this.removeCopyTitleLbl.AutoSize = true;
+            this.removeCopyTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCopyTitleLbl.Location = new System.Drawing.Point(200, 25);
+            this.removeCopyTitleLbl.Name = "removeCopyTitleLbl";
+            this.removeCopyTitleLbl.Size = new System.Drawing.Size(209, 37);
+            this.removeCopyTitleLbl.TabIndex = 10;
+            this.removeCopyTitleLbl.Text = "Remove UPC";
             // 
             // MainMenu
             // 
@@ -1562,6 +1659,8 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.removeCopyPnl);
+            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.rentPnl);
@@ -1575,7 +1674,6 @@
             this.Controls.Add(this.removeMoviePnl);
             this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.passwordPnl);
-            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.rent2Pnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
@@ -1604,6 +1702,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.reports4Data)).EndInit();
             this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reports5Data)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reports6Data)).EndInit();
             this.newCustomerPnl.ResumeLayout(false);
             this.newCustomerPnl.PerformLayout();
             this.adminPnl.ResumeLayout(false);
@@ -1615,6 +1715,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.admin2Data)).EndInit();
             this.tabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.admin3Data)).EndInit();
+            this.tabPage10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.admin4Data)).EndInit();
             this.rent2Pnl.ResumeLayout(false);
             this.rent2Pnl.PerformLayout();
             this.addUserPnl.ResumeLayout(false);
@@ -1631,8 +1733,8 @@
             this.addMoviePnl.PerformLayout();
             this.addCopyPnl.ResumeLayout(false);
             this.addCopyPnl.PerformLayout();
-            this.tabPage9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.reports6Data)).EndInit();
+            this.removeCopyPnl.ResumeLayout(false);
+            this.removeCopyPnl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1707,7 +1809,7 @@
         private System.Windows.Forms.Button admin2Btn;
         private System.Windows.Forms.Button admin4Btn;
         private System.Windows.Forms.Button admin3Btn;
-        private System.Windows.Forms.Button admin7Btn;
+        private System.Windows.Forms.Button admin6Btn;
         private System.Windows.Forms.Button admin5Btn;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.DataGridView reports5Data;
@@ -1768,9 +1870,17 @@
         private System.Windows.Forms.TextBox addCopy1Txt;
         private System.Windows.Forms.Label addCopy1Lbl;
         private System.Windows.Forms.Label addCopyTitleLbl;
-        private System.Windows.Forms.Button admin6Btn;
+        private System.Windows.Forms.Button admin7Btn;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.DataGridView reports6Data;
+        private System.Windows.Forms.Panel removeCopyPnl;
+        private System.Windows.Forms.Button removeCopy1Btn;
+        private System.Windows.Forms.TextBox removeCopy1Txt;
+        private System.Windows.Forms.Label removeCopy1Lbl;
+        private System.Windows.Forms.Label removeCopyTitleLbl;
+        private System.Windows.Forms.Button admin8Btn;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.DataGridView admin4Data;
     }
 }
 
