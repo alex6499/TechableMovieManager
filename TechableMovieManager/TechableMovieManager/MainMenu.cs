@@ -517,7 +517,7 @@ namespace TechableMovieManager
                 reports3Data.DataSource = MoviesTable.getAll();
                 reports4Data.DataSource = RentalsTable.getNotReturned();
                 sortBy(reports4Data, 4, true);
-                reports5Data.DataSource = RentalsTable.getNotReturned();
+                reports5Data.DataSource = RentalsTable.getLateMovies();
                 sortBy(reports5Data, 4, true);
                 reports6Data.DataSource = CopiesTable.getAll();
                 sortBy(reports6Data, 0, true);

@@ -32,6 +32,16 @@ namespace TechableMovieManager
 
             return table;
         }
+        public static DataTable getLateMovies()
+        {
+            DataTable table;
+
+            adapter = getNewAdapter();
+            table = adapter.GetLateMovies();
+            adapter.Dispose();
+
+            return table;
+        }
         public static bool upcIsRenting(string upc)
         {
             bool isRenting;
