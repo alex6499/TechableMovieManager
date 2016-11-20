@@ -93,13 +93,13 @@
             this.admin3Btn = new System.Windows.Forms.Button();
             this.admin2Data = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.admin8Btn = new System.Windows.Forms.Button();
-            this.admin7Btn = new System.Windows.Forms.Button();
             this.admin6Btn = new System.Windows.Forms.Button();
             this.admin5Btn = new System.Windows.Forms.Button();
             this.admin3Data = new System.Windows.Forms.DataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.admin8Btn = new System.Windows.Forms.Button();
             this.admin4Data = new System.Windows.Forms.DataGridView();
+            this.admin7Btn = new System.Windows.Forms.Button();
             this.adminTitleLbl = new System.Windows.Forms.Label();
             this.rent2Pnl = new System.Windows.Forms.Panel();
             this.rent4Txt = new System.Windows.Forms.TextBox();
@@ -880,28 +880,6 @@
             this.tabPage7.Text = "Movies";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // admin8Btn
-            // 
-            this.admin8Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin8Btn.Location = new System.Drawing.Point(237, 213);
-            this.admin8Btn.Name = "admin8Btn";
-            this.admin8Btn.Size = new System.Drawing.Size(136, 30);
-            this.admin8Btn.TabIndex = 36;
-            this.admin8Btn.Text = "Remove";
-            this.admin8Btn.UseVisualStyleBackColor = true;
-            this.admin8Btn.Click += new System.EventHandler(this.admin8Btn_Click);
-            // 
-            // admin7Btn
-            // 
-            this.admin7Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin7Btn.Location = new System.Drawing.Point(65, 213);
-            this.admin7Btn.Name = "admin7Btn";
-            this.admin7Btn.Size = new System.Drawing.Size(107, 31);
-            this.admin7Btn.TabIndex = 35;
-            this.admin7Btn.Text = "Add";
-            this.admin7Btn.UseVisualStyleBackColor = true;
-            this.admin7Btn.Click += new System.EventHandler(this.copyBtn_Click);
-            // 
             // admin6Btn
             // 
             this.admin6Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -945,6 +923,17 @@
             this.tabPage10.Text = "UPCs";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // admin8Btn
+            // 
+            this.admin8Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin8Btn.Location = new System.Drawing.Point(237, 213);
+            this.admin8Btn.Name = "admin8Btn";
+            this.admin8Btn.Size = new System.Drawing.Size(136, 30);
+            this.admin8Btn.TabIndex = 36;
+            this.admin8Btn.Text = "Remove";
+            this.admin8Btn.UseVisualStyleBackColor = true;
+            this.admin8Btn.Click += new System.EventHandler(this.admin8Btn_Click);
+            // 
             // admin4Data
             // 
             this.admin4Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -953,6 +942,17 @@
             this.admin4Data.ReadOnly = true;
             this.admin4Data.Size = new System.Drawing.Size(433, 141);
             this.admin4Data.TabIndex = 3;
+            // 
+            // admin7Btn
+            // 
+            this.admin7Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin7Btn.Location = new System.Drawing.Point(65, 213);
+            this.admin7Btn.Name = "admin7Btn";
+            this.admin7Btn.Size = new System.Drawing.Size(107, 31);
+            this.admin7Btn.TabIndex = 35;
+            this.admin7Btn.Text = "Add";
+            this.admin7Btn.UseVisualStyleBackColor = true;
+            this.admin7Btn.Click += new System.EventHandler(this.copyBtn_Click);
             // 
             // adminTitleLbl
             // 
@@ -1541,6 +1541,7 @@
             this.addCopyPnl.Size = new System.Drawing.Size(495, 352);
             this.addCopyPnl.TabIndex = 20;
             this.addCopyPnl.Visible = false;
+            this.addCopyPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.addCopyPnl_Paint);
             // 
             // addCopy1Btn
             // 
@@ -1659,13 +1660,13 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.removeCopyPnl);
             this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.rentPnl);
             this.Controls.Add(this.addUserPnl);
-            this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.returnPnl);
             this.Controls.Add(this.newCustomerPnl);

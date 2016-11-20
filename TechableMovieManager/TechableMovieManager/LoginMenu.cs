@@ -78,6 +78,7 @@ namespace TechableMovieManager
             this.BackColor = Color.SteelBlue;
             GlobalControl.setButtonColor(this, Color.Goldenrod);
             GlobalControl.setTextBoxMaxLength(this, 40);
+            this.AcceptButton = loginBtn;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -111,6 +112,7 @@ namespace TechableMovieManager
             MainMenu MainMenu = new MainMenu(user, this);
             this.Hide();
             MainMenu.Show();
+            
         }
         private void LoginMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
