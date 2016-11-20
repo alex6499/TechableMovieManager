@@ -757,6 +757,16 @@ namespace TechableMovieManager
                 Prompt.enterInt32("Customer Id");
                 return;
             }
+            if (!CustomersTable.hasCustomer(Int32.Parse(customerId)))
+            {
+                Prompt.notInDB("customer", customerId);
+                return;
+            }
+            if (RentalsTable.customerIsRenting(Int32.Parse(customerId)))
+            {
+                Prompt.removalDependency("customer", "rental");
+                return;
+            }
 
             CustomersTable.setDeleted(true, Int32.Parse(customerId));
 
@@ -779,15 +789,17 @@ namespace TechableMovieManager
                 Prompt.enterYear();
                 return;
             }
+
+
             //Movie is already in DB
             if (MoviesTable.hasMovieByInfo(name, studio, Int32.Parse(year)))
             {
                 Prompt.alreadyInDB("movie");
-                return;
+            }else
+            {
+                //Add to DB
+                MoviesTable.add(name, Int32.Parse(year), studio);
             }
-
-            //Add to DB
-            MoviesTable.add(name, Int32.Parse(year), studio);
 
             //cleanup
             clearRadioButtons(addMoviePnl);

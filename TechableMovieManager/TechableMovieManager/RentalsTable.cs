@@ -32,6 +32,30 @@ namespace TechableMovieManager
 
             return table;
         }
+        public static bool upcIsRenting(string upc)
+        {
+            bool isRenting;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetCurrentByUpc(upc);
+            adapter.Dispose();
+
+            isRenting = table.Select().Length > 0;
+
+            return isRenting;
+        }
+        public static bool customerIsRenting(int customerId)
+        {
+            bool isRenting;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetCurrentByCustomer(customerId);
+            adapter.Dispose();
+
+            isRenting = table.Select().Length > 0;
+
+            return isRenting;
+        }
         public static void returnMovie(string upc)
         {
             adapter = getNewAdapter();

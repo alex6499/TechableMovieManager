@@ -54,6 +54,18 @@ namespace TechableMovieManager
             adapter.IncrementTimesRented(customerId);
             adapter.Dispose();
         }
+        public static bool hasCustomer(int customerId)
+        {
+            bool isCustomer;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetById(customerId);
+            adapter.Dispose();
+
+            isCustomer = table.Select().Length > 0;
+
+            return isCustomer;
+        }
 
         public static int getCustomerId(string firstName, string lastName, string phone)
         {
