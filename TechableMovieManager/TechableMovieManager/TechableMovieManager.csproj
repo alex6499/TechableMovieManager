@@ -95,7 +95,7 @@
     <Compile Include="TechableDS.cs">
       <DependentUpon>TechableDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="TechableDS.Designer.cs">
+    <Compile Include="TechableDS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TechableDS.xsd</DependentUpon>
@@ -132,7 +132,7 @@
     <None Include="TechableDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TechableDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>TechableDS1.Designer.cs</LastGenOutput>
     </None>
     <None Include="TechableDS.xss">
       <DependentUpon>TechableDS.xsd</DependentUpon>

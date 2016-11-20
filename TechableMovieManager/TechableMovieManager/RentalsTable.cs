@@ -16,7 +16,7 @@ namespace TechableMovieManager
             return new TechableDSTableAdapters.RentalsTableAdapter();
         }
 
-        public static void add(int upc, int customerId, string userName, DateTime dueDate)
+        public static void add(string upc, int customerId, string userName, DateTime dueDate)
         {
             adapter = getNewAdapter();
             adapter.Insert(upc, customerId, userName, dueDate, false);
@@ -32,7 +32,7 @@ namespace TechableMovieManager
 
             return table;
         }
-        public static void returnMovie(int upc)
+        public static void returnMovie(string upc)
         {
             adapter = getNewAdapter();
             adapter.ReturnMovie(upc);

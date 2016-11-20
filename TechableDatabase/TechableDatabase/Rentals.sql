@@ -2,7 +2,7 @@
 CREATE TABLE [dbo].[Rentals]
 (
 	[rentalId] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [upc] INT NOT NULL, 
+    [upc] NCHAR(40) NOT NULL, 
 	FOREIGN KEY (upc)
 		REFERENCES Copies ([upc]),
     [customerId] INT NOT NULL,

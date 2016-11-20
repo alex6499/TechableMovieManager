@@ -9,9 +9,9 @@ namespace TechableMovieManager
     class DVD
     {
         private string movieName;
-        private int upc;
+        private string upc;
 
-        public DVD(string movieName, int upc)
+        public DVD(string movieName, string upc)
         {
             this.movieName = movieName;
             this.upc = upc;
@@ -22,7 +22,7 @@ namespace TechableMovieManager
             return movieName;
         }
 
-        public int getUpc()
+        public string getUpc()
         {
             return upc;
         }

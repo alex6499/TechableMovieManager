@@ -36,11 +36,11 @@ namespace TechableMovieManager {
         
         private global::System.Data.DataRelation relationFK__Copies__movieId__37A5467C;
         
-        private global::System.Data.DataRelation relationFK__Rentals__upc__4CA06362;
-        
         private global::System.Data.DataRelation relationFK__Rentals__userNam__4E88ABD4;
         
         private global::System.Data.DataRelation relationFK__Rentals__custome__4D94879B;
+        
+        private global::System.Data.DataRelation relationFK__Rentals__upc__5441852A;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -299,9 +299,9 @@ namespace TechableMovieManager {
                 }
             }
             this.relationFK__Copies__movieId__37A5467C = this.Relations["FK__Copies__movieId__37A5467C"];
-            this.relationFK__Rentals__upc__4CA06362 = this.Relations["FK__Rentals__upc__4CA06362"];
             this.relationFK__Rentals__userNam__4E88ABD4 = this.Relations["FK__Rentals__userNam__4E88ABD4"];
             this.relationFK__Rentals__custome__4D94879B = this.Relations["FK__Rentals__custome__4D94879B"];
+            this.relationFK__Rentals__upc__5441852A = this.Relations["FK__Rentals__upc__5441852A"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -326,10 +326,6 @@ namespace TechableMovieManager {
                         this.tableMovies.movieIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableCopies.movieIdColumn}, false);
             this.Relations.Add(this.relationFK__Copies__movieId__37A5467C);
-            this.relationFK__Rentals__upc__4CA06362 = new global::System.Data.DataRelation("FK__Rentals__upc__4CA06362", new global::System.Data.DataColumn[] {
-                        this.tableCopies.upcColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRentals.upcColumn}, false);
-            this.Relations.Add(this.relationFK__Rentals__upc__4CA06362);
             this.relationFK__Rentals__userNam__4E88ABD4 = new global::System.Data.DataRelation("FK__Rentals__userNam__4E88ABD4", new global::System.Data.DataColumn[] {
                         this.tableEmployees.userNameColumn}, new global::System.Data.DataColumn[] {
                         this.tableRentals.userNameColumn}, false);
@@ -338,6 +334,10 @@ namespace TechableMovieManager {
                         this.tableCustomers.customerIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRentals.customerIdColumn}, false);
             this.Relations.Add(this.relationFK__Rentals__custome__4D94879B);
+            this.relationFK__Rentals__upc__5441852A = new global::System.Data.DataRelation("FK__Rentals__upc__5441852A", new global::System.Data.DataColumn[] {
+                        this.tableCopies.upcColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRentals.upcColumn}, false);
+            this.Relations.Add(this.relationFK__Rentals__upc__5441852A);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1492,13 +1492,13 @@ namespace TechableMovieManager {
             
             private global::System.Data.DataColumn columnrentalId;
             
-            private global::System.Data.DataColumn columnupc;
-            
             private global::System.Data.DataColumn columncustomerId;
             
             private global::System.Data.DataColumn columndueDate;
             
             private global::System.Data.DataColumn columnreturned;
+            
+            private global::System.Data.DataColumn columnupc;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1551,14 +1551,6 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn upcColumn {
-                get {
-                    return this.columnupc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn customerIdColumn {
                 get {
                     return this.columncustomerId;
@@ -1578,6 +1570,14 @@ namespace TechableMovieManager {
             public global::System.Data.DataColumn returnedColumn {
                 get {
                     return this.columnreturned;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn upcColumn {
+                get {
+                    return this.columnupc;
                 }
             }
             
@@ -1618,23 +1618,23 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RentalsRow AddRentalsRow(EmployeesRow parentEmployeesRowByFK__Rentals__userNam__4E88ABD4, CopiesRow parentCopiesRowByFK__Rentals__upc__4CA06362, CustomersRow parentCustomersRowByFK__Rentals__custome__4D94879B, System.DateTime dueDate, bool returned) {
+            public RentalsRow AddRentalsRow(EmployeesRow parentEmployeesRowByFK__Rentals__userNam__4E88ABD4, CustomersRow parentCustomersRowByFK__Rentals__custome__4D94879B, System.DateTime dueDate, bool returned, CopiesRow parentCopiesRowByFK__Rentals__upc__5441852A) {
                 RentalsRow rowRentalsRow = ((RentalsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
-                        null,
                         dueDate,
-                        returned};
+                        returned,
+                        null};
                 if ((parentEmployeesRowByFK__Rentals__userNam__4E88ABD4 != null)) {
                     columnValuesArray[0] = parentEmployeesRowByFK__Rentals__userNam__4E88ABD4[3];
                 }
-                if ((parentCopiesRowByFK__Rentals__upc__4CA06362 != null)) {
-                    columnValuesArray[2] = parentCopiesRowByFK__Rentals__upc__4CA06362[0];
-                }
                 if ((parentCustomersRowByFK__Rentals__custome__4D94879B != null)) {
-                    columnValuesArray[3] = parentCustomersRowByFK__Rentals__custome__4D94879B[0];
+                    columnValuesArray[2] = parentCustomersRowByFK__Rentals__custome__4D94879B[0];
+                }
+                if ((parentCopiesRowByFK__Rentals__upc__5441852A != null)) {
+                    columnValuesArray[5] = parentCopiesRowByFK__Rentals__upc__5441852A[3];
                 }
                 rowRentalsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRentalsRow);
@@ -1667,10 +1667,10 @@ namespace TechableMovieManager {
             internal void InitVars() {
                 this.columnuserName = base.Columns["userName"];
                 this.columnrentalId = base.Columns["rentalId"];
-                this.columnupc = base.Columns["upc"];
                 this.columncustomerId = base.Columns["customerId"];
                 this.columndueDate = base.Columns["dueDate"];
                 this.columnreturned = base.Columns["returned"];
+                this.columnupc = base.Columns["upc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1680,14 +1680,14 @@ namespace TechableMovieManager {
                 base.Columns.Add(this.columnuserName);
                 this.columnrentalId = new global::System.Data.DataColumn("rentalId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnrentalId);
-                this.columnupc = new global::System.Data.DataColumn("upc", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnupc);
                 this.columncustomerId = new global::System.Data.DataColumn("customerId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncustomerId);
                 this.columndueDate = new global::System.Data.DataColumn("dueDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndueDate);
                 this.columnreturned = new global::System.Data.DataColumn("returned", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreturned);
+                this.columnupc = new global::System.Data.DataColumn("upc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnupc);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnrentalId}, true));
                 this.columnuserName.AllowDBNull = false;
@@ -1698,10 +1698,11 @@ namespace TechableMovieManager {
                 this.columnrentalId.AllowDBNull = false;
                 this.columnrentalId.ReadOnly = true;
                 this.columnrentalId.Unique = true;
-                this.columnupc.AllowDBNull = false;
                 this.columncustomerId.AllowDBNull = false;
                 this.columndueDate.AllowDBNull = false;
                 this.columnreturned.AllowDBNull = false;
+                this.columnupc.AllowDBNull = false;
+                this.columnupc.MaxLength = 40;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1835,13 +1836,13 @@ namespace TechableMovieManager {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class CopiesDataTable : global::System.Data.TypedTableBase<CopiesRow> {
             
-            private global::System.Data.DataColumn columnupc;
-            
             private global::System.Data.DataColumn columnmovieId;
             
             private global::System.Data.DataColumn columnavailable;
             
             private global::System.Data.DataColumn columndeleted;
+            
+            private global::System.Data.DataColumn columnupc;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1878,14 +1879,6 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn upcColumn {
-                get {
-                    return this.columnupc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn movieIdColumn {
                 get {
                     return this.columnmovieId;
@@ -1905,6 +1898,14 @@ namespace TechableMovieManager {
             public global::System.Data.DataColumn deletedColumn {
                 get {
                     return this.columndeleted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn upcColumn {
+                get {
+                    return this.columnupc;
                 }
             }
             
@@ -1945,15 +1946,15 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CopiesRow AddCopiesRow(int upc, MoviesRow parentMoviesRowByFK__Copies__movieId__37A5467C, bool available, bool deleted) {
+            public CopiesRow AddCopiesRow(MoviesRow parentMoviesRowByFK__Copies__movieId__37A5467C, bool available, bool deleted, string upc) {
                 CopiesRow rowCopiesRow = ((CopiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        upc,
                         null,
                         available,
-                        deleted};
+                        deleted,
+                        upc};
                 if ((parentMoviesRowByFK__Copies__movieId__37A5467C != null)) {
-                    columnValuesArray[1] = parentMoviesRowByFK__Copies__movieId__37A5467C[0];
+                    columnValuesArray[0] = parentMoviesRowByFK__Copies__movieId__37A5467C[0];
                 }
                 rowCopiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCopiesRow);
@@ -1962,7 +1963,7 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CopiesRow FindByupc(int upc) {
+            public CopiesRow FindByupc(string upc) {
                 return ((CopiesRow)(this.Rows.Find(new object[] {
                             upc})));
             }
@@ -1984,30 +1985,31 @@ namespace TechableMovieManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnupc = base.Columns["upc"];
                 this.columnmovieId = base.Columns["movieId"];
                 this.columnavailable = base.Columns["available"];
                 this.columndeleted = base.Columns["deleted"];
+                this.columnupc = base.Columns["upc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnupc = new global::System.Data.DataColumn("upc", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnupc);
                 this.columnmovieId = new global::System.Data.DataColumn("movieId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmovieId);
                 this.columnavailable = new global::System.Data.DataColumn("available", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnavailable);
                 this.columndeleted = new global::System.Data.DataColumn("deleted", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndeleted);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                this.columnupc = new global::System.Data.DataColumn("upc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnupc);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnupc}, true));
-                this.columnupc.AllowDBNull = false;
-                this.columnupc.Unique = true;
                 this.columnmovieId.AllowDBNull = false;
                 this.columnavailable.AllowDBNull = false;
                 this.columndeleted.AllowDBNull = false;
+                this.columnupc.AllowDBNull = false;
+                this.columnupc.Unique = true;
+                this.columnupc.MaxLength = 40;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2589,17 +2591,6 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int upc {
-                get {
-                    return ((int)(this[this.tableRentals.upcColumn]));
-                }
-                set {
-                    this[this.tableRentals.upcColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int customerId {
                 get {
                     return ((int)(this[this.tableRentals.customerIdColumn]));
@@ -2633,12 +2624,12 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CopiesRow CopiesRow {
+            public string upc {
                 get {
-                    return ((CopiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Rentals__upc__4CA06362"])));
+                    return ((string)(this[this.tableRentals.upcColumn]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Rentals__upc__4CA06362"]);
+                    this[this.tableRentals.upcColumn] = value;
                 }
             }
             
@@ -2663,6 +2654,17 @@ namespace TechableMovieManager {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Rentals__custome__4D94879B"]);
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CopiesRow CopiesRow {
+                get {
+                    return ((CopiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Rentals__upc__5441852A"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Rentals__upc__5441852A"]);
+                }
+            }
         }
         
         /// <summary>
@@ -2677,17 +2679,6 @@ namespace TechableMovieManager {
             internal CopiesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableCopies = ((CopiesDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int upc {
-                get {
-                    return ((int)(this[this.tableCopies.upcColumn]));
-                }
-                set {
-                    this[this.tableCopies.upcColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2725,6 +2716,17 @@ namespace TechableMovieManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string upc {
+                get {
+                    return ((string)(this[this.tableCopies.upcColumn]));
+                }
+                set {
+                    this[this.tableCopies.upcColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MoviesRow MoviesRow {
                 get {
                     return ((MoviesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Copies__movieId__37A5467C"])));
@@ -2737,11 +2739,11 @@ namespace TechableMovieManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RentalsRow[] GetRentalsRows() {
-                if ((this.Table.ChildRelations["FK__Rentals__upc__4CA06362"] == null)) {
+                if ((this.Table.ChildRelations["FK__Rentals__upc__5441852A"] == null)) {
                     return new RentalsRow[0];
                 }
                 else {
-                    return ((RentalsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Rentals__upc__4CA06362"])));
+                    return ((RentalsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Rentals__upc__5441852A"])));
                 }
             }
         }
@@ -4271,13 +4273,13 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
                 "nted, Movies.year FROM Movies INNER JOIN Copies ON Movies.movieId = Copies.movie" +
                 "Id WHERE (Copies.upc = @upc)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "UPDATE Movies\r\nSET timesRented = timesRented + 1\r\nFROM Movies, Copies\r\nWHERE Copi" +
                 "es.upc = @upc AND Copies.movieId = Movies.movieId";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "INSERT INTO Movies\r\n                         (available, upc, name, date, directo" +
@@ -4362,9 +4364,14 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual TechableDS.MoviesDataTable GetMovieByUPC(int upc) {
+        public virtual TechableDS.MoviesDataTable GetMovieByUPC(string upc) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(upc));
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(upc));
+            }
             TechableDS.MoviesDataTable dataTable = new TechableDS.MoviesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -4569,9 +4576,14 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int IncrementTimesRented(int upc) {
+        public virtual int IncrementTimesRented(string upc) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
-            command.Parameters[0].Value = ((int)(upc));
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(upc));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4830,10 +4842,10 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
             tableMapping.DataSetTable = "Rentals";
             tableMapping.ColumnMappings.Add("userName", "userName");
             tableMapping.ColumnMappings.Add("rentalId", "rentalId");
-            tableMapping.ColumnMappings.Add("upc", "upc");
             tableMapping.ColumnMappings.Add("customerId", "customerId");
             tableMapping.ColumnMappings.Add("dueDate", "dueDate");
             tableMapping.ColumnMappings.Add("returned", "returned");
+            tableMapping.ColumnMappings.Add("upc", "upc");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -4845,7 +4857,7 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
             this._adapter.InsertCommand.CommandText = "INSERT INTO [Rentals] ([upc], [customerId], [userName], [dueDate], [returned]) VA" +
                 "LUES (@upc, @customerId, @userName, @dueDate, @returned)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dueDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4856,7 +4868,7 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
                 "Name, [dueDate] = @dueDate, [returned] = @returned WHERE (([rentalId] = @Origina" +
                 "l_rentalId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dueDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dueDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4877,19 +4889,19 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT rentalId, upc, customerId, userName, dueDate, returned FROM Rentals";
+            this._commandCollection[0].CommandText = "SELECT * FROM Rentals";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT rentalId, upc, customerId, userName, dueDate, returned \r\nFROM Rentals\r\nWHE" +
-                "RE returned = 0";
+            this._commandCollection[1].CommandText = "SELECT customerId, dueDate, rentalId, returned, upc, userName FROM Rentals WHERE " +
+                "(returned = 0)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "UPDATE Rentals\r\nSET returned = 1\r\nFROM Rentals, Copies\r\nWHERE Rentals.upc = @upc " +
                 "";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4995,8 +5007,13 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int upc, int customerId, string userName, System.DateTime dueDate, bool returned) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(upc));
+        public virtual int Insert(string upc, int customerId, string userName, System.DateTime dueDate, bool returned) {
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(upc));
+            }
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(customerId));
             if ((userName == null)) {
                 throw new global::System.ArgumentNullException("userName");
@@ -5026,8 +5043,13 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int upc, int customerId, string userName, System.DateTime dueDate, bool returned, int Original_rentalId) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(upc));
+        public virtual int Update(string upc, int customerId, string userName, System.DateTime dueDate, bool returned, int Original_rentalId) {
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(upc));
+            }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(customerId));
             if ((userName == null)) {
                 throw new global::System.ArgumentNullException("userName");
@@ -5058,9 +5080,14 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int ReturnMovie(int upc) {
+        public virtual int ReturnMovie(string upc) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            command.Parameters[0].Value = ((int)(upc));
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(upc));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5200,41 +5227,41 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Copies";
-            tableMapping.ColumnMappings.Add("upc", "upc");
             tableMapping.ColumnMappings.Add("movieId", "movieId");
             tableMapping.ColumnMappings.Add("available", "available");
             tableMapping.ColumnMappings.Add("deleted", "deleted");
+            tableMapping.ColumnMappings.Add("upc", "upc");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Copies] WHERE (([upc] = @Original_upc) AND ([movieId] = @Origi" +
-                "nal_movieId) AND ([available] = @Original_available) AND ([deleted] = @Original_" +
-                "deleted))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Copies] WHERE (([upc] = @Original_upc) AND ([movieId] = @Original_mo" +
+                "vieId) AND ([available] = @Original_available) AND ([deleted] = @Original_delete" +
+                "d))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_upc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_upc", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_available", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Copies] ([upc], [movieId], [available], [deleted]) VALUES (@up" +
-                "c, @movieId, @available, @deleted);\r\nSELECT upc, movieId, available, deleted FRO" +
-                "M Copies WHERE (upc = @upc)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Copies] ([upc], [movieId], [available], [deleted]) VALUES (@upc, @mo" +
+                "vieId, @available, @deleted);\r\nSELECT upc, movieId, available, deleted FROM Copi" +
+                "es WHERE (upc = @upc)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Copies] SET [upc] = @upc, [movieId] = @movieId, [available] = @available, [deleted] = @deleted WHERE (([upc] = @Original_upc) AND ([movieId] = @Original_movieId) AND ([available] = @Original_available) AND ([deleted] = @Original_deleted));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Copies] SET [upc] = @upc, [movieId] = @movieId, [available] = @available, [deleted] = @deleted WHERE (([upc] = @Original_upc) AND ([movieId] = @Original_movieId) AND ([available] = @Original_available) AND ([deleted] = @Original_deleted));
 SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_upc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_upc", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_movieId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_available", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5253,19 +5280,19 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM dbo.Copies";
+            this._commandCollection[0].CommandText = "SELECT * FROM Copies";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        *\r\nFROM          Copies\r\nWHERE        upc = @upc";
+            this._commandCollection[1].CommandText = "SELECT available, deleted, movieId, upc FROM Copies WHERE (upc = @upc)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "UPDATE dbo.Copies\r\nSET available = @available\r\nWHERE upc = @upc";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5296,9 +5323,14 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(TechableDS.CopiesDataTable dataTable, int upc) {
+        public virtual int FillBy(TechableDS.CopiesDataTable dataTable, string upc) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(upc));
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(upc));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -5310,9 +5342,14 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual TechableDS.CopiesDataTable GetCopy(int upc) {
+        public virtual TechableDS.CopiesDataTable GetCopy(string upc) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(upc));
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(upc));
+            }
             TechableDS.CopiesDataTable dataTable = new TechableDS.CopiesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5351,8 +5388,13 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_upc, int Original_movieId, bool Original_available, bool Original_deleted) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_upc));
+        public virtual int Delete(string Original_upc, int Original_movieId, bool Original_available, bool Original_deleted) {
+            if ((Original_upc == null)) {
+                throw new global::System.ArgumentNullException("Original_upc");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_upc));
+            }
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_movieId));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((bool)(Original_available));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((bool)(Original_deleted));
@@ -5376,8 +5418,13 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int upc, int movieId, bool available, bool deleted) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(upc));
+        public virtual int Insert(string upc, int movieId, bool available, bool deleted) {
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(upc));
+            }
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(movieId));
             this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(available));
             this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(deleted));
@@ -5401,12 +5448,22 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int upc, int movieId, bool available, bool deleted, int Original_upc, int Original_movieId, bool Original_available, bool Original_deleted) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(upc));
+        public virtual int Update(string upc, int movieId, bool available, bool deleted, string Original_upc, int Original_movieId, bool Original_available, bool Original_deleted) {
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(upc));
+            }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(movieId));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(available));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(deleted));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_upc));
+            if ((Original_upc == null)) {
+                throw new global::System.ArgumentNullException("Original_upc");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_upc));
+            }
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_movieId));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Original_available));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Original_deleted));
@@ -5430,7 +5487,7 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int movieId, bool available, bool deleted, int Original_upc, int Original_movieId, bool Original_available, bool Original_deleted) {
+        public virtual int Update(int movieId, bool available, bool deleted, string Original_upc, int Original_movieId, bool Original_available, bool Original_deleted) {
             return this.Update(Original_upc, movieId, available, deleted, Original_upc, Original_movieId, Original_available, Original_deleted);
         }
         
@@ -5438,10 +5495,15 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateAvailable(bool available, int upc) {
+        public virtual int UpdateAvailable(bool available, string upc) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             command.Parameters[0].Value = ((bool)(available));
-            command.Parameters[1].Value = ((int)(upc));
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(upc));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

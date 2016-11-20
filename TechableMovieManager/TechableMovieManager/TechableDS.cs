@@ -4,6 +4,9 @@
 
     partial class TechableDS
     {
+        partial class CopiesDataTable
+        {
+        }
     }
 }
 

@@ -158,6 +158,8 @@
             this.addCopy1Txt = new System.Windows.Forms.TextBox();
             this.addCopy1Lbl = new System.Windows.Forms.Label();
             this.addCopyTitleLbl = new System.Windows.Forms.Label();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.reports6Data = new System.Windows.Forms.DataGridView();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -191,6 +193,8 @@
             this.removeMoviePnl.SuspendLayout();
             this.addMoviePnl.SuspendLayout();
             this.addCopyPnl.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reports6Data)).BeginInit();
             this.SuspendLayout();
             // 
             // rentBtn
@@ -462,6 +466,7 @@
             this.reportsTab.Controls.Add(this.tabPage5);
             this.reportsTab.Controls.Add(this.tabPage6);
             this.reportsTab.Controls.Add(this.tabPage8);
+            this.reportsTab.Controls.Add(this.tabPage9);
             this.reportsTab.Location = new System.Drawing.Point(45, 90);
             this.reportsTab.Name = "reportsTab";
             this.reportsTab.SelectedIndex = 0;
@@ -1530,6 +1535,25 @@
             this.addCopyTitleLbl.TabIndex = 10;
             this.addCopyTitleLbl.Text = "Add a DVD";
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.reports6Data);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(638, 401);
+            this.tabPage9.TabIndex = 5;
+            this.tabPage9.Text = "UPCs";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // reports6Data
+            // 
+            this.reports6Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reports6Data.Location = new System.Drawing.Point(-1, 0);
+            this.reports6Data.Name = "reports6Data";
+            this.reports6Data.ReadOnly = true;
+            this.reports6Data.Size = new System.Drawing.Size(548, 350);
+            this.reports6Data.TabIndex = 4;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1537,8 +1561,8 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
-            this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.reportsPnl);
+            this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.rentPnl);
@@ -1606,6 +1630,8 @@
             this.addMoviePnl.PerformLayout();
             this.addCopyPnl.ResumeLayout(false);
             this.addCopyPnl.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reports6Data)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1742,6 +1768,8 @@
         private System.Windows.Forms.Label addCopy1Lbl;
         private System.Windows.Forms.Label addCopyTitleLbl;
         private System.Windows.Forms.Button admin6Btn;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.DataGridView reports6Data;
     }
 }
 

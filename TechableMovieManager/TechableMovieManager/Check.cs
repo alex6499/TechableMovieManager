@@ -18,6 +18,12 @@ namespace TechableMovieManager
             return phoneRegex.IsMatch(input);
         }
 
+        public static bool isUPC(string input)
+        {
+            Regex phoneRegex = new Regex(@"^\d{5,20}$");
+            return phoneRegex.IsMatch(input);
+        }
+
         public static bool isAllAlphaNumeric(params string[] inputs)
         {
             bool isAlphaNum = true;

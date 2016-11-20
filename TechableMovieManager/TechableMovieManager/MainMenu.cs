@@ -164,22 +164,24 @@ namespace TechableMovieManager
         {
             string upc = checkout1Txt.Text;
 
-            if (!Check.isInt32(upc))
+            if (!Check.isUPC(upc))
             {
-                Prompt.enterInt32("UPC");
+                Prompt.enterUPC();
                 return;
             }
-            if(!CopiesTable.hasCopy(Int32.Parse(upc))){
+            
+            if(!CopiesTable.hasCopy(upc)){
                 Prompt.notInDB("dvd", "UPC");
                 return;
             }
-            if (!CopiesTable.isAvailable(Int32.Parse(upc))){
+            if (!CopiesTable.isAvailable(upc)){
                 Prompt.copyUnavailable();
                 return;
             }
-
-            string movie = MoviesTable.getMovieName(Int32.Parse(upc));
-            currentDVD = new DVD(movie, Int32.Parse(upc));
+            
+            string movie = MoviesTable.getMovieName(upc);
+            currentDVD = new DVD(movie, upc);
+            
             clearTextBoxes(rentPnl);
             setCurrentMainPanel(rent2Pnl);
             
@@ -510,6 +512,7 @@ namespace TechableMovieManager
             sortBy(reports4Data, 4, true);
             reports5Data.DataSource = RentalsTable.getNotReturned();
             sortBy(reports5Data, 4, true);
+            reports6Data.DataSource = CopiesTable.getAll();
 
             setPositionPanelControl(reportsTitleLbl, reportsPnl, .4, .7, 0, .1);
 
@@ -723,14 +726,14 @@ namespace TechableMovieManager
         private void return1Btn_Click(object sender, EventArgs e)
         {
             string upc = return1Txt.Text;
-            if (!Check.isInt32(upc))
+            if (!Check.isUPC(upc))
             {
-                Prompt.enterInt32("UPC");
+                Prompt.enterUPC();
                 return;
             }
 
-            RentalsTable.returnMovie(Int32.Parse(upc));
-            CopiesTable.makeAvailable(Int32.Parse(upc));
+            RentalsTable.returnMovie(upc);
+            CopiesTable.makeAvailable(upc);
 
             clearTextBoxes(returnPnl);
 
@@ -876,9 +879,9 @@ namespace TechableMovieManager
                 Prompt.enterInt32("movie ID");
                 return;
             }
-            if (!Check.isInt32(upc))
+            if (!Check.isUPC(upc))
             {
-                Prompt.enterInt32("UPC");
+                Prompt.enterUPC();
                 return;
             }
             if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
@@ -888,13 +891,13 @@ namespace TechableMovieManager
             }
 
             //UPC ust be unique
-            if (CopiesTable.hasCopy(Int32.Parse(upc)))
+            if (CopiesTable.hasCopy(upc))
             {
                 Prompt.notUnique("UPC");
                 return;
             }
 
-            CopiesTable.add(Int32.Parse(upc), Int32.Parse(movieId));
+            CopiesTable.add(upc, Int32.Parse(movieId));
 
             addCopy2Txt.Clear();
         }

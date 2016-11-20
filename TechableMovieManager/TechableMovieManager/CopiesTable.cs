@@ -17,7 +17,7 @@ namespace TechableMovieManager
             return new TechableDSTableAdapters.CopiesTableAdapter();
         }
 
-        public static bool hasCopy(int upc)
+        public static bool hasCopy(string upc)
         {
             bool hasCopy;
 
@@ -30,7 +30,7 @@ namespace TechableMovieManager
             return hasCopy;
         }
 
-        public static bool isAvailable(int upc)
+        public static bool isAvailable(string upc)
         {
             bool isAvailable = false;
 
@@ -40,21 +40,21 @@ namespace TechableMovieManager
 
             if (table.Select().Length > 0)
             {
-                isAvailable = (bool)table.Select()[0].ItemArray[2];
+                isAvailable = (bool)table.Select()[0].ItemArray[1];
             }
 
             return isAvailable;
         }
 
-        public static void makeAvailable(int upc)
+        public static void makeAvailable(string upc)
         {
             setAvailable(true, upc);
         }
-        public static void makeUnavailable(int upc)
+        public static void makeUnavailable(string upc)
         {
             setAvailable(false, upc);
         }
-        public static void setAvailable(bool available, int upc)
+        public static void setAvailable(bool available, string upc)
         {
             adapter = getNewAdapter();
             adapter.UpdateAvailable(available, upc);
@@ -73,7 +73,7 @@ namespace TechableMovieManager
             return table;
         }
 
-        public static void add(int upc, int movieId)
+        public static void add(string upc, int movieId)
         {
             adapter = getNewAdapter();
             adapter.Insert(upc, movieId, true, false);

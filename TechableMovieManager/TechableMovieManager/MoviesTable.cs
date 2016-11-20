@@ -48,7 +48,7 @@ namespace TechableMovieManager
             adapter.Dispose();
         }
 
-        public static bool hasMovieByUpc(int upc)
+        public static bool hasMovieByUpc(string upc)
         {
             bool hasMovie;
 
@@ -72,14 +72,14 @@ namespace TechableMovieManager
 
             return hasMovie;
         }
-        public static void incrementTimesRented(int upc)
+        public static void incrementTimesRented(string upc)
         {
             adapter = getNewAdapter();
             adapter.IncrementTimesRented(upc);
             adapter.Dispose();
         }
 
-        public static string getMovieName(int upc)
+        public static string getMovieName(string upc)
         {
             string movieName = null;
 
