@@ -12,7 +12,7 @@ namespace TechableMovieManager
 
         public static bool isValidInput(string input)
         {
-            Regex regex = new Regex(@"^[a-zA-Z0-9\.\!\?\:\;\,\'\- ]+$");
+            Regex regex = new Regex(@"^[a-zA-Z0-9\.\!\?\:\;\,\'\-\@_ ]+$");
             
             return regex.IsMatch(input);
         }
@@ -54,30 +54,7 @@ namespace TechableMovieManager
             Regex phoneRegex = new Regex(@"^\d{5,20}$");
             return phoneRegex.IsMatch(input);
         }
-
-        public static bool isAllAlphaNumeric(params string[] inputs)
-        {
-            bool isAlphaNum = true;
-
-            foreach (string input in inputs)
-            {
-                if (!isAlphaNumeric(input))
-                {
-                    isAlphaNum = false;
-                    break;
-                }
-            }
-
-            return (isAlphaNum);
-        }
-
-        public static bool isAlphaNumeric(string input)
-        {
-            Regex alphaNumeric = new Regex("^[a-zA-Z0-9]*$");
-            bool isAlphaNum = alphaNumeric.IsMatch(input);
-            return (isAlphaNum);
-        }
-
+        
         public static bool isAllInt32(params string[] inputs)
         {
             bool isNum = true;

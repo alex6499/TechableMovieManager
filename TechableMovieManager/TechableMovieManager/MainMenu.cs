@@ -592,10 +592,19 @@ namespace TechableMovieManager
                 Prompt.enterInt32("Movie Id");
                 return;
             }
-
-            Prompt.beingWorkedOn("Need to ensure no Copy points to a Movie before deletion.");
-            //MoviesTable.setDeleted(true, Int32.Parse(movieId));
-            //clearTextBoxes(removeMoviePnl);
+            if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
+            {
+                Prompt.notInDB("movie", "movie ID");
+                return;
+            }
+            if (CopiesTable.hasCopyById(Int32.Parse(movieId)))
+            {
+                Prompt.removalDependency("movie", "UPC");
+                return;
+            }
+            
+            MoviesTable.setDeleted(true, Int32.Parse(movieId));
+            clearTextBoxes(removeMoviePnl);
         }
         private void addCopy1Btn_Click(object sender, EventArgs e)
         {

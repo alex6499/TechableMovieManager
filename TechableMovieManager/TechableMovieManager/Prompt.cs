@@ -17,7 +17,7 @@ namespace TechableMovieManager
         public static void enterValidInput()
         {
             string prompt = "Please only enter alphanumeric characters, spaces"
-                + "\nand the followingsymbols . ! ? : ; , ' - ."
+                + "\nand the followingsymbols . ! ? : ; , ' - @ _ . "
                 + "\nalso note that leading and trailing white spaces are removed";
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
@@ -63,6 +63,14 @@ namespace TechableMovieManager
             string prompt = "There is no " + subject + " with that " + searchedBy;
             MessageBox.Show(prompt, "Search result", MessageBoxButtons.OK);
         }
+
+        public static void removalDependency(string subject, string subjectUser)
+        {
+            string prompt = "You cannot remove this " + subject 
+                + ".\n it is used by an active " + subjectUser;
+            MessageBox.Show(prompt, "Search result", MessageBoxButtons.OK);
+        }
+
         public static void copyUnavailable()
         {
             string prompt = "That copy is not currently available for rental.";

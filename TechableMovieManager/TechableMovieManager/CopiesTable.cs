@@ -30,6 +30,19 @@ namespace TechableMovieManager
             return hasCopy;
         }
 
+        public static bool hasCopyById(int movieId)
+        {
+            bool hasCopy;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetCopyById(movieId);
+            adapter.Dispose();
+
+            hasCopy = table.Select().Length > 0;
+
+            return hasCopy;
+        }
+
         public static bool isAvailable(string upc)
         {
             bool isAvailable = false;
