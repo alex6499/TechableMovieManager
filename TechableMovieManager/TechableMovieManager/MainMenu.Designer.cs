@@ -1660,6 +1660,7 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.removeCopyPnl);
             this.Controls.Add(this.adminPnl);
@@ -1671,7 +1672,6 @@
             this.Controls.Add(this.returnPnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.removeCustomerPnl);
-            this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.removeMoviePnl);
             this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.passwordPnl);

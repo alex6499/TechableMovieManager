@@ -5028,7 +5028,7 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM Rentals";
@@ -5052,10 +5052,15 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE Rentals\r\nSET returned = 1\r\nFROM Rentals, Copies\r\nWHERE Rentals.upc = @upc " +
-                "";
+            this._commandCollection[4].CommandText = "SELECT        rentalId, upc, customerId, userName, dueDate, returned\r\nFROM       " +
+                "     Rentals\r\nWHERE        (dueDate < GETDATE())";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "UPDATE Rentals\r\nSET returned = 1\r\nFROM Rentals, Copies\r\nWHERE Rentals.upc = @upc " +
+                "";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5163,6 +5168,17 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         public virtual TechableDS.RentalsDataTable GetCurrentByCustomer(int customerId) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(customerId));
+            TechableDS.RentalsDataTable dataTable = new TechableDS.RentalsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual TechableDS.RentalsDataTable GetLateMovies() {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             TechableDS.RentalsDataTable dataTable = new TechableDS.RentalsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5297,7 +5313,7 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int ReturnMovie(string upc) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((upc == null)) {
                 throw new global::System.ArgumentNullException("upc");
             }
