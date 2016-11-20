@@ -57,6 +57,20 @@ namespace TechableMovieManager
 
             return hasEmployee;
         }
+
+        public static bool hasEverHadEmployee(string userName)
+        {
+            bool hasEmployee;
+            DataTable table;
+
+            adapter = getNewAdapter();
+            table = adapter.GetAllByUserName(userName);
+            adapter.Dispose();
+
+            hasEmployee = (table.Select().Length > 0);
+
+            return hasEmployee;
+        }
         public static bool validCredentials(string userName, string password)
         {
             bool valid;

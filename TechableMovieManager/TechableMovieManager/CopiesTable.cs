@@ -17,6 +17,18 @@ namespace TechableMovieManager
             return new TechableDSTableAdapters.CopiesTableAdapter();
         }
 
+        public static void delete(string upc)
+        {
+            setDeleted(true, upc);
+        }
+
+        private static void setDeleted(bool deleted, string upc)
+        {
+            adapter = getNewAdapter();
+            adapter.UpdateDeleted(deleted, upc);
+            adapter.Dispose();
+        }
+
         public static bool hasCopy(string upc)
         {
             bool hasCopy;
