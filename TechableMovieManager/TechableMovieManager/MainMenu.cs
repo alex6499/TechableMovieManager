@@ -31,18 +31,13 @@ namespace TechableMovieManager
         //panel to setup method relation
         public delegate void setupDelegate();
         Dictionary<Panel, setupDelegate> setupPanels = new Dictionary<Panel, setupDelegate>();
-
+        bool isFirstSetup = false;
         //main panel
         Panel currentMainPanel;
 
         //constant specifying button panel witdth
         const double BUTTON_PANEL_WIDTH = 0.2;
-
-        //The following two are formatting variables which will be used to normalize the location of textboxes
-        const double LABEL_LEFT = 0.1;
-        const double TEXT_LEFT = 0.3;
-        const double TEXT_RIGHT = 0.7;
-
+        
         /*
          * ----------------------------------------------------------------------------------------------
          * Part 2: Initialization methods and events
@@ -117,10 +112,7 @@ namespace TechableMovieManager
             setupPanels.Add(addCopyPnl, setupAddCopyPnl);
         }
         private void MainMenu_Load(object sender, EventArgs e)
-        {
-            //this.AcceptButton = rent1Btn;
-            //this.ActiveControl = checkout1Txt;
-            
+        {           
             //sets the text in the top bar
             this.Text = currentUser.getFirstName() + " " + currentUser.getLastName() + " is logged in";
             
@@ -162,7 +154,7 @@ namespace TechableMovieManager
 
         private void rent1Btn_Click(object sender, EventArgs e)
         {
-            string upc = checkout1Txt.Text;
+            string upc = checkout1Txt.Text.Trim(' ');
 
             if (!Check.isUPC(upc))
             {
@@ -269,7 +261,9 @@ namespace TechableMovieManager
         /// <param name="panel">The new panel to show as the main panel</param>
         private void setCurrentMainPanel(Panel panel)
         {
+            isFirstSetup = true;
             resizeMainPanel(panel);
+            isFirstSetup = false;
             //make old panel invisible
             if (currentMainPanel != null)
             {
@@ -284,25 +278,25 @@ namespace TechableMovieManager
         /// </summary>
         private void resizePage()
         {
-            setPositionFormControl(mainButtonPnl, 0, BUTTON_PANEL_WIDTH, .1, .95);
+            Reposition.setControl(mainButtonPnl, 0, BUTTON_PANEL_WIDTH, .1, .95);
 
             resizeMainPanel(currentMainPanel);
 
             if (currentUser.isAdmin())
             {
                 Button[] mainButtons = { rentBtn, returnBtn, reportsBtn, adminBtn };
-                setPositionVertically(mainButtons, mainButtonPnl);
+                Reposition.setVertically(mainButtons, mainButtonPnl);
             }
             else
             {
                 Button[] mainButtons = { rentBtn, returnBtn, reportsBtn, newCustomerBtn };
-                setPositionVertically(mainButtons, mainButtonPnl);
+                Reposition.setVertically(mainButtons, mainButtonPnl);
             }
         }
 
         private void resizeMainPanel(Panel panel)
         {
-            setPositionFormControl(panel, BUTTON_PANEL_WIDTH, .95, .1, .95);
+            Reposition.setControl(panel, BUTTON_PANEL_WIDTH, .95, .1, .95);
             //fetches method for seting up the panel from dictionary
             setupDelegate setupMethod;
             setupPanels.TryGetValue(panel, out setupMethod);
@@ -321,12 +315,12 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(addCopyTitleLbl, panel);
+            Reposition.setTitle(addCopyTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, addCopy1Lbl, addCopy2Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, addCopy1Txt, addCopy2Txt);
+            endOfLabels = Reposition.setLabels(panel, 0.2, addCopy1Lbl, addCopy2Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, addCopy1Txt, addCopy2Txt);
 
-            setLocationPanelControl(addCopy1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(addCopy1Btn, panel, .4, endOfText);
         }
 
         public void setupAddMoviePnl()
@@ -335,12 +329,12 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(addMovieTitleLbl, panel);
+            Reposition.setTitle(addMovieTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt);
+            endOfLabels = Reposition.setLabels(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt);
 
-            setLocationPanelControl(addMovie1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(addMovie1Btn, panel, .4, endOfText);
         }
 
         public void setupAddUserPnl()
@@ -349,42 +343,45 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(addUserTitleLbl, panel);
-            endOfLabels = setLabelPostions(panel, 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl, addUser4Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, addUser1Txt, addUser2Txt, addUser3Txt, addUser4Txt);
+            Reposition.setTitle(addUserTitleLbl, panel);
+            endOfLabels = Reposition.setLabels(panel, 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl, addUser4Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, addUser1Txt, addUser2Txt, addUser3Txt, addUser4Txt);
 
-            setLocationPanelControl(addUserRdb, panel, .4, endOfText);
-            setLocationPanelControl(addUserBtn, panel, .4, endOfText + 0.1);
+            Reposition.setControlLocation(addUserRdb, panel, .4, endOfText);
+            Reposition.setControlLocation(addUserBtn, panel, .4, endOfText + 0.1);
         }
 
         public void setupAdminPnl()
         {
             //fill the data tables with info
-            admin1Data.DataSource = EmployeesTable.getAll();
-            admin2Data.DataSource = CustomersTable.getAll();
-            admin3Data.DataSource = MoviesTable.getAll();
+            if (isFirstSetup)
+            {
+                admin1Data.DataSource = EmployeesTable.getAll();
+                admin2Data.DataSource = CustomersTable.getAll();
+                admin3Data.DataSource = MoviesTable.getAll();
+            }
 
-            setPositionPanelControl(adminTitleLbl, adminPnl, .4, .7, 0, .1);
+            Reposition.setControl(adminTitleLbl, adminPnl, .4, .7, 0, .1);
 
-            setPositionPanelControl(adminTab, adminPnl, .1, .9, .1, .9);
+            Reposition.setControl(adminTab, adminPnl, .1, .9, .1, .9);
 
-            setControlPosition(admin1Data, 0, .9, 0, .8);
-            setControlPosition(admin2Data, 0, .9, 0, .8);
-            setControlPosition(admin3Data, 0, .9, 0, .8);
+            Reposition.setNestedControlPosition(admin1Data, .05, .95, 0, .8);
+            Reposition.setNestedControlPosition(admin2Data, .05, .95, 0, .8);
+            Reposition.setNestedControlPosition(admin3Data, .05, .95, 0, .8);
 
             //user Buttons
-            setControlLocation(admin1Btn, .1, .85);
-            setControlLocation(adminPasswordBtn, .4, .85);
-            setControlLocation(admin2Btn, .7, .85);
+            Reposition.setNestedControlLocation(admin1Btn, .1, .85);
+            Reposition.setNestedControlLocation(adminPasswordBtn, .4, .85);
+            Reposition.setNestedControlLocation(admin2Btn, .7, .85);
 
             //customer buttons
-            setControlLocation(admin3Btn, .3, .85);
-            setControlLocation(admin4Btn, .6, .85);
+            Reposition.setNestedControlLocation(admin3Btn, .3, .85);
+            Reposition.setNestedControlLocation(admin4Btn, .6, .85);
 
             //movie buttons
-            setControlLocation(admin5Btn, .1, .85);
-            setControlLocation(admin6Btn, .4, .85);
-            setControlLocation(admin7Btn, .7, .85);
+            Reposition.setNestedControlLocation(admin5Btn, .1, .85);
+            Reposition.setNestedControlLocation(admin6Btn, .4, .85);
+            Reposition.setNestedControlLocation(admin7Btn, .7, .85);
         }
         /// <summary>
         /// Sets the position of all components within the new customer panel based on percent relative locations
@@ -395,16 +392,13 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(newCustomerTitleLbl, panel);
+            Reposition.setTitle(newCustomerTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, newCustomer1Lbl, newCustomer2Lbl, newCustomer3Lbl, newCustomer4Lbl, newCustomer5Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, newCustomer1Txt, newCustomer2Txt, newCustomer3Txt, newCustomer4Txt, newCustomer5Txt);
+            endOfLabels = Reposition.setLabels(panel, 0.2, newCustomer1Lbl, newCustomer2Lbl, newCustomer3Lbl, newCustomer4Lbl, newCustomer5Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, newCustomer1Txt, newCustomer2Txt, newCustomer3Txt, newCustomer4Txt, newCustomer5Txt);
 
-            setLocationPanelControl(newCustomer1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(newCustomer1Btn, panel, .4, endOfText);
         }
-
-        
-        
 
         public void setupPasswordPnl()
         {
@@ -412,11 +406,11 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(passwordTitleLbl, panel);
-            endOfLabels = setLabelPostions(panel, 0.2, password1Lbl, password2Lbl, password3Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, password1Txt, password2Txt, password3Txt);
-            
-            setLocationPanelControl(password1Btn, panel, .4, endOfText);
+            Reposition.setTitle(passwordTitleLbl, panel);
+            endOfLabels = Reposition.setLabels(panel, 0.2, password1Lbl, password2Lbl, password3Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, password1Txt, password2Txt, password3Txt);
+
+            Reposition.setControlLocation(password1Btn, panel, .4, endOfText);
         }
 
         public void setupRemoveCustomerPnl()
@@ -425,12 +419,12 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(removeCustomerTitleLbl, panel);
+            Reposition.setTitle(removeCustomerTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, removeCustomer1Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, removeCustomer1Txt);
+            endOfLabels = Reposition.setLabels(panel, 0.2, removeCustomer1Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, removeCustomer1Txt);
 
-            setLocationPanelControl(removeCustomer1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(removeCustomer1Btn, panel, .4, endOfText);
         }
 
         public void setupRemoveMoviePnl()
@@ -439,12 +433,12 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(removeMovieTitleLbl, panel);
+            Reposition.setTitle(removeMovieTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, removeMovie1Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, removeMovie1Txt);
+            endOfLabels = Reposition.setLabels(panel, 0.2, removeMovie1Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, removeMovie1Txt);
 
-            setLocationPanelControl(removeMovie1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(removeMovie1Btn, panel, .4, endOfText);
         }
 
         public void setupRemoveUserPnl()
@@ -453,23 +447,27 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(removeUserTitleLbl, panel);
+            Reposition.setTitle(removeUserTitleLbl, panel);
 
-            endOfLabels = setLabelPostions(panel, 0.2, removeUser1Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, removeUser1Txt);
+            endOfLabels = Reposition.setLabels(panel, 0.2, removeUser1Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, removeUser1Txt);
 
-            setLocationPanelControl(removeUser1Btn, panel, .4, endOfText + 0.1);
+            Reposition.setControlLocation(removeUser1Btn, panel, .4, endOfText + 0.1);
         }
 
         public void setupRentPnl()
         {
-            setPositionPanelControl(rentTitleLbl, rentPnl, .4, .7, 0, .1);
+            Panel panel = rentPnl;
+            double endOfText;
+            double endOfLabels;
 
-            setPositionPanelControl(checkout1Lbl, rentPnl, LABEL_LEFT, TEXT_LEFT, .2, .3);
+            Reposition.setTitle(rentTitleLbl, panel);
 
-            setPositionPanelControl(checkout1Txt, rentPnl, TEXT_LEFT, TEXT_RIGHT, .2, .3);
+            endOfLabels = Reposition.setLabels(panel, 0.2, checkout1Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, checkout1Txt);
 
-            setLocationPanelControl(rent1Btn, rentPnl, .4, .3);
+            Reposition.setControlLocation(rent1Btn, panel, .4, endOfText);
+            
         }
 
         public void setupRent2Pnl()
@@ -478,14 +476,12 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            rentTitle2Lbl.Text = "Enter Customer Info:\nRenting " + currentDVD.getMovieName();
+            Reposition.setTitle(rentTitle2Lbl, panel);
 
-            setPositionPanelControl(rentTitle2Lbl, panel, .4, .7, 0, .1);
+            endOfLabels = Reposition.setLabels(panel, 0.2, rent2Lbl, rent3Lbl, rent4Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, rent2Txt, rent3Txt, rent4Txt);
 
-            endOfLabels = setLabelPostions(panel, 0.2, rent2Lbl, rent3Lbl, rent4Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, rent2Txt, rent3Txt, rent4Txt);
-
-            setLocationPanelControl(rent2Btn, rent2Pnl, 0.4, endOfLabels);
+            Reposition.setControlLocation(rent2Btn, rent2Pnl, 0.4, endOfLabels);
         }
 
         public void sortBy(DataGridView data, int colNum, bool isAscending)
@@ -503,179 +499,54 @@ namespace TechableMovieManager
         }
         public void setupReportsPnl()
         {
-            reports1Data.DataSource = MoviesTable.getAll();
-            sortBy(reports1Data, 5, false);
-            reports2Data.DataSource = CustomersTable.getAll();
-            sortBy(reports2Data, 7, true);
-            reports3Data.DataSource = MoviesTable.getAll();
-            reports4Data.DataSource = RentalsTable.getNotReturned();
-            sortBy(reports4Data, 4, true);
-            reports5Data.DataSource = RentalsTable.getNotReturned();
-            sortBy(reports5Data, 4, true);
-            reports6Data.DataSource = CopiesTable.getAll();
+            if (isFirstSetup)
+            {
+                reports1Data.DataSource = MoviesTable.getAll();
+                sortBy(reports1Data, 5, false);
+                reports2Data.DataSource = CustomersTable.getAll();
+                sortBy(reports2Data, 7, true);
+                reports3Data.DataSource = MoviesTable.getAll();
+                reports4Data.DataSource = RentalsTable.getNotReturned();
+                sortBy(reports4Data, 4, true);
+                reports5Data.DataSource = RentalsTable.getNotReturned();
+                sortBy(reports5Data, 4, true);
+                reports6Data.DataSource = CopiesTable.getAll();
+                sortBy(reports6Data, 0, true);
+            }
 
-            setPositionPanelControl(reportsTitleLbl, reportsPnl, .4, .7, 0, .1);
+            Reposition.setControl(reportsTitleLbl, reportsPnl, .4, .7, 0, .1);
 
-            setPositionPanelControl(reportsTab, reportsPnl, .1, .9, .1, .9);
+            Reposition.setControl(reportsTab, reportsPnl, .1, .9, .1, .9);
 
-            setControlPosition(reports1Data, 0, 1, 0, 1);
-            setControlPosition(reports2Data, 0, 1, 0, 1);
-            setControlPosition(reports3Data, 0, 1, 0, 1);
-            setControlPosition(reports4Data, 0, 1, 0, 1);
-            setControlPosition(reports5Data, 0, 1, 0, 1);
+            Reposition.setNestedControlPosition(reports1Data, .05, .95, 0, 1);
+            Reposition.setNestedControlPosition(reports2Data, .05, .95, 0, 1);
+            Reposition.setNestedControlPosition(reports3Data, .05, .95, 0, 1);
+            Reposition.setNestedControlPosition(reports4Data, .05, .95, 0, 1);
+            Reposition.setNestedControlPosition(reports5Data, .05, .95, 0, 1);
+            Reposition.setNestedControlPosition(reports6Data, .05, .95, 0, 1);
         }
 
         public void setupReturnPnl()
         {
-            setPositionPanelControl(returnTitleLbl, returnPnl, .4, .7, 0, .1);
+            Panel panel = returnPnl;
+            double endOfText;
+            double endOfLabels;
 
-            setPositionPanelControl(return1Lbl, returnPnl, LABEL_LEFT, TEXT_LEFT, .2, .3);
+            Reposition.setControl(returnTitleLbl, panel, .4, .7, 0, .1);
 
-            setPositionPanelControl(return1Txt, returnPnl, TEXT_LEFT, TEXT_RIGHT, .2, .3);
+            endOfLabels = Reposition.setLabels(panel, 0.2, return1Lbl);
+            endOfText = Reposition.setTextBoxes(panel, 0.2, return1Txt);
 
-            setLocationPanelControl(return1Btn, returnPnl, .4, .3);
+            Reposition.setControlLocation(return1Btn, panel, .4, endOfText);
         }
 
         /*
         * ----------------------------------------------------------------------------------------------
-        * Part 6: Set Position Methods
+        * Part 6: Clear methods
         * ----------------------------------------------------------------------------------------------
         */
 
-        public void setTitlePosition(Label label, Panel panel)
-        {
-            setPositionPanelControl(label, panel, .4, .7, 0, .1);
-        }
-        public double setLabelPostions(Panel panel, double top, params Label[] labels)
-        {
-            for (int i = 0; i < labels.Length; i++)
-            {
-                setPositionPanelControl(labels[i], panel, LABEL_LEFT, TEXT_LEFT, top, top + 0.1);
-                top += 0.1;
-            }
-            
-            return top;
-        }
-
-        public double setTextBoxPostions(Panel panel, double top, params TextBox[] textBoxes)
-        {
-            for (int i = 0; i < textBoxes.Length; i++)
-            {
-                setPositionPanelControl(textBoxes[i], panel, TEXT_LEFT, TEXT_RIGHT, top, top + 0.1);
-                top += 0.1;
-            }
-
-            return top;
-        }
-
-        private void setPositionFormControl(Control control, double left, double right, double top, double bottom)
-        {
-            int formWidth = this.Width;
-            int formHeight = this.Height;
-
-            int xPos = Convert.ToInt32(formWidth * left);
-            int yPos = Convert.ToInt32(formHeight * top);
-            int width = Convert.ToInt32(formWidth * right) - xPos;
-            int height = Convert.ToInt32(formHeight * bottom) - yPos;
-
-            control.Location = new Point(xPos, yPos);
-            control.Size = new Size(width, height);
-        }
-
-        private void setPositionPanelControl(Control control, Panel panel, double left, double right, double top, double bottom)
-        {
-            int formWidth = panel.Width;
-            int formHeight = panel.Height;
-
-            int xPos = Convert.ToInt32(formWidth * left);
-            int yPos = Convert.ToInt32(formHeight * top);
-            int width = Convert.ToInt32(formWidth * right) - xPos;
-            int height = Convert.ToInt32(formHeight * bottom) - yPos;
-
-            control.Location = new Point(xPos, yPos);
-            control.Size = new Size(width, height);
-        }
-
-        private void setControlPosition(Control control, double left, double right, double top, double bottom)
-        {
-            int formWidth = control.Parent.Parent.Width;
-            int formHeight = control.Parent.Parent.Height;
-
-            int xPos = Convert.ToInt32(formWidth * left);
-            int yPos = Convert.ToInt32(formHeight * top);
-            int width = Convert.ToInt32(formWidth * right) - xPos;
-            int height = Convert.ToInt32(formHeight * bottom) - yPos;
-
-            control.Location = new Point(xPos, yPos);
-            control.Size = new Size(width, height);
-        }
-
-        private void setControlLocation(Control control, double x, double y)
-        {
-            int formWidth = control.Parent.Parent.Width;
-            int formHeight = control.Parent.Parent.Height;
-
-            int xPos = Convert.ToInt32(formWidth * x);
-            int yPos = Convert.ToInt32(formHeight * y);
-
-            control.Location = new Point(xPos, yPos);
-        }
-
-        private void setLocationPanelControl(Control control, Panel panel, double x, double y)
-        {
-            int formWidth = panel.Width;
-            int formHeight = panel.Height;
-
-            int xPos = Convert.ToInt32(formWidth * x);
-            int yPos = Convert.ToInt32(formHeight * y);
-
-            control.Location = new Point(xPos, yPos);
-        }
-
-        private void setSizePanelControl(Control control, Panel panel, double widthPercent, double heightPercent)
-        {
-            int formWidth = panel.Width;
-            int formHeight = panel.Height;
-
-            int width = Convert.ToInt32(formWidth * widthPercent);
-            int height = Convert.ToInt32(formHeight * heightPercent);
-
-            control.Size = new Size(width, height);
-        }
-
-        private void setPositionVertically(Control[] controls, Panel panel)
-        {
-            int numberOfControls = controls.Length;
-            int panelWidth = panel.Width;
-            int panelHeight = panel.Height;
-
-            for (int i = 0; i < controls.Length; i++)
-            {
-                Control control = controls[i];
-
-                control.Location = new Point(0, i * panelHeight / numberOfControls);
-
-                control.Width = panelWidth;
-                control.Height = panelHeight / numberOfControls;
-            }
-        }
-
-        private void setPositionHorizontally(Control[] controls, Panel panel)
-        {
-            int numberOfControls = controls.Length;
-            int panelWidth = panel.Width;
-            int panelHeight = panel.Height;
-
-            for (int i = 0; i < controls.Length; i++)
-            {
-                Control control = controls[i];
-
-                control.Location = new Point(i * panelHeight / numberOfControls, 0);
-
-                control.Width = panelWidth / numberOfControls;
-                control.Height = panelHeight;
-            }
-        }
+        
 
         
 
@@ -699,6 +570,7 @@ namespace TechableMovieManager
             }
         }
 
+
         public void clearTextBoxes(Form form)
         {
             TextBox[] textBoxes = form.Controls.OfType<TextBox>().ToArray<TextBox>();
@@ -709,9 +581,21 @@ namespace TechableMovieManager
             }
         }
 
+        /*
+         * ----------------------------------------------------------------------------------------------
+         * Part 5: Submit Button Events
+         * ----------------------------------------------------------------------------------------------
+         */
+
         private void removeMovie1Btn_Click(object sender, EventArgs e)
         {
-            string movieId = removeMovie1Txt.Text;
+            string movieId = removeMovie1Txt.Text.Trim(' ');
+
+            if (!Check.areValidInputs(movieId))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
             if (!Check.isInt32(movieId))
             {
                 Prompt.enterInt32("Movie Id");
@@ -722,27 +606,80 @@ namespace TechableMovieManager
             //MoviesTable.setDeleted(true, Int32.Parse(movieId));
             //clearTextBoxes(removeMoviePnl);
         }
-
-        private void return1Btn_Click(object sender, EventArgs e)
+        private void addCopy1Btn_Click(object sender, EventArgs e)
         {
-            string upc = return1Txt.Text;
+            string movieId = addCopy1Txt.Text.Trim(' ');
+            string upc = addCopy2Txt.Text.Trim(' ');
+
+            if (!Check.areValidInputs(movieId, upc))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
+            //enter int MovieId
+            if (!Check.isInt32(movieId))
+            {
+                Prompt.enterInt32("movie ID");
+                return;
+            }
+            //incorrect UPC format
             if (!Check.isUPC(upc))
             {
                 Prompt.enterUPC();
                 return;
             }
+            //specified movie is not in DB
+            if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
+            {
+                Prompt.notInDB("movie", "movie ID");
+                return;
+            }
+            //UPC ust be unique
+            if (CopiesTable.hasCopy(upc))
+            {
+                Prompt.alreadyInDB("UPC");
+                return;
+            }
 
+            CopiesTable.add(upc, Int32.Parse(movieId));
+
+            addCopy2Txt.Clear();
+        }
+        private void return1Btn_Click(object sender, EventArgs e)
+        {
+            string upc = return1Txt.Text.Trim(' ');
+            if (!Check.areValidInputs(upc))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
+            if (!Check.isUPC(upc))
+            {
+                Prompt.enterUPC();
+                return;
+            }
+            if (CopiesTable.isAvailable(upc))
+            {
+                Prompt.cantReturn();
+                return;
+            }
             RentalsTable.returnMovie(upc);
             CopiesTable.makeAvailable(upc);
 
             clearTextBoxes(returnPnl);
-
+            //MessageBox.Show(prompt, "Success.", MessageBoxButtons.OK);
+            
         }
 
         private void removeUser1Btn_Click(object sender, EventArgs e)
         {
-            string userName = removeUser1Txt.Text;
+            string userName = removeUser1Txt.Text.Trim(' ');
 
+            if (!Check.areValidInputs(userName))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
             if (currentUser.getUserName().Equals(userName))
             {
                 Prompt.cannotDeleteSelf();
@@ -754,20 +691,29 @@ namespace TechableMovieManager
         }
         private void newCustomer1Btn_Click(object sender, EventArgs e)
         {
-            string fName = newCustomer1Txt.Text;
-            string lName = newCustomer2Txt.Text;
-            string phone = newCustomer3Txt.Text;
+            string firstName = newCustomer1Txt.Text.Trim(' ');
+            string lastName = newCustomer2Txt.Text.Trim(' ');
+            string phone = newCustomer3Txt.Text.Trim(' ');
+            string email = newCustomer4Txt.Text.Trim(' ');
+            string address = newCustomer5Txt.Text.Trim(' ');
 
+            if (!Check.areValidInputs(firstName, lastName, phone, email, address))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
             if (!Check.isPhone(phone))
             {
                 Prompt.enterPhone();
                 return;
             }
+            if (CustomersTable.hasCustomer(firstName, lastName, phone))
+            {
+                Prompt.alreadyInDB("customer");
+                return;
+            }
 
-            string email = newCustomer4Txt.Text;
-            string address = newCustomer5Txt.Text;
-
-            CustomersTable.add(lName, fName, email, address, phone);
+            CustomersTable.add(lastName, firstName, email, address, phone);
 
             clearRadioButtons(newCustomerPnl);
             clearTextBoxes(newCustomerPnl);
@@ -775,20 +721,37 @@ namespace TechableMovieManager
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-            string fName = addUser1Txt.Text;
-            string lName = addUser2Txt.Text;
-            string userName = addUser3Txt.Text;
-            string password = addUser4Txt.Text;
+            string firstName = addUser1Txt.Text.Trim(' ');
+            string lastName = addUser2Txt.Text.Trim(' ');
+            string userName = addUser3Txt.Text.Trim(' ');
+            string password = addUser4Txt.Text.Trim(' ');
             bool isAdmin = addUserRdb.Checked;
 
-            EmployeesTable.add(lName, fName, isAdmin, userName, password);
+            if (!Check.areValidInputs(firstName, lastName, userName, password))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
+            //userName already in DB
+            if (EmployeesTable.hasEmployee(userName))
+            {
+                Prompt.alreadyInDB("user");
+                return;
+            }
+            EmployeesTable.add(lastName, firstName, isAdmin, userName, password);
 
             clearTextBoxes(addUserPnl);
         }
 
         private void removeCustomer1Btn_Click(object sender, EventArgs e)
         {
-            string customerId = removeCustomer1Txt.Text;
+            string customerId = removeCustomer1Txt.Text.Trim(' ');
+
+            if (!Check.areValidInputs(customerId))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
             if (!Check.isInt32(customerId))
             {
                 Prompt.enterInt32("Customer Id");
@@ -802,35 +765,51 @@ namespace TechableMovieManager
 
         private void addMovie1Btn_Click(object sender, EventArgs e)
         {
-            string name = addMovie1Txt.Text;
-            string studio = addMovie2Txt.Text;
-            string year = addMovie3Txt.Text;
-            if (!Check.isInt32(year))
+            string name = addMovie1Txt.Text.Trim(' ');
+            string studio = addMovie2Txt.Text.Trim(' ');
+            string year = addMovie3Txt.Text.Trim(' ');
+
+            if (!Check.areValidInputs(name, studio, year))
             {
-                Prompt.enterInt32("year");
+                Prompt.enterValidInput();
+                return;
+            }
+            if (!Check.isYear(year))
+            {
+                Prompt.enterYear();
+                return;
+            }
+            //Movie is already in DB
+            if (MoviesTable.hasMovieByInfo(name, studio, Int32.Parse(year)))
+            {
+                Prompt.alreadyInDB("movie");
                 return;
             }
 
+            //Add to DB
             MoviesTable.add(name, Int32.Parse(year), studio);
 
+            //cleanup
             clearRadioButtons(addMoviePnl);
             clearTextBoxes(addMoviePnl);
 
+            //transition to add DVDs for the movie
+            addCopy1Txt.Text = MoviesTable.getMovieId(name, studio, Int32.Parse(year)).ToString();
+            setCurrentMainPanel(addCopyPnl);
         }
-        /*
-        private void return1Txt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar)){
-                e.Handled = true;
-            }
-        }
-        */
+
         private void rent2Btn_Click(object sender, EventArgs e)
         {
-            string firstName = rent2Txt.Text;
-            string lastName = rent3Txt.Text;
-            string phone = rent4Txt.Text;
+            string firstName = rent2Txt.Text.Trim(' ');
+            string lastName = rent3Txt.Text.Trim(' ');
+            string phone = rent4Txt.Text.Trim(' ');
             int customerId;
+
+            if (!Check.areValidInputs(firstName, lastName, phone))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
 
             if (!Check.isPhone(phone))
             {
@@ -869,37 +848,10 @@ namespace TechableMovieManager
             Application.Exit();
         }
 
-        private void addCopy1Btn_Click(object sender, EventArgs e)
+        private void newCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string movieId = addCopy1Txt.Text;
-            string upc = addCopy2Txt.Text;
-
-            if (!Check.isInt32(movieId))
-            {
-                Prompt.enterInt32("movie ID");
-                return;
-            }
-            if (!Check.isUPC(upc))
-            {
-                Prompt.enterUPC();
-                return;
-            }
-            if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
-            {
-                Prompt.notInDB("movie", "movie ID");
-                return;
-            }
-
-            //UPC ust be unique
-            if (CopiesTable.hasCopy(upc))
-            {
-                Prompt.notUnique("UPC");
-                return;
-            }
-
-            CopiesTable.add(upc, Int32.Parse(movieId));
-
-            addCopy2Txt.Clear();
+            setCurrentMainPanel(newCustomerPnl);
         }
+        
     }
 }

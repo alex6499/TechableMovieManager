@@ -9,9 +9,40 @@ namespace TechableMovieManager
 {
     abstract class Check
     {
-        
 
+        public static bool isValidInput(string input)
+        {
+            Regex regex = new Regex(@"^[a-zA-Z0-9\.\!\?\:\;\,\'\- ]+$");
             
+            return regex.IsMatch(input);
+        }
+
+        public static bool areValidInputs(params string[] inputs)
+        {
+            bool valid= true;
+
+            foreach (string input in inputs)
+            {
+                if (!isValidInput(input))
+                {
+                    valid = false;
+                    break;
+                }
+            }
+
+            return valid;
+        }
+        public static bool isYear(string input)
+        {
+            bool result = true;
+            Regex phoneRegex = new Regex(@"^\d{4}$");
+            string current = "2016";
+            string oldest = "1900";
+            result = phoneRegex.IsMatch(input) 
+                && current.CompareTo(input) >= 0 
+                && oldest.CompareTo(input) <= 0;
+            return  result;
+        } 
         public static bool isPhone(string input)
         {
             Regex phoneRegex = new Regex(@"^\d{3}-\d{3}-\d{4}$");

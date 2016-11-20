@@ -60,6 +60,30 @@ namespace TechableMovieManager
 
             return hasMovie;
         }
+        public static bool hasMovieByInfo(string name, string studio, int year)
+        {
+            bool hasMovie;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetByInfo(name, studio, year);
+            adapter.Dispose();
+
+            hasMovie = (table.Select().Length > 0);
+
+            return hasMovie;
+        }
+        public static int getMovieId(string name, string studio, int year)
+        {
+            int id;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetByInfo(name, studio, year);
+            adapter.Dispose();
+
+            id = (int) table.Select()[0].ItemArray[0];
+
+            return id;
+        }
         public static bool hasMovieById(int movieId)
         {
             bool hasMovie;

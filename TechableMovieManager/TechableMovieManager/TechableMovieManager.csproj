@@ -92,6 +92,7 @@
     <Compile Include="Prompt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentalsTable.cs" />
+    <Compile Include="Reposition.cs" />
     <Compile Include="TechableDS.cs">
       <DependentUpon>TechableDS.xsd</DependentUpon>
     </Compile>

@@ -14,10 +14,21 @@ namespace TechableMovieManager
             string prompt = "Enter an 32bit integer into " + field + ".";
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
-
+        public static void enterValidInput()
+        {
+            string prompt = "Please only enter alphanumeric characters, spaces"
+                + "\nand the followingsymbols . ! ? : ; , ' - ."
+                + "\nalso note that leading and trailing white spaces are removed";
+            MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
+        }
         public static void cannotDeleteSelf()
         {
             string prompt = "You cannot delete yourself.";
+            MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
+        }
+        public static void cantReturn()
+        {
+            string prompt = "This movie has already been returned.";
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
 
@@ -37,10 +48,15 @@ namespace TechableMovieManager
             string prompt = "Please enter a 5-20 digit numeric UPC.";
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
-        public static void notUnique(String subject)
+        public static void enterYear()
         {
-            string prompt = "This " + subject + "already exists in the database.";
+            string prompt = "Please year between 1900 and 2016.";
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
+        }
+        public static void alreadyInDB(string subject)
+        {
+            string prompt = "This " + subject + " is already in the database.";
+            MessageBox.Show(prompt, "Search result", MessageBoxButtons.OK);
         }
         public static void notInDB(string subject, string searchedBy)
         {

@@ -36,7 +36,7 @@ namespace TechableMovieManager
 
         public static DataTable getAll()
         {
-            TechableDS.EmployeesDataTable table;
+            DataTable table;
 
             adapter = getNewAdapter();
             table = adapter.GetData();
@@ -44,10 +44,35 @@ namespace TechableMovieManager
 
             return table;
         }
+        public static bool hasEmployee(string userName)
+        {
+            bool hasEmployee;
+            DataTable table;
 
+            adapter = getNewAdapter();
+            table = adapter.GetByUserName(userName);
+            adapter.Dispose();
+
+            hasEmployee = (table.Select().Length > 0);
+
+            return hasEmployee;
+        }
+        public static bool validCredentials(string userName, string password)
+        {
+            bool valid;
+            DataTable table;
+
+            adapter = getNewAdapter();
+            table = adapter.GetDataBy(userName, password);
+            adapter.Dispose();
+
+            valid = (table.Select().Length > 0);
+
+            return valid;
+        }
         public static  Object[] getEmployee(string userName, string password)
         {
-            TechableDS.EmployeesDataTable table;
+            DataTable table;
 
             adapter = getNewAdapter();
             table = adapter.GetDataBy(userName, password);

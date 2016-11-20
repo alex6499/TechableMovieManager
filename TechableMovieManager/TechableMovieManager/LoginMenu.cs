@@ -80,27 +80,28 @@ namespace TechableMovieManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string userName = userNameTxt.Text;
-            string password = passwordTxt.Text;
+            string userName = userNameTxt.Text.Trim(' ');
+            string password = passwordTxt.Text.Trim(' ');
 
-            
-            Object[] i = EmployeesTable.getEmployee(userName, password);
-            bool isValidCredentials = i != null;
-            if (isValidCredentials)
+            if (!Check.areValidInputs(userName, password))
             {
-                string firstName = (string)i[0];
-                string lastName = (string)i[1];
-                bool isAdmin = (bool)i[2];
-
-                User user = new User(isAdmin, userName, firstName, lastName);
-
-                startMainMenu(user);
+                Prompt.enterValidInput();
+                return;
             }
-            else
+            if (!EmployeesTable.validCredentials(userName, password))
             {
                 MessageBox.Show("Incorrect username and/or password.", "Failed Authentication", MessageBoxButtons.OK);
+                return;
             }
-            
+
+            Object[] i = EmployeesTable.getEmployee(userName, password);
+            string firstName = (string)i[0];
+            string lastName = (string)i[1];
+            bool isAdmin = (bool)i[2];
+
+            User user = new User(isAdmin, userName, firstName, lastName);
+
+            startMainMenu(user);
         }
         public void startMainMenu(User user)
         {
@@ -119,5 +120,25 @@ namespace TechableMovieManager
             //LoadMovies();
             //LoadCopies();
         }
+
+        private void LoginMenu_Resize(object sender, EventArgs e)
+        {
+            /*
+            Panel panel = addCopyPnl;
+            double endOfText;
+            double endOfLabels;
+
+            setTitlePosition(addCopyTitleLbl, panel);
+
+            endOfLabels = setLabelPostions(panel, 0.2, addCopy1Lbl, addCopy2Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, addCopy1Txt, addCopy2Txt);
+
+            setLocationPanelControl(addCopy1Btn, panel, .4, endOfText);
+            */
+        }
+        /*
+            
+   */
     }
+    
 }

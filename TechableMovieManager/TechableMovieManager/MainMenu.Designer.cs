@@ -342,6 +342,7 @@
             this.newCustomerToolStripMenuItem.Name = "newCustomerToolStripMenuItem";
             this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.newCustomerToolStripMenuItem.Text = "New Customer";
+            this.newCustomerToolStripMenuItem.Click += new System.EventHandler(this.newCustomerToolStripMenuItem_Click);
             // 
             // rentPnl
             // 
@@ -608,7 +609,7 @@
             this.newCustomer5Txt.Location = new System.Drawing.Point(243, 173);
             this.newCustomer5Txt.Name = "newCustomer5Txt";
             this.newCustomer5Txt.Size = new System.Drawing.Size(100, 29);
-            this.newCustomer5Txt.TabIndex = 34;
+            this.newCustomer5Txt.TabIndex = 5;
             // 
             // newCustomer5Lbl
             // 
@@ -626,7 +627,7 @@
             this.newCustomer4Txt.Location = new System.Drawing.Point(243, 146);
             this.newCustomer4Txt.Name = "newCustomer4Txt";
             this.newCustomer4Txt.Size = new System.Drawing.Size(100, 29);
-            this.newCustomer4Txt.TabIndex = 32;
+            this.newCustomer4Txt.TabIndex = 4;
             // 
             // newCustomer4Lbl
             // 
@@ -644,7 +645,7 @@
             this.newCustomer1Btn.Location = new System.Drawing.Point(166, 224);
             this.newCustomer1Btn.Name = "newCustomer1Btn";
             this.newCustomer1Btn.Size = new System.Drawing.Size(98, 32);
-            this.newCustomer1Btn.TabIndex = 30;
+            this.newCustomer1Btn.TabIndex = 6;
             this.newCustomer1Btn.Text = "Submit";
             this.newCustomer1Btn.UseVisualStyleBackColor = true;
             this.newCustomer1Btn.Click += new System.EventHandler(this.newCustomer1Btn_Click);
@@ -655,7 +656,7 @@
             this.newCustomer3Txt.Location = new System.Drawing.Point(243, 112);
             this.newCustomer3Txt.Name = "newCustomer3Txt";
             this.newCustomer3Txt.Size = new System.Drawing.Size(100, 29);
-            this.newCustomer3Txt.TabIndex = 6;
+            this.newCustomer3Txt.TabIndex = 3;
             // 
             // newCustomer2Txt
             // 
@@ -663,7 +664,7 @@
             this.newCustomer2Txt.Location = new System.Drawing.Point(243, 83);
             this.newCustomer2Txt.Name = "newCustomer2Txt";
             this.newCustomer2Txt.Size = new System.Drawing.Size(100, 29);
-            this.newCustomer2Txt.TabIndex = 5;
+            this.newCustomer2Txt.TabIndex = 2;
             // 
             // newCustomer1Txt
             // 
@@ -671,7 +672,7 @@
             this.newCustomer1Txt.Location = new System.Drawing.Point(243, 57);
             this.newCustomer1Txt.Name = "newCustomer1Txt";
             this.newCustomer1Txt.Size = new System.Drawing.Size(100, 29);
-            this.newCustomer1Txt.TabIndex = 4;
+            this.newCustomer1Txt.TabIndex = 1;
             // 
             // newCustomer3Lbl
             // 
@@ -718,7 +719,7 @@
             this.adminPnl.BackColor = System.Drawing.Color.Transparent;
             this.adminPnl.Controls.Add(this.adminTab);
             this.adminPnl.Controls.Add(this.adminTitleLbl);
-            this.adminPnl.Location = new System.Drawing.Point(199, 27);
+            this.adminPnl.Location = new System.Drawing.Point(339, 30);
             this.adminPnl.Name = "adminPnl";
             this.adminPnl.Size = new System.Drawing.Size(600, 553);
             this.adminPnl.TabIndex = 12;
@@ -923,7 +924,7 @@
             this.rent4Txt.Location = new System.Drawing.Point(236, 125);
             this.rent4Txt.Name = "rent4Txt";
             this.rent4Txt.Size = new System.Drawing.Size(100, 29);
-            this.rent4Txt.TabIndex = 36;
+            this.rent4Txt.TabIndex = 3;
             // 
             // rent4Lbl
             // 
@@ -941,7 +942,7 @@
             this.rent2Btn.Location = new System.Drawing.Point(174, 254);
             this.rent2Btn.Name = "rent2Btn";
             this.rent2Btn.Size = new System.Drawing.Size(98, 32);
-            this.rent2Btn.TabIndex = 42;
+            this.rent2Btn.TabIndex = 4;
             this.rent2Btn.Text = "Submit";
             this.rent2Btn.UseVisualStyleBackColor = true;
             this.rent2Btn.Click += new System.EventHandler(this.rent2Btn_Click);
@@ -952,7 +953,7 @@
             this.rent3Txt.Location = new System.Drawing.Point(270, 96);
             this.rent3Txt.Name = "rent3Txt";
             this.rent3Txt.Size = new System.Drawing.Size(185, 29);
-            this.rent3Txt.TabIndex = 28;
+            this.rent3Txt.TabIndex = 2;
             // 
             // rent3Lbl
             // 
@@ -970,7 +971,7 @@
             this.rent2Txt.Location = new System.Drawing.Point(270, 67);
             this.rent2Txt.Name = "rent2Txt";
             this.rent2Txt.Size = new System.Drawing.Size(185, 29);
-            this.rent2Txt.TabIndex = 25;
+            this.rent2Txt.TabIndex = 1;
             // 
             // rent2Lbl
             // 
@@ -1147,7 +1148,7 @@
             this.password3Txt.Location = new System.Drawing.Point(236, 125);
             this.password3Txt.Name = "password3Txt";
             this.password3Txt.Size = new System.Drawing.Size(100, 29);
-            this.password3Txt.TabIndex = 36;
+            this.password3Txt.TabIndex = 3;
             // 
             // password3Lbl
             // 
@@ -1165,7 +1166,7 @@
             this.password1Btn.Location = new System.Drawing.Point(174, 254);
             this.password1Btn.Name = "password1Btn";
             this.password1Btn.Size = new System.Drawing.Size(98, 32);
-            this.password1Btn.TabIndex = 29;
+            this.password1Btn.TabIndex = 4;
             this.password1Btn.Text = "Submit";
             this.password1Btn.UseVisualStyleBackColor = true;
             // 
@@ -1175,7 +1176,7 @@
             this.password2Txt.Location = new System.Drawing.Point(270, 96);
             this.password2Txt.Name = "password2Txt";
             this.password2Txt.Size = new System.Drawing.Size(185, 29);
-            this.password2Txt.TabIndex = 28;
+            this.password2Txt.TabIndex = 2;
             // 
             // password2Lbl
             // 
@@ -1193,7 +1194,7 @@
             this.password1Txt.Location = new System.Drawing.Point(270, 67);
             this.password1Txt.Name = "password1Txt";
             this.password1Txt.Size = new System.Drawing.Size(185, 29);
-            this.password1Txt.TabIndex = 25;
+            this.password1Txt.TabIndex = 1;
             // 
             // password1Lbl
             // 
@@ -1404,7 +1405,7 @@
             this.addMovie1Btn.Location = new System.Drawing.Point(166, 224);
             this.addMovie1Btn.Name = "addMovie1Btn";
             this.addMovie1Btn.Size = new System.Drawing.Size(98, 32);
-            this.addMovie1Btn.TabIndex = 45;
+            this.addMovie1Btn.TabIndex = 4;
             this.addMovie1Btn.Text = "Submit";
             this.addMovie1Btn.UseVisualStyleBackColor = true;
             this.addMovie1Btn.Click += new System.EventHandler(this.addMovie1Btn_Click);
@@ -1415,7 +1416,7 @@
             this.addMovie3Txt.Location = new System.Drawing.Point(243, 112);
             this.addMovie3Txt.Name = "addMovie3Txt";
             this.addMovie3Txt.Size = new System.Drawing.Size(100, 29);
-            this.addMovie3Txt.TabIndex = 6;
+            this.addMovie3Txt.TabIndex = 3;
             // 
             // addMovie2Txt
             // 
@@ -1423,7 +1424,7 @@
             this.addMovie2Txt.Location = new System.Drawing.Point(243, 83);
             this.addMovie2Txt.Name = "addMovie2Txt";
             this.addMovie2Txt.Size = new System.Drawing.Size(100, 29);
-            this.addMovie2Txt.TabIndex = 5;
+            this.addMovie2Txt.TabIndex = 2;
             // 
             // addMovie1Txt
             // 
@@ -1431,7 +1432,7 @@
             this.addMovie1Txt.Location = new System.Drawing.Point(243, 57);
             this.addMovie1Txt.Name = "addMovie1Txt";
             this.addMovie1Txt.Size = new System.Drawing.Size(100, 29);
-            this.addMovie1Txt.TabIndex = 4;
+            this.addMovie1Txt.TabIndex = 1;
             // 
             // addMovie2Lbl
             // 
@@ -1484,7 +1485,7 @@
             this.addCopy1Btn.Location = new System.Drawing.Point(174, 254);
             this.addCopy1Btn.Name = "addCopy1Btn";
             this.addCopy1Btn.Size = new System.Drawing.Size(98, 32);
-            this.addCopy1Btn.TabIndex = 42;
+            this.addCopy1Btn.TabIndex = 3;
             this.addCopy1Btn.Text = "Submit";
             this.addCopy1Btn.UseVisualStyleBackColor = true;
             this.addCopy1Btn.Click += new System.EventHandler(this.addCopy1Btn_Click);
@@ -1495,7 +1496,7 @@
             this.addCopy2Txt.Location = new System.Drawing.Point(270, 96);
             this.addCopy2Txt.Name = "addCopy2Txt";
             this.addCopy2Txt.Size = new System.Drawing.Size(185, 29);
-            this.addCopy2Txt.TabIndex = 28;
+            this.addCopy2Txt.TabIndex = 2;
             // 
             // addCopy2Lbl
             // 
@@ -1513,7 +1514,7 @@
             this.addCopy1Txt.Location = new System.Drawing.Point(270, 67);
             this.addCopy1Txt.Name = "addCopy1Txt";
             this.addCopy1Txt.Size = new System.Drawing.Size(185, 29);
-            this.addCopy1Txt.TabIndex = 25;
+            this.addCopy1Txt.TabIndex = 1;
             // 
             // addCopy1Lbl
             // 
@@ -1561,21 +1562,21 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
-            this.Controls.Add(this.reportsPnl);
-            this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.rentPnl);
-            this.Controls.Add(this.rent2Pnl);
+            this.Controls.Add(this.addUserPnl);
+            this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.removeUserPnl);
             this.Controls.Add(this.returnPnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.removeCustomerPnl);
+            this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.removeMoviePnl);
-            this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.adminPnl);
+            this.Controls.Add(this.rent2Pnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
