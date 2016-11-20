@@ -26,6 +26,8 @@ namespace TechableMovieManager
         DVD currentDVD;
         Customer currentCustomer;
 
+        Form loginMenu;
+
         //panel to setup method relation
         public delegate void setupDelegate();
         Dictionary<Panel, setupDelegate> setupPanels = new Dictionary<Panel, setupDelegate>();
@@ -47,8 +49,10 @@ namespace TechableMovieManager
          * ----------------------------------------------------------------------------------------------
          */
 
-        public MainMenu(User user)
+        public MainMenu(User user, Form loginMenu)
         {
+            this.loginMenu = loginMenu;
+
             currentUser = user;
             InitializeComponent();
 
@@ -110,6 +114,7 @@ namespace TechableMovieManager
             setupPanels.Add(removeCustomerPnl, setupRemoveCustomerPnl);
             setupPanels.Add(removeUserPnl, setupRemoveUserPnl);
             setupPanels.Add(removeMoviePnl, setupRemoveMoviePnl);
+            setupPanels.Add(addCopyPnl, setupAddCopyPnl);
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
@@ -229,6 +234,12 @@ namespace TechableMovieManager
         {
             setCurrentMainPanel(addMoviePnl);
         }
+
+        private void copyBtn_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(addCopyPnl);
+        }
+
         private void admin6Btn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(removeMoviePnl);
@@ -302,6 +313,20 @@ namespace TechableMovieManager
          * ----------------------------------------------------------------------------------------------
          */
 
+        public void setupAddCopyPnl()
+        {
+            Panel panel = addCopyPnl;
+            double endOfText;
+            double endOfLabels;
+
+            setTitlePosition(addCopyTitleLbl, panel);
+
+            endOfLabels = setLabelPostions(panel, 0.2, addCopy1Lbl, addCopy2Lbl);
+            endOfText = setTextBoxPostions(panel, 0.2, addCopy1Txt, addCopy2Txt);
+
+            setLocationPanelControl(addCopy1Btn, panel, .4, endOfText);
+        }
+
         public void setupAddMoviePnl()
         {
             Panel panel = addMoviePnl;
@@ -341,9 +366,9 @@ namespace TechableMovieManager
 
             setPositionPanelControl(adminTab, adminPnl, .1, .9, .1, .9);
 
-            setControlPosition(admin1Data, 0, 1, 0, .8);
-            setControlPosition(admin2Data, 0, 1, 0, .8);
-            setControlPosition(admin3Data, 0, 1, 0, .8);
+            setControlPosition(admin1Data, 0, .9, 0, .8);
+            setControlPosition(admin2Data, 0, .9, 0, .8);
+            setControlPosition(admin3Data, 0, .9, 0, .8);
 
             //user Buttons
             setControlLocation(admin1Btn, .1, .85);
@@ -355,8 +380,9 @@ namespace TechableMovieManager
             setControlLocation(admin4Btn, .6, .85);
 
             //movie buttons
-            setControlLocation(admin5Btn, .3, .85);
-            setControlLocation(admin6Btn, .6, .85);
+            setControlLocation(admin5Btn, .1, .85);
+            setControlLocation(admin6Btn, .4, .85);
+            setControlLocation(admin7Btn, .7, .85);
         }
         /// <summary>
         /// Sets the position of all components within the new customer panel based on percent relative locations
@@ -460,13 +486,30 @@ namespace TechableMovieManager
             setLocationPanelControl(rent2Btn, rent2Pnl, 0.4, endOfLabels);
         }
 
+        public void sortBy(DataGridView data, int colNum, bool isAscending)
+        {
+            if (0 < colNum && colNum < data.ColumnCount)
+            {
+                ListSortDirection direction;
+                if (isAscending) {
+                    direction = ListSortDirection.Ascending;
+                } else {
+                    direction = ListSortDirection.Descending;
+                }
+                data.Sort(data.Columns[5], direction);
+            }
+        }
         public void setupReportsPnl()
         {
             reports1Data.DataSource = MoviesTable.getAll();
+            sortBy(reports1Data, 5, false);
             reports2Data.DataSource = CustomersTable.getAll();
+            sortBy(reports2Data, 7, true);
             reports3Data.DataSource = MoviesTable.getAll();
             reports4Data.DataSource = RentalsTable.getNotReturned();
+            sortBy(reports4Data, 4, true);
             reports5Data.DataSource = RentalsTable.getNotReturned();
+            sortBy(reports5Data, 4, true);
 
             setPositionPanelControl(reportsTitleLbl, reportsPnl, .4, .7, 0, .1);
 
@@ -653,6 +696,16 @@ namespace TechableMovieManager
             }
         }
 
+        public void clearTextBoxes(Form form)
+        {
+            TextBox[] textBoxes = form.Controls.OfType<TextBox>().ToArray<TextBox>();
+
+            foreach (TextBox textBox in textBoxes)
+            {
+                textBox.Clear();
+            }
+        }
+
         private void removeMovie1Btn_Click(object sender, EventArgs e)
         {
             string movieId = removeMovie1Txt.Text;
@@ -761,14 +814,14 @@ namespace TechableMovieManager
             clearTextBoxes(addMoviePnl);
 
         }
-
+        /*
         private void return1Txt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar)){
                 e.Handled = true;
             }
         }
-
+        */
         private void rent2Btn_Click(object sender, EventArgs e)
         {
             string firstName = rent2Txt.Text;
@@ -801,14 +854,16 @@ namespace TechableMovieManager
             setCurrentMainPanel(rentPnl);
         }
 
-        private void admin1Data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            clearTextBoxes(loginMenu);
+            this.Hide();
+            loginMenu.Show();
         }
 
-        private void addMovie1Lbl_Click(object sender, EventArgs e)
+        private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

@@ -92,6 +92,7 @@
             this.admin2Data = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.admin6Btn = new System.Windows.Forms.Button();
+            this.admin7Btn = new System.Windows.Forms.Button();
             this.admin5Btn = new System.Windows.Forms.Button();
             this.admin3Data = new System.Windows.Forms.DataGridView();
             this.adminTitleLbl = new System.Windows.Forms.Label();
@@ -150,6 +151,13 @@
             this.addMovie2Lbl = new System.Windows.Forms.Label();
             this.addMovie1Lbl = new System.Windows.Forms.Label();
             this.addMovieTitleLbl = new System.Windows.Forms.Label();
+            this.addCopyPnl = new System.Windows.Forms.Panel();
+            this.addCopy1Btn = new System.Windows.Forms.Button();
+            this.addCopy2Txt = new System.Windows.Forms.TextBox();
+            this.addCopy2Lbl = new System.Windows.Forms.Label();
+            this.addCopy1Txt = new System.Windows.Forms.TextBox();
+            this.addCopy1Lbl = new System.Windows.Forms.Label();
+            this.addCopyTitleLbl = new System.Windows.Forms.Label();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -182,6 +190,7 @@
             this.removeUserPnl.SuspendLayout();
             this.removeMoviePnl.SuspendLayout();
             this.addMoviePnl.SuspendLayout();
+            this.addCopyPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // rentBtn
@@ -282,14 +291,16 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitProgramToolStripMenuItem
             // 
             this.exitProgramToolStripMenuItem.Name = "exitProgramToolStripMenuItem";
-            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitProgramToolStripMenuItem.Text = "Exit Program";
+            this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.exitProgramToolStripMenuItem_Click);
             // 
             // moviesToolStripMenuItem
             // 
@@ -412,7 +423,6 @@
             this.return1Txt.Name = "return1Txt";
             this.return1Txt.Size = new System.Drawing.Size(100, 29);
             this.return1Txt.TabIndex = 11;
-            this.return1Txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.return1Txt_KeyPress);
             // 
             // return1Lbl
             // 
@@ -775,7 +785,6 @@
             this.admin1Data.ReadOnly = true;
             this.admin1Data.Size = new System.Drawing.Size(413, 192);
             this.admin1Data.TabIndex = 1;
-            this.admin1Data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.admin1Data_CellContentClick);
             // 
             // tabPage2
             // 
@@ -824,6 +833,7 @@
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.admin6Btn);
+            this.tabPage7.Controls.Add(this.admin7Btn);
             this.tabPage7.Controls.Add(this.admin5Btn);
             this.tabPage7.Controls.Add(this.admin3Data);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
@@ -836,13 +846,24 @@
             // admin6Btn
             // 
             this.admin6Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin6Btn.Location = new System.Drawing.Point(311, 226);
+            this.admin6Btn.Location = new System.Drawing.Point(148, 227);
             this.admin6Btn.Name = "admin6Btn";
-            this.admin6Btn.Size = new System.Drawing.Size(98, 32);
-            this.admin6Btn.TabIndex = 34;
-            this.admin6Btn.Text = "Remove";
+            this.admin6Btn.Size = new System.Drawing.Size(157, 34);
+            this.admin6Btn.TabIndex = 35;
+            this.admin6Btn.Text = "Add UPC";
             this.admin6Btn.UseVisualStyleBackColor = true;
-            this.admin6Btn.Click += new System.EventHandler(this.admin6Btn_Click);
+            this.admin6Btn.Click += new System.EventHandler(this.copyBtn_Click);
+            // 
+            // admin7Btn
+            // 
+            this.admin7Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin7Btn.Location = new System.Drawing.Point(311, 226);
+            this.admin7Btn.Name = "admin7Btn";
+            this.admin7Btn.Size = new System.Drawing.Size(98, 32);
+            this.admin7Btn.TabIndex = 34;
+            this.admin7Btn.Text = "Remove";
+            this.admin7Btn.UseVisualStyleBackColor = true;
+            this.admin7Btn.Click += new System.EventHandler(this.admin6Btn_Click);
             // 
             // admin5Btn
             // 
@@ -1426,7 +1447,6 @@
             this.addMovie1Lbl.Size = new System.Drawing.Size(61, 24);
             this.addMovie1Lbl.TabIndex = 2;
             this.addMovie1Lbl.Text = "Name";
-            this.addMovie1Lbl.Click += new System.EventHandler(this.addMovie1Lbl_Click);
             // 
             // addMovieTitleLbl
             // 
@@ -1438,6 +1458,77 @@
             this.addMovieTitleLbl.TabIndex = 0;
             this.addMovieTitleLbl.Text = "Add Movie";
             // 
+            // addCopyPnl
+            // 
+            this.addCopyPnl.BackColor = System.Drawing.Color.Transparent;
+            this.addCopyPnl.Controls.Add(this.addCopy1Btn);
+            this.addCopyPnl.Controls.Add(this.addCopy2Txt);
+            this.addCopyPnl.Controls.Add(this.addCopy2Lbl);
+            this.addCopyPnl.Controls.Add(this.addCopy1Txt);
+            this.addCopyPnl.Controls.Add(this.addCopy1Lbl);
+            this.addCopyPnl.Controls.Add(this.addCopyTitleLbl);
+            this.addCopyPnl.Location = new System.Drawing.Point(374, 139);
+            this.addCopyPnl.Name = "addCopyPnl";
+            this.addCopyPnl.Size = new System.Drawing.Size(495, 352);
+            this.addCopyPnl.TabIndex = 20;
+            this.addCopyPnl.Visible = false;
+            // 
+            // addCopy1Btn
+            // 
+            this.addCopy1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCopy1Btn.Location = new System.Drawing.Point(174, 254);
+            this.addCopy1Btn.Name = "addCopy1Btn";
+            this.addCopy1Btn.Size = new System.Drawing.Size(98, 32);
+            this.addCopy1Btn.TabIndex = 42;
+            this.addCopy1Btn.Text = "Submit";
+            this.addCopy1Btn.UseVisualStyleBackColor = true;
+            // 
+            // addCopy2Txt
+            // 
+            this.addCopy2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCopy2Txt.Location = new System.Drawing.Point(270, 96);
+            this.addCopy2Txt.Name = "addCopy2Txt";
+            this.addCopy2Txt.Size = new System.Drawing.Size(185, 29);
+            this.addCopy2Txt.TabIndex = 28;
+            // 
+            // addCopy2Lbl
+            // 
+            this.addCopy2Lbl.AutoSize = true;
+            this.addCopy2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCopy2Lbl.Location = new System.Drawing.Point(13, 101);
+            this.addCopy2Lbl.Name = "addCopy2Lbl";
+            this.addCopy2Lbl.Size = new System.Drawing.Size(48, 24);
+            this.addCopy2Lbl.TabIndex = 27;
+            this.addCopy2Lbl.Text = "UPC";
+            // 
+            // addCopy1Txt
+            // 
+            this.addCopy1Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCopy1Txt.Location = new System.Drawing.Point(270, 67);
+            this.addCopy1Txt.Name = "addCopy1Txt";
+            this.addCopy1Txt.Size = new System.Drawing.Size(185, 29);
+            this.addCopy1Txt.TabIndex = 25;
+            // 
+            // addCopy1Lbl
+            // 
+            this.addCopy1Lbl.AutoSize = true;
+            this.addCopy1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCopy1Lbl.Location = new System.Drawing.Point(13, 72);
+            this.addCopy1Lbl.Name = "addCopy1Lbl";
+            this.addCopy1Lbl.Size = new System.Drawing.Size(83, 24);
+            this.addCopy1Lbl.TabIndex = 23;
+            this.addCopy1Lbl.Text = "Movie ID";
+            // 
+            // addCopyTitleLbl
+            // 
+            this.addCopyTitleLbl.AutoSize = true;
+            this.addCopyTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCopyTitleLbl.Location = new System.Drawing.Point(200, 25);
+            this.addCopyTitleLbl.Name = "addCopyTitleLbl";
+            this.addCopyTitleLbl.Size = new System.Drawing.Size(179, 37);
+            this.addCopyTitleLbl.TabIndex = 10;
+            this.addCopyTitleLbl.Text = "Add a DVD";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1445,6 +1536,8 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.adminPnl);
+            this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
@@ -1458,7 +1551,6 @@
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.passwordPnl);
-            this.Controls.Add(this.adminPnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
@@ -1511,6 +1603,8 @@
             this.removeMoviePnl.PerformLayout();
             this.addMoviePnl.ResumeLayout(false);
             this.addMoviePnl.PerformLayout();
+            this.addCopyPnl.ResumeLayout(false);
+            this.addCopyPnl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1585,7 +1679,7 @@
         private System.Windows.Forms.Button admin2Btn;
         private System.Windows.Forms.Button admin4Btn;
         private System.Windows.Forms.Button admin3Btn;
-        private System.Windows.Forms.Button admin6Btn;
+        private System.Windows.Forms.Button admin7Btn;
         private System.Windows.Forms.Button admin5Btn;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.DataGridView reports5Data;
@@ -1639,6 +1733,14 @@
         private System.Windows.Forms.Label addMovie1Lbl;
         private System.Windows.Forms.Label addMovieTitleLbl;
         private System.Windows.Forms.TextBox addMovie2Txt;
+        private System.Windows.Forms.Panel addCopyPnl;
+        private System.Windows.Forms.Button addCopy1Btn;
+        private System.Windows.Forms.TextBox addCopy2Txt;
+        private System.Windows.Forms.Label addCopy2Lbl;
+        private System.Windows.Forms.TextBox addCopy1Txt;
+        private System.Windows.Forms.Label addCopy1Lbl;
+        private System.Windows.Forms.Label addCopyTitleLbl;
+        private System.Windows.Forms.Button admin6Btn;
     }
 }
 

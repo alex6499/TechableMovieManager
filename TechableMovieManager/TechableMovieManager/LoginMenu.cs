@@ -105,7 +105,7 @@ namespace TechableMovieManager
         public void startMainMenu(User user)
         {
             //start main menu
-            MainMenu MainMenu = new MainMenu(user);
+            MainMenu MainMenu = new MainMenu(user, this);
             this.Hide();
             MainMenu.Show();
         }
