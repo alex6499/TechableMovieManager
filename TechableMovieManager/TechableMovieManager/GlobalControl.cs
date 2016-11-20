@@ -9,6 +9,21 @@ namespace TechableMovieManager
 {
     public static class GlobalControl
     {
+        public static void setButtonColor(Control panel, System.Drawing.Color color)
+        {
+            foreach (Button item in panel.Controls.OfType<Button>())
+            {
+                item.BackColor = color;
+            }
+        }
+        public static void setNestedButtonColor(Form form, System.Drawing.Color color)
+        {
+            foreach (Panel panel in form.Controls.OfType<Panel>())
+            {
+                setButtonColor(panel, color);
+            }
+        }
+
         public static void setTextBoxMaxLength(Form form, int maxLength)
         {
             foreach (TextBox item in form.Controls.OfType<TextBox>())

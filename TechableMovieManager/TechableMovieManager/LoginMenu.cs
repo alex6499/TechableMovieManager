@@ -75,12 +75,14 @@ namespace TechableMovieManager
         public LoginMenu()
         {
             InitializeComponent();
+            this.BackColor = Color.SteelBlue;
+            GlobalControl.setButtonColor(this, Color.Goldenrod);
             GlobalControl.setTextBoxMaxLength(this, 40);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string userName = userNameTxt.Text.Trim(' ');
+            string userName = usernameTxt.Text.Trim(' ');
             string password = passwordTxt.Text.Trim(' ');
 
             if (!Check.areValidInputs(userName, password))
@@ -117,28 +119,27 @@ namespace TechableMovieManager
 
         private void LoginMenu_Load(object sender, EventArgs e)
         {
-            //LoadMovies();
-            //LoadCopies();
+            setupLoginForm();
         }
 
         private void LoginMenu_Resize(object sender, EventArgs e)
         {
-            /*
-            Panel panel = addCopyPnl;
+            setupLoginForm();
+        }
+
+        public void setupLoginForm(){
             double endOfText;
             double endOfLabels;
 
-            setTitlePosition(addCopyTitleLbl, panel);
+            Reposition.setControlLocation(loginTitleLbl, .3, .2);
+            Reposition.setControlLocation(loginPic, .7, .1);
 
-            endOfLabels = setLabelPostions(panel, 0.2, addCopy1Lbl, addCopy2Lbl);
-            endOfText = setTextBoxPostions(panel, 0.2, addCopy1Txt, addCopy2Txt);
+            endOfLabels = Reposition.setLabels(0.4, usernameLbl, passwordLbl);
+            endOfText = Reposition.setTextBoxes(0.4, usernameTxt, passwordTxt);
 
-            setLocationPanelControl(addCopy1Btn, panel, .4, endOfText);
-            */
+            Reposition.setControlLocation(loginBtn, .4, endOfText);
         }
-        /*
-            
-   */
+       
     }
     
 }

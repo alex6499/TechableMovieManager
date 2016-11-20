@@ -71,7 +71,7 @@ namespace TechableMovieManager
                 emailBox.MaxLength = maxLength;
             }
         }
-
+        
         private void setColorScheme()
         {
             System.Drawing.Color buttonColor;
@@ -311,44 +311,41 @@ namespace TechableMovieManager
 
         public void setupAddCopyPnl()
         {
-            Panel panel = addCopyPnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(addCopyTitleLbl, panel);
+            Reposition.setTitle(addCopyTitleLbl);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, addCopy1Lbl, addCopy2Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, addCopy1Txt, addCopy2Txt);
+            endOfLabels = Reposition.setLabels(0.2, addCopy1Lbl, addCopy2Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, addCopy1Txt, addCopy2Txt);
 
-            Reposition.setControlLocation(addCopy1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(addCopy1Btn, .4, endOfText);
         }
 
         public void setupAddMoviePnl()
         {
-            Panel panel = addMoviePnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(addMovieTitleLbl, panel);
+            Reposition.setTitle(addMovieTitleLbl);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt);
+            endOfLabels = Reposition.setLabels(0.2, addMovie1Lbl, addMovie2Lbl, addMovie3Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, addMovie1Txt, addMovie2Txt, addMovie3Txt);
 
-            Reposition.setControlLocation(addMovie1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(addMovie1Btn,.4, endOfText);
         }
 
         public void setupAddUserPnl()
         {
-            Panel panel = addUserPnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(addUserTitleLbl, panel);
-            endOfLabels = Reposition.setLabels(panel, 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl, addUser4Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, addUser1Txt, addUser2Txt, addUser3Txt, addUser4Txt);
+            Reposition.setTitle(addUserTitleLbl);
+            endOfLabels = Reposition.setLabels( 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl, addUser4Lbl);
+            endOfText = Reposition.setTextBoxes( 0.2, addUser1Txt, addUser2Txt, addUser3Txt, addUser4Txt);
 
-            Reposition.setControlLocation(addUserRdb, panel, .4, endOfText);
-            Reposition.setControlLocation(addUserBtn, panel, .4, endOfText + 0.1);
+            Reposition.setControlLocation(addUserRdb, .4, endOfText);
+            Reposition.setControlLocation(addUserBtn, .4, endOfText + 0.1);
         }
 
         public void setupAdminPnl()
@@ -361,9 +358,9 @@ namespace TechableMovieManager
                 admin3Data.DataSource = MoviesTable.getAll();
             }
 
-            Reposition.setControl(adminTitleLbl, adminPnl, .4, .7, 0, .1);
+            Reposition.setControl(adminTitleLbl, .4, .7, 0, .1);
 
-            Reposition.setControl(adminTab, adminPnl, .1, .9, .1, .9);
+            Reposition.setControl(adminTab, .1, .9, .1, .9);
 
             Reposition.setNestedControlPosition(admin1Data, .05, .95, 0, .8);
             Reposition.setNestedControlPosition(admin2Data, .05, .95, 0, .8);
@@ -388,16 +385,15 @@ namespace TechableMovieManager
         /// </summary>
         public void setupNewCustomerPnl()
         {
-            Panel panel = newCustomerPnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(newCustomerTitleLbl, panel);
+            Reposition.setTitle(newCustomerTitleLbl);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, newCustomer1Lbl, newCustomer2Lbl, newCustomer3Lbl, newCustomer4Lbl, newCustomer5Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, newCustomer1Txt, newCustomer2Txt, newCustomer3Txt, newCustomer4Txt, newCustomer5Txt);
+            endOfLabels = Reposition.setLabels(0.2, newCustomer1Lbl, newCustomer2Lbl, newCustomer3Lbl, newCustomer4Lbl, newCustomer5Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, newCustomer1Txt, newCustomer2Txt, newCustomer3Txt, newCustomer4Txt, newCustomer5Txt);
 
-            Reposition.setControlLocation(newCustomer1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(newCustomer1Btn,.4, endOfText);
         }
 
         public void setupPasswordPnl()
@@ -406,82 +402,77 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(passwordTitleLbl, panel);
-            endOfLabels = Reposition.setLabels(panel, 0.2, password1Lbl, password2Lbl, password3Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, password1Txt, password2Txt, password3Txt);
+            Reposition.setTitle(passwordTitleLbl);
+            endOfLabels = Reposition.setLabels( 0.2, password1Lbl, password2Lbl, password3Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, password1Txt, password2Txt, password3Txt);
 
-            Reposition.setControlLocation(password1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(password1Btn, .4, endOfText);
         }
 
         public void setupRemoveCustomerPnl()
         {
-            Panel panel = removeCustomerPnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(removeCustomerTitleLbl, panel);
+            Reposition.setTitle(removeCustomerTitleLbl);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, removeCustomer1Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, removeCustomer1Txt);
+            endOfLabels = Reposition.setLabels( 0.2, removeCustomer1Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, removeCustomer1Txt);
 
-            Reposition.setControlLocation(removeCustomer1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(removeCustomer1Btn, .4, endOfText);
         }
 
         public void setupRemoveMoviePnl()
         {
-            Panel panel = removeMoviePnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(removeMovieTitleLbl, panel);
+            Reposition.setTitle(removeMovieTitleLbl);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, removeMovie1Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, removeMovie1Txt);
+            endOfLabels = Reposition.setLabels(  0.2, removeMovie1Lbl);
+            endOfText = Reposition.setTextBoxes( 0.2, removeMovie1Txt);
 
-            Reposition.setControlLocation(removeMovie1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(removeMovie1Btn, .4, endOfText);
         }
 
         public void setupRemoveUserPnl()
         {
-            Panel panel = removeUserPnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(removeUserTitleLbl, panel);
+            Reposition.setTitle(removeUserTitleLbl);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, removeUser1Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, removeUser1Txt);
+            endOfLabels = Reposition.setLabels(0.2, removeUser1Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, removeUser1Txt);
 
-            Reposition.setControlLocation(removeUser1Btn, panel, .4, endOfText + 0.1);
+            Reposition.setControlLocation(removeUser1Btn, .4, endOfText + 0.1);
         }
 
         public void setupRentPnl()
         {
-            Panel panel = rentPnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(rentTitleLbl, panel);
+            Reposition.setTitle(rentTitleLbl);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, checkout1Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, checkout1Txt);
+            endOfLabels = Reposition.setLabels(0.2, checkout1Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, checkout1Txt);
 
-            Reposition.setControlLocation(rent1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(rent1Btn, .4, endOfText);
             
         }
 
         public void setupRent2Pnl()
         {
-            Panel panel = rent2Pnl;
             double endOfText;
             double endOfLabels;
 
-            Reposition.setTitle(rentTitle2Lbl, panel);
+            Reposition.setTitle(rentTitle2Lbl);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, rent2Lbl, rent3Lbl, rent4Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, rent2Txt, rent3Txt, rent4Txt);
+            endOfLabels = Reposition.setLabels(0.2, rent2Lbl, rent3Lbl, rent4Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, rent2Txt, rent3Txt, rent4Txt);
 
-            Reposition.setControlLocation(rent2Btn, rent2Pnl, 0.4, endOfLabels);
+            Reposition.setControlLocation(rent2Btn, 0.4, endOfLabels);
         }
 
         public void sortBy(DataGridView data, int colNum, bool isAscending)
@@ -514,9 +505,9 @@ namespace TechableMovieManager
                 sortBy(reports6Data, 0, true);
             }
 
-            Reposition.setControl(reportsTitleLbl, reportsPnl, .4, .7, 0, .1);
+            Reposition.setControl(reportsTitleLbl,  .4, .7, 0, .1);
 
-            Reposition.setControl(reportsTab, reportsPnl, .1, .9, .1, .9);
+            Reposition.setControl(reportsTab,  .1, .9, .1, .9);
 
             Reposition.setNestedControlPosition(reports1Data, .05, .95, 0, 1);
             Reposition.setNestedControlPosition(reports2Data, .05, .95, 0, 1);
@@ -532,12 +523,12 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
-            Reposition.setControl(returnTitleLbl, panel, .4, .7, 0, .1);
+            Reposition.setControl(returnTitleLbl, .4, .7, 0, .1);
 
-            endOfLabels = Reposition.setLabels(panel, 0.2, return1Lbl);
-            endOfText = Reposition.setTextBoxes(panel, 0.2, return1Txt);
+            endOfLabels = Reposition.setLabels(0.2, return1Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, return1Txt);
 
-            Reposition.setControlLocation(return1Btn, panel, .4, endOfText);
+            Reposition.setControlLocation(return1Btn, .4, endOfText);
         }
 
         /*
