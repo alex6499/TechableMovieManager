@@ -939,5 +939,10 @@ namespace TechableMovieManager
             //exit to admin panel
             setCurrentMainPanel(adminPnl);
         }
+
+        private void addCopyPnl_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
     }
 }
