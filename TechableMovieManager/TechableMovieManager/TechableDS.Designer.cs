@@ -5081,20 +5081,20 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT customerId, dueDate, rentalId, returned, upc, userName\r\n FROM Rentals \r\nWH" +
-                "ERE (returned = 0) AND (upc = @upc)";
+            this._commandCollection[2].CommandText = "SELECT customerId, dueDate, rentalId, returned, upc, userName FROM Rentals WHERE " +
+                "(returned = 0) AND (upc = @upc)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT customerId, dueDate, rentalId, returned, upc, userName\r\n FROM Rentals \r\nWH" +
-                "ERE (returned = 0) AND (customerId = @customerId)";
+            this._commandCollection[3].CommandText = "SELECT customerId, dueDate, rentalId, returned, upc, userName FROM Rentals WHERE " +
+                "(returned = 0) AND (customerId = @customerId)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@customerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "customerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT        rentalId, upc, customerId, userName, dueDate, returned\r\nFROM       " +
-                "     Rentals\r\nWHERE        (dueDate < GETDATE())";
+            this._commandCollection[4].CommandText = "SELECT customerId, dueDate, rentalId, returned, upc, userName FROM Rentals WHERE " +
+                "(dueDate < GETDATE())";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
