@@ -5094,7 +5094,7 @@ SELECT movieId, name, year, studio, deleted, timesRented FROM Movies WHERE (movi
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT        rentalId, upc, customerId, userName, dueDate, returned\r\nFROM       " +
-                "     Rentals\r\nWHERE        (dueDate < GETDATE())";
+                "     Rentals\r\nWHERE        (dueDate < GETDATE()) AND (returned = 0)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
