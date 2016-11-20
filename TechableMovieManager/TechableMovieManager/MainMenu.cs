@@ -110,6 +110,7 @@ namespace TechableMovieManager
             setupPanels.Add(removeUserPnl, setupRemoveUserPnl);
             setupPanels.Add(removeMoviePnl, setupRemoveMoviePnl);
             setupPanels.Add(addCopyPnl, setupAddCopyPnl);
+            setupPanels.Add(removeCopyPnl, setupRemoveCopyPnl);
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {           
@@ -384,7 +385,6 @@ namespace TechableMovieManager
 
             //upc buttons
             Reposition.setNestedControlLocation(admin7Btn, .3, .85);
-            Reposition.setNestedControlLocation(admin8Btn, .6, .85);
         }
         /// <summary>
         /// Sets the position of all components within the new customer panel based on percent relative locations
@@ -413,6 +413,18 @@ namespace TechableMovieManager
             endOfText = Reposition.setTextBoxes(0.2, password1Txt, password2Txt, password3Txt);
 
             Reposition.setControlLocation(password1Btn, .4, endOfText);
+        }
+
+        public void setupRemoveCopyPnl() {
+            double endOfText;
+            double endOfLabels;
+
+            Reposition.setTitle(removeCopyTitleLbl);
+
+            endOfLabels = Reposition.setLabels(0.2, removeCopy1Lbl);
+            endOfText = Reposition.setTextBoxes(0.2, removeCopy1Txt);
+
+            Reposition.setControlLocation(removeCopy1Btn, .4, endOfText);
         }
 
         public void setupRemoveCustomerPnl()
@@ -664,11 +676,17 @@ namespace TechableMovieManager
                 Prompt.enterUPC();
                 return;
             }
+            if (!CopiesTable.hasCopy(upc))
+            {
+                Prompt.notInDB("dvd", "UPC");
+                return;
+            }
             if (CopiesTable.isAvailable(upc))
             {
                 Prompt.cantReturn();
                 return;
             }
+
             RentalsTable.returnMovie(upc);
             CopiesTable.makeAvailable(upc);
 
@@ -744,11 +762,13 @@ namespace TechableMovieManager
                 return;
             }
             //userName already in DB
-            if (EmployeesTable.hasEmployee(userName))
+            if (EmployeesTable.hasEverHadEmployee(userName))
             {
                 Prompt.alreadyInDB("user");
                 return;
             }
+
+
             EmployeesTable.add(lastName, firstName, isAdmin, userName, password);
 
             clearTextBoxes(addUserPnl);
@@ -890,7 +910,7 @@ namespace TechableMovieManager
 
         private void removeCopy1Btn_Click(object sender, EventArgs e)
         {
-            string upc = removeCustomer1Txt.Text.Trim(' ');
+            string upc = removeCopy1Txt.Text.Trim(' ');
 
             if (!Check.areValidInputs(upc))
             {
@@ -913,11 +933,11 @@ namespace TechableMovieManager
                 return;
             }
 
-            //CustomersTable.setDeleted(true, Int32.Parse(upc));
+            CopiesTable.delete(upc);
 
-            //clearTextBoxes(removeCustomerPnl);
+            clearTextBoxes(removeCopyPnl);
             //exit to admin panel
-            //setCurrentMainPanel(adminPnl);
+            setCurrentMainPanel(adminPnl);
         }
     }
 }

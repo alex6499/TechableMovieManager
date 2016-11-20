@@ -3777,7 +3777,7 @@ SELECT userName, firstName, lastName, isAdmin, password, deleted FROM Employees 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM dbo.Employees\r\nWHERE deleted = 0";
@@ -3796,11 +3796,16 @@ SELECT userName, firstName, lastName, isAdmin, password, deleted FROM Employees 
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE [dbo].[Employees] \r\nSET [deleted] = @deleted \r\nWHERE [userName] = @userNam" +
-                "e";
+            this._commandCollection[3].CommandText = "SELECT * \r\nFROM dbo.Employees\r\nWHERE userName = @userName";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE [dbo].[Employees] \r\nSET [deleted] = @deleted \r\nWHERE [userName] = @userNam" +
+                "e";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3900,6 +3905,42 @@ SELECT userName, firstName, lastName, isAdmin, password, deleted FROM Employees 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual TechableDS.EmployeesDataTable GetByUserName(string userName) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((userName == null)) {
+                throw new global::System.ArgumentNullException("userName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(userName));
+            }
+            TechableDS.EmployeesDataTable dataTable = new TechableDS.EmployeesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy2(TechableDS.EmployeesDataTable dataTable, string userName) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((userName == null)) {
+                throw new global::System.ArgumentNullException("userName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(userName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual TechableDS.EmployeesDataTable GetAllByUserName(string userName) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((userName == null)) {
                 throw new global::System.ArgumentNullException("userName");
             }
@@ -4120,7 +4161,7 @@ SELECT userName, firstName, lastName, isAdmin, password, deleted FROM Employees 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateDeleted(bool deleted, string userName) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             command.Parameters[0].Value = ((bool)(deleted));
             if ((userName == null)) {
                 throw new global::System.ArgumentNullException("userName");
@@ -5493,7 +5534,7 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * \r\nFROM Copies\r\nWHERE (deleted = 0)";
@@ -5517,6 +5558,12 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE [dbo].[Copies] \r\nSET [deleted] = @deleted \r\nWHERE [upc] = @upc";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5748,6 +5795,36 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         public virtual int UpdateAvailable(bool available, string upc) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((bool)(available));
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(upc));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateDeleted(bool deleted, string upc) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            command.Parameters[0].Value = ((bool)(deleted));
             if ((upc == null)) {
                 throw new global::System.ArgumentNullException("upc");
             }
