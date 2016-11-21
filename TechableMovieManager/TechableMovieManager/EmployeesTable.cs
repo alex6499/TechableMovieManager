@@ -89,15 +89,7 @@ namespace TechableMovieManager
             DataTable table;
 
             adapter = getNewAdapter();
-            try
-            {
-                table = adapter.GetDataBy(userName, password);
-            }catch
-            {
-                Prompt.dbError();
-                return null;
-            }
-            adapter.Dispose();
+            table = adapter.GetDataBy(userName, password);
             adapter.Dispose();
 
             if (table.Select().Length > 0)

@@ -9,7 +9,7 @@ namespace TechableMovieManager
 {
     public static class CustomersTable
     {
-        private static TechableDSTableAdapters.CustomersTableAdapter adapter;
+        public static TechableDSTableAdapters.CustomersTableAdapter adapter;
 
         private static TechableDSTableAdapters.CustomersTableAdapter getNewAdapter()
         {

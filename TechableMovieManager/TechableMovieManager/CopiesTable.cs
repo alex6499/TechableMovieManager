@@ -10,7 +10,7 @@ namespace TechableMovieManager
     class CopiesTable
     {
 
-        private static TechableDSTableAdapters.CopiesTableAdapter adapter;
+        public static TechableDSTableAdapters.CopiesTableAdapter adapter;
 
         private static TechableDSTableAdapters.CopiesTableAdapter getNewAdapter()
         {
