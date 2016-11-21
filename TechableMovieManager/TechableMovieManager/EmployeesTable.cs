@@ -16,6 +16,13 @@ namespace TechableMovieManager
             return new TechableDSTableAdapters.EmployeesTableAdapter();
         }
 
+        public static void setPassword(string password, string username)
+        {
+            adapter = getNewAdapter();
+            adapter.UpdatePassword(password, username);
+            adapter.Dispose();
+        }
+
         public static void add(string lName, string fName, bool isAdmin, string userName, string password)
         {
             adapter = getNewAdapter();

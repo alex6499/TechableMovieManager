@@ -111,10 +111,8 @@
             this.rentTitle2Lbl = new System.Windows.Forms.Label();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserPnl = new System.Windows.Forms.Panel();
-            this.addUser4Txt = new System.Windows.Forms.TextBox();
             this.addUser3Txt = new System.Windows.Forms.TextBox();
             this.addUser3Lbl = new System.Windows.Forms.Label();
-            this.addUser4Lbl = new System.Windows.Forms.Label();
             this.addUserRdb = new System.Windows.Forms.RadioButton();
             this.addUserBtn = new System.Windows.Forms.Button();
             this.addUser2Txt = new System.Windows.Forms.TextBox();
@@ -607,9 +605,9 @@
             this.reportsTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsTitleLbl.Location = new System.Drawing.Point(287, 32);
             this.reportsTitleLbl.Name = "reportsTitleLbl";
-            this.reportsTitleLbl.Size = new System.Drawing.Size(177, 37);
+            this.reportsTitleLbl.Size = new System.Drawing.Size(128, 37);
             this.reportsTitleLbl.TabIndex = 6;
-            this.reportsTitleLbl.Text = "Movie Data";
+            this.reportsTitleLbl.Text = "Reports";
             // 
             // newCustomerPnl
             // 
@@ -1052,10 +1050,8 @@
             // addUserPnl
             // 
             this.addUserPnl.BackColor = System.Drawing.Color.Transparent;
-            this.addUserPnl.Controls.Add(this.addUser4Txt);
             this.addUserPnl.Controls.Add(this.addUser3Txt);
             this.addUserPnl.Controls.Add(this.addUser3Lbl);
-            this.addUserPnl.Controls.Add(this.addUser4Lbl);
             this.addUserPnl.Controls.Add(this.addUserRdb);
             this.addUserPnl.Controls.Add(this.addUserBtn);
             this.addUserPnl.Controls.Add(this.addUser2Txt);
@@ -1068,15 +1064,6 @@
             this.addUserPnl.Size = new System.Drawing.Size(446, 314);
             this.addUserPnl.TabIndex = 14;
             this.addUserPnl.Visible = false;
-            // 
-            // addUser4Txt
-            // 
-            this.addUser4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUser4Txt.Location = new System.Drawing.Point(243, 149);
-            this.addUser4Txt.Name = "addUser4Txt";
-            this.addUser4Txt.PasswordChar = '*';
-            this.addUser4Txt.Size = new System.Drawing.Size(100, 29);
-            this.addUser4Txt.TabIndex = 4;
             // 
             // addUser3Txt
             // 
@@ -1095,16 +1082,6 @@
             this.addUser3Lbl.Size = new System.Drawing.Size(105, 24);
             this.addUser3Lbl.TabIndex = 33;
             this.addUser3Lbl.Text = "User Name";
-            // 
-            // addUser4Lbl
-            // 
-            this.addUser4Lbl.AutoSize = true;
-            this.addUser4Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUser4Lbl.Location = new System.Drawing.Point(44, 149);
-            this.addUser4Lbl.Name = "addUser4Lbl";
-            this.addUser4Lbl.Size = new System.Drawing.Size(92, 24);
-            this.addUser4Lbl.TabIndex = 32;
-            this.addUser4Lbl.Text = "Password";
             // 
             // addUserRdb
             // 
@@ -1197,6 +1174,7 @@
             this.password3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password3Txt.Location = new System.Drawing.Point(236, 125);
             this.password3Txt.Name = "password3Txt";
+            this.password3Txt.PasswordChar = '*';
             this.password3Txt.Size = new System.Drawing.Size(100, 29);
             this.password3Txt.TabIndex = 3;
             // 
@@ -1226,6 +1204,7 @@
             this.password2Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password2Txt.Location = new System.Drawing.Point(270, 96);
             this.password2Txt.Name = "password2Txt";
+            this.password2Txt.PasswordChar = '*';
             this.password2Txt.Size = new System.Drawing.Size(185, 29);
             this.password2Txt.TabIndex = 2;
             // 
@@ -1647,22 +1626,22 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
-            this.Controls.Add(this.passwordPnl);
-            this.Controls.Add(this.adminPnl);
+            this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.addUserPnl);
-            this.Controls.Add(this.removeCopyPnl);
+            this.Controls.Add(this.reportsPnl);
+            this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.mainButtonPnl);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.rentPnl);
-            this.Controls.Add(this.addCopyPnl);
-            this.Controls.Add(this.removeUserPnl);
-            this.Controls.Add(this.returnPnl);
-            this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.removeCustomerPnl);
-            this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.removeMoviePnl);
             this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.rent2Pnl);
+            this.Controls.Add(this.removeUserPnl);
+            this.Controls.Add(this.adminPnl);
+            this.Controls.Add(this.removeCopyPnl);
+            this.Controls.Add(this.addCopyPnl);
+            this.Controls.Add(this.returnPnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
@@ -1811,10 +1790,8 @@
         private System.Windows.Forms.Label addUser2Lbl;
         private System.Windows.Forms.TextBox newCustomer5Txt;
         private System.Windows.Forms.Label newCustomer5Lbl;
-        private System.Windows.Forms.TextBox addUser4Txt;
         private System.Windows.Forms.TextBox addUser3Txt;
         private System.Windows.Forms.Label addUser3Lbl;
-        private System.Windows.Forms.Label addUser4Lbl;
         private System.Windows.Forms.TextBox rent4Txt;
         private System.Windows.Forms.Label rent4Lbl;
         private System.Windows.Forms.Panel passwordPnl;

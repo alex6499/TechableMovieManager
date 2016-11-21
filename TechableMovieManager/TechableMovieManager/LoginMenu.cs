@@ -96,6 +96,13 @@ namespace TechableMovieManager
                 string firstName = (string)i[0];
                 string lastName = (string)i[1];
                 bool isAdmin = (bool)i[2];
+                string dbPassword = (string)i[4];
+
+                if (!password.Equals(dbPassword.Trim(' ')))
+                {
+                    MessageBox.Show("Incorrect username and/or password.", "Failed Authentication", MessageBoxButtons.OK);
+                    return;
+                }
 
                 User user = new User(isAdmin, userName, firstName, lastName);
 

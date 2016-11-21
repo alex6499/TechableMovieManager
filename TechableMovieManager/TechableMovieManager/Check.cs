@@ -17,6 +17,11 @@ namespace TechableMovieManager
             return regex.IsMatch(input);
         }
 
+        public static bool isEmail(string input)
+        {
+            Regex phoneRegex = new Regex(@"^[a-zA-Z0-9\.\!\?\:\;\,\'\-_]+\@[a-zA-Z0-9\.\!\?\:\;\,\'\-_]+\.[a-zA-Z0-9\.\!\?\:\;\,\'\-_]+$");
+            return phoneRegex.IsMatch(input);
+        } 
         public static bool areValidInputs(params string[] inputs)
         {
             bool valid= true;
@@ -54,24 +59,27 @@ namespace TechableMovieManager
             Regex phoneRegex = new Regex(@"^\d{5,20}$");
             return phoneRegex.IsMatch(input);
         }
+
         
-        public static bool isAllInt32(params string[] inputs)
+
+        public static bool isNumeric(params string[] inputs)
         {
+            Regex numRegex = new Regex(@"^\d+$");
             bool isNum = true;
 
             foreach (string input in inputs)
             {
-                if (!isInt32(input))
+                if (!isNumeric(input) || !numRegex.IsMatch(input))
                 {
                     isNum = false;
                     break;
                 }
             }
 
-            return (isNum);
+            return isNum ;
         }
 
-        public static bool isInt32(string input)
+        public static bool isNumeric(string input)
         {
             int parsed;
             return (Int32.TryParse(input, out parsed));

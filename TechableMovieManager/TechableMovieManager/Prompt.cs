@@ -9,9 +9,9 @@ namespace TechableMovieManager
 {
     public static class Prompt
     {
-        public static void enterInt32(string field)
+        public static void enterNumeric(string field)
         {
-            string prompt = "Enter an 32bit integer into " + field + ".";
+            string prompt = "Enter a whole number less than 2147483647 into " + field;
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
         public static void enterValidInput()
@@ -43,6 +43,13 @@ namespace TechableMovieManager
             string prompt = "Please enter phone number in the format format 012-345-6789.";
             MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
         }
+
+        public static void enterEmail()
+        {
+            string prompt = "Please enter valid email such as cats@dogs.com .";
+            MessageBox.Show(prompt, "Invalid Input", MessageBoxButtons.OK);
+        }
+
         public static void enterUPC()
         {
             string prompt = "Please enter a 5-20 digit numeric UPC.";

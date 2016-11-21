@@ -108,14 +108,14 @@ namespace TechableMovieManager
             tabPage9.BackColor = secondaryColor;
             tabPage10.BackColor = secondaryColor;
 
-            admin1Btn.BackColor = secondaryColor;
-            admin2Btn.BackColor = secondaryColor;
-            admin3Btn.BackColor = secondaryColor;
-            admin4Btn.BackColor = secondaryColor;
-            admin5Btn.BackColor = secondaryColor;
-            admin6Btn.BackColor = secondaryColor;
-            admin7Btn.BackColor = secondaryColor;
-            adminPasswordBtn.BackColor = secondaryColor;
+            admin1Btn.BackColor = primaryColor;
+            admin2Btn.BackColor = primaryColor;
+            admin3Btn.BackColor = primaryColor;
+            admin4Btn.BackColor = primaryColor;
+            admin5Btn.BackColor = primaryColor;
+            admin6Btn.BackColor = primaryColor;
+            admin7Btn.BackColor = primaryColor;
+            adminPasswordBtn.BackColor = primaryColor;
         }
         
         private void assignPanelSetupDelagates()
@@ -344,6 +344,8 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
+            setEnterKey(addCopy1Btn);
+
             Reposition.setTitle(addCopyTitleLbl);
 
             endOfLabels = Reposition.setLabels(0.2, addCopy1Lbl, addCopy2Lbl);
@@ -371,8 +373,8 @@ namespace TechableMovieManager
             double endOfLabels;
 
             Reposition.setTitle(addUserTitleLbl);
-            endOfLabels = Reposition.setLabels( 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl, addUser4Lbl);
-            endOfText = Reposition.setTextBoxes( 0.2, addUser1Txt, addUser2Txt, addUser3Txt, addUser4Txt);
+            endOfLabels = Reposition.setLabels( 0.2, addUser1Lbl, addUser2Lbl, addUser3Lbl);
+            endOfText = Reposition.setTextBoxes( 0.2, addUser1Txt, addUser2Txt, addUser3Txt);
 
             Reposition.setControlLocation(addUserRdb, .4, endOfText);
             Reposition.setControlLocation(addUserBtn, .4, endOfText + 0.1);
@@ -394,6 +396,7 @@ namespace TechableMovieManager
 
                     admin3Data.DataSource = MoviesTable.getAll();
                     admin3Data.Columns["deleted"].Visible = false;
+                    sortBy(admin3Data, 2, false);
 
                     admin4Data.DataSource = CopiesTable.getAll();
                     admin4Data.Columns["deleted"].Visible = false;
@@ -461,10 +464,12 @@ namespace TechableMovieManager
 
             Reposition.setControlLocation(password1Btn, .4, endOfText);
         }
-
+        
         public void setupRemoveCopyPnl() {
             double endOfText;
             double endOfLabels;
+
+            setEnterKey(removeCopy1Btn);
 
             Reposition.setTitle(removeCopyTitleLbl);
 
@@ -518,6 +523,8 @@ namespace TechableMovieManager
             double endOfText;
             double endOfLabels;
 
+            setEnterKey(rent1Btn);
+
             Reposition.setTitle(rentTitleLbl);
 
             endOfLabels = Reposition.setLabels(0.2, checkout1Lbl);
@@ -540,19 +547,7 @@ namespace TechableMovieManager
             Reposition.setControlLocation(rent2Btn, 0.4, endOfLabels);
         }
 
-        public void sortBy(DataGridView data, int colNum, bool isAscending)
-        {
-            if (0 <= colNum && colNum < data.ColumnCount)
-            {
-                ListSortDirection direction;
-                if (isAscending) {
-                    direction = ListSortDirection.Ascending;
-                } else {
-                    direction = ListSortDirection.Descending;
-                }
-                data.Sort(data.Columns[colNum], direction);
-            }
-        }
+        
         public void setupReportsPnl()
         {
             if (isFirstSetup)
@@ -569,6 +564,7 @@ namespace TechableMovieManager
 
                     reports3Data.DataSource = MoviesTable.getAll();
                     reports3Data.Columns["deleted"].Visible = false;
+                    sortBy(reports3Data, 2, false);
 
                     reports4Data.DataSource = RentalsTable.getNotReturned();
                     reports4Data.Columns["returned"].Visible = false;
@@ -608,6 +604,8 @@ namespace TechableMovieManager
             Panel panel = returnPnl;
             double endOfText;
             double endOfLabels;
+
+            setEnterKey(return1Btn);
 
             Reposition.setControl(returnTitleLbl, .4, .7, 0, .1);
 
@@ -673,9 +671,9 @@ namespace TechableMovieManager
                 Prompt.enterValidInput();
                 return;
             }
-            if (!Check.isInt32(movieId))
+            if (!Check.isNumeric(movieId))
             {
-                Prompt.enterInt32("Movie Id");
+                Prompt.enterNumeric("Movie Id");
                 return;
             }
 
@@ -716,9 +714,9 @@ namespace TechableMovieManager
                 return;
             }
             //enter int MovieId
-            if (!Check.isInt32(movieId))
+            if (!Check.isNumeric(movieId))
             {
-                Prompt.enterInt32("movie ID");
+                Prompt.enterNumeric("movie ID");
                 return;
             }
             //incorrect UPC format
@@ -839,6 +837,12 @@ namespace TechableMovieManager
                 return;
             }
 
+            if (!Check.isEmail(email))
+            {
+                Prompt.enterEmail();
+                return;
+            }
+
             try
             {
                 if (CustomersTable.hasCustomer(firstName, lastName, phone))
@@ -869,10 +873,9 @@ namespace TechableMovieManager
             string firstName = addUser1Txt.Text.Trim(' ');
             string lastName = addUser2Txt.Text.Trim(' ');
             string userName = addUser3Txt.Text.Trim(' ');
-            string password = addUser4Txt.Text.Trim(' ');
             bool isAdmin = addUserRdb.Checked;
 
-            if (!Check.areValidInputs(firstName, lastName, userName, password))
+            if (!Check.areValidInputs(firstName, lastName, userName))
             {
                 Prompt.enterValidInput();
                 return;
@@ -888,9 +891,13 @@ namespace TechableMovieManager
                 }
 
             
-                EmployeesTable.add(lastName, firstName, isAdmin, userName, password);
+                EmployeesTable.add(lastName, firstName, isAdmin, userName, "<NA>");
 
                 clearTextBoxes(addUserPnl);
+
+                //moves to the password page
+                password1Txt.Text = userName;
+                setCurrentMainPanel(passwordPnl);
             }catch
             {
                 EmployeesTable.adapter.Dispose();
@@ -907,9 +914,9 @@ namespace TechableMovieManager
                 Prompt.enterValidInput();
                 return;
             }
-            if (!Check.isInt32(customerId))
+            if (!Check.isNumeric(customerId))
             {
-                Prompt.enterInt32("Customer Id");
+                Prompt.enterNumeric("Customer Id");
                 return;
             }
 
@@ -1108,10 +1115,10 @@ namespace TechableMovieManager
                     return;
                 }
 
-                //EmployeesTable.setPassword(password1);
+                EmployeesTable.setPassword(password1, userName);
 
-                clearTextBoxes(rent2Pnl);
-                setCurrentMainPanel(rentPnl);
+                clearTextBoxes(passwordPnl);
+                setCurrentMainPanel(adminPnl);
             }
             catch
             {
@@ -1157,6 +1164,28 @@ namespace TechableMovieManager
            
         }
 
-        
+        public void setEnterKey(Button button)
+        {
+            if (isFirstSetup)
+            {
+                this.ActiveControl = button;
+            }
+        }
+        public void sortBy(DataGridView data, int colNum, bool isAscending)
+        {
+            if (0 <= colNum && colNum < data.ColumnCount)
+            {
+                ListSortDirection direction;
+                if (isAscending)
+                {
+                    direction = ListSortDirection.Ascending;
+                }
+                else
+                {
+                    direction = ListSortDirection.Descending;
+                }
+                data.Sort(data.Columns[colNum], direction);
+            }
+        }
     }
 }
