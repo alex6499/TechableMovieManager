@@ -91,20 +91,27 @@ namespace TechableMovieManager
                 Prompt.enterValidInput();
                 return;
             }
-            if (!EmployeesTable.validCredentials(userName, password))
+            try
             {
-                MessageBox.Show("Incorrect username and/or password.", "Failed Authentication", MessageBoxButtons.OK);
-                return;
+                if (!EmployeesTable.validCredentials(userName, password))
+                {
+                    MessageBox.Show("Incorrect username and/or password.", "Failed Authentication", MessageBoxButtons.OK);
+                    return;
+                }
+
+                Object[] i = EmployeesTable.getEmployee(userName, password);
+                string firstName = (string)i[0];
+                string lastName = (string)i[1];
+                bool isAdmin = (bool)i[2];
+
+                User user = new User(isAdmin, userName, firstName, lastName);
+
+                startMainMenu(user);
+            }catch
+            {
+                EmployeesTable.adapter.Dispose();
+                Prompt.dbError();
             }
-
-            Object[] i = EmployeesTable.getEmployee(userName, password);
-            string firstName = (string)i[0];
-            string lastName = (string)i[1];
-            bool isAdmin = (bool)i[2];
-
-            User user = new User(isAdmin, userName, firstName, lastName);
-
-            startMainMenu(user);
         }
         public void startMainMenu(User user)
         {

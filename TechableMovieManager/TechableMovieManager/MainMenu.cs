@@ -354,11 +354,21 @@ namespace TechableMovieManager
             //fill the data tables with info
             if (isFirstSetup)
             {
-                admin1Data.DataSource = EmployeesTable.getAll();
-                admin2Data.DataSource = CustomersTable.getAll();
-                admin3Data.DataSource = MoviesTable.getAll();
-                admin4Data.DataSource = CopiesTable.getAll();
-                sortBy(admin4Data, 0, true);
+                try
+                {
+                    admin1Data.DataSource = EmployeesTable.getAll();
+                    admin2Data.DataSource = CustomersTable.getAll();
+                    admin3Data.DataSource = MoviesTable.getAll();
+                    admin4Data.DataSource = CopiesTable.getAll();
+                    sortBy(admin4Data, 0, true);
+                }catch
+                {
+                    EmployeesTable.adapter.Dispose();
+                    CustomersTable.adapter.Dispose();
+                    MoviesTable.adapter.Dispose();
+                    CopiesTable.adapter.Dispose();
+                    Prompt.dbError();
+                }
             }
 
             Reposition.setControl(adminTitleLbl, .4, .7, 0, .1);
@@ -510,17 +520,27 @@ namespace TechableMovieManager
         {
             if (isFirstSetup)
             {
-                reports1Data.DataSource = MoviesTable.getAll();
-                sortBy(reports1Data, 5, false);
-                reports2Data.DataSource = CustomersTable.getAll();
-                sortBy(reports2Data, 7, false);
-                reports3Data.DataSource = MoviesTable.getAll();
-                reports4Data.DataSource = RentalsTable.getNotReturned();
-                sortBy(reports4Data, 4, true);
-                reports5Data.DataSource = RentalsTable.getLateMovies();
-                sortBy(reports5Data, 4, true);
-                reports6Data.DataSource = CopiesTable.getAll();
-                sortBy(reports6Data, 0, true);
+                try
+                {
+                    reports1Data.DataSource = MoviesTable.getAll();
+                    sortBy(reports1Data, 5, false);
+                    reports2Data.DataSource = CustomersTable.getAll();
+                    sortBy(reports2Data, 7, false);
+                    reports3Data.DataSource = MoviesTable.getAll();
+                    reports4Data.DataSource = RentalsTable.getNotReturned();
+                    sortBy(reports4Data, 4, true);
+                    reports5Data.DataSource = RentalsTable.getLateMovies();
+                    sortBy(reports5Data, 4, true);
+                    reports6Data.DataSource = CopiesTable.getAll();
+                    sortBy(reports6Data, 0, true);
+                }catch
+                {
+                    EmployeesTable.adapter.Dispose();
+                    CustomersTable.adapter.Dispose();
+                    MoviesTable.adapter.Dispose();
+                    CopiesTable.adapter.Dispose();
+                    Prompt.dbError();
+                }
             }
 
             Reposition.setControl(reportsTitleLbl,  .4, .7, 0, .1);
@@ -610,23 +630,32 @@ namespace TechableMovieManager
                 Prompt.enterInt32("Movie Id");
                 return;
             }
-            if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
-            {
-                Prompt.notInDB("movie", "movie ID");
-                return;
-            }
-            if (MoviesTable.hasRentedCopyById(Int32.Parse(movieId)))
-            {
-                Prompt.removalDependency("movie", "rental");
-                return;
-            }
-            
-            MoviesTable.delete(Int32.Parse(movieId));
-            CopiesTable.deleteById(Int32.Parse(movieId));
 
-            clearTextBoxes(removeMoviePnl);
+            try
+            {
+                if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
+                {
+                    Prompt.notInDB("movie", "movie ID");
+                    return;
+                }
+                if (MoviesTable.hasRentedCopyById(Int32.Parse(movieId)))
+                {
+                    Prompt.removalDependency("movie", "rental");
+                    return;
+                }
 
-            setCurrentMainPanel(adminPnl);
+                MoviesTable.delete(Int32.Parse(movieId));
+                CopiesTable.deleteById(Int32.Parse(movieId));
+
+                clearTextBoxes(removeMoviePnl);
+
+                setCurrentMainPanel(adminPnl);
+            }catch
+            {
+                MoviesTable.adapter.Dispose();
+                CopiesTable.adapter.Dispose();
+                Prompt.dbError();
+            }
         }
         private void addCopy1Btn_Click(object sender, EventArgs e)
         {
@@ -650,26 +679,29 @@ namespace TechableMovieManager
                 Prompt.enterUPC();
                 return;
             }
-            //specified movie is not in DB
-            if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
-            {
-                Prompt.notInDB("movie", "movie ID");
-                return;
-            }
-            //UPC ust be unique
-            if (CopiesTable.hasCopy(upc))
-            {
-                Prompt.alreadyInDB("UPC");
-                return;
-            }
 
             try
             {
+                //specified movie is not in DB
+                 if (!MoviesTable.hasMovieById(Int32.Parse(movieId)))
+                 {
+                     Prompt.notInDB("movie", "movie ID");
+                     return;
+                 }
+                 //UPC must be unique
+                 if (CopiesTable.hasAnyCopy(upc))
+                 {
+                     Prompt.alreadyInDB("UPC");
+                     return;
+                 }
+            
                 CopiesTable.add(upc, Int32.Parse(movieId));
                 addCopy2Txt.Clear();
             }
             catch
             {
+                MoviesTable.adapter.Dispose();
+                CopiesTable.adapter.Dispose();
                 Prompt.dbError();
             }
             
@@ -687,25 +719,29 @@ namespace TechableMovieManager
                 Prompt.enterUPC();
                 return;
             }
-            if (!CopiesTable.hasCopy(upc))
-            {
-                Prompt.notInDB("dvd", "UPC");
-                return;
-            }
-            if (CopiesTable.isAvailable(upc))
-            {
-                Prompt.cantReturn();
-                return;
-            }
 
             try
             {
+                if (!CopiesTable.hasCopy(upc))
+                {
+                    Prompt.notInDB("dvd", "UPC");
+                    return;
+                }
+                if (CopiesTable.isAvailable(upc))
+                {
+                    Prompt.cantReturn();
+                    return;
+                }
+
+            
                 RentalsTable.returnMovie(upc);
                 CopiesTable.makeAvailable(upc);
 
                 clearTextBoxes(returnPnl);
             }catch
             {
+                RentalsTable.adapter.Dispose();
+                CopiesTable.adapter.Dispose();
                 Prompt.dbError();
             }
         }
@@ -732,6 +768,7 @@ namespace TechableMovieManager
                 clearTextBoxes(removeUserPnl);
             }
             catch {
+                EmployeesTable.adapter.Dispose();
                 Prompt.dbError();
             }
         }
@@ -753,14 +790,16 @@ namespace TechableMovieManager
                 Prompt.enterPhone();
                 return;
             }
-            if (CustomersTable.hasCustomer(firstName, lastName, phone))
-            {
-                Prompt.alreadyInDB("customer");
-                return;
-            }
 
             try
             {
+                if (CustomersTable.hasCustomer(firstName, lastName, phone))
+                {
+                    Prompt.alreadyInDB("customer");
+                    return;
+                }
+
+            
                 CustomersTable.add(lastName, firstName, email, address, phone);
 
                 clearRadioButtons(newCustomerPnl);
@@ -772,6 +811,7 @@ namespace TechableMovieManager
                 }
             }catch
             {
+                CustomersTable.adapter.Dispose();
                 Prompt.dbError();
             }
         }
@@ -789,20 +829,23 @@ namespace TechableMovieManager
                 Prompt.enterValidInput();
                 return;
             }
-            //userName already in DB
-            if (EmployeesTable.hasEverHadEmployee(userName))
-            {
-                Prompt.alreadyInDB("user");
-                return;
-            }
 
             try
             {
+                //userName already in DB
+                if (EmployeesTable.hasEverHadEmployee(userName))
+                {
+                    Prompt.alreadyInDB("user");
+                    return;
+                }
+
+            
                 EmployeesTable.add(lastName, firstName, isAdmin, userName, password);
 
                 clearTextBoxes(addUserPnl);
             }catch
             {
+                EmployeesTable.adapter.Dispose();
                 Prompt.dbError();
             }
         }
@@ -821,22 +864,31 @@ namespace TechableMovieManager
                 Prompt.enterInt32("Customer Id");
                 return;
             }
-            if (!CustomersTable.hasCustomer(Int32.Parse(customerId)))
-            {
-                Prompt.notInDB("customer", customerId);
-                return;
-            }
-            if (RentalsTable.customerIsRenting(Int32.Parse(customerId)))
-            {
-                Prompt.removalDependency("customer", "rental");
-                return;
-            }
 
-            CustomersTable.setDeleted(true, Int32.Parse(customerId));
+            try
+            {
+                if (!CustomersTable.hasCustomer(Int32.Parse(customerId)))
+                {
+                    Prompt.notInDB("customer", customerId);
+                    return;
+                }
+                if (RentalsTable.customerIsRenting(Int32.Parse(customerId)))
+                {
+                    Prompt.removalDependency("customer", "rental");
+                    return;
+                }
 
-            clearTextBoxes(removeCustomerPnl);
-            //exit to admin panel
-            setCurrentMainPanel(adminPnl);
+                CustomersTable.setDeleted(true, Int32.Parse(customerId));
+
+                clearTextBoxes(removeCustomerPnl);
+                //exit to admin panel
+                setCurrentMainPanel(adminPnl);
+            }catch
+            {
+                CustomersTable.adapter.Dispose();
+                RentalsTable.adapter.Dispose();
+                Prompt.dbError();
+            }
         }
 
         private void addMovie1Btn_Click(object sender, EventArgs e)
@@ -856,33 +908,42 @@ namespace TechableMovieManager
                 return;
             }
 
+            try
+            {
+                //Movie is already in DB
+                if (MoviesTable.hasMovieByInfo(name, studio, Int32.Parse(year)))
+                {
+                    int movieId = MoviesTable.getMovieId(name, studio, Int32.Parse(year));
+                    Prompt.alreadyInDB("movie");
 
-            //Movie is already in DB
-            if (MoviesTable.hasMovieByInfo(name, studio, Int32.Parse(year)))
-            {
-                int movieId = MoviesTable.getMovieId(name, studio, Int32.Parse(year));
-                Prompt.alreadyInDB("movie");
+                }
+                else if (MoviesTable.hasAnyMovieByInfo(name, studio, Int32.Parse(year)))
+                {
+                    int movieId = MoviesTable.getAllMovieId(name, studio, Int32.Parse(year));
+                    //since the movie is already in the Db, just deleted
+                    //undelete the movie and associated upc values
+                    MoviesTable.unDelete(movieId);
+                    CopiesTable.unDeleteById(movieId);
+                }
+                else
+                {
+                    //Add to DB
+                    MoviesTable.add(name, Int32.Parse(year), studio);
+                }
 
-            }else if (MoviesTable.hasAnyMovieByInfo(name, studio, Int32.Parse(year)))
+                //cleanup
+                clearRadioButtons(addMoviePnl);
+                clearTextBoxes(addMoviePnl);
+
+                //transition to add DVDs for the movie
+                addCopy1Txt.Text = MoviesTable.getMovieId(name, studio, Int32.Parse(year)).ToString();
+                setCurrentMainPanel(addCopyPnl);
+            }catch
             {
-                int movieId = MoviesTable.getAllMovieId(name, studio, Int32.Parse(year));
-                //since the movie is already in the Db, just deleted
-                //undelete the movie and associated upc values
-                MoviesTable.unDelete(movieId);
-                CopiesTable.unDeleteById(movieId);
-            }else
-            {
-                //Add to DB
-                MoviesTable.add(name, Int32.Parse(year), studio);
+                MoviesTable.adapter.Dispose();
+                CopiesTable.adapter.Dispose();
+                Prompt.dbError();
             }
-
-            //cleanup
-            clearRadioButtons(addMoviePnl);
-            clearTextBoxes(addMoviePnl);
-
-            //transition to add DVDs for the movie
-            addCopy1Txt.Text = MoviesTable.getMovieId(name, studio, Int32.Parse(year)).ToString();
-            setCurrentMainPanel(addCopyPnl);
         }
 
         private void rent2Btn_Click(object sender, EventArgs e)
@@ -903,24 +964,33 @@ namespace TechableMovieManager
                 Prompt.enterPhone();
                 return;
             }
-
-            if (!CustomersTable.hasCustomer(firstName, lastName, phone))
+            try
             {
-                Prompt.notACustomer();
-                return;
+                if (!CustomersTable.hasCustomer(firstName, lastName, phone))
+                {
+                    Prompt.notACustomer();
+                    return;
+                }
+
+                customerId = CustomersTable.getCustomerId(firstName, lastName, phone);
+
+                currentCustomer = new Customer(customerId, firstName, lastName);
+
+                CopiesTable.makeUnavailable(currentDVD.getUpc());
+
+                RentalsTable.add(currentDVD.getUpc(), currentCustomer.getCustomerId(), currentUser.getUserName(), Date.dateAfter(7));
+                CustomersTable.incrementTimesRented(currentCustomer.getCustomerId());
+                MoviesTable.incrementTimesRented(currentDVD.getUpc());
+                clearTextBoxes(rent2Pnl);
+                setCurrentMainPanel(rentPnl);
+            }catch
+            {
+                CustomersTable.adapter.Dispose();
+                RentalsTable.adapter.Dispose();
+                MoviesTable.adapter.Dispose();
+                CopiesTable.adapter.Dispose();
+                Prompt.dbError();
             }
-
-            customerId = CustomersTable.getCustomerId(firstName, lastName, phone);
-
-            currentCustomer = new Customer(customerId, firstName, lastName);
-
-            CopiesTable.makeUnavailable(currentDVD.getUpc());
-
-            RentalsTable.add(currentDVD.getUpc(), currentCustomer.getCustomerId(), currentUser.getUserName(), Date.dateAfter(7));
-            CustomersTable.incrementTimesRented(currentCustomer.getCustomerId());
-            MoviesTable.incrementTimesRented(currentDVD.getUpc());
-            clearTextBoxes(rent2Pnl);
-            setCurrentMainPanel(rentPnl);
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -964,22 +1034,31 @@ namespace TechableMovieManager
                 Prompt.enterUPC();
                 return;
             }
-            if (!CopiesTable.hasCopy(upc))
-            {
-                Prompt.notInDB("dvd", "upc");
-                return;
-            }
-            if (RentalsTable.upcIsRenting(upc))
-            {
-                Prompt.removalDependency("upc", "rental");
-                return;
-            }
 
-            CopiesTable.delete(upc);
+            try
+            {
+                if (!CopiesTable.hasCopy(upc))
+                {
+                    Prompt.notInDB("dvd", "upc");
+                    return;
+                }
+                if (RentalsTable.upcIsRenting(upc))
+                {
+                    Prompt.removalDependency("upc", "rental");
+                    return;
+                }
 
-            clearTextBoxes(removeCopyPnl);
-            //exit to admin panel
-            setCurrentMainPanel(adminPnl);
+                CopiesTable.delete(upc);
+
+                clearTextBoxes(removeCopyPnl);
+                //exit to admin panel
+                setCurrentMainPanel(adminPnl);
+            }catch
+            {
+                RentalsTable.adapter.Dispose();
+                CopiesTable.adapter.Dispose();
+                Prompt.dbError();
+            }
         }
 
         private void addCopyPnl_Paint(object sender, PaintEventArgs e)

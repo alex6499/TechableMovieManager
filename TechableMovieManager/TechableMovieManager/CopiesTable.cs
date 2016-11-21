@@ -64,6 +64,19 @@ namespace TechableMovieManager
             return hasCopy;
         }
 
+        public static bool hasAnyCopy(string upc)
+        {
+            bool hasCopy;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetAllCopy(upc);
+            adapter.Dispose();
+
+            hasCopy = table.Select().Length > 0;
+
+            return hasCopy;
+        }
+
         public static bool hasCopyById(int movieId)
         {
             bool hasCopy;
