@@ -74,24 +74,48 @@ namespace TechableMovieManager
         
         private void setColorScheme()
         {
-            System.Drawing.Color buttonColor;
+            Color primaryColor;
+            Color secondaryColor;
             if (currentUser.isAdmin())
             {
                 newCustomerBtn.Visible = false;
-                this.BackColor = System.Drawing.Color.Goldenrod;
-                buttonColor = System.Drawing.Color.SteelBlue;
+                primaryColor = Color.Goldenrod;
+                secondaryColor = Color.SteelBlue;
             }
             else
             {
                 adminBtn.Visible = false;
-                this.BackColor = System.Drawing.Color.SteelBlue;
-                buttonColor = System.Drawing.Color.Goldenrod;
+                primaryColor = Color.SteelBlue;
+                secondaryColor = Color.Goldenrod;
             }
 
-            rent1Btn.BackColor = buttonColor;
-            rent2Btn.BackColor = buttonColor;
-            return1Btn.BackColor = buttonColor;
-            newCustomer1Btn.BackColor = buttonColor;
+            this.BackColor = primaryColor;
+            GlobalControl.setNestedButtonColor(this, secondaryColor);
+            rentBtn.BackColor = Color.SlateGray;
+            newCustomerBtn.BackColor = Color.PaleVioletRed;
+            returnBtn.BackColor = Color.ForestGreen;
+            reportsBtn.BackColor = Color.DarkGoldenrod;
+            adminBtn.BackColor = Color.Crimson;
+
+            tabPage1.BackColor = secondaryColor;
+            tabPage2.BackColor = secondaryColor;
+            tabPage3.BackColor = secondaryColor;
+            tabPage4.BackColor = secondaryColor;
+            tabPage5.BackColor = secondaryColor;
+            tabPage6.BackColor = secondaryColor;
+            tabPage7.BackColor = secondaryColor;
+            tabPage8.BackColor = secondaryColor;
+            tabPage9.BackColor = secondaryColor;
+            tabPage10.BackColor = secondaryColor;
+
+            admin1Btn.BackColor = secondaryColor;
+            admin2Btn.BackColor = secondaryColor;
+            admin3Btn.BackColor = secondaryColor;
+            admin4Btn.BackColor = secondaryColor;
+            admin5Btn.BackColor = secondaryColor;
+            admin6Btn.BackColor = secondaryColor;
+            admin7Btn.BackColor = secondaryColor;
+            adminPasswordBtn.BackColor = secondaryColor;
         }
         
         private void assignPanelSetupDelagates()
