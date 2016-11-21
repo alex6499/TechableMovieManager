@@ -5634,7 +5634,7 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * \r\nFROM Copies\r\nWHERE (deleted = 0)";
@@ -5658,23 +5658,30 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE dbo.Copies\r\nSET available = @available\r\nWHERE (upc = @upc) AND (deleted = " +
-                "0)";
+            this._commandCollection[4].CommandText = "SELECT available, deleted, movieId, upc \r\nFROM Copies \r\nWHERE (upc  = @upc) AND (" +
+                "movieId = @movieId)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "UPDATE [dbo].[Copies] \r\nSET [deleted] = @deleted \r\nWHERE [upc] = @upc";
+            this._commandCollection[5].CommandText = "UPDATE dbo.Copies\r\nSET available = @available\r\nWHERE (upc = @upc) AND (deleted = " +
+                "0)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@available", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "UPDATE [dbo].[Copies] \r\nSET [deleted] = @deleted \r\nWHERE [movieId] = @movieId";
+            this._commandCollection[6].CommandText = "UPDATE [dbo].[Copies] \r\nSET [deleted] = @deleted \r\nWHERE [upc] = @upc";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@upc", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "upc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "UPDATE [dbo].[Copies] \r\nSET [deleted] = @deleted \r\nWHERE [movieId] = @movieId";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@movieId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "movieId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5794,6 +5801,44 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(upc));
             }
+            TechableDS.CopiesDataTable dataTable = new TechableDS.CopiesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy3(TechableDS.CopiesDataTable dataTable, string upc, int movieId) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(upc));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(movieId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual TechableDS.CopiesDataTable GetAllByInfo(string upc, int movieId) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((upc == null)) {
+                throw new global::System.ArgumentNullException("upc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(upc));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(movieId));
             TechableDS.CopiesDataTable dataTable = new TechableDS.CopiesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5940,7 +5985,7 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateAvailable(bool available, string upc) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             command.Parameters[0].Value = ((bool)(available));
             if ((upc == null)) {
                 throw new global::System.ArgumentNullException("upc");
@@ -5970,7 +6015,7 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateDeleted(bool deleted, string upc) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             command.Parameters[0].Value = ((bool)(deleted));
             if ((upc == null)) {
                 throw new global::System.ArgumentNullException("upc");
@@ -6000,7 +6045,7 @@ SELECT upc, movieId, available, deleted FROM Copies WHERE (upc = @upc)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateDeletedById(bool deleted, int movieId) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             command.Parameters[0].Value = ((bool)(deleted));
             command.Parameters[1].Value = ((int)(movieId));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;

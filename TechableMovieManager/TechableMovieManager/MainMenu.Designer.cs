@@ -165,6 +165,7 @@
             this.removeCopy1Txt = new System.Windows.Forms.TextBox();
             this.removeCopy1Lbl = new System.Windows.Forms.Label();
             this.removeCopyTitleLbl = new System.Windows.Forms.Label();
+            this.admin8Btn = new System.Windows.Forms.Button();
             this.mainButtonPnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.rentPnl.SuspendLayout();
@@ -921,6 +922,7 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.admin8Btn);
             this.tabPage10.Controls.Add(this.admin4Data);
             this.tabPage10.Controls.Add(this.admin7Btn);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
@@ -1619,6 +1621,17 @@
             this.removeCopyTitleLbl.TabIndex = 10;
             this.removeCopyTitleLbl.Text = "Remove UPC";
             // 
+            // admin8Btn
+            // 
+            this.admin8Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin8Btn.Location = new System.Drawing.Point(242, 208);
+            this.admin8Btn.Name = "admin8Btn";
+            this.admin8Btn.Size = new System.Drawing.Size(107, 31);
+            this.admin8Btn.TabIndex = 36;
+            this.admin8Btn.Text = "Remove";
+            this.admin8Btn.UseVisualStyleBackColor = true;
+            this.admin8Btn.Click += new System.EventHandler(this.admin8Btn_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1626,6 +1639,7 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.newCustomerPnl);
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.reportsPnl);
@@ -1638,7 +1652,6 @@
             this.Controls.Add(this.addMoviePnl);
             this.Controls.Add(this.rent2Pnl);
             this.Controls.Add(this.removeUserPnl);
-            this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.removeCopyPnl);
             this.Controls.Add(this.addCopyPnl);
             this.Controls.Add(this.returnPnl);
@@ -1845,6 +1858,7 @@
         private System.Windows.Forms.Label removeCopyTitleLbl;
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.DataGridView admin4Data;
+        private System.Windows.Forms.Button admin8Btn;
     }
 }
 

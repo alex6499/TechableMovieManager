@@ -115,6 +115,7 @@ namespace TechableMovieManager
             admin5Btn.BackColor = primaryColor;
             admin6Btn.BackColor = primaryColor;
             admin7Btn.BackColor = primaryColor;
+            admin8Btn.BackColor = primaryColor;
             adminPasswordBtn.BackColor = primaryColor;
         }
         
@@ -396,7 +397,7 @@ namespace TechableMovieManager
 
                     admin3Data.DataSource = MoviesTable.getAll();
                     admin3Data.Columns["deleted"].Visible = false;
-                    sortBy(admin3Data, 2, false);
+                    sortBy(admin3Data, 1, true);
 
                     admin4Data.DataSource = CopiesTable.getAll();
                     admin4Data.Columns["deleted"].Visible = false;
@@ -435,6 +436,7 @@ namespace TechableMovieManager
 
             //upc buttons
             Reposition.setNestedControlLocation(admin7Btn, .3, .85);
+            Reposition.setNestedControlLocation(admin8Btn, .6, .85);
         }
         /// <summary>
         /// Sets the position of all components within the new customer panel based on percent relative locations
@@ -564,7 +566,7 @@ namespace TechableMovieManager
 
                     reports3Data.DataSource = MoviesTable.getAll();
                     reports3Data.Columns["deleted"].Visible = false;
-                    sortBy(reports3Data, 2, false);
+                    sortBy(reports3Data, 1, true);
 
                     reports4Data.DataSource = RentalsTable.getNotReturned();
                     reports4Data.Columns["returned"].Visible = false;
@@ -734,12 +736,19 @@ namespace TechableMovieManager
                      Prompt.notInDB("movie", "movie ID");
                      return;
                  }
-                 //UPC must be unique
-                 if (CopiesTable.hasAnyCopy(upc))
+
+                if (CopiesTable.hasAnyCopyByInfo(upc, Int32.Parse(movieId)))
+                {
+                    CopiesTable.unDelete(upc);
+                    addCopy2Txt.Clear();
+                    return;
+                }
+                
+                if (CopiesTable.hasAnyCopy(upc))
                  {
-                     Prompt.alreadyInDB("UPC");
-                     return;
-                 }
+                    Prompt.alreadyInDB("UPC");
+                    return;
+                }
             
                 CopiesTable.add(upc, Int32.Parse(movieId));
                 addCopy2Txt.Clear();
@@ -801,7 +810,7 @@ namespace TechableMovieManager
                 Prompt.enterValidInput();
                 return;
             }
-            if (currentUser.getUserName().Equals(userName))
+            if (currentUser.getUserName().ToLower().Equals(userName.ToLower()))
             {
                 Prompt.cannotDeleteSelf();
                 return;
