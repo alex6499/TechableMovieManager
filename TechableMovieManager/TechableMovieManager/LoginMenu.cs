@@ -64,14 +64,7 @@ namespace TechableMovieManager
             }
         }
         */
-        public string removeEnds(string input)
-        {
-            input = input.Remove(0, 1);
-            input = input.Remove(input.Length - 1, 1);
-            return input;
-        }
         
-
         public LoginMenu()
         {
             InitializeComponent();

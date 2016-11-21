@@ -1219,6 +1219,7 @@
             this.password1Btn.TabIndex = 4;
             this.password1Btn.Text = "Submit";
             this.password1Btn.UseVisualStyleBackColor = true;
+            this.password1Btn.Click += new System.EventHandler(this.password1Btn_Click);
             // 
             // password2Txt
             // 
@@ -1646,6 +1647,7 @@
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1242, 630);
+            this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.adminPnl);
             this.Controls.Add(this.addUserPnl);
             this.Controls.Add(this.removeCopyPnl);
@@ -1660,7 +1662,6 @@
             this.Controls.Add(this.reportsPnl);
             this.Controls.Add(this.removeMoviePnl);
             this.Controls.Add(this.addMoviePnl);
-            this.Controls.Add(this.passwordPnl);
             this.Controls.Add(this.rent2Pnl);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";

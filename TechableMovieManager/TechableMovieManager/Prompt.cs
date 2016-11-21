@@ -71,6 +71,12 @@ namespace TechableMovieManager
             MessageBox.Show(prompt, "Search result", MessageBoxButtons.OK);
         }
 
+        public static void enterPasswordMatch()
+        {
+            string prompt = "Entered passwords are not the same.";
+            MessageBox.Show(prompt, "Search result", MessageBoxButtons.OK);
+        }
+
         public static void dbError()
         {
             string prompt = "This process could not be completed\ndue to an database error.";

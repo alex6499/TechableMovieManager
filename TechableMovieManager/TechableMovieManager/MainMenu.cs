@@ -230,6 +230,11 @@ namespace TechableMovieManager
             setCurrentMainPanel(addMoviePnl);
         }
 
+        private void admin8Btn_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(removeCopyPnl);
+        }
+
         private void copyBtn_Click(object sender, EventArgs e)
         {
             setCurrentMainPanel(addCopyPnl);
@@ -357,9 +362,17 @@ namespace TechableMovieManager
                 try
                 {
                     admin1Data.DataSource = EmployeesTable.getAll();
+                    admin1Data.Columns["password"].Visible = false;
+                    admin1Data.Columns["deleted"].Visible = false;
+
                     admin2Data.DataSource = CustomersTable.getAll();
+                    admin2Data.Columns["deleted"].Visible = false;
+
                     admin3Data.DataSource = MoviesTable.getAll();
+                    admin3Data.Columns["deleted"].Visible = false;
+
                     admin4Data.DataSource = CopiesTable.getAll();
+                    admin4Data.Columns["deleted"].Visible = false;
                     sortBy(admin4Data, 0, true);
                 }catch
                 {
@@ -523,21 +536,32 @@ namespace TechableMovieManager
                 try
                 {
                     reports1Data.DataSource = MoviesTable.getAll();
+                    reports1Data.Columns["deleted"].Visible = false;
                     sortBy(reports1Data, 5, false);
+
                     reports2Data.DataSource = CustomersTable.getAll();
+                    reports2Data.Columns["deleted"].Visible = false;
                     sortBy(reports2Data, 7, false);
+
                     reports3Data.DataSource = MoviesTable.getAll();
+                    reports3Data.Columns["deleted"].Visible = false;
+
                     reports4Data.DataSource = RentalsTable.getNotReturned();
+                    reports4Data.Columns["returned"].Visible = false;
                     sortBy(reports4Data, 4, true);
+
                     reports5Data.DataSource = RentalsTable.getLateMovies();
+                    reports5Data.Columns["returned"].Visible = false;
                     sortBy(reports5Data, 4, true);
+
                     reports6Data.DataSource = CopiesTable.getAll();
+                    reports6Data.Columns["deleted"].Visible = false;
                     sortBy(reports6Data, 0, true);
                 }catch
                 {
-                    EmployeesTable.adapter.Dispose();
                     CustomersTable.adapter.Dispose();
                     MoviesTable.adapter.Dispose();
+                    RentalsTable.adapter.Dispose();
                     CopiesTable.adapter.Dispose();
                     Prompt.dbError();
                 }
@@ -612,7 +636,7 @@ namespace TechableMovieManager
 
         /*
          * ----------------------------------------------------------------------------------------------
-         * Part 5: Submit Button Events
+         * Part 7: Submit Button Events
          * ----------------------------------------------------------------------------------------------
          */
 
@@ -993,33 +1017,6 @@ namespace TechableMovieManager
             }
         }
 
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            clearTextBoxes(loginMenu);
-            this.Hide();
-            loginMenu.Show();
-        }
-
-        private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void newCustomerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            setCurrentMainPanel(newCustomerPnl);
-        }
-
-        private void adminPnl_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void admin8Btn_Click(object sender, EventArgs e)
-        {
-            setCurrentMainPanel(removeCopyPnl);
-        }
-
         private void removeCopy1Btn_Click(object sender, EventArgs e)
         {
             string upc = removeCopy1Txt.Text.Trim(' ');
@@ -1053,7 +1050,8 @@ namespace TechableMovieManager
                 clearTextBoxes(removeCopyPnl);
                 //exit to admin panel
                 setCurrentMainPanel(adminPnl);
-            }catch
+            }
+            catch
             {
                 RentalsTable.adapter.Dispose();
                 CopiesTable.adapter.Dispose();
@@ -1061,9 +1059,80 @@ namespace TechableMovieManager
             }
         }
 
+        private void password1Btn_Click(object sender, EventArgs e)
+        {
+            string userName = password1Txt.Text.Trim(' ');
+            string password1 = password2Txt.Text.Trim(' ');
+            string password2 = password3Txt.Text.Trim(' ');
+
+            if (!Check.areValidInputs(userName, password1, password2))
+            {
+                Prompt.enterValidInput();
+                return;
+            }
+            if (!password1.Equals(password2))
+            {
+                Prompt.enterPasswordMatch();
+                return;
+            }
+            
+            try
+            {
+                if (!EmployeesTable.hasEmployee(userName))
+                {
+                    Prompt.notInDB("user", "userName");
+                    return;
+                }
+
+                //EmployeesTable.setPassword(password1);
+
+                clearTextBoxes(rent2Pnl);
+                setCurrentMainPanel(rentPnl);
+            }
+            catch
+            {
+                EmployeesTable.adapter.Dispose();
+                Prompt.dbError();
+            }
+        }
+
+        /*
+         * ----------------------------------------------------------------------------------------------
+         * Part 8: Menu Bar Events
+         * ----------------------------------------------------------------------------------------------
+         */
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clearTextBoxes(loginMenu);
+            this.Hide();
+            loginMenu.Show();
+        }
+
+        private void exitProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void newCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentMainPanel(newCustomerPnl);
+        }
+
+        private void adminPnl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
+
+        
+
         private void addCopyPnl_Paint(object sender, PaintEventArgs e)
         {
            
         }
+
+        
     }
 }
