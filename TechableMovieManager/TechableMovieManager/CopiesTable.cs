@@ -22,10 +22,32 @@ namespace TechableMovieManager
             setDeleted(true, upc);
         }
 
+        public static void unDelete(string upc)
+        {
+            setDeleted(false, upc);
+        }
+
         private static void setDeleted(bool deleted, string upc)
         {
             adapter = getNewAdapter();
             adapter.UpdateDeleted(deleted, upc);
+            adapter.Dispose();
+        }
+
+        public static void deleteById(int movieId)
+        {
+            setDeletedById(true, movieId);
+        }
+
+        public static void unDeleteById(int movieId)
+        {
+            setDeletedById(false, movieId);
+        }
+
+        private static void setDeletedById(bool deleted, int movieId)
+        {
+            adapter = getNewAdapter();
+            adapter.UpdateDeletedById(deleted, movieId);
             adapter.Dispose();
         }
 

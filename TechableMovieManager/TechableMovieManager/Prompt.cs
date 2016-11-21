@@ -71,6 +71,12 @@ namespace TechableMovieManager
             MessageBox.Show(prompt, "Search result", MessageBoxButtons.OK);
         }
 
+        public static void dbError()
+        {
+            string prompt = "This process could not be completed\ndue to an database error.";
+            MessageBox.Show(prompt, "Search result", MessageBoxButtons.OK);
+        }
+
         public static void copyUnavailable()
         {
             string prompt = "That copy is not currently available for rental.";

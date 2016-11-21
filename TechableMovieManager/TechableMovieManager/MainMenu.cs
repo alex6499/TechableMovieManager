@@ -615,14 +615,18 @@ namespace TechableMovieManager
                 Prompt.notInDB("movie", "movie ID");
                 return;
             }
-            if (CopiesTable.hasCopyById(Int32.Parse(movieId)))
+            if (MoviesTable.hasRentedCopyById(Int32.Parse(movieId)))
             {
-                Prompt.removalDependency("movie", "UPC");
+                Prompt.removalDependency("movie", "rental");
                 return;
             }
             
-            MoviesTable.setDeleted(true, Int32.Parse(movieId));
+            MoviesTable.delete(Int32.Parse(movieId));
+            CopiesTable.deleteById(Int32.Parse(movieId));
+
             clearTextBoxes(removeMoviePnl);
+
+            setCurrentMainPanel(adminPnl);
         }
         private void addCopy1Btn_Click(object sender, EventArgs e)
         {
@@ -659,9 +663,16 @@ namespace TechableMovieManager
                 return;
             }
 
-            CopiesTable.add(upc, Int32.Parse(movieId));
-
-            addCopy2Txt.Clear();
+            try
+            {
+                CopiesTable.add(upc, Int32.Parse(movieId));
+                addCopy2Txt.Clear();
+            }
+            catch
+            {
+                Prompt.dbError();
+            }
+            
         }
         private void return1Btn_Click(object sender, EventArgs e)
         {
@@ -687,12 +698,16 @@ namespace TechableMovieManager
                 return;
             }
 
-            RentalsTable.returnMovie(upc);
-            CopiesTable.makeAvailable(upc);
+            try
+            {
+                RentalsTable.returnMovie(upc);
+                CopiesTable.makeAvailable(upc);
 
-            clearTextBoxes(returnPnl);
-            //MessageBox.Show(prompt, "Success.", MessageBoxButtons.OK);
-            
+                clearTextBoxes(returnPnl);
+            }catch
+            {
+                Prompt.dbError();
+            }
         }
 
         private void removeUser1Btn_Click(object sender, EventArgs e)
@@ -709,9 +724,16 @@ namespace TechableMovieManager
                 Prompt.cannotDeleteSelf();
                 return;
             }
-            EmployeesTable.delete(userName);
+            
 
-            clearTextBoxes(removeUserPnl);
+            try
+            {
+                EmployeesTable.delete(userName);
+                clearTextBoxes(removeUserPnl);
+            }
+            catch {
+                Prompt.dbError();
+            }
         }
         private void newCustomer1Btn_Click(object sender, EventArgs e)
         {
@@ -737,14 +759,20 @@ namespace TechableMovieManager
                 return;
             }
 
-            CustomersTable.add(lastName, firstName, email, address, phone);
-
-            clearRadioButtons(newCustomerPnl);
-            clearTextBoxes(newCustomerPnl);
-
-            if (currentUser.isAdmin())
+            try
             {
-                setCurrentMainPanel(adminPnl);
+                CustomersTable.add(lastName, firstName, email, address, phone);
+
+                clearRadioButtons(newCustomerPnl);
+                clearTextBoxes(newCustomerPnl);
+
+                if (currentUser.isAdmin())
+                {
+                    setCurrentMainPanel(adminPnl);
+                }
+            }catch
+            {
+                Prompt.dbError();
             }
         }
 
@@ -768,10 +796,15 @@ namespace TechableMovieManager
                 return;
             }
 
+            try
+            {
+                EmployeesTable.add(lastName, firstName, isAdmin, userName, password);
 
-            EmployeesTable.add(lastName, firstName, isAdmin, userName, password);
-
-            clearTextBoxes(addUserPnl);
+                clearTextBoxes(addUserPnl);
+            }catch
+            {
+                Prompt.dbError();
+            }
         }
 
         private void removeCustomer1Btn_Click(object sender, EventArgs e)
@@ -827,7 +860,16 @@ namespace TechableMovieManager
             //Movie is already in DB
             if (MoviesTable.hasMovieByInfo(name, studio, Int32.Parse(year)))
             {
+                int movieId = MoviesTable.getMovieId(name, studio, Int32.Parse(year));
                 Prompt.alreadyInDB("movie");
+
+            }else if (MoviesTable.hasAnyMovieByInfo(name, studio, Int32.Parse(year)))
+            {
+                int movieId = MoviesTable.getAllMovieId(name, studio, Int32.Parse(year));
+                //since the movie is already in the Db, just deleted
+                //undelete the movie and associated upc values
+                MoviesTable.unDelete(movieId);
+                CopiesTable.unDeleteById(movieId);
             }else
             {
                 //Add to DB

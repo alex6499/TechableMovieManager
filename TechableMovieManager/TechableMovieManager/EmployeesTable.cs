@@ -9,7 +9,7 @@ namespace TechableMovieManager
 {
     class EmployeesTable
     {
-        private static TechableDSTableAdapters.EmployeesTableAdapter adapter;
+        public static TechableDSTableAdapters.EmployeesTableAdapter adapter;
 
         private static TechableDSTableAdapters.EmployeesTableAdapter getNewAdapter()
         {
@@ -89,9 +89,17 @@ namespace TechableMovieManager
             DataTable table;
 
             adapter = getNewAdapter();
-            table = adapter.GetDataBy(userName, password);
+            try
+            {
+                table = adapter.GetDataBy(userName, password);
+            }catch
+            {
+                Prompt.dbError();
+                return null;
+            }
             adapter.Dispose();
-            
+            adapter.Dispose();
+
             if (table.Select().Length > 0)
             {
                 return table.Select()[0].ItemArray;

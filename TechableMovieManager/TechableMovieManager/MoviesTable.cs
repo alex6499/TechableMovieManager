@@ -34,19 +34,21 @@ namespace TechableMovieManager
             adapter.Dispose();
         }
 
+        public static void delete(int movieId)
+        {
+            setDeleted(true, movieId);
+        }
+        public static void unDelete(int movieId)
+        {
+            setDeleted(false, movieId);
+        }
         public static void setDeleted(bool deleted, int movieId)
         {
             adapter = getNewAdapter();
             adapter.UpdateDeleted(deleted, movieId);
             adapter.Dispose();
         }
-
-        public static void makeAvailable(int upc)
-        {
-            adapter = getNewAdapter();
-            adapter.MakeAvailable(upc);
-            adapter.Dispose();
-        }
+        
 
         public static bool hasMovieByUpc(string upc)
         {
@@ -72,6 +74,18 @@ namespace TechableMovieManager
 
             return hasMovie;
         }
+        public static bool hasAnyMovieByInfo(string name, string studio, int year)
+        {
+            bool hasMovie;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetAllByInfo(name, studio, year);
+            adapter.Dispose();
+
+            hasMovie = (table.Select().Length > 0);
+
+            return hasMovie;
+        }
         public static int getMovieId(string name, string studio, int year)
         {
             int id;
@@ -81,6 +95,18 @@ namespace TechableMovieManager
             adapter.Dispose();
 
             id = (int) table.Select()[0].ItemArray[0];
+
+            return id;
+        }
+        public static int getAllMovieId(string name, string studio, int year)
+        {
+            int id;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetAllByInfo(name, studio, year);
+            adapter.Dispose();
+
+            id = (int)table.Select()[0].ItemArray[0];
 
             return id;
         }
@@ -96,6 +122,20 @@ namespace TechableMovieManager
 
             return hasMovie;
         }
+
+        public static bool hasRentedCopyById(int movieId)
+        {
+            bool hasRented;
+
+            adapter = getNewAdapter();
+            DataTable table = adapter.GetUnavailableById(movieId);
+            adapter.Dispose();
+
+            hasRented = (table.Select().Length > 0);
+
+            return hasRented;
+        }
+
         public static void incrementTimesRented(string upc)
         {
             adapter = getNewAdapter();
